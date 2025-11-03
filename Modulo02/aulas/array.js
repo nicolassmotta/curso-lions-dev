@@ -1,99 +1,136 @@
-/*
- * ===================================================================
- * MÓDULO 02: FUNDAMENTOS DE PROGRAMAÇÃO
- * Arrays são um dos tipos de dados mais poderosos em JavaScript.
- * Além de armazenar uma lista (ex: `const lista = [1, 2, 3]`),
- * eles vêm com "métodos" (funções) embutidos para nos ajudar
- * a manipular esses dados.
- */
+// ======================================================
+// 1️⃣ Criação e Acesso de Elementos
+// ======================================================
 
-// --- 1. Métodos que MODIFICAM o Array Original (Mutação) ---
+let frutas = ['maçã', 'banana', 'abacaxi', 'laranja'];
 
-console.log("--- 1. Métodos de Mutação (push, pop, unshift, shift) ---");
-const frutas = ["Maçã", "Banana", "Laranja"];
-console.log("Array original:", frutas);
-
-// .push(): Adiciona um item no FINAL do array.
-frutas.push("Uva");
-console.log("Depois do .push('Uva'):", frutas); // [ "Maçã", "Banana", "Laranja", "Uva" ]
-
-// .pop(): Remove o ÚLTIMO item do array (e o retorna).
-const frutaRemovidaDoFinal = frutas.pop();
-console.log("Fruta removida do final:", frutaRemovidaDoFinal); // "Uva"
-console.log("Depois do .pop():", frutas); // [ "Maçã", "Banana", "Laranja" ]
-
-// .unshift(): Adiciona um item no INÍCIO do array.
-frutas.unshift("Morango");
-console.log("Depois do .unshift('Morango'):", frutas); // [ "Morango", "Maçã", "Banana", "Laranja" ]
-
-// .shift(): Remove o PRIMEIRO item do array (e o retorna).
-const frutaRemovidaDoInicio = frutas.shift();
-console.log("Fruta removida do início:", frutaRemovidaDoInicio); // "Morango"
-console.log("Depois do .shift():", frutas); // [ "Maçã", "Banana", "Laranja" ]
-
-console.log("================================================");
+console.log('Lista de frutas:', frutas);
+console.log('Primeira fruta:', frutas[0]);
+console.log('Tamanho do array:', frutas.length); // propriedade length
 
 
-// --- 2. Métodos que CRIAM um NOVO Array (Imutabilidade) ---
-// Estes são os métodos funcionais. Eles NÃO modificam o array original.
+// ======================================================
+// 2️⃣ Adicionar Elementos
+// ======================================================
 
-console.log("--- 2. Métodos Funcionais (map, filter, reduce) ---");
-const numeros = [10, 20, 30, 40, 50];
-console.log("Array de números original:", numeros);
+// .push() → adiciona um elemento ao final do array
+frutas.push('manga');
+console.log('Após push:', frutas);
 
-// .map(): TRANSFORMA o array.
-// Ele cria um NOVO array com o resultado da função aplicada a cada item.
-// Útil para "mapear" um array para outro.
-const numerosDobrados = numeros.map(function(numero) {
-    return numero * 2;
-});
-console.log("Array original NÃO mudou:", numeros);
-console.log("Novo array com .map() (dobro):", numerosDobrados); // [20, 40, 60, 80, 100]
-
-// .filter(): FILTRA o array.
-// Ele cria um NOVO array SÓ com os itens que passam em um teste (retornam true).
-const numerosMaioresQue25 = numeros.filter(function(numero) {
-    // Se a condição for 'true', o item é incluído no novo array
-    return numero > 25;
-});
-console.log("Array original NÃO mudou:", numeros);
-console.log("Novo array com .filter() (> 25):", numerosMaioresQue25); // [30, 40, 50]
-
-// .reduce(): REDUZ (ou "acumula") o array a um único valor.
-// Ótimo para somar, multiplicar, ou agrupar dados.
-//
-// A função do reduce recebe dois argumentos principais:
-// 1. 'acumulador': O valor total que está sendo construído (começa em 0).
-// 2. 'valorAtual': O item do array (10, 20, 30...)
-const somaTotal = numeros.reduce(function(acumulador, valorAtual) {
-    return acumulador + valorAtual;
-}, 0); // 0 é o valor inicial do 'acumulador'
-console.log("Valor reduzido com .reduce() (soma):", somaTotal); // 150
-
-console.log("================================================");
+// .unshift() → adiciona um elemento no início do array
+frutas.unshift('uva');
+console.log('Após unshift:', frutas);
 
 
-// --- 3. Métodos de Iteração e Busca ---
+// ======================================================
+// 3️⃣ Remover Elementos
+// ======================================================
 
-console.log("--- 3. Métodos de Iteração e Busca (forEach, find) ---");
-console.log("Array de frutas:", frutas); // [ "Maçã", "Banana", "Laranja" ]
+// .pop() → remove o último elemento
+frutas.pop();
+console.log('Após pop:', frutas);
 
-// .forEach(): Executa uma função para CADA item do array.
-// É uma alternativa ao loop 'for' tradicional, mais limpa de ler.
-// Não retorna nada (é 'undefined').
-console.log("Testando .forEach():");
-frutas.forEach(function(fruta, indice) {
-    console.log(`Índice ${indice}: ${fruta}`);
-});
+// .shift() → remove o primeiro elemento
+frutas.shift();
+console.log('Após shift:', frutas);
 
-// .find(): ENCONTRA o PRIMEIRO item que passa no teste.
-// Retorna o item (ou 'undefined' se não achar).
-const frutaEncontrada = frutas.find(function(fruta) {
-    return fruta === "Banana";
-});
-console.log("Item encontrado com .find('Banana'):", frutaEncontrada); // "Banana"
 
-const frutaNaoEncontrada = frutas.find(function(fruta) {
-    return fruta === "Pera";
-});
-console.log("Item não encontrado com .find('Pera'):", frutaNaoEncontrada); // undefined
+// ======================================================
+// 4️⃣ Remover Elemento Específico
+// ======================================================
+
+// .splice(posição, quantidade)
+frutas.splice(1, 1); // remove 1 elemento a partir do índice 1
+console.log('Após splice (remover índice 1):', frutas);
+
+
+// ======================================================
+// 5️⃣ Verificar se contém um elemento
+// ======================================================
+
+// .includes(valor)
+if (frutas.includes('banana')) {
+  console.log('Tem banana na lista!');
+} else {
+  console.log('Não tem banana na lista!');
+}
+
+
+// ======================================================
+// 6️⃣ Descobrir posição de um elemento
+// ======================================================
+
+// .indexOf(valor)
+console.log('Índice do "abacaxi":', frutas.indexOf('abacaxi'));
+
+
+// ======================================================
+// 7️⃣ Tamanho do array
+// ======================================================
+
+console.log('Total de frutas:', frutas.length);
+
+
+// ======================================================
+// 🧪 Atividade 1 - Minha Mesa
+// ======================================================
+
+let minhaMesa = ['Nicolas', 'João', 'Eduardo', 'Jhonatan'];
+console.log(`Meu nome é ${minhaMesa[0]}, meus colegas são ${minhaMesa[1]}, ${minhaMesa[2]} e ${minhaMesa[3]}.`);
+
+
+// ======================================================
+// 🧪 Atividade 2 - Média de Notas com Array
+// ======================================================
+
+// Simulação sem entrada de usuário
+let notas = [];
+
+let prova1 = 8.5;
+let prova2 = 7.0;
+
+notas.push(prova1);
+notas.push(prova2);
+
+let media = (notas[0] + notas[1]) / 2;
+console.log(`Notas: ${notas}`);
+console.log(`Média final: ${media}`);
+
+
+// ======================================================
+// 🧪 Atividade 3 - Cores Favoritas
+// ======================================================
+
+// Cores mais votadas
+let coresFavoritas = ['preto', 'azul', 'verde'];
+let coresEspeciais = [];
+
+let corDoUsuario = 'vermelho'; // simulação de entrada
+
+if (coresFavoritas.includes(corDoUsuario)) {
+  console.log('A sua cor favorita é uma das favoritas da turma!');
+} else {
+  console.log('A sua cor favorita é diferente, vamos adicionar à lista!');
+  coresEspeciais.push(corDoUsuario);
+}
+
+console.log('Cores favoritas:', coresFavoritas);
+console.log('Cores especiais:', coresEspeciais);
+console.log('Total de cores favoritas:', coresFavoritas.length);
+
+
+// ======================================================
+// 🧩 Desafio extra - Revisão
+// ======================================================
+// Crie um array com números de 1 a 10, e gere um novo array só com os ímpares
+
+let numeros = [1,2,3,4,5,6,7,8,9,10];
+let impares = [];
+
+for (let i = 0; i < numeros.length; i++) {
+  if (numeros[i] % 2 !== 0) {
+    impares.push(numeros[i]);
+  }
+}
+
+console.log('Números ímpares:', impares);

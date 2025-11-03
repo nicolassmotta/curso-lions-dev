@@ -1,154 +1,156 @@
-/* * TRÊS PALAVRAS-CHAVE PARA DECLARAR VARIÁVEIS EM JAVASCRIPT:
- * 1. const: Declara variáveis de escopo de bloco (block scope), 
- * que DEVEM ser inicializadas e CUJO VALOR NÃO PODE ser reatribuído.
- * É a forma preferida para valores que não devem mudar.
- * 2. let: Declara variáveis de escopo de bloco (block scope), 
- * cujo valor PODE ser reatribuído.
- * É a forma preferida para variáveis que precisam mudar de valor.
- * 3. var: Declara variáveis de escopo de função (function scope) ou 
- * global. É amplamente considerada "legada" e EVITADA em código moderno
- * devido a problemas de escopo (hoisting e escopo global).
- */
+// ======================================================
+// 1️⃣ O que é uma variável?
+// ======================================================
+//
+// Uma variável é como uma "caixinha" onde guardamos valores
+// temporários na memória do computador. Esses valores podem
+// ser lidos, alterados e usados em operações.
+//
+// Exemplo simples:
 
-// -------------------------------------------------------------------
-// 1. Variáveis já existentes (MANTIDAS para contextualização)
-// -------------------------------------------------------------------
+let nome = "Nicolas";
+let idade = 20;
 
-let numero = 5 + 5; // let armazena um Number (10)
-let mensagem = "O número é: "; // let armazena uma String
-let vetor = [1, 2, 3]; // let armazena um Array (tipo Object)
+console.log("Nome:", nome);
+console.log("Idade:", idade);
 
-// Reatribuição do valor 'mensagem' (possível com 'let')
-mensagem = mensagem + numero; // "O número é: 10"
-
-console.log("--- Variáveis Iniciais ---");
-console.log(mensagem);
-console.log("--------------------------");
-
-// -------------------------------------------------------------------
-// 2. Utilizando 'const' (Constantes - Valor não pode mudar)
-// -------------------------------------------------------------------
-
-// a) Primitivos com const
-const PI = 3.14159; // Number (usado para um valor fixo)
-const NOME_DO_APP = "MeuApp"; // String
-
-// Erro se tentar reatribuir: PI = 3.0; // Isso causaria um TypeError!
-
-// b) Objetos e Arrays com const (A REFERÊNCIA é constante, o CONTEÚDO PODE mudar)
-const CONFIGURACOES = { tema: "claro", notificacoes: true }; // Object
-const DIAS_UTEIS = ["Segunda", "Terça", "Quarta", "Quinta", "Sexta"]; // Array
-
-// O CONTEÚDO PODE MUDAR (A referência na memória não muda)
-CONFIGURACOES.tema = "escuro"; // Isso é permitido!
-DIAS_UTEIS.push("Sábado"); // Isso é permitido!
-
-console.log("\n--- Variáveis const ---");
-console.log("PI:", PI);
-console.log("Configurações atualizadas:", CONFIGURACOES);
-console.log("Dias atualizados:", DIAS_UTEIS);
-console.log("-----------------------");
-
-// -------------------------------------------------------------------
-// 3. Utilizando 'let' (Variáveis mutáveis de escopo de bloco)
-// -------------------------------------------------------------------
-
-// a) Outros Tipos Primitivos com let
-let estaLogado = true; // Boolean
-let preco = 19.99; // Number (Ponto flutuante)
-let simbolo = Symbol("id unico"); // Symbol (para identificadores únicos)
-let identificador = null; // Null (Ausência intencional de qualquer valor objeto ou primitivo)
-let indefinido; // Undefined (Valor padrão de uma variável declarada, mas não inicializada)
-
-// b) Reatribuição do valor (possível com 'let')
-estaLogado = false; // Muda de true para false
-
-console.log("\n--- Variáveis let (Tipos Primitivos) ---");
-console.log("Está logado (após mudança):", estaLogado);
-console.log("Tipo Symbol:", simbolo);
-console.log("Tipo Null:", identificador);
-console.log("Tipo Undefined (sem inicialização):", indefinido);
-console.log("----------------------------------------");
+// Cada variável tem:
+// - um NOME (identificador)
+// - um TIPO (string, number, boolean, etc.)
+// - um VALOR (dados armazenados)
 
 
-// -------------------------------------------------------------------
-// 4. Utilizando 'var' (Escopo de função - EVITAR)
-// -------------------------------------------------------------------
+// ======================================================
+// 2️⃣ Tipos de declaração de variáveis
+// ======================================================
+//
+// Em JavaScript, podemos declarar variáveis de três formas:
+// - var → forma antiga, escopo global ou de função
+// - let → forma moderna, escopo de bloco
+// - const → valor constante, não pode ser alterado
+//
+// Exemplos:
 
-var contadorGlobal = 0; // var armazena um Number
+var antiga = "Sou global e problemática";
+let moderna = "Sou moderna e segura";
+const constante = "Meu valor não muda";
 
-// Exemplo de como var pode causar confusão de escopo (apenas para demonstração)
-function exemploVar() {
-    var x = 10;
-    if (true) {
-        var x = 20; // Re-declara e reatribui a mesma variável x no ESCOPO DA FUNÇÃO
-        console.log("Dentro do if (var x):", x); // 20
-    }
-    console.log("Fora do if (var x):", x); // 20 (Diferente de 'let' e 'const'!)
-}
-exemploVar();
+console.log(antiga);
+console.log(moderna);
+console.log(constante);
 
-console.log("\n--- Variáveis var (Legado - Evitar) ---");
-console.log("Contador Global (var):", contadorGlobal);
-console.log("-----------------------------------------");
+// ⚠️ 'var' deve ser evitada em novos códigos,
+// pois pode causar comportamentos inesperados.
+// 'let' e 'const' são mais previsíveis.
 
-// -------------------------------------------------------------------
-// 5. Outros Tipos de Variáveis (Objects, Functions)
-// -------------------------------------------------------------------
 
-// a) Objeto simples (Object)
-const USUARIO = {
-    nome: "Alice",
-    idade: 30,
-    endereco: {
-        rua: "Principal",
-        cidade: "Metropolis"
-    }
-};
+// ======================================================
+// 3️⃣ Diferença entre var, let e const na prática
+// ======================================================
 
-// b) Função (Function - que também é um tipo de Object)
-const somar = (a, b) => a + b; // Função de seta (Arrow Function)
-function multiplicar(a, b) { // Função de declaração
-    return a * b;
-}
-
-// c) Data (Date - tipo Object)
-let dataAtual = new Date();
-
-// d) Expressão Regular (RegExp - tipo Object)
-const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-console.log("\n--- Variáveis Tipo Objeto/Função ---");
-console.log("Nome do Usuário:", USUARIO.nome);
-console.log("Resultado da soma:", somar(5, 3));
-console.log("Resultado da multiplicação:", multiplicar(5, 3));
-console.log("Data Atual:", dataAtual);
-console.log("É um email válido ('teste@ex.com')?:", EMAIL_REGEX.test("teste@ex.com"));
-console.log("------------------------------------");
-
-// -------------------------------------------------------------------
-// 6. Variáveis Especiais/Avançadas
-// -------------------------------------------------------------------
-
-// a) BigInt (Para números inteiros muito grandes)
-const ID_GIGANTE = 9007199254740991n + 1n; // O 'n' no final indica um BigInt
-
-// b) Objeto Set (Coleção de valores únicos)
-const setUnico = new Set([1, 1, 2, 3]);
-
-// c) Objeto Map (Coleção de pares chave-valor mais flexível que um Objeto simples)
-const mapInfo = new Map();
-mapInfo.set('chave', 'valor');
-
-console.log("\n--- Variáveis Especiais ---");
-console.log("ID Gigante (BigInt):", ID_GIGANTE);
-console.log("Set (apenas valores únicos):", setUnico);
-console.log("Map (recuperando valor):", mapInfo.get('chave'));
-console.log("---------------------------");
-
-// Exemplo final de variação de escopo
 if (true) {
-    let escopoBloco = "Eu só existo aqui dentro";
-    // console.log(variavelNova); // Esta linha causaria um ReferenceError se estivesse aqui
+  var exemploVar = "var existe fora do bloco";
+  let exemploLet = "let existe só dentro do bloco";
+  const exemploConst = "const também existe só dentro do bloco";
+
+  console.log("Dentro do bloco:", exemploVar);
+  console.log("Dentro do bloco:", exemploLet);
+  console.log("Dentro do bloco:", exemploConst);
 }
-// console.log(escopoBloco); // Isso causaria um ReferenceError!
+
+console.log("Fora do bloco:", exemploVar);
+// console.log(exemploLet);  // ❌ erro: não acessível
+// console.log(exemploConst); // ❌ erro: não acessível
+
+
+// ======================================================
+// 4️⃣ Tipos de dados em JavaScript
+// ======================================================
+//
+// JavaScript é uma linguagem de tipagem dinâmica,
+// ou seja, o tipo de uma variável é determinado
+// automaticamente conforme o valor atribuído.
+//
+// Principais tipos primitivos:
+
+let texto = "Olá, mundo!";     // string
+let numeroInteiro = 10;        // number
+let numeroDecimal = 3.14;      // number (float)
+let ligado = true;             // boolean
+let desligado = false;         // boolean
+let nulo = null;               // valor nulo
+let indefinido;                // undefined (não inicializado)
+
+console.log(typeof texto, typeof numeroInteiro, typeof ligado);
+
+
+// ======================================================
+// 5️⃣ Strings e concatenação
+// ======================================================
+//
+// Strings são textos. Podemos unir textos com o operador +
+// (concatenação) ou usando template strings com crases (` `).
+
+let nomeAluno = "Maria";
+let curso = "Lions Dev";
+
+// Concatenando com +
+let mensagem = "Olá, " + nomeAluno + "! Bem-vinda ao curso " + curso + ".";
+console.log(mensagem);
+
+// Usando template string
+let mensagem2 = `Olá, ${nomeAluno}! Bem-vinda ao curso ${curso}.`;
+console.log(mensagem2);
+
+
+// ======================================================
+// 6️⃣ Convenções de nomenclatura
+// ======================================================
+//
+// Nomear variáveis bem é essencial!
+//
+// Boas práticas:
+// ✅ usar nomes descritivos
+// ✅ evitar abreviações confusas
+// ✅ seguir um padrão de escrita
+
+// camelCase → padrão mais usado em JavaScript
+let nomeCompleto = "João da Silva";
+
+// PascalCase → usado em classes e construtores
+let NomeCompleto = "Maria Oliveira";
+
+// snake_case → comum em outras linguagens
+let nome_completo = "José Pereira";
+
+
+// ======================================================
+// 7️⃣ Exemplo prático completo
+// ======================================================
+//
+// Vamos criar um pequeno programa que calcula a média de 3 notas.
+//
+
+let nota1 = 8;
+let nota2 = 7.5;
+let nota3 = 9;
+
+let soma = nota1 + nota2 + nota3;
+let media = soma / 3;
+
+console.log(`A média das notas é: ${media.toFixed(2)}`);
+
+
+// ======================================================
+// 8️⃣ Curiosidades e boas práticas
+// ======================================================
+//
+// - Use nomes em português apenas em exercícios simples.
+// - Em projetos reais, adote inglês para manter padrão global.
+// - Prefira const sempre que o valor não for mudar.
+// - Evite redeclarar variáveis (erro comum com var).
+// - Use o comando typeof para verificar o tipo.
+//
+// Exemplo:
+const PI = 3.14159;
+console.log(`O valor de PI é ${PI} (${typeof PI})`);
