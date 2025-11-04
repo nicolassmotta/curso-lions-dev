@@ -1,0 +1,26 @@
+services:
+  # Um Web Service (ex: sua API)
+  - type: web
+    name: minha-api
+    env: node # ou python, go, rust, etc.
+    buildCommand: 'npm install'
+    startCommand: 'npm start'
+    envVars:
+      - key: DATABASE_URL
+        fromService:
+          type: psql
+          name: meu-banco
+          property: connectionString
+      - key: NODE_ENV
+        value: production
+
+  # Um Site Estático (ex: seu Frontend)
+  - type: static
+    name: meu-frontend
+    buildCommand: 'npm run build'
+    publishPath: 'dist' # Onde os arquivos estáticos estão
+
+  # Um Banco de Dados PostgreSQL
+  - type: psql
+    name: meu-banco
+    plan: free # Cuidado em produção
