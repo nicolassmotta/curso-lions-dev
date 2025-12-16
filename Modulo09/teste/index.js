@@ -9,7 +9,7 @@ const PORT = 3000
 
 const connectDB = async() => {
     try {
-        await mongoose.connect(process.env.MONGO_URI)
+        await mongoose.connect(process.env.MONGO_URI)w
         console.log(`MongoDB conectado com sucesso!`)
     } catch (error) {
         console.log(`Erro ao conectar o MongoDB`, error)   

@@ -8,19 +8,11 @@ app.use(express.json());
 let estudantes = [];
 let proximoId = 1;
 
-// --- ENDPOINTS DA API ---
-
-// 1. Criação de Estudantes (POST /estudantes)
-app.post("/estudantes", (req, res) => {
+app.post("/estudantes/criar", (req, res) => {
   const { nome, matricula, curso, ano } = req.body;
 
   if (!nome || !matricula || !curso || !ano) {
-    return res
-      .status(400)
-      .send({
-        mensagem:
-          "Todos os campos (nome, matricula, curso, ano) são obrigatórios.",
-      });
+    return res.status(400).send({ mensagem:"Todos os campos (nome, matricula, curso, ano) são obrigatórios.", });
   }
 
   const novoEstudante = {
@@ -37,6 +29,10 @@ app.post("/estudantes", (req, res) => {
 
 // 2. Leitura (Listagem) de Estudantes (GET /estudantes)
 app.get("/estudantes", (req, res) => {
+
+  if (estudantes == null) {
+    res.status(200).send({message: "não existem estudantes cadastrados"})
+  }
   res.status(200).send(estudantes);
 });
 

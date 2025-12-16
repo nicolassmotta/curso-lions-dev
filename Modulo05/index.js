@@ -41,7 +41,7 @@ while (op != 7) {
 
   switch (op) {
     case 1:
-      num = Number(prompt("Digite o número para somar: "));
+      num = Number(prompt("Digite o número para somar: ")); 
       resultado = somar(resultado, num);
       console.log("Resultado: " + resultado);
       break;
