@@ -1,4 +1,7 @@
-const prompt = require('prompt-sync')();
+import promptSync from "prompt-sync"
+
+const prompt = promptSync();
+
 let nome = '';
 
 nome = prompt('Qual seu nome?');

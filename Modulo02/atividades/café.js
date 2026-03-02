@@ -1,4 +1,13 @@
-const prompt = require('prompt-sync')();
+// importar a biblioteca prompt-sync para receber entradas
+// declarar variável para a nota 1, convertendo para float com parseFloat()
+// declarar variável para a nota 2, convertendo para float com parseFloat()
+// criar uma variável para calcular e armazenar a média aritmética
+// imprimir a mensagem final exibindo o resultado da média
+
+import promptSync from "prompt-sync"
+
+const prompt = promptSync();
+
 let resposta;
 
 resposta = prompt('Você gosta de café?\n[S]- Sim\n[N] - Não\nResposta: ');

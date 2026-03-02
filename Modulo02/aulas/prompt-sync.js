@@ -12,6 +12,7 @@
 
 //Exemplo de uso:
 // 1. Prepara a ferramenta
+import prompt from "prompt-sync"
 const prompt = require('prompt-sync')();
 
 // 2. Pergunta e guarda a resposta (sempre vira String!)
