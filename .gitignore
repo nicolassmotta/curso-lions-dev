@@ -9,8 +9,3 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-# Arquivos de texto
-.pdf
-.md
-lista_de_exercicios/
