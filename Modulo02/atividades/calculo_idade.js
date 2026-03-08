@@ -8,19 +8,17 @@
 
 import promptSync from "prompt-sync"
 
-const prompt = promptSync();
+const prompt = promptSync()
 
-let nome;
-let idade;
+let anoAtual = 2026
+let nome = prompt("Qual seu nome? R: ")
+let idade = parseInt(prompt("Quantos anos você tem? R: "))
+let aniversario = prompt("Você já fez aniversario? [S] - Sim [N] - Não R: ")
 
-nome = prompt('Qual seu nome?');
-
-idade = prompt('Quantos anos você tem?');
-
-processamento(nome, idade);
-
-function processamento(nome, idade) {
+if (aniversario == "S") {
+    console.log(` Oi ${nome}! Você nasceu em ${anoAtual - idade}.`)
     
-    console.log('Seu nome é ' + nome + ' e sua idade é ' + idade + '.');
-    console.log('Caso você esteja com um ano a mais, provavelmente não fez aniversário esse ano ainda!');
+} else {
+    console.log(` Oi ${nome}! Você nasceu em ${anoAtual - idade - 1}.`)
+
 }

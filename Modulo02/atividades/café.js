@@ -1,25 +1,33 @@
 // importar a biblioteca prompt-sync para receber entradas
-// declarar variável para a nota 1, convertendo para float com parseFloat()
-// declarar variável para a nota 2, convertendo para float com parseFloat()
-// criar uma variável para calcular e armazenar a média aritmética
-// imprimir a mensagem final exibindo o resultado da média
+// usar o prompt para perguntar se o usuário gosta de café e salvar a resposta em uma variável de texto
+// declarar a variável booleana gostaDeCafe (usando let)
+// criar a primeira condicional (if/else) para checar a resposta de texto digitada pelo usuário
+// dentro dessa condicional, atribuir o valor true ou false para a variável gostaDeCafe
+// criar uma segunda condicional (if/else) que avalie apenas o valor armazenado na variável booleana gostaDeCafe
+// imprimir a mensagem personalizada caso o valor seja verdadeiro (true)
+// imprimir uma mensagem diferente caso o valor seja falso (false)
 
 import promptSync from "prompt-sync"
 
-const prompt = promptSync();
+const prompt = promptSync()
 
-let resposta;
+let resposta
+let gostaDeCafe
 
-resposta = prompt('Você gosta de café?\n[S]- Sim\n[N] - Não\nResposta: ');
+resposta = prompt('Você gosta de café?\n[S]- Sim\n[N] - Não\nResposta: ').toUpperCase().trim()
 
-processamento(resposta);
+if (resposta == "S") {
+    gostaDeCafe = true
 
-function processamento(resposta) {
+} else {
+    gostaDeCafe = false
+
+}
+
+if (gostaDeCafe) {
+    console.log("Então você gosta de café!");
+
+} else {
+    console.log("Você deveria experimentar!");
     
-    const gostaDeCafe = (resposta.toUpperCase() === 'S' || resposta.toUpperCase() === 'SIM');
-    if (gostaDeCafe) {
-        console.log('Que ótimo! O café é uma excelente maneira de começar o dia ou ter um bom momento de pausa. Aproveite!');
-    } else {
-        console.log('Tudo bem! Existem muitas outras bebidas deliciosas por aí. Talvez você prefira um chá ou chocolate quente.');
-    }
 }
