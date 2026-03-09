@@ -83,7 +83,6 @@ console.log(`Meu nome é ${minhaMesa[0]}, meus colegas são ${minhaMesa[1]}, ${m
 // 🧪 Atividade 2 - Média de Notas com Array
 // ======================================================
 
-// Simulação sem entrada de usuário
 let notas = [];
 
 let prova1 = 8.5;
@@ -105,7 +104,7 @@ console.log(`Média final: ${media}`);
 let coresFavoritas = ['preto', 'azul', 'verde'];
 let coresEspeciais = [];
 
-let corDoUsuario = 'vermelho'; // simulação de entrada
+let corDoUsuario = 'vermelho'; 
 
 if (coresFavoritas.includes(corDoUsuario)) {
   console.log('A sua cor favorita é uma das favoritas da turma!');
@@ -117,20 +116,3 @@ if (coresFavoritas.includes(corDoUsuario)) {
 console.log('Cores favoritas:', coresFavoritas);
 console.log('Cores especiais:', coresEspeciais);
 console.log('Total de cores favoritas:', coresFavoritas.length);
-
-
-// ======================================================
-// 🧩 Desafio extra - Revisão
-// ======================================================
-// Crie um array com números de 1 a 10, e gere um novo array só com os ímpares
-
-let numeros = [1,2,3,4,5,6,7,8,9,10];
-let impares = [];
-
-for (let i = 0; i < numeros.length; i++) {
-  if (numeros[i] % 2 !== 0) {
-    impares.push(numeros[i]);
-  }
-}
-
-console.log('Números ímpares:', impares);
