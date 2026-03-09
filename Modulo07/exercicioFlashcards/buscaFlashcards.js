@@ -1,4 +1,4 @@
-let flashcard = require('./flashcard'); 
+import flashcard from './flashcard.js'; 
 
 function buscarFlashcards(flashcards, termoBusca) {
     const resultados = flashcards.filter(cartao => 
@@ -8,4 +8,4 @@ function buscarFlashcards(flashcards, termoBusca) {
     return resultados;
 }
 
-module.exports = buscarFlashcards;
+export default buscarFlashcards;

@@ -1,4 +1,4 @@
-const { baralhos } = require('./data');
+import { baralhos } from './data.js';
 
 function criarBaralho(titulo) {
     if (!titulo) {
@@ -14,4 +14,4 @@ function criarBaralho(titulo) {
     return { data: novoBaralho };
 }
 
-module.exports = criarBaralho;
+export default criarBaralho;

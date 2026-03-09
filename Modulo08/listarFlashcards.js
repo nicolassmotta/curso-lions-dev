@@ -1,7 +1,7 @@
-const { flashcards } = require('./data');
+import { flashcards } from './data.js';
 
 function listarFlashcards() {
     return flashcards;
 }
 
-module.exports = listarFlashcards;
+export default listarFlashcards;

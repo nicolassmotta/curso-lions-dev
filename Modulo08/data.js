@@ -25,4 +25,4 @@ let flashcards = [
     }
 ];
 
-module.exports = { baralhos, flashcards };
+export { baralhos, flashcards };

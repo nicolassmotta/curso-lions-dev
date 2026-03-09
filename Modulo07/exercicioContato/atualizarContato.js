@@ -1,4 +1,4 @@
-let contatos = require('./contatos');
+import contatos from './contatos.js';
 
 function atualizarContato(contatos, id, novosContatos) {
     
@@ -8,4 +8,4 @@ function atualizarContato(contatos, id, novosContatos) {
     }
 }
 
-module.exports = atualizarContato;
+export default atualizarContato;

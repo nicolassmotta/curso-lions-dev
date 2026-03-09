@@ -1,4 +1,4 @@
-const express = require('express');
+import express from 'express';
 const app = express();
 const port = 3000;
 
@@ -7,18 +7,18 @@ app.use(express.json());
 
 // --- Importando a Lógica (Corrigido para a sua estrutura) ---
 // (Importando a lógica de 'baralho' da pasta raiz)
-const criarBaralho = require('./criarBaralho');
-const listarBaralhos = require('./listarBaralhos');
-const atualizarBaralho = require('./atualizarBaralho');
-const deletarBaralho = require('./deletarBaralho');
+import criarBaralho from './criarBaralho.js';
+import listarBaralhos from './listarBaralhos.js';
+import atualizarBaralho from './atualizarBaralho.js';
+import deletarBaralho from './deletarBaralho.js';
 
 // (Importando a lógica de 'flashcard' da pasta raiz)
-const criarFlashcard = require('./criarFlashcard');
-const listarFlashcards = require('./listarFlashcards.js');
-const atualizarFlashcard = require('./atualizarFlashcard');
-const deletarFlashcard = require('./deletarFlashcard');
-const listarFlashcardsPorBaralho = require('./listarFlashcardPorBaralho'); 
-const buscarFlashcards = require('./buscarFlashcards');
+import criarFlashcard from './criarFlashcard.js';
+import listarFlashcards from './listarFlashcards.js';
+import atualizarFlashcard from './atualizarFlashcard.js';
+import deletarFlashcard from './deletarFlashcard.js';
+import listarFlashcardsPorBaralho from './listarFlashcardPorBaralho.js'; 
+import buscarFlashcards from './buscarFlashcards.js';
 
 
 // --- Rota Inicial de Teste ---

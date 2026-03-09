@@ -1,4 +1,4 @@
-const { flashcards } = require('./data');
+import { flashcards } from './data.js';
 
 function buscarFlashcards(termo) {
     if (!termo) {
@@ -11,4 +11,4 @@ function buscarFlashcards(termo) {
     );
 }
 
-module.exports = buscarFlashcards;
+export default buscarFlashcards;

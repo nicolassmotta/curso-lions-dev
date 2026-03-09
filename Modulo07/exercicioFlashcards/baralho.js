@@ -1,4 +1,4 @@
-module.exports = [
+const baralhos = [
     {
         id: 1,
         titulo: "JavaScript"
@@ -8,3 +8,5 @@ module.exports = [
         titulo: "Matematica"
     }
 ];
+
+export default baralhos;

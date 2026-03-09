@@ -1,7 +1,7 @@
-const { baralhos } = require('./data');
+import { baralhos } from './data.js';
 
 function listarBaralhos() {
     return baralhos;
 }
 
-module.exports = listarBaralhos;
+export default listarBaralhos;

@@ -1,4 +1,4 @@
-let contatos = require('./contatos');
+import contatos from './contatos.js';
 
 function removerContato(contatos, id) {
 
@@ -9,4 +9,4 @@ function removerContato(contatos, id) {
     }
 }
 
-module.exports = removerContato;
+export default removerContato;

@@ -1,4 +1,4 @@
-let baralho = require('./baralho');
+import baralho from './baralho.js';
 
 function listarBaralho(baralho) {
     
@@ -9,4 +9,4 @@ function listarBaralho(baralho) {
     });
 }
 
-module.exports = listarBaralho;
+export default listarBaralho;

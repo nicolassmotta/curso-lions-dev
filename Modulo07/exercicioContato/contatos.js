@@ -1,4 +1,4 @@
-module.exports = [
+const contatos = [
   {
     id: 1,
     nome: "Ana Silva",
@@ -18,3 +18,5 @@ module.exports = [
     email: "iagofornachari@gmail.com"
   }
 ];
+
+export default contatos;

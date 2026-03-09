@@ -1,10 +1,12 @@
 // Modulo07/index.js
-const prompt = require('prompt-sync')();
-const contatos = require('./contatos');
-const listarContatos = require('./listarContatos');
-const adicionarContato = require('./adicionarContato');
-const atualizarContato = require('./atualizarContato');
-const removerContato = require('./removerContato');
+import promptSync from 'prompt-sync';
+const prompt = promptSync();
+
+import contatos from './contatos.js';
+import listarContatos from './listarContatos.js';
+import adicionarContato from './adicionarContato.js';
+import atualizarContato from './atualizarContato.js';
+import removerContato from './removerContato.js';
 
 function mainMenu() {
     console.log("\nMenu de Contatos:");

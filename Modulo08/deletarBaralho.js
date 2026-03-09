@@ -1,4 +1,4 @@
-const { baralhos, flashcards } = require('./data');
+import { baralhos, flashcards } from './data.js';
 
 function deletarBaralho(id) {
     const idNum = parseInt(id);
@@ -24,4 +24,4 @@ function deletarBaralho(id) {
     return { data: deletado };
 }
 
-module.exports = deletarBaralho;
+export default deletarBaralho;

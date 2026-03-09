@@ -1,18 +1,19 @@
-const prompt = require('prompt-sync')();
+import promptSync from 'prompt-sync';
+const prompt = promptSync();
 
-let baralho = require('./baralho');
-let flashcard = require('./flashcard');
+import baralho from './baralho.js';
+import flashcard from './flashcard.js';
 
-const adicionarBaralho = require('./adicionarBaralho');
-const listarBaralho = require('./listarBaralho');
-const atualizarBaralho = require('./atualizarBaralho');
-const deletarBaralho = require('./deletarBaralho');
+import adicionarBaralho from './adicionarBaralho.js';
+import listarBaralho from './listarBaralho.js';
+import atualizarBaralho from './atualizarBaralho.js';
+import deletarBaralho from './deletarBaralho.js';
 
-const adicionarFlashcard = require('./adicionarFlashcard');
-const listarFlashcards = require('./listarFlashcard');
-const listarFlashcardsEspecificos = require('./listarFlashcardsEspecificos');
-const buscarFlashcards = require('./buscaFlashcards');
-const deletarFlashcard = require('./deletarFlashcard');
+import adicionarFlashcard from './adicionarFlashcard.js';
+import listarFlashcards from './listarFlashcard.js';
+import listarFlashcardsEspecificos from './listarFlashcardsEspecificos.js';
+import buscarFlashcards from './buscaFlashcards.js';
+import deletarFlashcard from './deletarFlashcard.js';
 
 function exibirMenu() {
     console.log("\n------ MENU DE FLASHCARDS ------");

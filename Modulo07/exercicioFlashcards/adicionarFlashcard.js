@@ -1,5 +1,5 @@
-let flashcard = require('./flashcard');
-let baralho = require('./baralho');
+import flashcard from './flashcard.js';
+import baralho from './baralho.js';
 
 function adicionarFlashcard(flashcards, novoFlashcard) {
     let baralhoEncontrado = false;
@@ -15,4 +15,4 @@ function adicionarFlashcard(flashcards, novoFlashcard) {
     }
 } 
 
-module.exports = adicionarFlashcard;
+export default adicionarFlashcard;

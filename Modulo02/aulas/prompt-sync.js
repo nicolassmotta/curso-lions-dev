@@ -12,9 +12,8 @@
 
 //Exemplo de uso:
 // 1. Prepara a ferramenta
-import prompt from "prompt-sync"
-const prompt = require('prompt-sync')();
-
+import promptSync from 'prompt-sync';
+const prompt = promptSync();
 // 2. Pergunta e guarda a resposta (sempre vira String!)
 let nome = prompt("Qual seu nome? ");
 let cidade = prompt("Onde você mora? ");

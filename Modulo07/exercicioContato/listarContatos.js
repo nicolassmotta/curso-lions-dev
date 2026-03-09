@@ -1,4 +1,4 @@
-let contatos = require('./contatos');
+import contatos from './contatos.js';
 
 function listarContatos(contatos) {
     
@@ -7,4 +7,4 @@ function listarContatos(contatos) {
     });
 }
 
-module.exports = listarContatos;
+export default listarContatos;

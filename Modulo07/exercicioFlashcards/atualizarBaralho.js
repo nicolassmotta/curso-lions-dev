@@ -1,4 +1,4 @@
-let baralho = require('./baralho');
+import baralho from './baralho.js';
 
 function atualizarBaralho(baralho, idBaralho, novoTitulo) {
     
@@ -13,4 +13,4 @@ function atualizarBaralho(baralho, idBaralho, novoTitulo) {
     });
 }
 
-module.exports = atualizarBaralho;
+export default atualizarBaralho;

@@ -39,7 +39,7 @@ process.stdin.on("data", function (data) {
 // -------------------------------------------------------------------
 
 // O 'readline' facilita a leitura linha por linha.
-const readline = require('readline'); // Necessita do módulo 'readline' do Node.js
+import * as readline from 'readline'; // Necessita do módulo 'readline' do Node.js
 
 const rl = readline.createInterface({
     input: process.stdin,

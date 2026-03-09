@@ -1,4 +1,4 @@
-module.exports = [
+const flashcards = [
     {
         id: 1,
         pergunta: "Porque usar VAR em Javascript?",
@@ -12,3 +12,5 @@ module.exports = [
         idBaralho: 2
     }
 ];
+
+export default flashcards;

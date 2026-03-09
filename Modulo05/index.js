@@ -1,4 +1,5 @@
-const prompt = require("prompt-sync")();
+import promptSync from "prompt-sync";
+const prompt = promptSync();
 
 function somar(num1, num2) {
     return num1 + num2;

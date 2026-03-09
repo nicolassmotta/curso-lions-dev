@@ -1,4 +1,4 @@
-const { baralhos, flashcards } = require('./data');
+import { baralhos, flashcards } from './data.js';
 
 function criarFlashcard(pergunta, resposta, idBaralho) {
     // Validação (lógica do Modulo07/adicionarFlashcard.js)
@@ -18,4 +18,4 @@ function criarFlashcard(pergunta, resposta, idBaralho) {
     return { data: novoFlashcard };
 }
 
-module.exports = criarFlashcard;
+export default criarFlashcard;

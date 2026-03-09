@@ -1,9 +1,11 @@
-const prompt = require("prompt-sync")();
-const somar = require("./somar");
-const subtrair = require("./subtrair");
-const multiplicar = require("./multiplicar");
-const dividir = require("./dividir");
-const porcentagem = require("./porcentagem");
+import promptSync from "prompt-sync";
+const prompt = promptSync();
+
+import somar from "./somar.js";
+import subtrair from "./subtrair.js";
+import multiplicar from "./multiplicar.js";
+import dividir from "./dividir.js";
+import porcentagem from "./porcentagem.js";
 
 let op = 0;
 let resultado = 0;

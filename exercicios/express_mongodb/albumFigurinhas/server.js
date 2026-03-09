@@ -1,6 +1,6 @@
-const express = require('express');
-const connectDB = require('./db');
-const figurinhasRoutes = require('./routes/figurinha');
+import express from 'express';
+import connectDB from './db.js';
+import figurinhasRoutes from './routes/figurinha.js';
 
 // Inicializa o Express
 const app = express();

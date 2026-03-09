@@ -1,15 +1,19 @@
 {
-  "name": "modulo05",
+  "name": "cursolionsdev",
   "version": "1.0.0",
-  "description": "",
+  "description": "Curso Lions Dev Repository",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Nicolas Motta",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "mongoose": "^8.19.2",
     "prompt-sync": "^4.2.0"
   }
 }

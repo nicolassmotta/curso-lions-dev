@@ -1,4 +1,4 @@
-const { baralhos } = require('./data');
+import { baralhos } from './data.js';
 
 function atualizarBaralho(id, novoTitulo) {
     const idNum = parseInt(id);
@@ -15,4 +15,4 @@ function atualizarBaralho(id, novoTitulo) {
     return { data: baralho };
 }
 
-module.exports = atualizarBaralho;
+export default atualizarBaralho;

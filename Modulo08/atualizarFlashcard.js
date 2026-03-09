@@ -1,4 +1,4 @@
-const { flashcards } = require('./data');
+import { flashcards } from './data.js';
 
 function atualizarFlashcard(id, pergunta, resposta, idBaralho) {
     const idNum = parseInt(id);
@@ -16,4 +16,4 @@ function atualizarFlashcard(id, pergunta, resposta, idBaralho) {
     return { data: flashcard };
 }
 
-module.exports = atualizarFlashcard;
+export default atualizarFlashcard;

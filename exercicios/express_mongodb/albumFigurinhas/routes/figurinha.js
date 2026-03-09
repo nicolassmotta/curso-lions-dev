@@ -1,6 +1,6 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
-const Figurinha = require('../models/figurinha');
+import Figurinha from '../models/figurinha.js';
 
 // Rota base para todas as operações: /figurinhas
 
@@ -102,4 +102,4 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

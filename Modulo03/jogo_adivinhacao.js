@@ -1,4 +1,5 @@
-const prompt = require("prompt-sync")();
+import promptSync from "prompt-sync";
+const prompt = promptSync();
 
 let op = 0;
 let numero = Math.floor(Math.random() * 5) + 1;

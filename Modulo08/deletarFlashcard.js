@@ -1,4 +1,4 @@
-const { flashcards } = require('./data');
+import { flashcards } from './data.js';
 
 function deletarFlashcard(id) {
     const idNum = parseInt(id);
@@ -12,4 +12,4 @@ function deletarFlashcard(id) {
     return { data: deletado };
 }
 
-module.exports = deletarFlashcard;
+export default deletarFlashcard;

@@ -1,7 +1,7 @@
-let contatos = require('./contatos');
+import contatos from './contatos.js';
 
 function adicionarContato(contatos, novoContato) {
     contatos.push(novoContato);
 }
 
-module.exports = adicionarContato;
+export default adicionarContato;

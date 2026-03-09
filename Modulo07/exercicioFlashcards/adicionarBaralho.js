@@ -1,7 +1,7 @@
-let baralho = require('./baralho');
+import baralho from './baralho.js';
 
 function adicionarBaralho(baralho, novaBaralho) {
     baralho.push(novaBaralho);
 }
 
-module.exports = adicionarBaralho;
+export default adicionarBaralho;

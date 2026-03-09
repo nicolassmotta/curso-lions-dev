@@ -1,4 +1,4 @@
-let flashcard = require('./flashcard');
+import flashcard from './flashcard.js';
 
 function deletarFlashcards(flashcards, idFlashcard) {
     
@@ -11,4 +11,4 @@ function deletarFlashcards(flashcards, idFlashcard) {
     }
 }
 
-module.exports = deletarFlashcards;
+export default deletarFlashcards;

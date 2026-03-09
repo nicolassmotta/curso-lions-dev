@@ -1,4 +1,4 @@
-let flashcard = require('./flashcard');
+import flashcard from './flashcard.js';
 
 function listarFlashcards(flashcards) {
     flashcards.forEach((cartao, index) => {
@@ -10,4 +10,4 @@ function listarFlashcards(flashcards) {
     });
 }
 
-module.exports = listarFlashcards;
+export default listarFlashcards;
