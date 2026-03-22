@@ -9,13 +9,14 @@
   @media print {
     @page { margin: 1.5cm; }
     body { font-size: 11pt; }
+    .no-print { display: none; }
   }
 </style>
 
-# Exercícios com Lógica, Arrays e Objetos
+# Exercícios: Lógica, Arrays e Objetos
 
 **Turma:** Lions Startups/LionsDev  
-**Tópicos:** Arrays, Objetos, Estruturas Condicionais, Variáveis e Entrada/Saída de dados (prompt-sync).
+**Tópicos:** Arrays (push, shift, pop, splice, includes), Objetos, Aninhamento Estático, Estruturas Condicionais e I/O de dados.
 
 ---
 
@@ -44,7 +45,7 @@ Um sensor meteorológico precisa registrar e processar variações climáticas. 
 
 Peça ao usuário para digitar três leituras de temperatura ao longo do dia, uma de cada vez. Adicione cada temperatura digitada ao array `temperaturas` que está dentro do objeto `estacao`. 
 
-Após capturar os três dados, acesse o array dentro do objeto e calcule a média das três temperaturas (somando os três valores e dividindo por 3). 
+Após capturar os três dados, acesse o array dentro do objeto e calcule a média das três temperaturas (somando os três valores da lista manualmente e dividindo por 3). 
 Regra de negócio do sistema: Caso a média calculada seja maior que 35 graus, crie dinamicamente uma nova propriedade no objeto chamada `alerta` com o valor `true` e exiba "PERIGO: Média de temperatura extrema ([media] graus) detectada no [local]!". Caso a média seja de 35 graus para baixo, crie a propriedade `alerta` com valor `false` e exiba "Temperaturas dentro da normalidade.". 
 No final, imprima o objeto `estacao` inteiro para provar que todas as propriedades e o array estão corretos.
 

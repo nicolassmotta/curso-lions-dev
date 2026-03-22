@@ -9,12 +9,13 @@
   @media print {
     @page { margin: 1.5cm; }
     body { font-size: 11pt; }
+    .no-print { display: none; }
   }
 </style>
 
-# Exercícios com a Lógica Inicial
+# Exercícios: Lógica Inicial e Condicionais
 
-**Turma:** Lions Startups/LionsDev
+**Turma:** Lions Startups/LionsDev  
 **Tópicos:** Variáveis, Tipos de Dados, Operações Matemáticas, Estruturas Condicionais (if/else) e Entrada/Saída de dados (prompt-sync).
 
 ---

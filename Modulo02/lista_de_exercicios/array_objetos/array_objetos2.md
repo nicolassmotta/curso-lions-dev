@@ -9,12 +9,13 @@
   @media print {
     @page { margin: 1.5cm; }
     body { font-size: 11pt; }
+    .no-print { display: none; }
   }
 </style>
 
-# Exercícios Avançados: Lógica, Arrays e Objetos
+# Exercícios Avançados: Arrays e Objetos
 
-**Turma:** Lions Startups/LionsDev
+**Turma:** Lions Startups/LionsDev  
 **Tópicos:** Arrays, Objetos, Estruturas Condicionais, Variáveis e Entrada/Saída de dados.
 
 ---

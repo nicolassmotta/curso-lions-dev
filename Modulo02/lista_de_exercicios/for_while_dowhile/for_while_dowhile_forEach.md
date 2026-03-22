@@ -9,13 +9,14 @@
   @media print {
     @page { margin: 1.5cm; }
     body { font-size: 11pt; }
+    .no-print { display: none; }
   }
 </style>
 
 # Exercícios: Estruturas de Repetição
 
-**Turma:** Lions Startups/LionsDev
-**Tópicos:** Estruturas de Repetição (for, while, do-while), Arrays e Lógica de Programação.
+**Turma:** Lions Startups/LionsDev  
+**Tópicos:** Estruturas de Repetição (for, while, do-while), forEach, Arrays e Lógica de Programação.
 
 ---
 
