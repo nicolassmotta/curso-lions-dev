@@ -5,6 +5,11 @@
   p, li { line-height: 1.6; font-size: 15px; }
   blockquote { background-color: #f4f6f7; border-left: 4px solid #002B5E; padding: 12px 15px; margin: 15px 0; color: #000000; }
   code { background-color: #f0f2f5 !important; color: #000000 !important; font-weight: bold; padding: 2px 4px; border-radius: 4px; }
+
+  @media print {
+    @page { margin: 1.5cm; }
+    body { font-size: 11pt; }
+  }
 </style>
 
 # Exercícios com a Lógica Inicial
@@ -58,3 +63,10 @@ Se os dias de atraso forem maiores que zero **E** o vencimento não tiver sido e
 
 ---
 > **Dica:** Lembrem-se que os dados capturados pelo `prompt-sync` vêm como formato de Texto (String). Para fazer contas matemáticas como adição ou validações de limite, é muito importante converter a entrada para número (usando `Number()`, `parseInt()` ou `parseFloat()`).
+
+---
+
+<div style="text-align: center; color: #777; font-size: 13px; margin-top: 50px;">
+  <b>Lions Startups/LionsDev</b> • Professor Nicolas Cardoso Motta<br>
+  <i>Exercícios dos Fundamentos da Programação - Módulo 02</i>
+</div>
