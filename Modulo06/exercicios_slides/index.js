@@ -9,6 +9,7 @@ import porcentagem from "./porcentagem.js";
 
 let op = 0;
 let resultado = 0;
+let resultado_porcentagem = 0;
 let num;
 
 while (op != 7) {

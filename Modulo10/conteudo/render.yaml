@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: minha-api
+    env: node
+    buildCommand: 'npm install'
+    startCommand: 'npm start'
+    envVars:
+      - key: DATABASE_URL
+        fromService:
+          type: psql
+          name: meu-banco
+          property: connectionString
+        key: NODE_ENV
+        value: production
+        
