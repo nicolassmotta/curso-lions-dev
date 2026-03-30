@@ -1,5 +1,5 @@
 function Dividir(num1, num2) {
-    return num1 / num2;
+    return num1 / num2
 }
 
-export default Dividir;
+export default Dividir
