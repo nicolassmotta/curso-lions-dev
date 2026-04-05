@@ -1,10 +1,15 @@
-import contatos from './contatos.js';
-
 function listarContatos(contatos) {
-    
+    if (contatos.length === 0) {
+        console.log("Nenhum contato cadastrado.");
+        return;
+    }
+
     contatos.forEach(contato => {
-        console.log(`ID: ${contato.id}, Nome: ${contato.nome}, Email: ${contato.email}, Telefone: ${contato.telefone}`);
+        console.log(`\nID: ${contato.id}`);
+        console.log(`Nome: ${contato.nome}`);
+        console.log(`Email: ${contato.email}`);
+        console.log(`Telefones: ${contato.telefones.join(" | ")}`);
     });
 }
 
-export default listarContatos;
+export default listarContatos
