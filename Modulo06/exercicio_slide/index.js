@@ -1,4 +1,3 @@
-// Modulo07/index.js
 import promptSync from 'prompt-sync';
 const prompt = promptSync();
 
