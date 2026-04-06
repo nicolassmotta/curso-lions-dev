@@ -3,5 +3,3 @@ function somar(resultado, num) {
 }
 
 export default somar
-
-module.exports = somar
