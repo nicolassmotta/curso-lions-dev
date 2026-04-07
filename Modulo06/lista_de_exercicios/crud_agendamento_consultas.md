@@ -20,7 +20,7 @@
 
 ---
 
-## 1. A Base de Dados (`dados.js`)
+## 1. Base de Dados
 Para começar, utilize a estrutura de dados base apresentada em aula. Salve este conteúdo em um arquivo chamado `dados.js`:
 
 ```javascript
@@ -43,36 +43,32 @@ let consultas = [
 export default { medicos, pacientes, consultas }
 ```
 
-## 2. Os Requisitos (O que deve ser desenvolvido)
+## 2. Requisitos Obrigatórios
 
-Crie um arquivo principal (`index.js`) contendo um menu interativo com o `prompt`, semelhante ao sistema de contatos, com as seguintes opções:
+Crie um arquivo principal `index.js` contendo um menu interativo com o `prompt`, semelhante ao sistema de contatos, com as seguintes opções:
 
-### 🟢 1. Agendar nova consulta (CREATE)
+### 2.1 Agendar nova consulta (CREATE)
 Crie uma função `adicionarConsulta` que receba os dados inseridos pelo usuário no terminal.
 * **Regra 1:** O sistema deve gerar um `id` sequencial para a nova consulta automaticamente.
 * **Regra 2 (Validação):** Antes de salvar a consulta, o sistema deve verificar se o `idMedico` digitado realmente existe no array de `medicos`. Faça o mesmo para o `idPaciente`. Se um dos dois não existir, exiba um erro e aborte o cadastro.
 
-### 🔵 2. Listar todas as consultas (READ)
+### 2.2 Listar todas as consultas (READ)
 Crie uma função `listarConsultas` que percorra o array de consultas.
 * **Regra:** O terminal não deve imprimir apenas os números de `idMedico` e `idPaciente`. Você deve usar lógicas de busca (como o `encontrarMedicoPorId` visto em aula) para imprimir o **Nome do Médico** e o **Nome do Paciente** ao lado da data e descrição.
 
-### 🟡 3. Atualizar uma consulta (UPDATE)
+### 2.3 Atualizar uma consulta (UPDATE)
 Crie uma função `atualizarConsulta` que receba o `id` da consulta que o usuário deseja alterar.
 * **Regra:** Permita que o usuário altere apenas a **data** e a **descrição** da consulta. Use a regra do operador lógico `||` ensinada em aula para manter o dado antigo caso o usuário deixe o campo em branco. Não permita alterar o médico ou o paciente (se errar isso, a regra de negócio diz que a consulta deve ser cancelada e refeita).
 
-### 🔴 4. Cancelar consulta (DELETE)
+### 2.4 Cancelar consulta (DELETE)
 Crie uma função `cancelarConsulta` que receba o `id` da consulta.
 * **Regra:** Encontre o índice da consulta usando `.findIndex()` e remova-a do array utilizando o método `.splice()`. Imprima uma mensagem de sucesso ou uma mensagem de erro caso o ID fornecido não exista.
 
-## 💡 Dicas para a Implementação
+## 3. Dicas para a Implementação
 
 * **Modularização:** Assim como feito nos slides, crie um arquivo `.js` separado para cada uma das quatro funções do CRUD e importe-os no seu menu principal.
 * **Funções Auxiliares:** Crie funções como `encontrarPacientePorId(id)` para evitar repetir o código do `for` ou `.find()` toda vez que precisar descobrir o nome de um paciente na hora de listar as consultas.
 * **Atenção aos Tipos:** Lembre-se que o dado que vem do `prompt` é sempre um texto (`String`). Se for comparar com os IDs do array (que são números), use `parseInt()` ou verifique usando `==` ao invés de `===`.
-
----
-
-> **Dica:** Lembrem-se que os dados capturados pelo `prompt-sync` vêm como formato de Texto (String). Para fazer contas matemáticas como adição ou validações de limite em regras de negócio, é muito importante converter a entrada para número (usando `Number()`, `parseInt()` ou `parseFloat()`).
 
 ---
 
