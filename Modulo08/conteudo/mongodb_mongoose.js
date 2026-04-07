@@ -1,6 +1,6 @@
 /*
  * ===================================================================
- * MÓDULO 09: BANCO DE DADOS — MONGODB E MONGOOSE
+ * MÓDULO 08: BANCO DE DADOS — MONGODB E MONGOOSE
  * ===================================================================
  *
  * Até agora, nossos dados ficavam em ARRAYS na memória.
@@ -338,7 +338,7 @@ async function deletarProduto(id) {
  */
 
 console.log("================================================");
-console.log("Módulo 09 — MongoDB e Mongoose");
+console.log("Módulo 08 — MongoDB e Mongoose");
 console.log("Para testar, configure o .env e descomente");
 console.log("as chamadas das funções acima.");
 console.log("================================================");

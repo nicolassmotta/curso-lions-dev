@@ -1,6 +1,6 @@
 /*
  * ===================================================================
- * MÓDULO 07: ORGANIZAÇÃO DE PROJETOS E CRUD COM ARRAYS
+ * MÓDULO 06: ORGANIZAÇÃO DE PROJETOS E CRUD COM ARRAYS
  * ===================================================================
  *
  * Neste módulo, aprendemos a organizar projetos maiores com
@@ -48,7 +48,7 @@ console.log("--- 2. Array de Objetos como 'Banco de Dados' ---");
  *
  * ⚠️ IMPORTANTE: Dados em memória são TEMPORÁRIOS!
  * Quando o programa encerra, tudo é perdido.
- * No Módulo 09 (MongoDB), aprenderemos a persistir dados de verdade.
+ * No Módulo 08 (MongoDB), aprenderemos a persistir dados de verdade.
  */
 
 let contatos = [

@@ -20,14 +20,13 @@ Este repositório contém todo o material de apoio das aulas: conteúdo teórico
 |----|--------|-----------|
 | 01 | **Introdução ao Ambiente** | Node.js, NPM, `package.json`, terminal e primeiros comandos |
 | 02 | **Fundamentos de JavaScript** | Variáveis, tipos de dados, condicionais, loops, arrays, objetos e entrada de dados |
-| 03 | **Extração de Requisitos** | Exercício prático: transformar uma ideia em código (Jogo da Adivinhação) |
+| 03 | **Calculadora** | Primeiro projeto com extração de requisitos e funções |
 | 04 | **Git & GitHub** | Controle de versão, branches, merge, conflitos, Pull Requests e colaboração |
-| 05 | **Calculadora** | Primeiro projeto com extração de requisitos |
-| 06 | **Módulos ES (Import/Export)** | Modularização do código com ES Modules |
-| 07 | **Organização de Projetos** | Estruturação de projetos com múltiplos arquivos e CRUD em memória |
-| 08 | **APIs REST com Express** | Criação de APIs RESTful com Express.js e dados em memória |
-| 09 | **Banco de Dados (MongoDB)** | Integração com MongoDB via Mongoose, modelos e rotas |
-| 10 | **Deploy** | Publicar a aplicação na nuvem com Render.com |
+| 05 | **Módulos ES (Import/Export)** | Modularização do código com ES Modules |
+| 06 | **Organização de Projetos** | Estruturação de projetos com múltiplos arquivos e CRUD em memória |
+| 07 | **APIs REST com Express** | Criação de APIs RESTful com Express.js e dados em memória |
+| 08 | **Banco de Dados (MongoDB)** | Integração com MongoDB via Mongoose, modelos e rotas |
+| 09 | **Deploy** | Publicar a aplicação na nuvem com Render.com |
 
 ---
 
@@ -53,9 +52,9 @@ As dependências de **todos** os módulos estão centralizadas em um único `pac
 | Pacote | Usado a partir de | Função |
 |--------|-------------------|--------|
 | `prompt-sync` | Módulo 02 | Capturar entrada de dados do usuário no terminal |
-| `express` | Módulo 08 | Framework para criação de APIs REST |
-| `mongoose` | Módulo 09 | ODM para integração com MongoDB |
-| `dotenv` | Módulo 09 | Carregar variáveis de ambiente de um arquivo `.env` |
+| `express` | Módulo 07 | Framework para criação de APIs REST |
+| `mongoose` | Módulo 08 | ODM para integração com MongoDB |
+| `dotenv` | Módulo 08 | Carregar variáveis de ambiente de um arquivo `.env` |
 
 ---
 

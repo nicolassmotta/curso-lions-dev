@@ -1,12 +1,12 @@
 /*
  * ===================================================================
- * MÓDULO 08: APIs REST COM EXPRESS.JS
+ * MÓDULO 07: APIs REST COM EXPRESS.JS
  * ===================================================================
  *
  * Neste módulo, aprendemos a criar uma API (Interface de Programação
  * de Aplicações) usando o framework Express.js.
  *
- * No Módulo 07, o CRUD rodava no terminal com prompt-sync.
+ * No Módulo 06, o CRUD rodava no terminal com prompt-sync.
  * Agora, vamos expor essas mesmas operações via HTTP, para que
  * QUALQUER cliente (Postman, navegador, app mobile) possa acessar.
  */

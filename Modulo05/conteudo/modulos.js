@@ -1,12 +1,12 @@
 /*
  * ===================================================================
- * MÓDULO 06: MÓDULOS ES (IMPORT / EXPORT)
+ * MÓDULO 05: MÓDULOS ES (IMPORT / EXPORT)
  * ===================================================================
  *
  * Este arquivo explica como MODULARIZAR o código JavaScript,
  * ou seja, dividir o código em vários arquivos menores e organizados.
  *
- * No Módulo 05, vocês construíram a calculadora toda em um único
+ * No Módulo 03, vocês construíram a calculadora toda em um único
  * arquivo. Funcionou, mas imagine um projeto GRANDE com milhares
  * de linhas... Seria impossível de manter!
  *
@@ -31,8 +31,8 @@
  * cada um com uma responsabilidade clara.
  *
  * Exemplo da Calculadora:
- *   ANTES (Módulo 05): 1 arquivo com tudo (funções + menu + lógica)
- *   DEPOIS (Módulo 06): 1 arquivo por função + 1 arquivo principal
+ *   ANTES (Módulo 03): 1 arquivo com tudo (funções + menu + lógica)
+ *   DEPOIS (Módulo 05): 1 arquivo por função + 1 arquivo principal
  */
 
 

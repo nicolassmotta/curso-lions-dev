@@ -1,6 +1,6 @@
 /*
  * ===================================================================
- * MÓDULO 10: DEPLOY — COLOCANDO SUA APLICAÇÃO NO AR
+ * MÓDULO 09: DEPLOY — COLOCANDO SUA APLICAÇÃO NO AR
  * ===================================================================
  *
  * Este arquivo serve como um guia prático dos conceitos de Deploy
@@ -275,6 +275,6 @@ console.log(`Servidor configurado para rodar na porta: ${PORT}`);
  */
 
 console.log("================================================");
-console.log("Módulo 10 — Deploy concluído!");
+console.log("Módulo 09 — Deploy concluído!");
 console.log("Agora sua aplicação está pronta para o mundo! 🌎");
 console.log("================================================");
