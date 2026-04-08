@@ -13,3 +13,4 @@ function listarContatos(contatos) {
 }
 
 export default listarContatos
+

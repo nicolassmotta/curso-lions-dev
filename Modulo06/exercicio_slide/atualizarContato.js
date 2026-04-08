@@ -37,3 +37,4 @@ function atualizarContato(contatos, id, novosDados) {
 }
 
 export default atualizarContato
+

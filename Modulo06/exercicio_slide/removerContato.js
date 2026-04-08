@@ -8,3 +8,4 @@ function removerContato(contatos, id) {
 }
 
 export default removerContato
+

@@ -69,7 +69,10 @@ while (opcao != "5") {
             }
 
             const atualizou = atualizarContato(contatos, idAtualizar, novosDados)
-            if (atualizou) console.log('Contato atualizado com sucesso!')
+            
+            if (atualizou) {
+                console.log('Contato atualizado com sucesso!')
+            }
             break
         case '4':
             // Operação: DELETE
