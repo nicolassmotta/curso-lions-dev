@@ -1,9 +1,10 @@
 function atualizarContato(contatos, id, novosDados) {
-    const index = contatos.findIndex(contato => contato.id === id)
+
+    const indice = contatos.findindice(contato => contato.id === id)
     
-    if (index === -1) {
+    if (indice === -1) {
         console.log("Erro: Contato não encontrado!")
-        return false
+        return 
     }
 
     // Validação de e-mail na atualização
@@ -20,19 +21,19 @@ function atualizarContato(contatos, id, novosDados) {
 
         if (emailEmUso) {
             console.log("Erro: O novo e-mail já está em uso por outro usuário!")
-            return false
+            return
         }
     }
 
     // Atualiza apenas os campos preenchidos
-    contatos[index].nome = novosDados.nome || contatos[index].nome
-    contatos[index].email = novosDados.email || contatos[index].email
+    contatos[indice].nome = novosDados.nome || contatos[indice].nome
+    contatos[indice].email = novosDados.email || contatos[indice].email
     // Se o usuário digitou novos telefones (o array é maior que zero), nós substituímos
     if (novosDados.telefones.length > 0) {
-        contatos[index].telefones = novosDados.telefones
+        contatos[indice].telefones = novosDados.telefones
     }
 
-    return true
+    return 
 }
 
 export default atualizarContato

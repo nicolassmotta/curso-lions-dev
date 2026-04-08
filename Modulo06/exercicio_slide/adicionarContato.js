@@ -1,16 +1,18 @@
 function adicionarContato(contatos, novoContato) {
+
     // Validação: Não permitir e-mail duplicado
     let emailExiste = false
     for (let i = 0; i < contatos.length; i++) {
         if (contatos[i].email === novoContato.email) {
             emailExiste = true
-            break // Para a busca assim que encontrar
+            // Para a busca assim que encontrar
+            break 
         }
     }
     
     if (emailExiste) {
         console.log("Erro: Este e-mail já está cadastrado!")
-        return false
+        return
     }
 
     // Gerar ID sequencial (pega o último ID e soma 1)
@@ -23,7 +25,7 @@ function adicionarContato(contatos, novoContato) {
     }
     
     contatos.push(novoContato)
-    return true
+    return
 }
 
 export default adicionarContato

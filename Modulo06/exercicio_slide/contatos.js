@@ -17,6 +17,6 @@ const contatos = [
     telefones: ["(11) 94567-8901"],
     email: "iagofornachari@gmail.com"
   }
-];
+]
 
 export default contatos
