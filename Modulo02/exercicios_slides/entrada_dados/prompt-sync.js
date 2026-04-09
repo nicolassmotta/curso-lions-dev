@@ -3,7 +3,7 @@
 // declarar variavel para armazenar a idade do pet usando prompt
 // imprimir a mensagem final concatenando o nome e a idade
 
-import promptSync from "prompt-sync"
+import promptSync from "prompt-sync";
 
 const prompt = promptSync();
 
