@@ -31,20 +31,21 @@ while (opcao != "5") {
       break;
     case "2":
       // Operação: CREATE
-      let telefones = [];
-      let nome = prompt("Nome: ");
-      let email = prompt("Email: ");
+      let novoContato = {
+        nome: prompt("Novo Nome (ou Enter para manter): "),
+        email: prompt("Novo Email (ou Enter para manter): "),
+        telefones: [],
+      };
 
       // Loop para múltiplos telefones
-      let addMais = "s";
-      while (addMais.toLowerCase() === "s") {
-        telefones.push(prompt("Telefone: "));
-        addMais = prompt("Adicionar outro telefone? (s/n): ");
+      let addMais = "sim";
+      while (addMais.toLowerCase() === "sim") {
+        novoContato.telefones.push(prompt("Telefone: "));
+        addMais = prompt("Adicionar outro telefone? (sim/nao): ");
       }
 
-      let novoContato = { nome, telefones, email };
-
       const adicionou = adicionarContato(contatos, novoContato);
+
       if (adicionou) {
         console.log("Contato adicionado com sucesso!");
       }
@@ -59,12 +60,14 @@ while (opcao != "5") {
         telefones: [],
       };
 
-      let atualizaTel = prompt("Deseja atualizar os telefones? (s/n): ");
-      if (atualizaTel.toLowerCase() === "s") {
-        let editMais = "s";
-        while (editMais.toLowerCase() === "s") {
+      //Lógica para atualizar os telefones
+      let atualizaTel = prompt("Deseja atualizar os telefones? (sim/nao): ");
+
+      if (atualizaTel.toLowerCase() === "sim") {
+        let editMais = "sim";
+        while (editMais.toLowerCase() === "sim") {
           novosDados.telefones.push(prompt("Novo Telefone: "));
-          editMais = prompt("Adicionar outro telefone? (s/n): ");
+          editMais = prompt("Adicionar outro telefone? (sim/nao): ");
         }
       }
 
@@ -79,11 +82,10 @@ while (opcao != "5") {
       let idRemover = parseInt(prompt("ID do contato a ser removido: "));
 
       // Requisito de Confirmação
-      let confirmar = prompt("Tem certeza que deseja remover este contato? (s/n): ");
+      let confirmar = prompt("Tem certeza que deseja remover este contato? (sim/nao): ");
 
-      if (confirmar.toLowerCase() === "s") {
+      if (confirmar.toLowerCase() === "sim") {
         removerContato(contatos, idRemover);
-        console.log("Contato removido com sucesso!");
       } else {
         console.log("Operação cancelada.");
       }
