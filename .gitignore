@@ -9,3 +9,8 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Pastas e arquivos locais do mantenedor (não versionados)
+.cursor/rules/
+AGENTS.local.md
+_mantenedor/
