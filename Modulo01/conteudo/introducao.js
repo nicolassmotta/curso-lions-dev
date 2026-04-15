@@ -99,7 +99,7 @@ console.log("================================================");
  */
 
 // Importa o pacote que instalamos
-import hello from 'hello-world-npm';
+import hello from "hello-world-npm";
 
 // Executa a função que veio dentro do pacote
 const mensagem = hello();

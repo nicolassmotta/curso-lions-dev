@@ -12,7 +12,6 @@
  * perfeito para isso.
  */
 
-
 // -------------------------------------------------------------------
 // 1. O QUE É CRUD?
 // -------------------------------------------------------------------
@@ -35,7 +34,6 @@
  *                            U: Atualizar preço, D: Remover produto
  */
 
-
 // -------------------------------------------------------------------
 // 2. ESTRUTURA DE DADOS: ARRAY DE OBJETOS
 // -------------------------------------------------------------------
@@ -52,9 +50,9 @@ console.log("--- 2. Array de Objetos como 'Banco de Dados' ---");
  */
 
 let contatos = [
-    { id: 1, nome: "Ana Silva", telefone: "(11) 91234-5678", email: "ana@email.com" },
-    { id: 2, nome: "Carlos Santos", telefone: "(11) 99876-5432", email: "carlos@email.com" },
-    { id: 3, nome: "Maria Oliveira", telefone: "(11) 95555-1234", email: "maria@email.com" }
+  { id: 1, nome: "Ana Silva", telefone: "(11) 91234-5678", email: "ana@email.com" },
+  { id: 2, nome: "Carlos Santos", telefone: "(11) 99876-5432", email: "carlos@email.com" },
+  { id: 3, nome: "Maria Oliveira", telefone: "(11) 95555-1234", email: "maria@email.com" },
 ];
 
 // Variável para controlar o próximo ID (auto-incremento simples)
@@ -62,7 +60,6 @@ let proximoId = 4;
 
 console.log("Contatos iniciais:", contatos);
 console.log("---------------------------------------------------");
-
 
 // -------------------------------------------------------------------
 // 3. CREATE — Adicionar Novo Registro
@@ -76,17 +73,17 @@ console.log("\n--- 3. CREATE (Criar) ---");
  */
 
 function criarContato(nome, telefone, email) {
-    const novoContato = {
-        id: proximoId, // ID auto-incrementado
-        nome: nome,
-        telefone: telefone,
-        email: email
-    };
+  const novoContato = {
+    id: proximoId, // ID auto-incrementado
+    nome: nome,
+    telefone: telefone,
+    email: email,
+  };
 
-    contatos.push(novoContato); // Adiciona ao final do array
-    proximoId++;                 // Incrementa o contador de IDs
+  contatos.push(novoContato); // Adiciona ao final do array
+  proximoId++; // Incrementa o contador de IDs
 
-    return novoContato;
+  return novoContato;
 }
 
 // Testando:
@@ -95,7 +92,6 @@ console.log("Novo contato criado:", novo);
 console.log("Total de contatos:", contatos.length); // 4
 
 console.log("------------------------");
-
 
 // -------------------------------------------------------------------
 // 4. READ — Consultar Registros
@@ -113,30 +109,27 @@ console.log("\n--- 4. READ (Ler) ---");
 
 // 4a. Listar todos
 function listarContatos() {
-    return contatos;
+  return contatos;
 }
 
 console.log("Todos:", listarContatos());
 
 // 4b. Buscar por ID (retorna UM objeto ou undefined)
 function buscarPorId(id) {
-    return contatos.find(contato => contato.id === id);
+  return contatos.find((contato) => contato.id === id);
 }
 
-console.log("Buscar ID 2:", buscarPorId(2));    // { id: 2, nome: "Carlos Santos"... }
-console.log("Buscar ID 99:", buscarPorId(99));  // undefined (não existe)
+console.log("Buscar ID 2:", buscarPorId(2)); // { id: 2, nome: "Carlos Santos"... }
+console.log("Buscar ID 99:", buscarPorId(99)); // undefined (não existe)
 
 // 4c. Buscar por critério (retorna um ARRAY com os resultados)
 function buscarPorNome(termoBusca) {
-    return contatos.filter(contato =>
-        contato.nome.toLowerCase().includes(termoBusca.toLowerCase())
-    );
+  return contatos.filter((contato) => contato.nome.toLowerCase().includes(termoBusca.toLowerCase()));
 }
 
 console.log("Buscar 'silva':", buscarPorNome("silva")); // [ { id: 1, ... } ]
 
 console.log("--------------------");
-
 
 // -------------------------------------------------------------------
 // 5. UPDATE — Atualizar Registro
@@ -154,20 +147,20 @@ console.log("\n--- 5. UPDATE (Atualizar) ---");
  */
 
 function atualizarContato(id, novosDados) {
-    const indice = contatos.findIndex(contato => contato.id === id);
+  const indice = contatos.findIndex((contato) => contato.id === id);
 
-    // Verificação: o contato existe?
-    if (indice === -1) {
-        console.log(`Contato com ID ${id} não encontrado.`);
-        return null;
-    }
+  // Verificação: o contato existe?
+  if (indice === -1) {
+    console.log(`Contato com ID ${id} não encontrado.`);
+    return null;
+  }
 
-    // Atualiza apenas os campos que foram fornecidos
-    if (novosDados.nome) contatos[indice].nome = novosDados.nome;
-    if (novosDados.telefone) contatos[indice].telefone = novosDados.telefone;
-    if (novosDados.email) contatos[indice].email = novosDados.email;
+  // Atualiza apenas os campos que foram fornecidos
+  if (novosDados.nome) contatos[indice].nome = novosDados.nome;
+  if (novosDados.telefone) contatos[indice].telefone = novosDados.telefone;
+  if (novosDados.email) contatos[indice].email = novosDados.email;
 
-    return contatos[indice]; // Retorna o contato atualizado
+  return contatos[indice]; // Retorna o contato atualizado
 }
 
 // Testando:
@@ -178,7 +171,6 @@ console.log("Contato atualizado:", atualizado);
 atualizarContato(99, { nome: "Fantasma" }); // "Contato com ID 99 não encontrado."
 
 console.log("---------------------------");
-
 
 // -------------------------------------------------------------------
 // 6. DELETE — Remover Registro
@@ -196,17 +188,17 @@ console.log("\n--- 6. DELETE (Deletar) ---");
  */
 
 function deletarContato(id) {
-    const contatoExiste = contatos.find(contato => contato.id === id);
+  const contatoExiste = contatos.find((contato) => contato.id === id);
 
-    if (!contatoExiste) {
-        console.log(`Contato com ID ${id} não encontrado.`);
-        return null;
-    }
+  if (!contatoExiste) {
+    console.log(`Contato com ID ${id} não encontrado.`);
+    return null;
+  }
 
-    // Cria um novo array com todos os contatos EXCETO o que queremos deletar
-    contatos = contatos.filter(contato => contato.id !== id);
+  // Cria um novo array com todos os contatos EXCETO o que queremos deletar
+  contatos = contatos.filter((contato) => contato.id !== id);
 
-    return contatoExiste; // Retorna o contato que foi removido
+  return contatoExiste; // Retorna o contato que foi removido
 }
 
 // Testando:
@@ -216,7 +208,6 @@ console.log("Contato removido:", removido);
 console.log("Depois de deletar:", contatos.length, "contatos");
 
 console.log("-------------------------");
-
 
 // -------------------------------------------------------------------
 // 7. MÉTODOS JAVASCRIPT ESSENCIAIS (RESUMO)
@@ -238,7 +229,6 @@ console.log("-------------------------");
  * │ .length            │ READ         │ Retorna o tamanho do array      │
  * └────────────────────┴──────────────┴────────────────────────────────┘
  */
-
 
 // -------------------------------------------------------------------
 // 8. ORGANIZAÇÃO EM MÚLTIPLOS ARQUIVOS
@@ -265,7 +255,6 @@ console.log("-------------------------");
  *   ✅ Trabalho em equipe (cada pessoa em um arquivo)
  */
 
-
 // -------------------------------------------------------------------
 // 9. RESULTADO FINAL
 // -------------------------------------------------------------------
@@ -273,7 +262,7 @@ console.log("-------------------------");
 console.log("\n--- 9. Estado Final ---");
 console.log("Contatos restantes:");
 contatos.forEach((c, i) => {
-    console.log(`  ${i + 1}. [ID: ${c.id}] ${c.nome} - ${c.telefone} - ${c.email}`);
+  console.log(`  ${i + 1}. [ID: ${c.id}] ${c.nome} - ${c.telefone} - ${c.email}`);
 });
 
 console.log("\n================================================");

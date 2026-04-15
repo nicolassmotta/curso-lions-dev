@@ -1,11 +1,11 @@
-import promptSync from "prompt-sync"
-const prompt = promptSync()
+import promptSync from "prompt-sync";
+const prompt = promptSync();
 
-import somar from "./somar.js"
-import subtrair from "./subtrair.js"
-import multiplicar from "./multiplicar.js"
-import dividir from "./dividir.js"
-import porcentagem from "./porcentagem.js"
+import somar from "./somar.js";
+import subtrair from "./subtrair.js";
+import multiplicar from "./multiplicar.js";
+import dividir from "./dividir.js";
+import porcentagem from "./porcentagem.js";
 
 let op = 0;
 let resultado = 0;
@@ -14,14 +14,7 @@ let num;
 
 while (op != 7) {
   console.log(
-    "\nQual operação você deseja executar?\n" +
-      "[1] - Somar\n" +
-      "[2] - Subtrair\n" +
-      "[3] - Multiplicar\n" +
-      "[4] - Dividir\n" +
-      "[5] - Porcentagem\n" +
-      "[6] - Ver Resultado\n" +
-      "[7] - Sair"
+    "\nQual operação você deseja executar?\n" + "[1] - Somar\n" + "[2] - Subtrair\n" + "[3] - Multiplicar\n" + "[4] - Dividir\n" + "[5] - Porcentagem\n" + "[6] - Ver Resultado\n" + "[7] - Sair"
   );
 
   op = Number(prompt("Escolha uma opção: "));

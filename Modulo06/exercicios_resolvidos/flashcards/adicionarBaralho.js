@@ -1,7 +1,7 @@
-import baralho from './baralho.js';
+import baralho from "./baralho.js";
 
 function adicionarBaralho(baralho, novaBaralho) {
-    baralho.push(novaBaralho);
+  baralho.push(novaBaralho);
 }
 
 export default adicionarBaralho;

@@ -1,6 +1,6 @@
-import express from 'express';
-import connectDB from './db.js';
-import figurinhasRoutes from './routes/figurinha.js';
+import express from "express";
+import connectDB from "./db.js";
+import figurinhasRoutes from "./routes/figurinha.js";
 
 // Inicializa o Express
 const app = express();
@@ -12,12 +12,12 @@ connectDB();
 app.use(express.json());
 
 // Rota principal para teste
-app.get('/', (req, res) => {
-  res.send('API do Álbum de Figurinhas no ar!');
+app.get("/", (req, res) => {
+  res.send("API do Álbum de Figurinhas no ar!");
 });
 
 // Usa as rotas definidas no arquivo de rotas
-app.use('/figurinhas', figurinhasRoutes);
+app.use("/figurinhas", figurinhasRoutes);
 
 // Define a porta do servidor
 const PORT = process.env.PORT || 3000;

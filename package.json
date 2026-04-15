@@ -5,7 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write \"**/*.{js,cjs,mjs}\"",
+    "format:check": "prettier --check \"**/*.{js,cjs,mjs}\""
   },
   "keywords": [],
   "author": "Nicolas Motta",
@@ -15,5 +17,16 @@
     "express": "^5.1.0",
     "mongoose": "^8.19.2",
     "prompt-sync": "^4.2.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.8.2"
+  },
+  "prettier": {
+    "printWidth": 200,
+    "semi": true,
+    "singleQuote": false,
+    "tabWidth": 2,
+    "trailingComma": "es5",
+    "endOfLine": "lf"
   }
 }

@@ -16,11 +16,9 @@
  * - Ela pode devolver um resultado (retorno)
  */
 
-
 // ===================================================================
 // PARTE I: FUNÇÕES
 // ===================================================================
-
 
 // -------------------------------------------------------------------
 // 1. Declaração de Função (Function Declaration)
@@ -38,7 +36,7 @@ console.log("--- 1. Declaração de Função ---");
 
 // Exemplo 1: Função simples sem parâmetros
 function saudacao() {
-    console.log("Olá, bem-vindo ao curso Lions Dev!");
+  console.log("Olá, bem-vindo ao curso Lions Dev!");
 }
 
 // Para "executar" a função, precisamos CHAMAR ela pelo nome:
@@ -46,7 +44,6 @@ saudacao(); // Executa e imprime a mensagem
 saudacao(); // Podemos chamar quantas vezes quisermos!
 
 console.log("-------------------------------");
-
 
 // -------------------------------------------------------------------
 // 2. Parâmetros e Argumentos
@@ -64,15 +61,14 @@ console.log("\n--- 2. Parâmetros e Argumentos ---");
 
 // Exemplo 2: Função com parâmetros
 function saudacaoPersonalizada(nome, curso) {
-    console.log(`Olá, ${nome}! Bem-vindo ao ${curso}!`);
+  console.log(`Olá, ${nome}! Bem-vindo ao ${curso}!`);
 }
 
 // Chamando com argumentos:
-saudacaoPersonalizada("Maria", "Lions Dev");   // nome="Maria", curso="Lions Dev"
-saudacaoPersonalizada("João", "Programação");   // nome="João", curso="Programação"
+saudacaoPersonalizada("Maria", "Lions Dev"); // nome="Maria", curso="Lions Dev"
+saudacaoPersonalizada("João", "Programação"); // nome="João", curso="Programação"
 
 console.log("----------------------------------");
-
 
 // -------------------------------------------------------------------
 // 3. Retorno (return)
@@ -90,7 +86,7 @@ console.log("\n--- 3. Retorno (return) ---");
 
 // Exemplo 3: Função COM retorno
 function somar(a, b) {
-    return a + b; // Devolve o resultado da soma
+  return a + b; // Devolve o resultado da soma
 }
 
 // O valor retornado pode ser armazenado:
@@ -102,15 +98,14 @@ console.log("Outra soma:", somar(100, 200)); // 300
 
 // Exemplo 4: Função SEM retorno (retorna 'undefined')
 function apenasImprime(mensagem) {
-    console.log(mensagem);
-    // Sem return → retorna undefined
+  console.log(mensagem);
+  // Sem return → retorna undefined
 }
 
 let retorno = apenasImprime("Teste");
 console.log("Retorno da função sem return:", retorno); // undefined
 
 console.log("--------------------------");
-
 
 // -------------------------------------------------------------------
 // 4. Funções Anônimas (Expressão de Função)
@@ -124,14 +119,13 @@ console.log("\n--- 4. Funções Anônimas ---");
  */
 
 // Exemplo 5: Função anônima armazenada em const
-const multiplicar = function(a, b) {
-    return a * b;
+const multiplicar = function (a, b) {
+  return a * b;
 };
 
 console.log("Multiplicação:", multiplicar(4, 5)); // 20
 
 console.log("--------------------------");
-
 
 // -------------------------------------------------------------------
 // 5. Arrow Functions (Funções Seta) — ES6+
@@ -152,30 +146,29 @@ console.log("\n--- 5. Arrow Functions ---");
 
 // Exemplo 6: Arrow Function completa
 const dividir = (a, b) => {
-    if (b === 0) {
-        return "Erro: divisão por zero!";
-    }
-    return a / b;
+  if (b === 0) {
+    return "Erro: divisão por zero!";
+  }
+  return a / b;
 };
 
-console.log("Divisão:", dividir(20, 4));    // 5
-console.log("Divisão:", dividir(10, 0));    // Erro
+console.log("Divisão:", dividir(20, 4)); // 5
+console.log("Divisão:", dividir(10, 0)); // Erro
 
 // Exemplo 7: Arrow Function simplificada (uma linha)
 const dobrar = (n) => n * 2;
-const triplicar = n => n * 3; // Se tem SÓ UM parâmetro, os () são opcionais
+const triplicar = (n) => n * 3; // Se tem SÓ UM parâmetro, os () são opcionais
 
-console.log("Dobro de 7:", dobrar(7));       // 14
-console.log("Triplo de 5:", triplicar(5));   // 15
+console.log("Dobro de 7:", dobrar(7)); // 14
+console.log("Triplo de 5:", triplicar(5)); // 15
 
 // Exemplo 8: Arrow Function como callback (muito usado com forEach, map, filter)
 const numeros = [1, 2, 3, 4, 5];
 numeros.forEach((num) => {
-    console.log(`Número: ${num}, Quadrado: ${num * num}`);
+  console.log(`Número: ${num}, Quadrado: ${num * num}`);
 });
 
 console.log("-------------------------");
-
 
 // -------------------------------------------------------------------
 // 6. Escopo de Variáveis em Funções
@@ -194,22 +187,20 @@ console.log("\n--- 6. Escopo ---");
 let global = "Sou global"; // Acessível em todo lugar
 
 function exemploEscopo() {
-    let local = "Sou local"; // Só existe dentro desta função
-    console.log(global);      // ✅ Funciona
-    console.log(local);       // ✅ Funciona
+  let local = "Sou local"; // Só existe dentro desta função
+  console.log(global); // ✅ Funciona
+  console.log(local); // ✅ Funciona
 }
 
 exemploEscopo();
-console.log(global);          // ✅ Funciona
+console.log(global); // ✅ Funciona
 // console.log(local);        // ❌ ERRO: local is not defined
 
 console.log("----------------");
 
-
 // ===================================================================
 // PARTE II: SWITCH/CASE
 // ===================================================================
-
 
 // -------------------------------------------------------------------
 // 7. Estrutura Switch/Case
@@ -244,33 +235,32 @@ const diaSemana = 3;
 let nomeDia;
 
 switch (diaSemana) {
-    case 1:
-        nomeDia = "Segunda-feira";
-        break;
-    case 2:
-        nomeDia = "Terça-feira";
-        break;
-    case 3:
-        nomeDia = "Quarta-feira";
-        break;
-    case 4:
-        nomeDia = "Quinta-feira";
-        break;
-    case 5:
-        nomeDia = "Sexta-feira";
-        break;
-    case 6:
-        nomeDia = "Sábado";
-        break;
-    case 7:
-        nomeDia = "Domingo";
-        break;
-    default:
-        nomeDia = "Dia inválido";
+  case 1:
+    nomeDia = "Segunda-feira";
+    break;
+  case 2:
+    nomeDia = "Terça-feira";
+    break;
+  case 3:
+    nomeDia = "Quarta-feira";
+    break;
+  case 4:
+    nomeDia = "Quinta-feira";
+    break;
+  case 5:
+    nomeDia = "Sexta-feira";
+    break;
+  case 6:
+    nomeDia = "Sábado";
+    break;
+  case 7:
+    nomeDia = "Domingo";
+    break;
+  default:
+    nomeDia = "Dia inválido";
 }
 
 console.log(`Dia ${diaSemana} = ${nomeDia}`); // Quarta-feira
-
 
 // -------------------------------------------------------------------
 // 8. Switch com Agrupamento de Cases
@@ -288,30 +278,28 @@ const dia = "Sábado";
 let tipoDia;
 
 switch (dia) {
-    case "Segunda-feira":
-    case "Terça-feira":
-    case "Quarta-feira":
-    case "Quinta-feira":
-    case "Sexta-feira":
-        tipoDia = "Dia útil";
-        break;
-    case "Sábado":
-    case "Domingo":
-        tipoDia = "Final de semana";
-        break;
-    default:
-        tipoDia = "Dia inválido";
+  case "Segunda-feira":
+  case "Terça-feira":
+  case "Quarta-feira":
+  case "Quinta-feira":
+  case "Sexta-feira":
+    tipoDia = "Dia útil";
+    break;
+  case "Sábado":
+  case "Domingo":
+    tipoDia = "Final de semana";
+    break;
+  default:
+    tipoDia = "Dia inválido";
 }
 
 console.log(`${dia} é ${tipoDia}`); // Sábado é Final de semana
 
 console.log("-----------------------------");
 
-
 // ===================================================================
 // PARTE III: COMBINANDO FUNÇÕES + SWITCH
 // ===================================================================
-
 
 // -------------------------------------------------------------------
 // 9. Exemplo Prático: Mini Calculadora
@@ -327,45 +315,50 @@ console.log("\n--- 9. Mini Calculadora (Funções + Switch) ---");
  * que vocês farão como exercício!
  */
 
-function calcSomar(a, b) { return a + b; }
-function calcSubtrair(a, b) { return a - b; }
-function calcMultiplicar(a, b) { return a * b; }
+function calcSomar(a, b) {
+  return a + b;
+}
+function calcSubtrair(a, b) {
+  return a - b;
+}
+function calcMultiplicar(a, b) {
+  return a * b;
+}
 function calcDividir(a, b) {
-    if (b === 0) return "Erro: divisão por zero";
-    return a / b;
+  if (b === 0) return "Erro: divisão por zero";
+  return a / b;
 }
 
 function calculadora(operacao, num1, num2) {
-    let resultado;
+  let resultado;
 
-    switch (operacao) {
-        case "+":
-            resultado = calcSomar(num1, num2);
-            break;
-        case "-":
-            resultado = calcSubtrair(num1, num2);
-            break;
-        case "*":
-            resultado = calcMultiplicar(num1, num2);
-            break;
-        case "/":
-            resultado = calcDividir(num1, num2);
-            break;
-        default:
-            resultado = "Operação não reconhecida";
-    }
+  switch (operacao) {
+    case "+":
+      resultado = calcSomar(num1, num2);
+      break;
+    case "-":
+      resultado = calcSubtrair(num1, num2);
+      break;
+    case "*":
+      resultado = calcMultiplicar(num1, num2);
+      break;
+    case "/":
+      resultado = calcDividir(num1, num2);
+      break;
+    default:
+      resultado = "Operação não reconhecida";
+  }
 
-    return resultado;
+  return resultado;
 }
 
-console.log("10 + 5 =", calculadora("+", 10, 5));   // 15
-console.log("10 - 3 =", calculadora("-", 10, 3));    // 7
-console.log("4 * 8 =", calculadora("*", 4, 8));      // 32
-console.log("20 / 4 =", calculadora("/", 20, 4));    // 5
-console.log("? =", calculadora("%", 10, 5));          // Operação não reconhecida
+console.log("10 + 5 =", calculadora("+", 10, 5)); // 15
+console.log("10 - 3 =", calculadora("-", 10, 3)); // 7
+console.log("4 * 8 =", calculadora("*", 4, 8)); // 32
+console.log("20 / 4 =", calculadora("/", 20, 4)); // 5
+console.log("? =", calculadora("%", 10, 5)); // Operação não reconhecida
 
 console.log("-------------------------------------------");
-
 
 // -------------------------------------------------------------------
 // 10. Resumo

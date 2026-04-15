@@ -11,7 +11,6 @@
  * QUALQUER cliente (Postman, navegador, app mobile) possa acessar.
  */
 
-
 // -------------------------------------------------------------------
 // 1. O QUE É UMA API?
 // -------------------------------------------------------------------
@@ -33,7 +32,6 @@
  *     ele está CONSUMINDO a API de um serviço meteorológico.
  *   - Quando o Instagram carrega fotos, está consumindo a API do Instagram.
  */
-
 
 // -------------------------------------------------------------------
 // 2. O QUE É REST?
@@ -65,7 +63,6 @@
  *      500 → Internal Server Error (erro no servidor)
  */
 
-
 // -------------------------------------------------------------------
 // 3. VERBOS HTTP + CRUD
 // -------------------------------------------------------------------
@@ -84,7 +81,6 @@
  * └────────────┴──────────┴──────────────┴──────────────────────────┘
  */
 
-
 // -------------------------------------------------------------------
 // 4. O QUE É EXPRESS.JS?
 // -------------------------------------------------------------------
@@ -102,7 +98,7 @@
  * Instalação: npm install express
  */
 
-import express from 'express';
+import express from "express";
 const app = express();
 const porta = 3000;
 
@@ -116,7 +112,6 @@ app.use(express.json());
  * um objeto JavaScript (JSON → req.body).
  * Sem ele, req.body seria undefined!
  */
-
 
 // -------------------------------------------------------------------
 // 5. CRIANDO ROTAS (ENDPOINTS)
@@ -139,93 +134,91 @@ console.log("--- 5. Definindo Rotas ---");
 let produtos = [];
 let proximoId = 1;
 
-
 // 5a. GET / → Rota de teste (raiz)
-app.get('/', (req, res) => {
-    res.send('API de Produtos está no ar! 🚀');
+app.get("/", (req, res) => {
+  res.send("API de Produtos está no ar! 🚀");
 });
 
 // 5b. POST /produtos → Criar um produto
-app.post('/produtos', (req, res) => {
-    // req.body contém os dados enviados pelo cliente (JSON)
-    const { nome, preco, categoria } = req.body;
+app.post("/produtos", (req, res) => {
+  // req.body contém os dados enviados pelo cliente (JSON)
+  const { nome, preco, categoria } = req.body;
 
-    // Validação simples
-    if (!nome || !preco) {
-        return res.status(400).send({
-            mensagem: "Os campos 'nome' e 'preco' são obrigatórios."
-        });
-    }
+  // Validação simples
+  if (!nome || !preco) {
+    return res.status(400).send({
+      mensagem: "Os campos 'nome' e 'preco' são obrigatórios.",
+    });
+  }
 
-    const novoProduto = {
-        id: proximoId++,
-        nome,
-        preco,
-        categoria: categoria || "Geral"
-    };
+  const novoProduto = {
+    id: proximoId++,
+    nome,
+    preco,
+    categoria: categoria || "Geral",
+  };
 
-    produtos.push(novoProduto);
+  produtos.push(novoProduto);
 
-    // 201 = Created (recurso criado com sucesso)
-    res.status(201).send(novoProduto);
+  // 201 = Created (recurso criado com sucesso)
+  res.status(201).send(novoProduto);
 });
 
 // 5c. GET /produtos → Listar todos os produtos
-app.get('/produtos', (req, res) => {
-    // 200 = OK
-    res.status(200).send(produtos);
+app.get("/produtos", (req, res) => {
+  // 200 = OK
+  res.status(200).send(produtos);
 });
 
 // 5d. GET /produtos/:id → Buscar produto por ID
-app.get('/produtos/:id', (req, res) => {
-    /*
-     * req.params contém os parâmetros da URL.
-     * Na rota '/produtos/:id', se acessarmos '/produtos/3',
-     * req.params.id será "3" (string!).
-     * Precisamos converter para número com parseInt().
-     */
-    const id = parseInt(req.params.id);
-    const produto = produtos.find(p => p.id === id);
+app.get("/produtos/:id", (req, res) => {
+  /*
+   * req.params contém os parâmetros da URL.
+   * Na rota '/produtos/:id', se acessarmos '/produtos/3',
+   * req.params.id será "3" (string!).
+   * Precisamos converter para número com parseInt().
+   */
+  const id = parseInt(req.params.id);
+  const produto = produtos.find((p) => p.id === id);
 
-    if (!produto) {
-        return res.status(404).send({ mensagem: "Produto não encontrado." });
-    }
+  if (!produto) {
+    return res.status(404).send({ mensagem: "Produto não encontrado." });
+  }
 
-    res.status(200).send(produto);
+  res.status(200).send(produto);
 });
 
 // 5e. PUT /produtos/:id → Atualizar produto
-app.put('/produtos/:id', (req, res) => {
-    const id = parseInt(req.params.id);
-    const { nome, preco, categoria } = req.body;
+app.put("/produtos/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  const { nome, preco, categoria } = req.body;
 
-    const indice = produtos.findIndex(p => p.id === id);
+  const indice = produtos.findIndex((p) => p.id === id);
 
-    if (indice === -1) {
-        return res.status(404).send({ mensagem: "Produto não encontrado." });
-    }
+  if (indice === -1) {
+    return res.status(404).send({ mensagem: "Produto não encontrado." });
+  }
 
-    // Atualiza apenas os campos fornecidos
-    if (nome) produtos[indice].nome = nome;
-    if (preco) produtos[indice].preco = preco;
-    if (categoria) produtos[indice].categoria = categoria;
+  // Atualiza apenas os campos fornecidos
+  if (nome) produtos[indice].nome = nome;
+  if (preco) produtos[indice].preco = preco;
+  if (categoria) produtos[indice].categoria = categoria;
 
-    res.status(200).send(produtos[indice]);
+  res.status(200).send(produtos[indice]);
 });
 
 // 5f. DELETE /produtos/:id → Deletar produto
-app.delete('/produtos/:id', (req, res) => {
-    const id = parseInt(req.params.id);
-    const indice = produtos.findIndex(p => p.id === id);
+app.delete("/produtos/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  const indice = produtos.findIndex((p) => p.id === id);
 
-    if (indice === -1) {
-        return res.status(404).send({ mensagem: "Produto não encontrado." });
-    }
+  if (indice === -1) {
+    return res.status(404).send({ mensagem: "Produto não encontrado." });
+  }
 
-    produtos.splice(indice, 1);
-    res.status(200).send({ mensagem: "Produto deletado com sucesso." });
+  produtos.splice(indice, 1);
+  res.status(200).send({ mensagem: "Produto deletado com sucesso." });
 });
-
 
 // -------------------------------------------------------------------
 // 6. BUSCA com QUERY PARAMS
@@ -245,24 +238,19 @@ app.delete('/produtos/:id', (req, res) => {
  *   req.body   → Dados no CORPO da requisição (POST/PUT)
  */
 
-app.get('/produtos/busca', (req, res) => {
-    const { nome, categoria } = req.query;
-    let resultados = produtos;
+app.get("/produtos/busca", (req, res) => {
+  const { nome, categoria } = req.query;
+  let resultados = produtos;
 
-    if (nome) {
-        resultados = resultados.filter(p =>
-            p.nome.toLowerCase().includes(nome.toLowerCase())
-        );
-    }
-    if (categoria) {
-        resultados = resultados.filter(p =>
-            p.categoria.toLowerCase().includes(categoria.toLowerCase())
-        );
-    }
+  if (nome) {
+    resultados = resultados.filter((p) => p.nome.toLowerCase().includes(nome.toLowerCase()));
+  }
+  if (categoria) {
+    resultados = resultados.filter((p) => p.categoria.toLowerCase().includes(categoria.toLowerCase()));
+  }
 
-    res.status(200).send(resultados);
+  res.status(200).send(resultados);
 });
-
 
 // -------------------------------------------------------------------
 // 7. TESTANDO COM POSTMAN
@@ -299,7 +287,6 @@ app.get('/produtos/busca', (req, res) => {
  *    - URL: http://localhost:3000/produtos/1
  */
 
-
 // -------------------------------------------------------------------
 // 8. RESUMO
 // -------------------------------------------------------------------
@@ -321,7 +308,6 @@ app.get('/produtos/busca', (req, res) => {
  * └──────────────────────┴────────────────────────────────────────────┘
  */
 
-
 // -------------------------------------------------------------------
 // 9. INICIANDO O SERVIDOR
 // -------------------------------------------------------------------
@@ -339,8 +325,8 @@ app.get('/produtos/busca', (req, res) => {
  */
 
 app.listen(porta, () => {
-    console.log(`\n================================================`);
-    console.log(`Servidor rodando em http://localhost:${porta}`);
-    console.log(`Teste no Postman ou no navegador!`);
-    console.log(`================================================`);
+  console.log(`\n================================================`);
+  console.log(`Servidor rodando em http://localhost:${porta}`);
+  console.log(`Teste no Postman ou no navegador!`);
+  console.log(`================================================`);
 });

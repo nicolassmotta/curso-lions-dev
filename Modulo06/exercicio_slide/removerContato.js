@@ -1,11 +1,9 @@
 function removerContato(contatos, id) {
+  const indice = contatos.findIndex((contato) => contato.id === id);
 
-    const index = contatos.findIndex(contato => contato.id === id)
-    
-    if (index !== -1) {
-        contatos.splice(index, 1)
-    }
+  if (indice !== -1) {
+    contatos.splice(indice, 1);
+  }
 }
 
-export default removerContato
-
+export default removerContato;

@@ -4,11 +4,11 @@
 // criar uma variável para calcular e armazenar a média aritmética
 // imprimir a mensagem final exibindo o resultado da média
 
-import promptSync from "prompt-sync"
+import promptSync from "prompt-sync";
 
 const prompt = promptSync();
 
-let num1 = parseFloat(prompt('Qual foi a sua nota da prova 01? '));
-let num2 = parseFloat(prompt('Qual foi a sua nota da prova 02? '));
+let num1 = parseFloat(prompt("Qual foi a sua nota da prova 01? "));
+let num2 = parseFloat(prompt("Qual foi a sua nota da prova 02? "));
 
 console.log(num1 + num2 / 2);

@@ -15,12 +15,9 @@ app.post("/livros", (req, res) => {
   const { titulo, autor, ano, genero } = req.body;
 
   if (!titulo || !autor || !ano || !genero) {
-    return res
-      .status(400)
-      .send({
-        mensagem:
-          "Todos os campos (titulo, autor, ano, genero) são obrigatórios.",
-      });
+    return res.status(400).send({
+      mensagem: "Todos os campos (titulo, autor, ano, genero) são obrigatórios.",
+    });
   }
 
   const novoLivro = {
@@ -49,7 +46,7 @@ app.put("/livros/:id", (req, res) => {
 
   if (indice === -1) {
     return res.status(404).send({ mensagem: "Livro não encontrado." });
-  } 
+  }
 
   livros[indice].titulo = titulo || livros[indice].titulo;
   livros[indice].autor = autor || livros[indice].autor;
@@ -78,22 +75,16 @@ app.get("/livros/busca", (req, res) => {
   let resultados = livros;
 
   if (titulo) {
-    resultados = resultados.filter((l) =>
-      l.titulo.toLowerCase().includes(titulo.toLowerCase())
-    );
+    resultados = resultados.filter((l) => l.titulo.toLowerCase().includes(titulo.toLowerCase()));
   }
   if (autor) {
-    resultados = resultados.filter((l) =>
-      l.autor.toLowerCase().includes(autor.toLowerCase())
-    );
+    resultados = resultados.filter((l) => l.autor.toLowerCase().includes(autor.toLowerCase()));
   }
   if (ano) {
     resultados = resultados.filter((l) => l.ano === parseInt(ano));
   }
   if (genero) {
-    resultados = resultados.filter((l) =>
-      l.genero.toLowerCase().includes(genero.toLowerCase())
-    );
+    resultados = resultados.filter((l) => l.genero.toLowerCase().includes(genero.toLowerCase()));
   }
 
   res.status(200).send(resultados);

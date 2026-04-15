@@ -8,18 +8,17 @@
  *
  * Ele é "sincrono" (sync) porque o programa "espera" o usuário
  * digitar algo antes de continuar.
-*/
+ */
 
 //Exemplo de uso:
 // 1. Prepara a ferramenta
-import promptSync from 'prompt-sync';
+import promptSync from "prompt-sync";
 const prompt = promptSync();
 // 2. Pergunta e guarda a resposta (sempre vira String!)
 let nome = prompt("Qual seu nome? ");
 let cidade = prompt("Onde você mora? ");
 
 console.log("Olá " + nome + ", de " + cidade + "!");
-
 
 // -------------------------------------------------------------------
 // 2. COMO INSTALAR UM PACOTE NPM?

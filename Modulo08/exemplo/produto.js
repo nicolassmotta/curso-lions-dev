@@ -1,8 +1,8 @@
-import mongoose from "mongoose"
+import mongoose from "mongoose";
 
-const produtoSchema = new mongoose.Schema ({
-    nome: String,
-    preco: Number
-})
+const produtoSchema = new mongoose.Schema({
+  nome: String,
+  preco: Number,
+});
 
-export default mongoose.model(`produto`, produtoSchema)
+export default mongoose.model(`produto`, produtoSchema);

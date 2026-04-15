@@ -7,27 +7,23 @@
 // imprimir a mensagem personalizada caso o valor seja verdadeiro (true)
 // imprimir uma mensagem diferente caso o valor seja falso (false)
 
-import promptSync from "prompt-sync"
+import promptSync from "prompt-sync";
 
-const prompt = promptSync()
+const prompt = promptSync();
 
-let resposta
-let gostaDeCafe
+let resposta;
+let gostaDeCafe;
 
-resposta = prompt('Você gosta de café?\n[S]- Sim\n[N] - Não\nResposta: ').toUpperCase().trim()
+resposta = prompt("Você gosta de café?\n[S]- Sim\n[N] - Não\nResposta: ").toUpperCase().trim();
 
 if (resposta == "S") {
-    gostaDeCafe = true
-
+  gostaDeCafe = true;
 } else {
-    gostaDeCafe = false
-
+  gostaDeCafe = false;
 }
 
 if (gostaDeCafe) {
-    console.log("Então você gosta de café!");
-
+  console.log("Então você gosta de café!");
 } else {
-    console.log("Você deveria experimentar!");
-    
+  console.log("Você deveria experimentar!");
 }

@@ -47,18 +47,17 @@ const numeros = [10, 20, 30, 40, 50];
 console.log("Iniciando o loop..."); // <-- COLOQUE O BREAKPOINT AQUI (Linha 55)
 
 for (let i = 0; i < numeros.length; i++) {
-    let numeroAtual = numeros[i];
-    
-    console.log(`Loop ${i}: Valor de 'total' ANTES de somar: ${total}`);
-    
-    total = total + numeroAtual;
-    
-    console.log(`Loop ${i}: Somando ${numeroAtual}. 'total' AGORA é: ${total}`);
+  let numeroAtual = numeros[i];
+
+  console.log(`Loop ${i}: Valor de 'total' ANTES de somar: ${total}`);
+
+  total = total + numeroAtual;
+
+  console.log(`Loop ${i}: Somando ${numeroAtual}. 'total' AGORA é: ${total}`);
 }
 
 console.log("Loop finalizado.");
 console.log("O valor total final é:", total);
-
 
 // 6. PAINÉIS DE DEBUG:
 //    - Com o código pausado, olhe o painel "VARIABLES" (Variáveis) no canto superior esquerdo.

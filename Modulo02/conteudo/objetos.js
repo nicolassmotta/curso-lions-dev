@@ -16,11 +16,11 @@
 // 1. Criando um Objeto
 // Objetos são criados com chaves {}
 const pessoa = {
-    // chave: valor,
-    nome: "Nicolas",
-    idade: 30,
-    temCnh: true,
-    cidade: "São Paulo"
+  // chave: valor,
+  nome: "Nicolas",
+  idade: 30,
+  temCnh: true,
+  cidade: "São Paulo",
 };
 
 console.log("Objeto 'pessoa':", pessoa);
@@ -30,9 +30,9 @@ console.log("================================================");
 // 2. Acessando Propriedades (Valores)
 // Usamos a "notação de ponto" (ponto final) para acessar o valor de uma chave.
 
-console.log("O nome da pessoa é:", pessoa.nome);       // Saída: Nicolas
-console.log("A idade da pessoa é:", pessoa.idade);     // Saída: 30
-console.log("Mora em:", pessoa.cidade);            // Saída: São Paulo
+console.log("O nome da pessoa é:", pessoa.nome); // Saída: Nicolas
+console.log("A idade da pessoa é:", pessoa.idade); // Saída: 30
+console.log("Mora em:", pessoa.cidade); // Saída: São Paulo
 
 console.log("================================================");
 
@@ -56,14 +56,15 @@ console.log("================================================");
 // O valor de uma chave pode ser qualquer coisa, inclusive um Array ou outro Objeto.
 
 const carro = {
-    marca: "Toyota",
-    modelo: "Corolla",
-    ano: 2024,
-    opcionais: ["Ar Condicionado", "Vidro Elétrico", "Câmera de Ré"], // Um Array
-    motor: { // Um Objeto
-        potencia: "177cv",
-        combustivel: "Híbrido"
-    }
+  marca: "Toyota",
+  modelo: "Corolla",
+  ano: 2024,
+  opcionais: ["Ar Condicionado", "Vidro Elétrico", "Câmera de Ré"], // Um Array
+  motor: {
+    // Um Objeto
+    potencia: "177cv",
+    combustivel: "Híbrido",
+  },
 };
 
 console.log("Objeto 'carro':", carro);

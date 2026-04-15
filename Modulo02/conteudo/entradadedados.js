@@ -20,45 +20,42 @@ let entradaUsuario = "";
 // O evento 'data' é disparado quando o usuário digita algo e pressiona Enter.
 // O 'data' é um Buffer, por isso precisa de .toString().
 process.stdin.on("data", function (data) {
+  entradaUsuario = data.toString().trim(); // Converte, remove espaços extras
 
-    entradaUsuario = data.toString().trim(); // Converte, remove espaços extras
+  // console.log("Você digitou: " + entradaUsuario);
+  // Para não parar o script aqui, vamos apenas armazenar e continuar...
 
-    // console.log("Você digitou: " + entradaUsuario);
-    // Para não parar o script aqui, vamos apenas armazenar e continuar...
-    
-    // NOTA: Para um script real, você colocaria toda a lógica aqui dentro
-    // ou usaria 'readline' (próximo exemplo) para um controle melhor.
-    
-    // Vamos comentar o process.exit() para permitir que o próximo bloco execute
-    // process.exit(); 
+  // NOTA: Para um script real, você colocaria toda a lógica aqui dentro
+  // ou usaria 'readline' (próximo exemplo) para um controle melhor.
+
+  // Vamos comentar o process.exit() para permitir que o próximo bloco execute
+  // process.exit();
 });
-
 
 // -------------------------------------------------------------------
 // 2. Módulo 'readline' (A forma mais controlada e moderna no Node.js)
 // -------------------------------------------------------------------
 
 // O 'readline' facilita a leitura linha por linha.
-import * as readline from 'readline'; // Necessita do módulo 'readline' do Node.js
+import * as readline from "readline"; // Necessita do módulo 'readline' do Node.js
 
 const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
+  input: process.stdin,
+  output: process.stdout,
 });
 
 function obterNomeUsuario() {
-    rl.question('\n--- 2. readline --- \nQual é o seu nome? ', (nome) => {
-        console.log(`Olá, ${nome}! O readline simplifica a entrada.`);
+  rl.question("\n--- 2. readline --- \nQual é o seu nome? ", (nome) => {
+    console.log(`Olá, ${nome}! O readline simplifica a entrada.`);
 
-        // 3. Método 'close()' é crucial para liberar o processo de entrada
-        rl.close(); 
-    });
+    // 3. Método 'close()' é crucial para liberar o processo de entrada
+    rl.close();
+  });
 }
 
 // Chame a função para executar o prompt do readline
 // AVISO: Em um ambiente real, você só chamaria um método de entrada por vez.
 // obterNomeUsuario();
-
 
 // -------------------------------------------------------------------
 // 3. Argumentos de Linha de Comando (Passando dados ao executar o script)
@@ -76,14 +73,13 @@ console.log("\n--- 3. process.argv (Linha de Comando) ---");
 // process.argv[1] é o caminho do script
 // process.argv[2] é o primeiro argumento do usuário, e assim por diante.
 if (process.argv.length > 2) {
-    const primeiroArg = process.argv[2];
-    console.log(`Primeiro argumento recebido na execução: ${primeiroArg}`);
+  const primeiroArg = process.argv[2];
+  console.log(`Primeiro argumento recebido na execução: ${primeiroArg}`);
 } else {
-    console.log("Nenhum argumento de linha de comando foi fornecido (além do script).");
+  console.log("Nenhum argumento de linha de comando foi fornecido (além do script).");
 }
 
 console.log("-------------------------------------------");
-
 
 // ===================================================================
 // PARTE II: ENTRADA DE DADOS NO BROWSER (FRONT-END)

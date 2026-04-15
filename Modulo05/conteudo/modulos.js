@@ -13,7 +13,6 @@
  * A solução é: MÓDULOS.
  */
 
-
 // -------------------------------------------------------------------
 // 1. O PROBLEMA: CÓDIGO MONOLÍTICO
 // -------------------------------------------------------------------
@@ -34,7 +33,6 @@
  *   ANTES (Módulo 03): 1 arquivo com tudo (funções + menu + lógica)
  *   DEPOIS (Módulo 05): 1 arquivo por função + 1 arquivo principal
  */
-
 
 // -------------------------------------------------------------------
 // 2. O QUE SÃO MÓDULOS ES (ES MODULES)?
@@ -57,7 +55,6 @@
  *
  * Sem isso, o Node.js usará o sistema antigo (CommonJS com require()).
  */
-
 
 // -------------------------------------------------------------------
 // 3. EXPORT DEFAULT (Exportação Padrão)
@@ -86,10 +83,9 @@
 
 // Simulando um export default para demonstração:
 function somar(a, b) {
-    return a + b;
+  return a + b;
 }
 // export default somar; // ← Descomente isso se este arquivo for um módulo real
-
 
 // -------------------------------------------------------------------
 // 4. IMPORT (Importação)
@@ -120,7 +116,6 @@ function somar(a, b) {
  *    import minhaFuncao from './somar.js'; // ✅ Também funciona (mesmo arquivo!)
  */
 
-
 // -------------------------------------------------------------------
 // 5. EXPORT NOMEADO (Named Export)
 // -------------------------------------------------------------------
@@ -149,7 +144,6 @@ function somar(a, b) {
  * e o NOME deve ser EXATAMENTE igual ao que foi exportado!
  */
 
-
 // -------------------------------------------------------------------
 // 6. COMPARAÇÃO: DEFAULT vs. NOMEADO
 // -------------------------------------------------------------------
@@ -166,7 +160,6 @@ function somar(a, b) {
  * └────────────────────┴────────────────────┴────────────────────────┘
  */
 
-
 // -------------------------------------------------------------------
 // 7. IMPORTANDO PACOTES DO NPM
 // -------------------------------------------------------------------
@@ -181,11 +174,10 @@ function somar(a, b) {
  * O Node.js sabe que sem './' ele deve procurar na pasta node_modules.
  */
 
-import promptSync from 'prompt-sync'; // ← Exemplo real: importando do NPM
+import promptSync from "prompt-sync"; // ← Exemplo real: importando do NPM
 
 const prompt = promptSync();
 console.log("Pacote 'prompt-sync' importado com sucesso via ES Modules!");
-
 
 // -------------------------------------------------------------------
 // 8. ORGANIZAÇÃO DE ARQUIVOS NA PRÁTICA
@@ -213,7 +205,6 @@ console.log("Pacote 'prompt-sync' importado com sucesso via ES Modules!");
  *   ✅ Em equipe, cada pessoa pode trabalhar em um arquivo
  */
 
-
 // -------------------------------------------------------------------
 // 9. DICAS E ERROS COMUNS
 // -------------------------------------------------------------------
@@ -238,7 +229,6 @@ console.log("Pacote 'prompt-sync' importado com sucesso via ES Modules!");
  *
  *    import principal, { auxiliar1, auxiliar2 } from './arquivo.js';
  */
-
 
 // -------------------------------------------------------------------
 // 10. RESUMO

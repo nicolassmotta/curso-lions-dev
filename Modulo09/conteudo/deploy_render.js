@@ -11,7 +11,6 @@
  * para que qualquer pessoa no mundo possa acessar.
  */
 
-
 // -------------------------------------------------------------------
 // 1. O QUE É DEPLOY?
 // -------------------------------------------------------------------
@@ -29,7 +28,6 @@
  *
  * Assim qualquer pessoa do mundo pode acessar, não só você!
  */
-
 
 // -------------------------------------------------------------------
 // 2. POR QUE RENDER.COM?
@@ -50,7 +48,6 @@
  *   ✅ Suporta Node.js nativamente
  *   ✅ Deploy automático a cada push
  */
-
 
 // -------------------------------------------------------------------
 // 3. PREPARANDO SEU PROJETO PARA O DEPLOY
@@ -116,7 +113,6 @@ console.log(`Servidor configurado para rodar na porta: ${PORT}`);
  *    - .env              (NUNCA subir para o GitHub)
  */
 
-
 // -------------------------------------------------------------------
 // 4. PASSO A PASSO DO DEPLOY NO RENDER.COM
 // -------------------------------------------------------------------
@@ -168,7 +164,6 @@ console.log(`Servidor configurado para rodar na porta: ${PORT}`);
  *   - Abra no navegador ou teste com Postman!
  */
 
-
 // -------------------------------------------------------------------
 // 5. O ARQUIVO render.yaml (Infrastructure as Code)
 // -------------------------------------------------------------------
@@ -203,7 +198,6 @@ console.log(`Servidor configurado para rodar na porta: ${PORT}`);
  * para um exemplo completo.
  */
 
-
 // -------------------------------------------------------------------
 // 6. DEPLOY AUTOMÁTICO (Continuous Deployment)
 // -------------------------------------------------------------------
@@ -222,7 +216,6 @@ console.log(`Servidor configurado para rodar na porta: ${PORT}`);
  * Para ativar: Na configuração do serviço no Render, marque
  * "Auto-Deploy" como "Yes".
  */
-
 
 // -------------------------------------------------------------------
 // 7. PROBLEMAS COMUNS E COMO RESOLVER
@@ -249,7 +242,6 @@ console.log(`Servidor configurado para rodar na porta: ${PORT}`);
  *    → Isso é normal no plano gratuito
  *    → Em produção real, use um plano pago para evitar isso
  */
-
 
 // -------------------------------------------------------------------
 // 8. RESUMO DOS CONCEITOS

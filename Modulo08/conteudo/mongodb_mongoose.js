@@ -13,7 +13,6 @@
  * do servidor!
  */
 
-
 // -------------------------------------------------------------------
 // 1. BANCOS DE DADOS: SQL vs NoSQL
 // -------------------------------------------------------------------
@@ -43,7 +42,6 @@
  *   ✅ MongoDB Atlas oferece plano gratuito na nuvem
  */
 
-
 // -------------------------------------------------------------------
 // 2. CONCEITOS DO MONGODB
 // -------------------------------------------------------------------
@@ -64,7 +62,6 @@
  * (na verdade, formato BSON — Binary JSON).
  */
 
-
 // -------------------------------------------------------------------
 // 3. O QUE É O MONGOOSE?
 // -------------------------------------------------------------------
@@ -82,7 +79,6 @@
  * Instalação:
  *   $ npm install mongoose
  */
-
 
 // -------------------------------------------------------------------
 // 4. CONECTANDO AO MONGODB ATLAS
@@ -103,8 +99,8 @@
  *   mongodb+srv://USUARIO:SENHA@cluster.mongodb.net/NOME_DO_BANCO
  */
 
-import mongoose from 'mongoose';
-import dotenv from 'dotenv';
+import mongoose from "mongoose";
+import dotenv from "dotenv";
 
 // Carrega variáveis do arquivo .env para process.env
 dotenv.config();
@@ -122,16 +118,15 @@ dotenv.config();
 const MONGO_URI = process.env.MONGO_URI;
 
 async function conectarBanco() {
-    try {
-        await mongoose.connect(MONGO_URI);
-        console.log("✅ MongoDB conectado com sucesso!");
-    } catch (error) {
-        console.log("❌ Erro ao conectar ao MongoDB:", error.message);
-    }
+  try {
+    await mongoose.connect(MONGO_URI);
+    console.log("✅ MongoDB conectado com sucesso!");
+  } catch (error) {
+    console.log("❌ Erro ao conectar ao MongoDB:", error.message);
+  }
 }
 
 // conectarBanco(); // Descomente para testar a conexão
-
 
 // -------------------------------------------------------------------
 // 5. SCHEMAS E MODELS (O "Molde" dos Dados)
@@ -151,24 +146,24 @@ async function conectarBanco() {
  */
 
 const ProdutoSchema = new mongoose.Schema({
-    nome: {
-        type: String,                              // Tipo: texto
-        required: [true, "O nome é obrigatório."], // Validação
-        trim: true                                 // Remove espaços extras
-    },
-    preco: {
-        type: Number,                              // Tipo: número
-        required: [true, "O preço é obrigatório."],
-        min: [0, "O preço não pode ser negativo."] // Validação de mínimo
-    },
-    categoria: {
-        type: String,
-        default: "Geral"                           // Valor padrão
-    },
-    emEstoque: {
-        type: Boolean,
-        default: true
-    }
+  nome: {
+    type: String, // Tipo: texto
+    required: [true, "O nome é obrigatório."], // Validação
+    trim: true, // Remove espaços extras
+  },
+  preco: {
+    type: Number, // Tipo: número
+    required: [true, "O preço é obrigatório."],
+    min: [0, "O preço não pode ser negativo."], // Validação de mínimo
+  },
+  categoria: {
+    type: String,
+    default: "Geral", // Valor padrão
+  },
+  emEstoque: {
+    type: Boolean,
+    default: true,
+  },
 });
 
 // O Model é criado a partir do Schema:
@@ -184,7 +179,6 @@ const Produto = mongoose.model("Produto", ProdutoSchema);
  *   Produto.findByIdAndDelete() → Deletar por ID
  */
 
-
 // -------------------------------------------------------------------
 // 6. OPERAÇÕES CRUD COM MONGOOSE
 // -------------------------------------------------------------------
@@ -196,74 +190,73 @@ const Produto = mongoose.model("Produto", ProdutoSchema);
 
 // 6a. CREATE — Criar um documento
 async function criarProduto() {
-    try {
-        const novoProduto = await Produto.create({
-            nome: "Arroz Integral",
-            preco: 12.90,
-            categoria: "Alimentos"
-        });
-        console.log("Produto criado:", novoProduto);
-    } catch (error) {
-        console.log("Erro ao criar:", error.message);
-    }
+  try {
+    const novoProduto = await Produto.create({
+      nome: "Arroz Integral",
+      preco: 12.9,
+      categoria: "Alimentos",
+    });
+    console.log("Produto criado:", novoProduto);
+  } catch (error) {
+    console.log("Erro ao criar:", error.message);
+  }
 }
 
 // 6b. READ — Listar todos os documentos
 async function listarProdutos() {
-    try {
-        const produtos = await Produto.find(); // Sem filtro = todos
-        console.log("Todos os produtos:", produtos);
-    } catch (error) {
-        console.log("Erro ao listar:", error.message);
-    }
+  try {
+    const produtos = await Produto.find(); // Sem filtro = todos
+    console.log("Todos os produtos:", produtos);
+  } catch (error) {
+    console.log("Erro ao listar:", error.message);
+  }
 }
 
 // 6c. READ — Buscar por ID
 async function buscarPorId(id) {
-    try {
-        const produto = await Produto.findById(id);
-        if (!produto) {
-            console.log("Produto não encontrado.");
-            return;
-        }
-        console.log("Produto encontrado:", produto);
-    } catch (error) {
-        console.log("Erro ao buscar:", error.message);
+  try {
+    const produto = await Produto.findById(id);
+    if (!produto) {
+      console.log("Produto não encontrado.");
+      return;
     }
+    console.log("Produto encontrado:", produto);
+  } catch (error) {
+    console.log("Erro ao buscar:", error.message);
+  }
 }
 
 // 6d. UPDATE — Atualizar por ID
 async function atualizarProduto(id, novosDados) {
-    try {
-        const produtoAtualizado = await Produto.findByIdAndUpdate(
-            id,                         // Qual documento
-            novosDados,                 // O que atualizar
-            { new: true }               // Retorna o documento ATUALIZADO (não o antigo)
-        );
-        if (!produtoAtualizado) {
-            console.log("Produto não encontrado.");
-            return;
-        }
-        console.log("Produto atualizado:", produtoAtualizado);
-    } catch (error) {
-        console.log("Erro ao atualizar:", error.message);
+  try {
+    const produtoAtualizado = await Produto.findByIdAndUpdate(
+      id, // Qual documento
+      novosDados, // O que atualizar
+      { new: true } // Retorna o documento ATUALIZADO (não o antigo)
+    );
+    if (!produtoAtualizado) {
+      console.log("Produto não encontrado.");
+      return;
     }
+    console.log("Produto atualizado:", produtoAtualizado);
+  } catch (error) {
+    console.log("Erro ao atualizar:", error.message);
+  }
 }
 
 // 6e. DELETE — Deletar por ID
 async function deletarProduto(id) {
-    try {
-        const produtoDeletado = await Produto.findByIdAndDelete(id);
-        if (!produtoDeletado) {
-            console.log("Produto não encontrado.");
-            return;
-        }
-        console.log("Produto deletado:", produtoDeletado);
-    } catch (error) {
-        console.log("Erro ao deletar:", error.message);
+  try {
+    const produtoDeletado = await Produto.findByIdAndDelete(id);
+    if (!produtoDeletado) {
+      console.log("Produto não encontrado.");
+      return;
     }
+    console.log("Produto deletado:", produtoDeletado);
+  } catch (error) {
+    console.log("Erro ao deletar:", error.message);
+  }
 }
-
 
 // -------------------------------------------------------------------
 // 7. VARIÁVEIS DE AMBIENTE COM DOTENV
@@ -290,7 +283,6 @@ async function deletarProduto(id) {
  *   3. No Render/produção, configure as variáveis pela interface web
  */
 
-
 // -------------------------------------------------------------------
 // 8. ESTRUTURA MVC (Model — View — Controller)
 // -------------------------------------------------------------------
@@ -311,7 +303,6 @@ async function deletarProduto(id) {
  * Veja os exercicios_resolvidos/ para exemplos completos
  * com essa estrutura (feiraOnline e albumFigurinhas).
  */
-
 
 // -------------------------------------------------------------------
 // 9. RESUMO

@@ -1,6 +1,6 @@
 import express from "express";
 const app = express();
-const porta = 3000; 
+const porta = 3000;
 
 app.use(express.json());
 
@@ -12,7 +12,7 @@ app.post("/estudantes/criar", (req, res) => {
   const { nome, matricula, curso, ano } = req.body;
 
   if (!nome || !matricula || !curso || !ano) {
-    return res.status(400).send({ mensagem:"Todos os campos (nome, matricula, curso, ano) são obrigatórios.", });
+    return res.status(400).send({ mensagem: "Todos os campos (nome, matricula, curso, ano) são obrigatórios." });
   }
 
   const novoEstudante = {
@@ -29,9 +29,8 @@ app.post("/estudantes/criar", (req, res) => {
 
 // 2. Leitura (Listagem) de Estudantes (GET /estudantes)
 app.get("/estudantes", (req, res) => {
-
   if (estudantes == null) {
-    res.status(200).send({message: "não existem estudantes cadastrados"})
+    res.status(200).send({ message: "não existem estudantes cadastrados" });
   }
   res.status(200).send(estudantes);
 });
@@ -61,11 +60,11 @@ app.delete("/estudantes/:id", (req, res) => {
   const indice = estudantes.findIndex((e) => e.id === id);
 
   if (indice === -1) {
-    return res.status(404).send({ mensagem: "Estudante não encontrado." }); 
+    return res.status(404).send({ mensagem: "Estudante não encontrado." });
   }
 
   estudantes.splice(indice, 1);
-  res.status(200).send({ mensagem: "Estudante deletado com sucesso." }); 
+  res.status(200).send({ mensagem: "Estudante deletado com sucesso." });
 });
 
 // 5. Busca de Estudantes (GET /estudantes/busca)
@@ -74,17 +73,13 @@ app.get("/estudantes/busca", (req, res) => {
   let resultados = estudantes;
 
   if (nome) {
-    resultados = resultados.filter((e) =>
-      e.nome.toLowerCase().includes(nome.toLowerCase())
-    );
+    resultados = resultados.filter((e) => e.nome.toLowerCase().includes(nome.toLowerCase()));
   }
   if (matricula) {
     resultados = resultados.filter((e) => e.matricula.includes(matricula));
   }
   if (curso) {
-    resultados = resultados.filter((e) =>
-      e.curso.toLowerCase().includes(curso.toLowerCase())
-    );
+    resultados = resultados.filter((e) => e.curso.toLowerCase().includes(curso.toLowerCase()));
   }
 
   res.status(200).send(resultados);

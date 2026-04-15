@@ -1,5 +1,5 @@
-function Subtrair(num1, num2) {
-    return num1 - num2
+function subtrair(num1, num2) {
+  return num1 - num2;
 }
 
-export default Subtrair
+export default subtrair;

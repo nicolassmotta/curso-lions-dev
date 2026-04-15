@@ -53,17 +53,18 @@ const idadePermitida = 20;
 
 // E (&& - AND): Só retorna TRUE se TODAS as condições forem TRUE
 if (temDinheiro && idadePermitida >= 18) {
-    console.log("AND (&&): Condição de compra aprovada (tem dinheiro E é maior de idade)."); // Executa
+  console.log("AND (&&): Condição de compra aprovada (tem dinheiro E é maior de idade)."); // Executa
 }
 
 // OU (|| - OR): Retorna TRUE se PELO MENOS UMA das condições for TRUE
 if (temDinheiro || temVisto) {
-    console.log("OR (||): Pode viajar (tem dinheiro OU tem visto)."); // Executa (pois temDinheiro é true)
+  console.log("OR (||): Pode viajar (tem dinheiro OU tem visto)."); // Executa (pois temDinheiro é true)
 }
 
 // NÃO (! - NOT): Inverte o valor booleano (true vira false e vice-versa)
-if (!temVisto) { // !false resulta em true
-    console.log("NOT (!): O visto NÃO foi emitido."); // Executa
+if (!temVisto) {
+  // !false resulta em true
+  console.log("NOT (!): O visto NÃO foi emitido."); // Executa
 }
 
 console.log("-------------------------------");
@@ -77,25 +78,25 @@ const cargo = "Gerente";
 const salario = 6000;
 
 if ((cargo === "Gerente" || cargo === "Diretor") && salario > 5000) {
-    console.log("\nEx. 4: Acesso de nível alto concedido."); // Executa
+  console.log("\nEx. 4: Acesso de nível alto concedido."); // Executa
 } else {
-    console.log("\nEx. 4: Acesso de nível padrão.");
+  console.log("\nEx. 4: Acesso de nível padrão.");
 }
 
 // Exemplo 5: switch com Agrupamento
-const nivel = 'A';
+const nivel = "A";
 let mensagemNivel;
 
 switch (nivel) {
-    case 'A':
-    case 'B': // Agrupando A e B (funciona como um OR lógico)
-        mensagemNivel = "Parabéns, seu nível é excelente!";
-        break;
-    case 'C':
-        mensagemNivel = "Seu nível é bom, mas pode melhorar.";
-        break;
-    default:
-        mensagemNivel = "Nível não reconhecido.";
+  case "A":
+  case "B": // Agrupando A e B (funciona como um OR lógico)
+    mensagemNivel = "Parabéns, seu nível é excelente!";
+    break;
+  case "C":
+    mensagemNivel = "Seu nível é bom, mas pode melhorar.";
+    break;
+  default:
+    mensagemNivel = "Nível não reconhecido.";
 }
 console.log(`\nEx. 5: Avaliação do Nível ${nivel}: ${mensagemNivel}`); // Executa 'A'
 
@@ -104,13 +105,13 @@ const isPremium = true;
 const carrinhoVazio = false;
 
 // Se for Premium OU o carrinho estiver vazio, o frete é grátis.
-const frete = (isPremium || carrinhoVazio) ? "Grátis" : "R$ 15,00"; 
+const frete = isPremium || carrinhoVazio ? "Grátis" : "R$ 15,00";
 
 console.log(`\nEx. 6: Frete calculado: ${frete}`); // Grátis
 
 // Exemplo 7: Curto-Circuito Lógico
 /*
- * O JS avalia apenas o necessário. Se o primeiro operando já define o resultado, 
+ * O JS avalia apenas o necessário. Se o primeiro operando já define o resultado,
  * o segundo nem é avaliado.
  */
 
@@ -123,5 +124,5 @@ console.log("\nEx. 7: Curto-Circuito (&&): Dados carregados:", dados); // Carreg
 
 const usuarioInativo = false;
 // Curto-Circuito com ||: Se usuarioInativo é false, JS retorna a segunda parte
-const valorFinal = usuarioInativo || 50; 
+const valorFinal = usuarioInativo || 50;
 console.log("Ex. 7: Curto-Circuito (||): Valor Final:", valorFinal); // 50

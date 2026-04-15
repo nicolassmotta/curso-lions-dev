@@ -19,7 +19,6 @@ console.log("Idade:", idade);
 // - um TIPO (string, number, boolean, etc.)
 // - um VALOR (dados armazenados)
 
-
 // ======================================================
 // 2️⃣ Tipos de declaração de variáveis
 // ======================================================
@@ -43,7 +42,6 @@ console.log(constante);
 // pois pode causar comportamentos inesperados.
 // 'let' e 'const' são mais previsíveis.
 
-
 // ======================================================
 // 3️⃣ Diferença entre var, let e const na prática
 // ======================================================
@@ -62,7 +60,6 @@ console.log("Fora do bloco:", exemploVar);
 // console.log(exemploLet);  // ❌ erro: não acessível
 // console.log(exemploConst); // ❌ erro: não acessível
 
-
 // ======================================================
 // 4️⃣ Tipos de dados em JavaScript
 // ======================================================
@@ -73,16 +70,15 @@ console.log("Fora do bloco:", exemploVar);
 //
 // Principais tipos primitivos:
 
-let texto = "Olá, mundo!";     // string
-let numeroInteiro = 10;        // number
-let numeroDecimal = 3.14;      // number (float)
-let ligado = true;             // boolean
-let desligado = false;         // boolean
-let nulo = null;               // valor nulo
-let indefinido;                // undefined (não inicializado)
+let texto = "Olá, mundo!"; // string
+let numeroInteiro = 10; // number
+let numeroDecimal = 3.14; // number (float)
+let ligado = true; // boolean
+let desligado = false; // boolean
+let nulo = null; // valor nulo
+let indefinido; // undefined (não inicializado)
 
 console.log(typeof texto, typeof numeroInteiro, typeof ligado);
-
 
 // ======================================================
 // 5️⃣ Strings e concatenação
@@ -101,7 +97,6 @@ console.log(mensagem);
 // Usando template string
 let mensagem2 = `Olá, ${nomeAluno}! Bem-vinda ao curso ${curso}.`;
 console.log(mensagem2);
-
 
 // ======================================================
 // 6️⃣ Convenções de nomenclatura
@@ -123,7 +118,6 @@ let NomeCompleto = "Maria Oliveira";
 // snake_case → comum em outras linguagens
 let nome_completo = "José Pereira";
 
-
 // ======================================================
 // 7️⃣ Exemplo prático completo
 // ======================================================
@@ -139,7 +133,6 @@ let soma = nota1 + nota2 + nota3;
 let media = soma / 3;
 
 console.log(`A média das notas é: ${media.toFixed(2)}`);
-
 
 // ======================================================
 // 8️⃣ Curiosidades e boas práticas

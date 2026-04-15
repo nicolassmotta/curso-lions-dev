@@ -1,7 +1,7 @@
-import { flashcards } from './data.js';
+import { flashcards } from "./data.js";
 
 function listarFlashcards() {
-    return flashcards;
+  return flashcards;
 }
 
 export default listarFlashcards;

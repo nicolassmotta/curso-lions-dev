@@ -15,12 +15,9 @@ app.post("/filmes", (req, res) => {
   const { titulo, diretor, ano, genero } = req.body;
 
   if (!titulo || !diretor || !ano || !genero) {
-    return res
-      .status(400)
-      .send({
-        mensagem:
-          "Todos os campos (titulo, diretor, ano, genero) são obrigatórios.",
-      });
+    return res.status(400).send({
+      mensagem: "Todos os campos (titulo, diretor, ano, genero) são obrigatórios.",
+    });
   }
 
   const novoFilme = {
@@ -65,7 +62,6 @@ app.delete("/filmes/:id", (req, res) => {
   const indice = filmes.findIndex((f) => f.id === id);
 
   if (indice === -1) {
-    
     return res.status(404).send({ mensagem: "Filme não encontrado." });
   }
 
@@ -79,22 +75,16 @@ app.get("/filmes/busca", (req, res) => {
   let resultados = filmes;
 
   if (titulo) {
-    resultados = resultados.filter((f) =>
-      f.titulo.toLowerCase().includes(titulo.toLowerCase())
-    );
+    resultados = resultados.filter((f) => f.titulo.toLowerCase().includes(titulo.toLowerCase()));
   }
   if (diretor) {
-    resultados = resultados.filter((f) =>
-      f.diretor.toLowerCase().includes(diretor.toLowerCase())
-    );
+    resultados = resultados.filter((f) => f.diretor.toLowerCase().includes(diretor.toLowerCase()));
   }
   if (ano) {
     resultados = resultados.filter((f) => f.ano === parseInt(ano));
   }
   if (genero) {
-    resultados = resultados.filter((f) =>
-      f.genero.toLowerCase().includes(genero.toLowerCase())
-    );
+    resultados = resultados.filter((f) => f.genero.toLowerCase().includes(genero.toLowerCase()));
   }
 
   res.status(200).send(resultados);

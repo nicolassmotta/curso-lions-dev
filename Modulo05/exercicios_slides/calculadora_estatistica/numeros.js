@@ -1,3 +1,3 @@
-let numeros = []
+let numeros = [];
 
-export default numeros
+export default numeros;

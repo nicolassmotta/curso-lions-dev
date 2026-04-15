@@ -4,7 +4,7 @@ console.log(`O valor de Pi é: ${Math.PI}`); // 3.14159...
 // 2. Os 4 Cavaleiros do Arredondamento
 const numeroQuebrado = 4.7;
 console.log(Math.round(numeroQuebrado)); // 5 (Arredonda para o mais próximo)
-console.log(Math.ceil(numeroQuebrado));  // 5 (Força SEMPRE para cima)
+console.log(Math.ceil(numeroQuebrado)); // 5 (Força SEMPRE para cima)
 console.log(Math.floor(numeroQuebrado)); // 4 (Força SEMPRE para baixo)
 console.log(Math.trunc(numeroQuebrado)); // 4 (Ignora e corta a vírgula)
 

@@ -1,6 +1,6 @@
-import express from 'express';
+import express from "express";
 const router = express.Router();
-import Figurinha from '../models/figurinha.js';
+import Figurinha from "../models/figurinha.js";
 
 // Rota base para todas as operações: /figurinhas
 
@@ -8,14 +8,14 @@ import Figurinha from '../models/figurinha.js';
  * @route   POST /figurinhas
  * @desc    Adicionar nova figurinha
  */
-router.post('/', async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const { numero, tema } = req.body;
     const novaFigurinha = new Figurinha({ numero, tema });
     await novaFigurinha.save();
     res.status(201).json(novaFigurinha);
   } catch (error) {
-    res.status(400).json({ message: 'Erro ao criar figurinha', error: error.message });
+    res.status(400).json({ message: "Erro ao criar figurinha", error: error.message });
   }
 });
 
@@ -23,12 +23,12 @@ router.post('/', async (req, res) => {
  * @route   GET /figurinhas
  * @desc    Listar todas as figurinhas
  */
-router.get('/', async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const figurinhas = await Figurinha.find();
     res.status(200).json(figurinhas);
   } catch (error) {
-    res.status(500).json({ message: 'Erro ao buscar figurinhas', error: error.message });
+    res.status(500).json({ message: "Erro ao buscar figurinhas", error: error.message });
   }
 });
 
@@ -36,35 +36,35 @@ router.get('/', async (req, res) => {
  * @route   GET /figurinhas/busca
  * @desc    Buscar figurinhas por critérios (numero, tema)
  */
-router.get('/busca', async (req, res) => {
-    try {
-      const { numero, tema } = req.query;
-      const criteriosBusca = {};
+router.get("/busca", async (req, res) => {
+  try {
+    const { numero, tema } = req.query;
+    const criteriosBusca = {};
 
-      if (numero) {
-        criteriosBusca.numero = numero;
-      }
-      if (tema) {
-        // Usa uma expressão regular para buscar por temas que contenham o texto (case-insensitive)
-        criteriosBusca.tema = { $regex: tema, $options: 'i' };
-      }
-
-      const figurinhas = await Figurinha.find(criteriosBusca);
-
-      if (figurinhas.length === 0) {
-        return res.status(404).json({ message: 'Nenhuma figurinha encontrada com esses critérios.' });
-      }
-      res.status(200).json(figurinhas);
-    } catch (error) {
-      res.status(500).json({ message: 'Erro ao realizar a busca', error: error.message });
+    if (numero) {
+      criteriosBusca.numero = numero;
     }
+    if (tema) {
+      // Usa uma expressão regular para buscar por temas que contenham o texto (case-insensitive)
+      criteriosBusca.tema = { $regex: tema, $options: "i" };
+    }
+
+    const figurinhas = await Figurinha.find(criteriosBusca);
+
+    if (figurinhas.length === 0) {
+      return res.status(404).json({ message: "Nenhuma figurinha encontrada com esses critérios." });
+    }
+    res.status(200).json(figurinhas);
+  } catch (error) {
+    res.status(500).json({ message: "Erro ao realizar a busca", error: error.message });
+  }
 });
 
 /**
  * @route   PUT /figurinhas/:id
  * @desc    Atualizar figurinha existente
  */
-router.put('/:id', async (req, res) => {
+router.put("/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const { numero, tema } = req.body;
@@ -76,11 +76,11 @@ router.put('/:id', async (req, res) => {
     );
 
     if (!figurinhaAtualizada) {
-      return res.status(404).json({ message: 'Figurinha não encontrada.' });
+      return res.status(404).json({ message: "Figurinha não encontrada." });
     }
     res.status(200).json(figurinhaAtualizada);
   } catch (error) {
-    res.status(400).json({ message: 'Erro ao atualizar figurinha', error: error.message });
+    res.status(400).json({ message: "Erro ao atualizar figurinha", error: error.message });
   }
 });
 
@@ -88,17 +88,17 @@ router.put('/:id', async (req, res) => {
  * @route   DELETE /figurinhas/:id
  * @desc    Remover figurinha
  */
-router.delete('/:id', async (req, res) => {
+router.delete("/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const figurinhaDeletada = await Figurinha.findByIdAndDelete(id);
 
     if (!figurinhaDeletada) {
-      return res.status(404).json({ message: 'Figurinha não encontrada.' });
+      return res.status(404).json({ message: "Figurinha não encontrada." });
     }
-    res.status(200).json({ message: 'Figurinha deletada com sucesso.' });
+    res.status(200).json({ message: "Figurinha deletada com sucesso." });
   } catch (error) {
-    res.status(500).json({ message: 'Erro ao deletar figurinha', error: error.message });
+    res.status(500).json({ message: "Erro ao deletar figurinha", error: error.message });
   }
 });
 

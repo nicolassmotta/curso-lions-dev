@@ -5,6 +5,6 @@
 // escrever novamente o comando de exibição
 // colocar a operação matemática 10 + 5 dentro dos parênteses (desta vez, sem aspas)
 
-console.log("Estou programando em Javascript!")
-console.log(10 + 5)
-console.log("10 + 5")
+console.log("Estou programando em Javascript!");
+console.log(10 + 5);
+console.log("10 + 5");

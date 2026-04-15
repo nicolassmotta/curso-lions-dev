@@ -1,4 +1,4 @@
-import numeros from "./numeros.js"
+import numeros from "./numeros.js";
 
 /*
     Caso o tamanho do vetor seja impar:
@@ -11,21 +11,20 @@ import numeros from "./numeros.js"
 */
 
 function calcularMediana() {
-    
-    let mediana = 0
-    
-    if (!numeros || numeros.length === 0) {
-        console.log("A lista está nula ou vazia!")
-        return
-    }
-    
-    if(numeros.length % 2 == 0){
-        mediana = (numeros[numeros.length / 2] + numeros[(numeros.length / 2) - 1]) / 2
-    } else {
-        mediana = numeros[Math.floor(numeros.length / 2)]
-    }
-    
-    return mediana
+  let mediana = 0;
+
+  if (!numeros || numeros.length === 0) {
+    console.log("A lista está nula ou vazia!");
+    return;
+  }
+
+  if (numeros.length % 2 == 0) {
+    mediana = (numeros[numeros.length / 2] + numeros[numeros.length / 2 - 1]) / 2;
+  } else {
+    mediana = numeros[Math.floor(numeros.length / 2)];
+  }
+
+  return mediana;
 }
 
-export default calcularMediana
+export default calcularMediana;

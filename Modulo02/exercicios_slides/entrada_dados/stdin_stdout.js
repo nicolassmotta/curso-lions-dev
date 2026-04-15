@@ -10,10 +10,9 @@ let nome;
 
 console.log("Qual é o seu nome?");
 
-process.stdin.on('data', function(data) {
-    
-    nome = data.toString().trim();
-    let saudacao = "Olá, " + nome;
-    console.log(saudacao);
-    process.exit();
+process.stdin.on("data", function (data) {
+  nome = data.toString().trim();
+  let saudacao = "Olá, " + nome;
+  console.log(saudacao);
+  process.exit();
 });
