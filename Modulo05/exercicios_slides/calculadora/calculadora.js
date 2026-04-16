@@ -14,7 +14,13 @@ let num;
 
 while (op != 7) {
   console.log(
-    "\nQual operação você deseja executar?\n" + "[1] - Somar\n" + "[2] - Subtrair\n" + "[3] - Multiplicar\n" + "[4] - Dividir\n" + "[5] - Porcentagem\n" + "[6] - Ver Resultado\n" + "[7] - Sair"
+    "\nQual operação você deseja executar?\n" 
+    + "[1] - Somar\n" 
+    + "[2] - Subtrair\n" 
+    + "[3] - Multiplicar\n" 
+    + "[4] - Dividir\n" 
+    + "[5] - Porcentagem\n" 
+    + "[6] - Ver Resultado\n" + "[7] - Sair"
   );
 
   op = Number(prompt("Escolha uma opção: "));

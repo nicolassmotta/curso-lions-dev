@@ -32,12 +32,12 @@ while (opcao != "5") {
     case "2":
       // Operação: CREATE
       let novoContato = {
-        nome: prompt("Novo Nome (ou Enter para manter): "),
-        email: prompt("Novo Email (ou Enter para manter): "),
+        nome: prompt("Nome: "),
+        email: prompt("Email: "),
         telefones: [],
       };
 
-      // Loop para múltiplos telefones
+      // Lógica para atualizar os múltiplos telefones
       let addMais = "sim";
       while (addMais.toLowerCase() === "sim") {
         novoContato.telefones.push(prompt("Telefone: "));
@@ -60,7 +60,7 @@ while (opcao != "5") {
         telefones: [],
       };
 
-      //Lógica para atualizar os telefones
+      // Lógica para atualizar os múltiplos telefones
       let atualizaTel = prompt("Deseja atualizar os telefones? (sim/nao): ");
 
       if (atualizaTel.toLowerCase() === "sim") {

@@ -8,17 +8,17 @@ function atualizarContato(contatos, id, novosDados) {
 
   // Validação de e-mail na atualização
   if (novosDados.email) {
-    let emailEmUso = false;
+    let emailExiste = false;
     for (let i = 0; i < contatos.length; i++) {
       let contatoAtual = contatos[i];
       // Verifica se o email é igual ao digitado E se não é o próprio usuário atualizando
       if (contatoAtual.email === novosDados.email && contatoAtual.id !== id) {
-        emailEmUso = true;
+        emailExiste = true;
         break;
       }
     }
 
-    if (emailEmUso) {
+    if (emailExiste) {
       console.log("Erro: O novo e-mail já está em uso por outro usuário!");
       return false;
     }

@@ -1,5 +1,4 @@
 function adicionarContato(contatos, novoContato) {
-  
   // Validação: Não permitir e-mail duplicado
   let emailExiste = false;
   for (let i = 0; i < contatos.length; i++) {
