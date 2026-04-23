@@ -1,6 +1,6 @@
 import dados from "./dados.js";
-import encontrarMedicoPorId from "./encontrarMedicoPorId.js";
-import encontrarPacientePorId from "./encontrarPacientePorId.js";
+import encontrarMedicoPorId from "./encontrar_medico_por_id.js";
+import encontrarPacientePorId from "./encontrar_paciente_por_id.js";
 
 function adicionarConsulta(idMedico, idPaciente, data, descricao) {
   const medico = encontrarMedicoPorId(idMedico);

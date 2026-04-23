@@ -14,6 +14,7 @@ yarn-error.log*
 .cursor/rules/
 AGENTS.local.md
 _mantenedor/
+_mantenedor/skills/
 
 # Provas e avaliações (conteúdo restrito)
 provas/

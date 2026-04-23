@@ -1,15 +1,14 @@
-import baralho from "./baralho.js";
-
 function atualizarBaralho(baralho, idBaralho, novoTitulo) {
-  baralho.forEach((baralho, index) => {
-    if (baralho.id == idBaralho) {
-      baralho.titulo = novoTitulo;
-      console.log(`Baralho ${index + 1} atualizado:`);
-      console.log(`Título Atualizado: ${baralho.titulo}`);
-      console.log("-----------------------");
-      return;
-    }
-  });
+  const indice = baralho.findIndex((item) => item.id === idBaralho);
+
+  if (indice === -1) {
+    console.log(`Baralho com ID ${idBaralho} não encontrado.`);
+    return false;
+  }
+
+  baralho[indice].titulo = novoTitulo || baralho[indice].titulo;
+  console.log(`Baralho com ID ${idBaralho} atualizado com sucesso.`);
+  return true;
 }
 
 export default atualizarBaralho;

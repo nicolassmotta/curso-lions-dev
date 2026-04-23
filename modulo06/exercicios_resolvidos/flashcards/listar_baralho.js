@@ -1,9 +1,12 @@
-import baralho from "./baralho.js";
-
 function listarBaralho(baralho) {
-  baralho.forEach((baralho, index) => {
-    console.log(`IdBaralho: ${baralho.id}:`);
-    console.log(`Título: ${baralho.titulo}`);
+  if (baralho.length === 0) {
+    console.log("Nenhum baralho cadastrado.");
+    return;
+  }
+
+  baralho.forEach((item) => {
+    console.log(`IdBaralho: ${item.id}`);
+    console.log(`Título: ${item.titulo}`);
     console.log("-----------------------");
   });
 }

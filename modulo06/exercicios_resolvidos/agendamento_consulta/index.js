@@ -1,8 +1,8 @@
 import promptSync from "prompt-sync";
-import adicionarConsulta from "./adicionarConsulta.js";
-import listarConsultasDoPaciente from "./listarConsultas.js";
-import atualizarConsulta from "./atualizarConsulta.js";
-import cancelarConsulta from "./cancelarConsulta.js";
+import adicionarConsulta from "./adicionar_consulta.js";
+import listarConsultas, { listarConsultasDoPaciente } from "./listar_consultas.js";
+import atualizarConsulta from "./atualizar_consulta.js";
+import cancelarConsulta from "./cancelar_consulta.js";
 
 const prompt = promptSync();
 
@@ -10,8 +10,9 @@ function exibirMenu() {
   console.log("\n--- Sistema de Agendamento ---");
   console.log("1. Agendar nova consulta");
   console.log("2. Listar todas as consultas");
-  console.log("3. Atualizar uma consulta");
-  console.log("4. Cancelar consulta");
+  console.log("3. Listar consultas de um paciente");
+  console.log("4. Atualizar uma consulta");
+  console.log("5. Cancelar consulta");
   console.log("0. Sair");
   return prompt("Escolha uma opção: ");
 }
@@ -31,11 +32,15 @@ while (!sair) {
       break;
 
     case "2":
+      listarConsultas();
+      break;
+
+    case "3":
       const idPacienteListar = parseInt(prompt("ID do Paciente: "), 10);
       listarConsultasDoPaciente(idPacienteListar);
       break;
-    
-    case "3":
+
+    case "4":
       const idAtualizar = parseInt(prompt("ID da Consulta para atualizar: "), 10);
       console.log("Deixe a data ou descrição em branco para não alterar.");
       const novaData = prompt("Nova data (ex: 2023-12-01): ");
@@ -43,7 +48,7 @@ while (!sair) {
       atualizarConsulta(idAtualizar, novaData, novaDescricao);
       break;
 
-    case "4":
+    case "5":
       const idCancelar = parseInt(prompt("ID da Consulta para cancelar: "), 10);
       cancelarConsulta(idCancelar);
       break;

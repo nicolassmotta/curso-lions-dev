@@ -50,9 +50,9 @@ console.log("--- 2. Array de Objetos como 'Banco de Dados' ---");
  */
 
 let contatos = [
-  { id: 1, nome: "Ana Silva", telefone: "(11) 91234-5678", email: "ana@email.com" },
-  { id: 2, nome: "Carlos Santos", telefone: "(11) 99876-5432", email: "carlos@email.com" },
-  { id: 3, nome: "Maria Oliveira", telefone: "(11) 95555-1234", email: "maria@email.com" },
+  { id: 1, nome: "Ana Silva", telefones: ["(11) 91234-5678"], email: "ana@email.com" },
+  { id: 2, nome: "Carlos Santos", telefones: ["(11) 99876-5432", "(11) 97777-1111"], email: "carlos@email.com" },
+  { id: 3, nome: "Maria Oliveira", telefones: ["(11) 95555-1234"], email: "maria@email.com" },
 ];
 
 // Variável para controlar o próximo ID (auto-incremento simples)
@@ -72,11 +72,11 @@ console.log("\n--- 3. CREATE (Criar) ---");
  * Cada novo registro recebe um ID único e auto-incrementado.
  */
 
-function criarContato(nome, telefone, email) {
+function criarContato(nome, telefones, email) {
   const novoContato = {
     id: proximoId, // ID auto-incrementado
     nome: nome,
-    telefone: telefone,
+    telefones: telefones,
     email: email,
   };
 
@@ -87,7 +87,7 @@ function criarContato(nome, telefone, email) {
 }
 
 // Testando:
-const novo = criarContato("Pedro Lima", "(11) 93333-4444", "pedro@email.com");
+const novo = criarContato("Pedro Lima", ["(11) 93333-4444"], "pedro@email.com");
 console.log("Novo contato criado:", novo);
 console.log("Total de contatos:", contatos.length); // 4
 
@@ -157,14 +157,14 @@ function atualizarContato(id, novosDados) {
 
   // Atualiza apenas os campos que foram fornecidos
   if (novosDados.nome) contatos[indice].nome = novosDados.nome;
-  if (novosDados.telefone) contatos[indice].telefone = novosDados.telefone;
+  if (novosDados.telefones) contatos[indice].telefones = novosDados.telefones;
   if (novosDados.email) contatos[indice].email = novosDados.email;
 
   return contatos[indice]; // Retorna o contato atualizado
 }
 
 // Testando:
-const atualizado = atualizarContato(1, { nome: "Ana Souza", telefone: "(11) 91111-2222" });
+const atualizado = atualizarContato(1, { nome: "Ana Souza", telefones: ["(11) 91111-2222", "(11) 98888-0000"] });
 console.log("Contato atualizado:", atualizado);
 
 // Tentando atualizar ID inexistente:
@@ -240,11 +240,11 @@ console.log("-------------------------");
  *
  * exercicio_slide/
  * ├── contatos.js           ← Array de dados (o "banco")
- * ├── adicionarContato.js   ← Função de CREATE
- * ├── listarContatos.js     ← Função de READ
- * ├── atualizarContato.js   ← Função de UPDATE
- * ├── removerContato.js     ← Função de DELETE
- * └── index.js              ← Menu interativo (importa tudo)
+ * ├── adicionar_contato.js  ← Função de CREATE
+ * ├── listar_contatos.js    ← Função de READ
+ * ├── atualizar_contato.js  ← Função de UPDATE
+ * ├── remover_contato.js    ← Função de DELETE
+ * └── app.js                ← Menu interativo (importa tudo)
  *
  * Cada arquivo exporta SUA função via export default.
  * O index.js importa todas e monta o menu com switch/case.
@@ -262,7 +262,7 @@ console.log("-------------------------");
 console.log("\n--- 9. Estado Final ---");
 console.log("Contatos restantes:");
 contatos.forEach((c, i) => {
-  console.log(`  ${i + 1}. [ID: ${c.id}] ${c.nome} - ${c.telefone} - ${c.email}`);
+  console.log(`  ${i + 1}. [ID: ${c.id}] ${c.nome} - ${c.telefones.join(" | ")} - ${c.email}`);
 });
 
 console.log("\n================================================");

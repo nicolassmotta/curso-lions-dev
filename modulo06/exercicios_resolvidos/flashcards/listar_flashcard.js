@@ -1,8 +1,11 @@
-import flashcard from "./flashcard.js";
-
 function listarFlashcards(flashcards) {
-  flashcards.forEach((cartao, index) => {
-    console.log(`Flashcard ${index + 1}:`);
+  if (flashcards.length === 0) {
+    console.log("Nenhum flashcard cadastrado.");
+    return;
+  }
+
+  flashcards.forEach((cartao) => {
+    console.log(`Flashcard ID: ${cartao.id}`);
     console.log(`Pergunta: ${cartao.pergunta}`);
     console.log(`Resposta: ${cartao.resposta}`);
     console.log(`ID do Baralho: ${cartao.idBaralho}`);

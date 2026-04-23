@@ -3,10 +3,10 @@ const prompt = promptSync();
 
 // Importando nossos dados e funções
 import contatos from "./contatos.js";
-import listarContatos from "./listarContatos.js";
-import adicionarContato from "./adicionarContato.js";
-import atualizarContato from "./atualizarContato.js";
-import removerContato from "./removerContato.js";
+import listarContatos from "./listar_contatos.js";
+import adicionarContato from "./adicionar_contato.js";
+import atualizarContato from "./atualizar_contato.js";
+import removerContato from "./remover_contato.js";
 
 function mainMenu() {
   console.log("\n--- Menu de Contatos ---");
