@@ -18,3 +18,6 @@ _mantenedor/skills/
 
 # Provas e avaliações (conteúdo restrito)
 provas/
+
+# Configurações de extensões/AI
+.codex
