@@ -7,18 +7,18 @@ app.use(express.json());
 
 // --- Importando a Lógica (Corrigido para a sua estrutura) ---
 // (Importando a lógica de 'baralho' da pasta raiz)
-import criarBaralho from "./criarBaralho.js";
-import listarBaralhos from "./listarBaralhos.js";
-import atualizarBaralho from "./atualizarBaralho.js";
-import deletarBaralho from "./deletarBaralho.js";
+import criarBaralho from "./criar_baralho.js";
+import listarBaralhos from "./listar_baralhos.js";
+import atualizarBaralho from "./atualizar_baralho.js";
+import deletarBaralho from "./deletar_baralho.js";
 
 // (Importando a lógica de 'flashcard' da pasta raiz)
-import criarFlashcard from "./criarFlashcard.js";
-import listarFlashcards from "./listarFlashcards.js";
-import atualizarFlashcard from "./atualizarFlashcard.js";
-import deletarFlashcard from "./deletarFlashcard.js";
-import listarFlashcardsPorBaralho from "./listarFlashcardPorBaralho.js";
-import buscarFlashcards from "./buscarFlashcards.js";
+import criarFlashcard from "./criar_flashcard.js";
+import listarFlashcards from "./listar_flashcards.js";
+import atualizarFlashcard from "./atualizar_flashcard.js";
+import deletarFlashcard from "./deletar_flashcard.js";
+import listarFlashcardsPorBaralho from "./listar_flashcard_por_baralho.js";
+import buscarFlashcards from "./buscar_flashcards.js";
 
 // --- Rota Inicial de Teste ---
 app.get("/", (req, res) => {

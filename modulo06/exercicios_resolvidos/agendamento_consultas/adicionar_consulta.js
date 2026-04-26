@@ -1,10 +1,10 @@
 import dados from "./dados.js";
-import encontrarMedicoPorId from "./encontrar_medico_por_id.js";
-import encontrarPacientePorId from "./encontrar_paciente_por_id.js";
+import buscarMedicoPorId from "./buscar_medico_por_id.js";
+import buscarPacientePorId from "./buscar_paciente_por_id.js";
 
 function adicionarConsulta(idMedico, idPaciente, data, descricao) {
-  const medico = encontrarMedicoPorId(idMedico);
-  const paciente = encontrarPacientePorId(idPaciente);
+  const medico = buscarMedicoPorId(idMedico);
+  const paciente = buscarPacientePorId(idPaciente);
 
   if (!medico) {
     console.log("Erro: Médico não encontrado.");

@@ -1,10 +1,10 @@
 import dados from "./dados.js";
-import encontrarMedicoPorId from "./encontrar_medico_por_id.js";
-import encontrarPacientePorId from "./encontrar_paciente_por_id.js";
+import buscarMedicoPorId from "./buscar_medico_por_id.js";
+import buscarPacientePorId from "./buscar_paciente_por_id.js";
 
 function imprimirConsulta(consulta) {
-  const medico = encontrarMedicoPorId(consulta.idMedico);
-  const paciente = encontrarPacientePorId(consulta.idPaciente);
+  const medico = buscarMedicoPorId(consulta.idMedico);
+  const paciente = buscarPacientePorId(consulta.idPaciente);
 
   let nomeMedico = "Desconhecido";
   if (medico) {

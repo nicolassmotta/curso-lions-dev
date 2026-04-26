@@ -12,7 +12,7 @@ import deletarBaralho from "./deletar_baralho.js";
 import adicionarFlashcard from "./adicionar_flashcard.js";
 import listarFlashcards from "./listar_flashcard.js";
 import listarFlashcardsEspecificos from "./listar_flashcards_especificos.js";
-import buscarFlashcards from "./busca_flashcards.js";
+import buscarFlashcards from "./buscar_flashcards.js";
 import deletarFlashcard from "./deletar_flashcard.js";
 import atualizarFlashcard from "./atualizar_flashcard.js";
 
