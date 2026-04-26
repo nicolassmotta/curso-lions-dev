@@ -74,5 +74,5 @@ Este projeto está licenciado sob a licença ISC — veja o arquivo [LICENSE](LI
 ---
 
 <div align="center">
-  <b>Lions Startups/LionsDev</b> • Professor Nicolas Cardoso Motta
+  <b>LionsDev</b> • Professor Nicolas Cardoso Motta
 </div>

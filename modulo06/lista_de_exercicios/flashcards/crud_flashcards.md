@@ -13,7 +13,7 @@
   }
 </style>
 
-# Avaliação de CRUD: Sistema de Gerenciamento de Flashcards
+# Exercício Prático: Sistema de Gerenciamento de Flashcards
 
 **Turma:** LionsDev  
 **Tópicos:** CRUD (Create, Read, Update, Delete), Arrays de Objetos, Modularização, Busca e Filtros, e Menu Interativo com `prompt-sync`.
@@ -74,7 +74,7 @@ Desenvolva um sistema interativo que permita gerenciar os flashcards e seus resp
 
 ---
 
-## 3. Tarefas da Avaliação
+## 3. Tarefas do Exercício
 
 1. **Configuração:** Configure o ambiente e crie os arquivos necessários seguindo a modularização.
 2. **Implementação:** Desenvolva as funções de CRUD e Busca em arquivos separados.
@@ -85,5 +85,5 @@ Desenvolva um sistema interativo que permita gerenciar os flashcards e seus resp
 
 <div style="text-align: center; color: #777; font-size: 13px; margin-top: 50px;">
   <b>LionsDev</b> • Professor Nicolas Cardoso Motta<br>
-  <i>Avaliação Prática de CRUD - Módulo 06</i>
+  <i>Exercício Prático de CRUD com Flashcards - Módulo 06</i>
 </div>

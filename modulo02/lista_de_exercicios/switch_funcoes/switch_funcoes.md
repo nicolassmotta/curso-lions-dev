@@ -5,7 +5,7 @@
   p, li { line-height: 1.6; font-size: 15px; }
   blockquote { background-color: #f4f6f7; border-left: 4px solid #002B5E; padding: 12px 15px; margin: 15px 0; color: #000000; }
   code { background-color: #f0f2f5 !important; color: #000000 !important; font-weight: bold; padding: 2px 4px; border-radius: 4px; }
-  
+
   @media print {
     @page { margin: 1.5cm; }
     body { font-size: 11pt; }

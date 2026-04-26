@@ -1,7 +1,7 @@
-import dados from './dados.js';
+import dados from "./dados.js";
 
 function cancelarConsulta(id) {
-  const index = dados.consultas.findIndex(c => c.id === id);
+  const index = dados.consultas.findIndex((c) => c.id === id);
 
   if (index === -1) {
     console.log("Erro: Consulta não encontrada.");

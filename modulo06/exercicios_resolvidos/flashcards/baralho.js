@@ -5,7 +5,7 @@ const baralhos = [
   },
   {
     id: 2,
-    titulo: "Matematica",
+    titulo: "Matemática",
   },
 ];
 

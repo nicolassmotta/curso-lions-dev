@@ -19,7 +19,7 @@
     "prompt-sync": "^4.2.0"
   },
   "devDependencies": {
-    "prettier": "^3.8.2"
+    "prettier": "^3.3.3"
   },
   "prettier": {
     "printWidth": 200,

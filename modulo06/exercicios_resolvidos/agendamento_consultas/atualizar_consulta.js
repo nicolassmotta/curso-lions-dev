@@ -1,7 +1,7 @@
-import dados from './dados.js';
+import dados from "./dados.js";
 
 function atualizarConsulta(id, data, descricao) {
-  const consulta = dados.consultas.find(c => c.id === id);
+  const consulta = dados.consultas.find((c) => c.id === id);
 
   if (!consulta) {
     console.log("Erro: Consulta não encontrada.");
