@@ -79,7 +79,6 @@ Desenvolva um sistema interativo que permita gerenciar os flashcards e seus resp
 
 ### 3.5 Busca
 * **Buscar por Pergunta:** Localizar flashcards que contenham uma determinada pergunta.
-* **Buscar por Baralho:** Filtrar flashcards baseados no `idBaralho`.
 
 ---
 
