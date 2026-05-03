@@ -1,7 +1,5 @@
-import flashcard from "./flashcard.js";
-
-function deletarBaralho(baralho, idBaralho) {
-  const index = baralho.findIndex((b) => b.id === idBaralho);
+function deletarBaralho(baralho, flashcards, idBaralho) {
+  const index = baralho.findIndex((baralho) => baralho.id === idBaralho);
 
   if (index !== -1) {
     baralho.splice(index, 1);
@@ -11,11 +9,11 @@ function deletarBaralho(baralho, idBaralho) {
     return;
   }
 
-  for (let i = flashcard.length - 1; i >= 0; i--) {
-    const fc = flashcard[i];
+  for (let i = flashcards.length - 1; i >= 0; i--) {
+    const fc = flashcards[i];
 
     if (fc.idBaralho === idBaralho) {
-      flashcard.splice(i, 1);
+      flashcards.splice(i, 1);
       console.log(`Flashcard com ID ${fc.id} associado ao baralho ${idBaralho} deletado.`);
     }
   }

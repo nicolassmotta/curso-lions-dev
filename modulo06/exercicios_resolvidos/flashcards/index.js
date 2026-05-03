@@ -62,7 +62,7 @@ while (executando) {
     }
     case "4": {
       const id = parseInt(prompt("Digite o ID do baralho a ser deletado: "));
-      deletarBaralho(baralho, id);
+      deletarBaralho(baralho, flashcard, id);
       break;
     }
     case "5": {
@@ -74,7 +74,7 @@ while (executando) {
         resposta: resposta,
         idBaralho: idBaralho,
       };
-      adicionarFlashcard(flashcard, novoFlashcard);
+      adicionarFlashcard(flashcard, baralho, novoFlashcard);
       break;
     }
     case "6":

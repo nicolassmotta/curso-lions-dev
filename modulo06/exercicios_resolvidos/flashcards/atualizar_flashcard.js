@@ -6,8 +6,13 @@ function atualizarFlashcard(flashcards, idFlashcard, novosDados) {
     return false;
   }
 
-  flashcards[indice].pergunta = novosDados.pergunta || flashcards[indice].pergunta;
-  flashcards[indice].resposta = novosDados.resposta || flashcards[indice].resposta;
+  if (novosDados.pergunta !== "") {
+    flashcards[indice].pergunta = novosDados.pergunta;
+  }
+
+  if (novosDados.resposta !== "") {
+    flashcards[indice].resposta = novosDados.resposta;
+  }
 
   console.log(`Flashcard com ID ${idFlashcard} atualizado com sucesso.`);
   return true;

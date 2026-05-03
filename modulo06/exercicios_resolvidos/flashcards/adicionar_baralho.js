@@ -1,4 +1,4 @@
-function adicionarBaralho(baralho, novaBaralho) {
+function adicionarBaralho(baralho, novoBaralho) {
   const ultimoBaralho = baralho[baralho.length - 1];
   let novoId = 1;
 
@@ -6,9 +6,9 @@ function adicionarBaralho(baralho, novaBaralho) {
     novoId = ultimoBaralho.id + 1;
   }
 
-  novaBaralho.id = novoId;
-  baralho.push(novaBaralho);
-  return novaBaralho;
+  novoBaralho.id = novoId;
+  baralho.push(novoBaralho);
+  return novoBaralho;
 }
 
 export default adicionarBaralho;

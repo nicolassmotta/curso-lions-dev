@@ -1,4 +1,4 @@
-function deletarFlashcards(flashcards, idFlashcard) {
+function deletarFlashcard(flashcards, idFlashcard) {
   const index = flashcards.findIndex((flashcard) => flashcard.id === idFlashcard);
   if (index !== -1) {
     flashcards.splice(index, 1);
@@ -10,4 +10,4 @@ function deletarFlashcards(flashcards, idFlashcard) {
   }
 }
 
-export default deletarFlashcards;
+export default deletarFlashcard;

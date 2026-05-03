@@ -1,8 +1,5 @@
-import flashcard from "./flashcard.js";
-import baralho from "./baralho.js";
-
-function adicionarFlashcard(flashcards, novoFlashcard) {
-  const baralhoEncontrado = baralho.find((item) => item.id === novoFlashcard.idBaralho);
+function adicionarFlashcard(flashcards, baralhos, novoFlashcard) {
+  const baralhoEncontrado = baralhos.find((item) => item.id === novoFlashcard.idBaralho);
 
   if (!baralhoEncontrado) {
     console.log(`Baralho com ID ${novoFlashcard.idBaralho} não encontrado. Flashcard não adicionado.`);
