@@ -1,8 +1,8 @@
-function deletarBaralho(baralho, flashcards, idBaralho) {
-  const index = baralho.findIndex((baralho) => baralho.id === idBaralho);
+function deletarBaralho(baralhos, flashcards, idBaralho) {
+  const index = baralhos.findIndex((baralho) => baralho.id === idBaralho);
 
   if (index !== -1) {
-    baralho.splice(index, 1);
+    baralhos.splice(index, 1);
     console.log(`Baralho com ID ${idBaralho} deletado com sucesso.`);
   } else {
     console.log(`Baralho com ID ${idBaralho} não encontrado.`);

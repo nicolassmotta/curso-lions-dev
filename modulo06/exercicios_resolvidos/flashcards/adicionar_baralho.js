@@ -1,5 +1,5 @@
-function adicionarBaralho(baralho, novoBaralho) {
-  const ultimoBaralho = baralho[baralho.length - 1];
+function adicionarBaralho(baralhos, novoBaralho) {
+  const ultimoBaralho = baralhos[baralhos.length - 1];
   let novoId = 1;
 
   if (ultimoBaralho) {
@@ -7,7 +7,7 @@ function adicionarBaralho(baralho, novoBaralho) {
   }
 
   novoBaralho.id = novoId;
-  baralho.push(novoBaralho);
+  baralhos.push(novoBaralho);
   return novoBaralho;
 }
 

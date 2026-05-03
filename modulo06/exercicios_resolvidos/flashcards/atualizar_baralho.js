@@ -1,5 +1,5 @@
-function atualizarBaralho(baralho, idBaralho, novoTitulo) {
-  const indice = baralho.findIndex((item) => item.id === idBaralho);
+function atualizarBaralho(baralhos, idBaralho, novoTitulo) {
+  const indice = baralhos.findIndex((baralho) => baralho.id === idBaralho);
 
   if (indice === -1) {
     console.log(`Baralho com ID ${idBaralho} não encontrado.`);
@@ -7,7 +7,7 @@ function atualizarBaralho(baralho, idBaralho, novoTitulo) {
   }
 
   if (novoTitulo !== "") {
-    baralho[indice].titulo = novoTitulo;
+    baralhos[indice].titulo = novoTitulo;
   }
   
   console.log(`Baralho com ID ${idBaralho} atualizado com sucesso.`);

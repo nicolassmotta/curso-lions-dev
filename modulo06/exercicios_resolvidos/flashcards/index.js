@@ -1,8 +1,8 @@
 import promptSync from "prompt-sync";
 const prompt = promptSync();
 
-import baralho from "./baralho.js";
-import flashcard from "./flashcard.js";
+import baralhos from "./baralho.js";
+import flashcards from "./flashcard.js";
 
 import adicionarBaralho from "./adicionar_baralho.js";
 import listarBaralho from "./listar_baralho.js";
@@ -46,23 +46,23 @@ while (executando) {
       const novoBaralho = {
         titulo: titulo,
       };
-      adicionarBaralho(baralho, novoBaralho);
+      adicionarBaralho(baralhos, novoBaralho);
       console.log("Baralho adicionado com sucesso!");
       break;
     }
     case "2":
       console.log("\n--- Lista de Baralhos ---");
-      listarBaralho(baralho);
+      listarBaralho(baralhos);
       break;
     case "3": {
       const id = parseInt(prompt("Digite o ID do baralho a ser atualizado: "));
       const novoTitulo = prompt("Digite o novo titulo: ");
-      atualizarBaralho(baralho, id, novoTitulo);
+      atualizarBaralho(baralhos, id, novoTitulo);
       break;
     }
     case "4": {
       const id = parseInt(prompt("Digite o ID do baralho a ser deletado: "));
-      deletarBaralho(baralho, flashcard, id);
+      deletarBaralho(baralhos, flashcards, id);
       break;
     }
     case "5": {
@@ -74,29 +74,29 @@ while (executando) {
         resposta: resposta,
         idBaralho: idBaralho,
       };
-      adicionarFlashcard(flashcard, baralho, novoFlashcard);
+      adicionarFlashcard(flashcards, baralhos, novoFlashcard);
       break;
     }
     case "6":
       console.log("\n--- Lista de Todos os Flashcards ---");
-      listarFlashcards(flashcard);
+      listarFlashcards(flashcards);
       break;
     case "7": {
       const id = parseInt(prompt("Digite o ID do baralho para listar os flashcards: "));
       console.log(`\n--- Flashcards do Baralho ${id} ---`);
-      listarFlashcardsEspecificos(flashcard, id);
+      listarFlashcardsEspecificos(flashcards, id);
       break;
     }
     case "8": {
       const id = parseInt(prompt("Digite o ID do flashcard a ser atualizado: "));
       const pergunta = prompt("Digite a nova pergunta (ou Enter para manter): ");
       const resposta = prompt("Digite a nova resposta (ou Enter para manter): ");
-      atualizarFlashcard(flashcard, id, { pergunta, resposta });
+      atualizarFlashcard(flashcards, id, { pergunta, resposta });
       break;
     }
     case "9": {
       const termo = prompt("Digite o termo a ser buscado nas perguntas ou respostas: ");
-      const resultados = buscarFlashcards(flashcard, termo);
+      const resultados = buscarFlashcards(flashcards, termo);
       console.log("\n--- Resultados da Busca ---");
       if (resultados.length === 0) {
         console.log("Nenhum flashcard encontrado.");
@@ -113,7 +113,7 @@ while (executando) {
     }
     case "10": {
       const id = parseInt(prompt("Digite o ID do flashcard a ser deletado: "));
-      deletarFlashcard(flashcard, id);
+      deletarFlashcard(flashcards, id);
       break;
     }
     case "0":
