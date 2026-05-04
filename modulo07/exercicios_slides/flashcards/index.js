@@ -7,17 +7,17 @@ app.use(express.json());
 
 // --- Importando a Lógica (Corrigido para a sua estrutura) ---
 // (Importando a lógica de 'baralho' da pasta raiz)
-import criarBaralho from "./criar_baralho.js";
-import listarBaralhos from "./listar_baralhos.js";
+import adicionarBaralho from "./adicionar_baralho.js";
+import listarBaralho from "./listar_baralho.js";
 import atualizarBaralho from "./atualizar_baralho.js";
 import deletarBaralho from "./deletar_baralho.js";
 
 // (Importando a lógica de 'flashcard' da pasta raiz)
-import criarFlashcard from "./criar_flashcard.js";
-import listarFlashcards from "./listar_flashcards.js";
+import adicionarFlashcard from "./adicionar_flashcard.js";
+import listarFlashcard from "./listar_flashcard.js";
 import atualizarFlashcard from "./atualizar_flashcard.js";
 import deletarFlashcard from "./deletar_flashcard.js";
-import listarFlashcardsPorBaralho from "./listar_flashcard_por_baralho.js";
+import listarFlashcardsEspecificos from "./listar_flashcards_especificos.js";
 import buscarFlashcards from "./buscar_flashcards.js";
 
 // --- Rota Inicial de Teste ---
@@ -29,13 +29,13 @@ app.get("/", (req, res) => {
 app.post("/baralho", (req, res) => {
   const { titulo } = req.body;
   // (Ainda estamos usando a lógica modularizada, mesmo que o arquivo esteja no root)
-  const { data, error } = criarBaralho(titulo);
+  const { data, error } = adicionarBaralho(titulo);
   if (error) return res.status(400).send({ message: error });
   res.status(201).send({ message: "Baralho criado com sucesso!", baralho: data });
 });
 
 app.get("/baralho", (req, res) => {
-  const data = listarBaralhos();
+  const data = listarBaralho();
   res.status(200).send(data);
 });
 
@@ -58,7 +58,7 @@ app.delete("/baralho/:id", (req, res) => {
 // 1. Criar Flashcard
 app.post("/flashcard", (req, res) => {
   const { pergunta, resposta, idBaralho } = req.body;
-  const { data, error } = criarFlashcard(pergunta, resposta, parseInt(idBaralho));
+  const { data, error } = adicionarFlashcard(pergunta, resposta, parseInt(idBaralho));
 
   if (error) {
     return res.status(404).send({ message: error });
@@ -73,7 +73,7 @@ app.get("/flashcard", (req, res) => {
   if (termo) {
     data = buscarFlashcards(termo);
   } else {
-    data = listarFlashcards();
+    data = listarFlashcard();
   }
   res.status(200).send(data);
 });
@@ -104,7 +104,7 @@ app.delete("/flashcard/:id", (req, res) => {
 // 5. Listar Flashcards de um Baralho Específico
 app.get("/baralho/:idBaralho/flashcards", (req, res) => {
   const { idBaralho } = req.params;
-  const data = listarFlashcardsPorBaralho(idBaralho);
+  const data = listarFlashcardsEspecificos(idBaralho);
   res.status(200).send(data);
 });
 

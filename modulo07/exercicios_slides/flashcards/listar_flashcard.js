@@ -1,7 +1,7 @@
 import { flashcards } from "./data.js";
 
-function listarFlashcards() {
+function listarFlashcard() {
   return flashcards;
 }
 
-export default listarFlashcards;
+export default listarFlashcard;

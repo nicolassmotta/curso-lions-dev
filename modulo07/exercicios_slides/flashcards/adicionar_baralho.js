@@ -1,6 +1,6 @@
 import { baralhos } from "./data.js";
 
-function criarBaralho(titulo) {
+function adicionarBaralho(titulo) {
   if (!titulo) {
     return { error: "O título é obrigatório." };
   }
@@ -14,4 +14,4 @@ function criarBaralho(titulo) {
   return { data: novoBaralho };
 }
 
-export default criarBaralho;
+export default adicionarBaralho;

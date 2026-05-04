@@ -1,7 +1,7 @@
 import { baralhos } from "./data.js";
 
-function listarBaralhos() {
+function listarBaralho() {
   return baralhos;
 }
 
-export default listarBaralhos;
+export default listarBaralho;

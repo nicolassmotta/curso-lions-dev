@@ -1,6 +1,6 @@
 import { baralhos, flashcards } from "./data.js";
 
-function criarFlashcard(pergunta, resposta, idBaralho) {
+function adicionarFlashcard(pergunta, resposta, idBaralho) {
   // Validação (lógica do Modulo07/adicionarFlashcard.js)
   const baralhoEncontrado = baralhos.find((b) => b.id === idBaralho);
   if (!baralhoEncontrado) {
@@ -18,4 +18,4 @@ function criarFlashcard(pergunta, resposta, idBaralho) {
   return { data: novoFlashcard };
 }
 
-export default criarFlashcard;
+export default adicionarFlashcard;
