@@ -27,10 +27,21 @@ app.get("/", (req, res) => {
 
 // --- Rotas de Baralho (Handlers) ---
 app.post("/baralho", (req, res) => {
-  const { titulo } = req.body;
+  // Exemplo de Desestruturação (versão mais moderna):
+  // const { titulo } = req.body;
+  // const { data, error } = adicionarBaralho(titulo);
+
+  // Versão clássica:
+  const titulo = req.body.titulo;
   // (Ainda estamos usando a lógica modularizada, mesmo que o arquivo esteja no root)
-  const { data, error } = adicionarBaralho(titulo);
-  if (error) return res.status(400).send({ message: error });
+  const resultado = adicionarBaralho(titulo);
+  const data = resultado.data;
+  const error = resultado.error;
+  
+  if (error) {
+    return res.status(400).send({ message: error });
+  }
+  
   res.status(201).send({ message: "Baralho criado com sucesso!", baralho: data });
 });
 
@@ -40,25 +51,44 @@ app.get("/baralho", (req, res) => {
 });
 
 app.put("/baralho/:id", (req, res) => {
-  const { id } = req.params;
-  const { titulo } = req.body;
-  const { data, error } = atualizarBaralho(id, titulo);
-  if (error) return res.status(404).send({ message: error });
+  const id = req.params.id;
+  const titulo = req.body.titulo;
+  
+  const resultado = atualizarBaralho(id, titulo);
+  const data = resultado.data;
+  const error = resultado.error;
+  
+  if (error) {
+    return res.status(404).send({ message: error });
+  }
+  
   res.status(200).send({ message: "Baralho atualizado com sucesso!", baralho: data });
 });
 
 app.delete("/baralho/:id", (req, res) => {
-  const { id } = req.params;
-  const { data, error } = deletarBaralho(id);
-  if (error) return res.status(404).send({ message: error });
+  const id = req.params.id;
+  
+  const resultado = deletarBaralho(id);
+  const data = resultado.data;
+  const error = resultado.error;
+  
+  if (error) {
+    return res.status(404).send({ message: error });
+  }
+  
   res.status(200).send({ message: "Baralho deletado com sucesso!", baralho: data });
 });
 
 // --- Rotas de Flashcard (Handlers) ---
 // 1. Criar Flashcard
 app.post("/flashcard", (req, res) => {
-  const { pergunta, resposta, idBaralho } = req.body;
-  const { data, error } = adicionarFlashcard(pergunta, resposta, parseInt(idBaralho));
+  const pergunta = req.body.pergunta;
+  const resposta = req.body.resposta;
+  const idBaralho = req.body.idBaralho;
+  
+  const resultado = adicionarFlashcard(pergunta, resposta, parseInt(idBaralho));
+  const data = resultado.data;
+  const error = resultado.error;
 
   if (error) {
     return res.status(404).send({ message: error });
@@ -68,7 +98,7 @@ app.post("/flashcard", (req, res) => {
 
 // 2. Listar Todos os Flashcards (ou buscar por termo)
 app.get("/flashcard", (req, res) => {
-  const { termo } = req.query;
+  const termo = req.query.termo;
   let data;
   if (termo) {
     data = buscarFlashcards(termo);
@@ -80,10 +110,14 @@ app.get("/flashcard", (req, res) => {
 
 // 3. Atualizar Flashcard
 app.put("/flashcard/:id", (req, res) => {
-  const { id } = req.params;
-  const { pergunta, resposta, idBaralho } = req.body;
+  const id = req.params.id;
+  const pergunta = req.body.pergunta;
+  const resposta = req.body.resposta;
+  const idBaralho = req.body.idBaralho;
 
-  const { data, error } = atualizarFlashcard(id, pergunta, resposta, idBaralho ? parseInt(idBaralho) : undefined);
+  const resultado = atualizarFlashcard(id, pergunta, resposta, idBaralho ? parseInt(idBaralho) : undefined);
+  const data = resultado.data;
+  const error = resultado.error;
 
   if (error) {
     return res.status(404).send({ message: error });
@@ -93,8 +127,11 @@ app.put("/flashcard/:id", (req, res) => {
 
 // 4. Deletar Flashcard
 app.delete("/flashcard/:id", (req, res) => {
-  const { id } = req.params;
-  const { data, error } = deletarFlashcard(id);
+  const id = req.params.id;
+  
+  const resultado = deletarFlashcard(id);
+  const data = resultado.data;
+  const error = resultado.error;
   if (error) {
     return res.status(404).send({ message: error });
   }
@@ -103,7 +140,7 @@ app.delete("/flashcard/:id", (req, res) => {
 
 // 5. Listar Flashcards de um Baralho Específico
 app.get("/baralho/:idBaralho/flashcards", (req, res) => {
-  const { idBaralho } = req.params;
+  const idBaralho = req.params.idBaralho;
   const data = listarFlashcardsEspecificos(idBaralho);
   res.status(200).send(data);
 });

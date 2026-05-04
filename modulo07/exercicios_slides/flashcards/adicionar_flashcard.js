@@ -7,8 +7,14 @@ function adicionarFlashcard(pergunta, resposta, idBaralho) {
     return { error: `Baralho com ID ${idBaralho} não encontrado.` };
   }
 
+  let novoId = 1;
+  if (flashcards.length > 0) {
+    const ultimoFlashcard = flashcards[flashcards.length - 1];
+    novoId = ultimoFlashcard.id + 1;
+  }
+
   const novoFlashcard = {
-    id: flashcards.length > 0 ? Math.max(...flashcards.map((f) => f.id)) + 1 : 1,
+    id: novoId,
     pergunta: pergunta,
     resposta: resposta,
     idBaralho: idBaralho,

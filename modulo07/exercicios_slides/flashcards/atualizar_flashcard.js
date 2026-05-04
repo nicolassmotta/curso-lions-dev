@@ -9,9 +9,15 @@ function atualizarFlashcard(id, pergunta, resposta, idBaralho) {
   }
 
   // Atualiza apenas os campos fornecidos
-  if (pergunta !== undefined) flashcard.pergunta = pergunta;
-  if (resposta !== undefined) flashcard.resposta = resposta;
-  if (idBaralho !== undefined) flashcard.idBaralho = idBaralho;
+  if (pergunta !== undefined) {
+    flashcard.pergunta = pergunta;
+  }
+  if (resposta !== undefined) {
+    flashcard.resposta = resposta;
+  }
+  if (idBaralho !== undefined) {
+    flashcard.idBaralho = idBaralho;
+  }
 
   return { data: flashcard };
 }

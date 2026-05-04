@@ -5,8 +5,14 @@ function adicionarBaralho(titulo) {
     return { error: "O título é obrigatório." };
   }
 
+  let novoId = 1;
+  if (baralhos.length > 0) {
+    const ultimoBaralho = baralhos[baralhos.length - 1];
+    novoId = ultimoBaralho.id + 1;
+  }
+
   const novoBaralho = {
-    id: baralhos.length > 0 ? Math.max(...baralhos.map((b) => b.id)) + 1 : 1,
+    id: novoId,
     titulo: titulo,
   };
 
