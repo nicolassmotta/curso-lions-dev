@@ -1,27 +1,25 @@
 import { baralhos, flashcards } from "./data.js";
 
 function deletarBaralho(id) {
-  const idNum = parseInt(id);
-  const index = baralhos.findIndex((b) => b.id === idNum);
+    const index = baralhos.findIndex((b) => b.id === parseInt(id));
 
-  if (index === -1) {
-    return { error: "Baralho não encontrado!" };
-  }
+    if (index === -1) {
+        return { error: "Baralho não encontrado." };
+    }
 
-  // Remove o baralho
-  const deletado = baralhos.splice(index, 1)[0];
+    // 1. Remove o baralho do array de baralhos
+    const baralhoRemovido = baralhos.splice(index, 1)[0];
 
-  // Filtra os flashcards, mantendo apenas os que NÃO são desse baralho
-  // (Sobrescreve o array original de flashcards)
-  const flashcardsRestantes = flashcards.filter((fc) => fc.idBaralho !== idNum);
+    // 2. Lógica de "Cascata": Filtra o array de flashcards para manter 
+    // apenas aqueles que NÃO pertencem ao baralho deletado.
+    for (let i = flashcards.length - 1; i >= 0; i--) {
+        if (flashcards[i].idBaralho === parseInt(id)) {
+            flashcards.splice(i, 1);
+        }
+    }
 
-  // Atualiza o array de flashcards no módulo 'data'
-  // (Isso é um pouco complexo, mas necessário_
-  //_ porque 'require' importa uma referência)
-  flashcards.length = 0; // Esvazia o array original
-  Array.prototype.push.apply(flashcards, flashcardsRestantes); // Adiciona os itens restantes
-
-  return { data: deletado };
+    return { data: baralhoRemovido };
 }
 
 export default deletarBaralho;
+

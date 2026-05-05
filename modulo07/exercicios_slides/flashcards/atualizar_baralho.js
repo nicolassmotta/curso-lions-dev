@@ -16,3 +16,4 @@ function atualizarBaralho(id, novoTitulo) {
 }
 
 export default atualizarBaralho;
+
