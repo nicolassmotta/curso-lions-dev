@@ -40,8 +40,7 @@ while (executando) {
   exibirMenu();
   const opcao = prompt("Escolha uma opcao: ");
 
-  switch (opcao) {
-    case "1": {
+  switch (opcao) {    case "1": {
       const titulo = prompt("Digite o titulo do novo baralho: ");
       const novoBaralho = {
         titulo: titulo,
