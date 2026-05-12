@@ -24,3 +24,4 @@ const baralhoSchema = new mongoose.Schema(
 const Baralho = mongoose.model("Baralho", baralhoSchema);
 
 export default Baralho;
+

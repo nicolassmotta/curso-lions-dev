@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
-// Conecta no MongoDB uma vez ao iniciar a API.
+// Conecta no MongoDB antes de começar a aceitar requisições.
 conectarBanco();
 
 app.get("/", (_req, res) => {
@@ -35,7 +35,7 @@ app.post("/baralhos", async (req, res) => {
   }
 });
 
-app.get("/baralhos", async (_req, res) => {
+app.get("/baralhos", async (req, res) => {
   try {
     // Busca todos os documentos da coleção.
     const baralhos = await Baralho.find();
@@ -69,7 +69,7 @@ app.get("/baralhos/:id", async (req, res) => {
   }
 });
 
-app.patch("/baralhos/:id", async (req, res) => {
+app.put("/baralhos/:id", async (req, res) => {
   try {
     const { id } = req.params;
 
@@ -202,7 +202,7 @@ app.get("/flashcards/:id", async (req, res) => {
   }
 });
 
-app.patch("/flashcards/:id", async (req, res) => {
+app.put("/flashcards/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const { baralho } = req.body;
