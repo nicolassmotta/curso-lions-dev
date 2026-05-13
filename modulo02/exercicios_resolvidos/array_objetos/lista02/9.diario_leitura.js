@@ -3,7 +3,7 @@ const prompt = PromptSync();
 
 let aluno = {
   nome: "Felipe",
-  pontosLeitura: 10,
+  pontosDeLeitura: 10,
   historicoDias: [
     {
       data: "11/04/2026",
@@ -31,17 +31,17 @@ let historicoDia = {
 
 aluno.historicoDias.push(historicoDia);
 
-if (aluno.historicoDias[aluno.historicoDias.length - 1].paginasLidas > 50 && aluno.pontosLeitura > 0) {
-  aluno.pontosLeitura = aluno.pontosLeitura * 2;
+if (aluno.historicoDias[aluno.historicoDias.length - 1].paginasLidas > 50 && aluno.pontosDeLeitura > 0) {
+  aluno.pontosDeLeitura = aluno.pontosDeLeitura * 2;
   aluno.historicoDias[aluno.historicoDias.length - 1].data = aluno.historicoDias[aluno.historicoDias.length - 1].data + " - Super Leitor!";
 }
 
 if (aluno.historicoDias[aluno.historicoDias.length - 1].paginasLidas < 10) {
-  aluno.pontosLeitura = aluno.pontosLeitura / 2;
+  aluno.pontosDeLeitura = aluno.pontosDeLeitura / 2;
 }
 
 console.log(`O nome do aluno é: ${aluno.nome}`);
-console.log(`A pontuação do aluno é: ${aluno.pontosLeitura}`);
+console.log(`A pontuação do aluno é: ${aluno.pontosDeLeitura}`);
 aluno.historicoDias.forEach((dias) => {
   console.log(`Data: ${dias.data}`);
   console.log(`Páginas Lidas: ${dias.paginasLidas}`);

@@ -1,10 +1,20 @@
 <style>
-  body { font-family: 'Segoe UI', Helvetica, Arial, sans-serif; color: #000000; }
-  h1 { color: #001A33; border-bottom: 2px solid #001A33; padding-bottom: 8px; font-size: 24px; }
-  h2, h3 { color: #002B5E; margin-top: 24px; }
+  :root {
+    --lionsdev-titulo: #001A33;
+    --lionsdev-texto: #000000;
+    --lionsdev-muted: #6B7280;
+    --lionsdev-bloco: #F4F6F7;
+    --lionsdev-codigo: #F0F2F5;
+  }
+
+  body { font-family: 'Segoe UI', Helvetica, Arial, sans-serif; color: var(--lionsdev-texto); }
+  h1, h2, h3 { color: var(--lionsdev-titulo); }
+  h1 { border-bottom: 2px solid var(--lionsdev-titulo); padding-bottom: 8px; font-size: 24px; }
+  h2, h3 { margin-top: 24px; }
   p, li { line-height: 1.6; font-size: 15px; }
-  blockquote { background-color: #f4f6f7; border-left: 4px solid #002B5E; padding: 12px 15px; margin: 15px 0; color: #000000; }
-  code { background-color: #f0f2f5 !important; color: #000000 !important; font-weight: bold; padding: 2px 4px; border-radius: 4px; }
+  hr { border: 0; border-top: 2px solid var(--lionsdev-titulo); margin: 24px 0; }
+  blockquote { background-color: var(--lionsdev-bloco); border-left: 4px solid var(--lionsdev-titulo); padding: 12px 15px; margin: 15px 0; color: var(--lionsdev-texto); }
+  code { background-color: var(--lionsdev-codigo) !important; color: var(--lionsdev-texto) !important; font-weight: bold; padding: 2px 4px; border-radius: 4px; }
 
   @media print {
     @page { margin: 1.5cm; }
@@ -80,7 +90,7 @@ Exiba um menu perguntando a operação desejada: "V" para Venda ou "D" para Desp
 
 ---
 
-<div style="text-align: center; color: #777; font-size: 13px; margin-top: 50px;">
+<div style="text-align: center; color: #6B7280; font-size: 13px; margin-top: 50px;">
   <b>LionsDev</b> • Professor Nicolas Cardoso Motta<br>
   <i>Exercícios dos Fundamentos da Programação - Módulo 02</i>
 </div>

@@ -3,16 +3,13 @@ const prompt = require("prompt-sync")();
 function atualizarEntrega(codigo) {
   switch (codigo) {
     case "P":
-      entrega.status = "Pendente de Envio";
-      break;
+      return "Pendente de Envio";
     case "E":
-      entrega.status = "Em Rota de Entrega";
-      break;
+      return "Em Rota de Entrega";
     case "C":
-      entrega.status = "Cancelado";
-      break;
+      return "Cancelado";
     default:
-      break;
+      return "Status Inválido";
   }
 }
 
@@ -25,6 +22,6 @@ let entrega = {
 console.log("Qual o código do status da entrega?\n[P] - Pendente de Envio\n[E] - Em Rota de Entrega\n[C] - Cancelado");
 codigo = prompt("R: ");
 
-atualizarEntrega(codigo);
+entrega.status = atualizarEntrega(codigo);
 
 console.log(entrega);

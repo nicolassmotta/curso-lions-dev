@@ -2,7 +2,7 @@ import PromptSync from "prompt-sync";
 const prompt = PromptSync();
 
 let novoAluno = "";
-let listaAlunos = ["Pedro"];
+let listaAlunos = ["Pedro", "Ana"];
 
 novoAluno = prompt("Qual o nome do novo aluno? R: ");
 

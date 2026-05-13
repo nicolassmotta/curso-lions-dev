@@ -17,22 +17,27 @@ let carrinhos = [
 
 let totalCompra = 0;
 let dinheiro = 0;
+let totalPago = 0;
 let relatorio = [];
 
 carrinhos.forEach((item) => {
-  console.log(`Quanto ${item.nome} tem de dinheiro para poder pagar?`);
-  dinheiro = Number(prompt("R: "));
-
   item.produtos.forEach((preco) => {
     totalCompra = totalCompra + preco;
   });
 
-  if (dinheiro >= totalCompra) {
-    console.log(`O troco a ser devolvido é ${dinheiro - totalCompra}`);
-    relatorio.push(item.nome);
+  while (totalPago < totalCompra) {
+    console.log(`${item.nome} precisa pagar R$ ${totalCompra}. Quanto recebeu agora?`);
+    dinheiro = Number(prompt("R: "));
+    totalPago = totalPago + dinheiro;
   }
 
+  if (totalPago > totalCompra) {
+    console.log(`O troco a ser devolvido é ${totalPago - totalCompra}`);
+  }
+
+  relatorio.push(item.nome);
   totalCompra = 0;
+  totalPago = 0;
 });
 
 console.log(relatorio);
