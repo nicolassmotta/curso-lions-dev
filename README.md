@@ -59,7 +59,7 @@ moduloXX/
 
 As dependências dos exemplos gerais ficam centralizadas no `package.json` da raiz para simplificar o setup dos alunos: com um único `npm install` na raiz, as ferramentas principais ficam disponíveis para os módulos iniciais e intermediários.
 
-Projetos completos pensados para deploy podem ter `package.json` próprio dentro da pasta do projeto. Esse é o caso dos exemplos resolvidos do Módulo 09 em `modulo09/exercicios_resolvidos/autenticacao_mvc` e `modulo09/exercicios_resolvidos/api_banco_digital`, porque eles precisam funcionar como APIs independentes no Render.
+Projetos completos pensados para deploy podem ter `package.json` próprio dentro da pasta do projeto. Esse é o caso do projeto final resolvido do Módulo 09 em `modulo09/exercicios_resolvidos/api_banco_digital`, porque ele precisa funcionar como uma API independente no Render. Para novos exercícios de API com autenticação e MVC, use o boilerplate externo: <https://github.com/nicolassmotta/lionsdev-boilerplate>.
 
 | Pacote         | Usado a partir de | Onde está declarado                         | Função                                              |
 | -------------- | ----------------- | ------------------------------------------- | --------------------------------------------------- |
@@ -67,8 +67,8 @@ Projetos completos pensados para deploy podem ter `package.json` próprio dentro
 | `express`      | Módulo 07         | `package.json` da raiz e projetos de API    | Framework para criação de APIs REST                 |
 | `mongoose`     | Módulo 08         | `package.json` da raiz e projetos de API    | ODM para integração com MongoDB                     |
 | `dotenv`       | Módulo 08         | `package.json` da raiz e projetos de API    | Carregar variáveis de ambiente de um arquivo `.env` |
-| `bcryptjs`     | Módulo 09         | Projetos completos do Módulo 09             | Gerar hash de senhas                                |
-| `jsonwebtoken` | Módulo 09         | Projetos completos do Módulo 09             | Criar e validar tokens JWT                          |
+| `bcryptjs`     | Módulo 09         | Projeto final e boilerplate externo         | Gerar hash de senhas                                |
+| `jsonwebtoken` | Módulo 09         | Projeto final e boilerplate externo         | Criar e validar tokens JWT                          |
 
 ---
 

@@ -21,22 +21,19 @@ Sequência sugerida para a aula:
    - Checklist de deploy no Render.
    - Uso correto de `PORT`, `.env`, `MONGO_URI` e `JWT_SECRET`.
 
-4. `../exercicios_resolvidos/autenticacao_mvc`
+4. Boilerplate externo: <https://github.com/nicolassmotta/lionsdev-boilerplate>
 
-   - Projeto completo com Express, MongoDB, Mongoose, bcryptjs, JWT, MVC, services e repositories.
-   - Também pode ser usado como boilerplate base para os próximos exercícios de API.
+   - Projeto base com Express, MongoDB, Mongoose, bcryptjs, JWT, MVC, services e repositories.
+   - Deve ser usado como ponto de partida para novos exercícios de API com autenticação.
+   - Fica em um repositório separado para os alunos clonarem sem trazer todo o material do curso.
 
-5. `../lista_de_exercicios/api_autenticacao_mvc.md`
-
-   - Proposta para os alunos construírem uma API parecida do zero.
-   - Reforça cadastro, login, perfil protegido, atualização, listagem e remoção da própria conta.
-
-6. `../lista_de_exercicios/api_banco_digital.md`
+5. `../lista_de_exercicios/api_banco_digital.md`
 
    - Projeto grande de encerramento: uma API de banco digital com contas, transações, PIX, boletos, cartões, empréstimos, permissões e deploy.
+   - Pode ser iniciado a partir do boilerplate externo.
    - Deve ser feito depois que a turma já entendeu autenticação, MVC e MongoDB.
 
-7. `../exercicios_resolvidos/api_banco_digital`
+6. `../exercicios_resolvidos/api_banco_digital`
 
    - Gabarito completo do projeto final, mantendo o mesmo padrão de MVC, services, repositories, middlewares, `.env.example`, `requests.http` e `render.yaml`.
 
