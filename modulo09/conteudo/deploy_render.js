@@ -21,7 +21,7 @@
  *
  * Até agora, usávamos:
  *   - node index.js         → Roda no seu computador (localhost:3000)
- *   - npm run dev            → Mesmo conceito, mas com hot reload
+ *   - npm start            → Roda o comando configurado no package.json
  *
  * Após o deploy, sua API terá um endereço público, por exemplo:
  *   - https://minha-api.onrender.com
@@ -143,10 +143,12 @@ console.log(`Servidor configurado para rodar na porta: ${PORT}`);
  *
  *     | Key        | Value                                        |
  *     |------------|----------------------------------------------|
- *     | MONGO_URI  | mongodb+srv://usuario:senha@cluster/banco    |
+ *     | MONGO_URI | mongodb+srv://usuario:senha@cluster/banco   |
  *     | NODE_ENV   | production                                   |
+ *     | JWT_SECRET | uma_chave_grande_e_secreta                  |
  *
  *   - ATENÇÃO: NÃO adicione PORT. O Render define automaticamente.
+ *   - ATENÇÃO: NÃO coloque JWT_SECRET no código nem no GitHub.
  *
  *
  * ETAPA 4: Fazer o Deploy
@@ -181,15 +183,14 @@ console.log(`Servidor configurado para rodar na porta: ${PORT}`);
  * services:
  *   - type: web
  *     name: minha-api
- *     env: node
+ *     runtime: node
  *     buildCommand: 'npm install'
  *     startCommand: 'npm start'
  *     envVars:
- *       - key: DATABASE_URL
- *         fromService:
- *           type: psql
- *           name: meu-banco
- *           property: connectionString
+ *       - key: MONGO_URI
+ *         sync: false
+ *       - key: JWT_SECRET
+ *         generateValue: true
  *       - key: NODE_ENV
  *         value: production
  *
@@ -218,7 +219,41 @@ console.log(`Servidor configurado para rodar na porta: ${PORT}`);
  */
 
 // -------------------------------------------------------------------
-// 7. PROBLEMAS COMUNS E COMO RESOLVER
+// 7. CHECKLIST ESPECÍFICO PARA API COM AUTENTICAÇÃO
+// -------------------------------------------------------------------
+
+/*
+ * Quando a API tem login com JWT e senha com bcrypt, confira:
+ *
+ * ✅ O package.json tem:
+ *    "start": "node src/server.js"
+ *
+ * ✅ O servidor usa:
+ *    const PORT = process.env.PORT || 3000;
+ *
+ * ✅ O banco vem de variável de ambiente:
+ *    process.env.MONGO_URI
+ *
+ * ✅ O segredo do JWT vem de variável de ambiente:
+ *    process.env.JWT_SECRET
+ *
+ * ✅ O .env NÃO foi enviado para o GitHub.
+ *
+ * ✅ O model de usuário salva "senhaHash", não "senha".
+ *
+ * ✅ As respostas da API nunca retornam senha nem senhaHash.
+ *
+ * ✅ No Render, as variáveis mínimas são:
+ *
+ *    MONGO_URI          -> sua connection string do MongoDB Atlas
+ *    JWT_SECRET           -> segredo grande e aleatório
+ *    JWT_EXPIRES_IN       -> 1d
+ *    BCRYPT_SALT_ROUNDS   -> 10
+ *    NODE_ENV             -> production
+ */
+
+// -------------------------------------------------------------------
+// 8. PROBLEMAS COMUNS E COMO RESOLVER
 // -------------------------------------------------------------------
 
 /*
@@ -234,7 +269,7 @@ console.log(`Servidor configurado para rodar na porta: ${PORT}`);
  *    → No MongoDB Atlas, libere o IP 0.0.0.0/0 (acesso de qualquer IP)
  *
  * ❌ ERRO: "Module not found"
- *    → Verifique se a dependência está no package.json (dependencies, NÃO devDependencies)
+ *    → Verifique se a dependência foi instalada com npm install nome-do-pacote
  *    → Confirme que os imports no código usam os caminhos corretos
  *
  * ⚠️  AVISO: Plano gratuito do Render "dorme" após 15 min de inatividade
@@ -244,7 +279,7 @@ console.log(`Servidor configurado para rodar na porta: ${PORT}`);
  */
 
 // -------------------------------------------------------------------
-// 8. RESUMO DOS CONCEITOS
+// 9. RESUMO DOS CONCEITOS
 // -------------------------------------------------------------------
 
 /*
