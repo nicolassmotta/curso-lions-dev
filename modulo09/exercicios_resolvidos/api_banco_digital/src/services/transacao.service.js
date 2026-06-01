@@ -250,10 +250,74 @@ async function estornar(transacaoId) {
   };
 }
 
+async function buscarTransferenciaPendente(transacaoId) {
+  const transacao = await TransacaoRepository.buscarPorId(transacaoId);
+
+  if (!transacao) {
+    throw criarErro("Transação não encontrada.", 404);
+  }
+
+  if (transacao.tipo !== "transferencia") {
+    throw criarErro("Apenas transferências podem ser aprovadas ou recusadas por esta rota.", 400);
+  }
+
+  if (transacao.status !== "pendente") {
+    throw criarErro("Apenas transferências pendentes podem ser aprovadas ou recusadas.", 400);
+  }
+
+  return transacao;
+}
+
+async function aprovarPendente(transacaoId) {
+  const transacao = await buscarTransferenciaPendente(transacaoId);
+  const contaOrigem = await ContaRepository.buscarPorId(transacao.contaOrigemId);
+  const contaDestino = await ContaRepository.buscarPorId(transacao.contaDestinoId);
+
+  garantirContaAtiva(contaOrigem);
+  garantirContaAtiva(contaDestino);
+  await garantirUsuarioPodeOperar(contaOrigem.usuarioId);
+  await garantirUsuarioPodeOperar(contaDestino.usuarioId);
+  garantirSaldoSuficiente(contaOrigem, transacao.valorCentavos);
+
+  const saldoAntesOrigem = contaOrigem.saldoCentavos;
+  const saldoAntesDestino = contaDestino.saldoCentavos;
+
+  contaOrigem.saldoCentavos -= transacao.valorCentavos;
+  contaDestino.saldoCentavos += transacao.valorCentavos;
+
+  transacao.status = "aprovada";
+  transacao.saldoAntesOrigemCentavos = saldoAntesOrigem;
+  transacao.saldoDepoisOrigemCentavos = contaOrigem.saldoCentavos;
+  transacao.saldoAntesDestinoCentavos = saldoAntesDestino;
+  transacao.saldoDepoisDestinoCentavos = contaDestino.saldoCentavos;
+
+  await ContaRepository.salvar(contaOrigem);
+  await ContaRepository.salvar(contaDestino);
+  await TransacaoRepository.salvar(transacao);
+
+  return { transacao: documentoSeguro(transacao) };
+}
+
+async function recusarPendente(transacaoId, { motivo } = {}) {
+  const transacao = await buscarTransferenciaPendente(transacaoId);
+
+  transacao.status = "recusada";
+
+  if (motivo) {
+    transacao.descricao = `${transacao.descricao} | Recusada: ${motivo}`;
+  }
+
+  await TransacaoRepository.salvar(transacao);
+
+  return { transacao: documentoSeguro(transacao) };
+}
+
 export default {
   depositar,
   sacar,
   transferir,
   buscarPorId,
   estornar,
+  aprovarPendente,
+  recusarPendente,
 };

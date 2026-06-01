@@ -45,10 +45,30 @@ async function estornar(req, res, next) {
   }
 }
 
+async function aprovarPendente(req, res, next) {
+  try {
+    const resultado = await TransacaoService.aprovarPendente(req.params.id);
+    return res.status(200).json(resultado);
+  } catch (error) {
+    return next(error);
+  }
+}
+
+async function recusarPendente(req, res, next) {
+  try {
+    const resultado = await TransacaoService.recusarPendente(req.params.id, req.body);
+    return res.status(200).json(resultado);
+  } catch (error) {
+    return next(error);
+  }
+}
+
 export default {
   depositar,
   sacar,
   transferir,
   detalhar,
   estornar,
+  aprovarPendente,
+  recusarPendente,
 };

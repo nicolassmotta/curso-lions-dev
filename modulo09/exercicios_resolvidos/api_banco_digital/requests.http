@@ -104,13 +104,28 @@ Authorization: Bearer {{tokenCliente}}
 {
   "contaOrigemId": "{{contaClienteId}}",
   "contaDestinoId": "{{contaDestinoId}}",
-  "valorCentavos": 10000,
+  "valorCentavos": 600000,
   "descricao": "Transferência de teste"
 }
 
 ### Extrato
 GET {{baseUrl}}/api/contas/{{contaClienteId}}/extrato
 Authorization: Bearer {{tokenCliente}}
+
+### Aprovar transferência pendente
+# Use o ID de uma transferência acima de R$ 5.000,00.
+PATCH {{baseUrl}}/api/transacoes/{{transacaoId}}/aprovar
+Authorization: Bearer {{tokenAdmin}}
+
+### Recusar transferência pendente
+# Use o ID de uma transferência acima de R$ 5.000,00.
+PATCH {{baseUrl}}/api/transacoes/{{transacaoId}}/recusar
+Content-Type: application/json
+Authorization: Bearer {{tokenAdmin}}
+
+{
+  "motivo": "Movimentação fora do perfil esperado."
+}
 
 ### Cadastrar chave PIX
 POST {{baseUrl}}/api/pix/chaves

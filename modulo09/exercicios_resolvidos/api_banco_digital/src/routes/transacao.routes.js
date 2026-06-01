@@ -13,6 +13,8 @@ router.post("/deposito", validarCampos(["contaId", "valorCentavos"]), TransacaoC
 router.post("/saque", validarCampos(["contaId", "valorCentavos"]), TransacaoController.sacar);
 router.post("/transferencia", validarCampos(["contaOrigemId", "valorCentavos"]), TransacaoController.transferir);
 router.get("/:id", TransacaoController.detalhar);
+router.patch("/:id/aprovar", autorizar(["gerente", "admin"]), TransacaoController.aprovarPendente);
+router.patch("/:id/recusar", autorizar(["gerente", "admin"]), TransacaoController.recusarPendente);
 router.post("/:id/estorno", autorizar(["admin"]), TransacaoController.estornar);
 
 export default router;

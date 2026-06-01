@@ -67,6 +67,8 @@ route -> middleware -> controller -> service -> repository -> model
 | POST   | `/api/transacoes/deposito`        | Depósito                   |
 | POST   | `/api/transacoes/saque`           | Saque com tarifa           |
 | POST   | `/api/transacoes/transferencia`   | Transferência              |
+| PATCH  | `/api/transacoes/:id/aprovar`     | Aprova transferência pendente |
+| PATCH  | `/api/transacoes/:id/recusar`     | Recusa transferência pendente  |
 | POST   | `/api/transacoes/:id/estorno`     | Estorno, admin             |
 | POST   | `/api/pix/chaves`                 | Cadastra chave PIX         |
 | POST   | `/api/pix/enviar`                 | Envia PIX                  |
@@ -89,7 +91,7 @@ route -> middleware -> controller -> service -> repository -> model
 - Poupança não aceita cheque especial.
 - Saque cobra tarifa de R$ 2,50.
 - Valores monetários são salvos em centavos.
-- Transferência acima de R$ 5.000,00 fica pendente para cliente.
+- Transferência acima de R$ 5.000,00 fica pendente até aprovação de gerente/admin.
 - Conta salário só transfere para conta do mesmo CPF.
 - PIX respeita limite diário configurado no `.env`.
 - Cartão de crédito consome limite e gera fatura.

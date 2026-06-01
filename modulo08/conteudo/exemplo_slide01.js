@@ -3,5 +3,4 @@
 let baralhos = [];
 
 // Depois: armazenamento no MongoDB
-const baralhos = await Baralho.find();
-
+baralhos = await Baralho.find();

@@ -17,7 +17,7 @@
     "banking-api"
   ],
   "author": "LionsDev",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "bcryptjs": "^3.0.2",
     "dotenv": "^17.4.2",

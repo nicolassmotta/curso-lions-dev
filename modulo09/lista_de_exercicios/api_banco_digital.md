@@ -285,6 +285,8 @@ O logout pode apenas retornar uma mensagem de sucesso. Não precisa implementar 
 | POST   | `/api/transacoes/deposito`     | JWT        | Depositar em uma conta            |
 | POST   | `/api/transacoes/saque`        | JWT        | Sacar de uma conta                |
 | POST   | `/api/transacoes/transferencia` | JWT       | Transferir entre contas           |
+| PATCH  | `/api/transacoes/:id/aprovar`  | Gerente/Admin | Aprovar transferência pendente |
+| PATCH  | `/api/transacoes/:id/recusar`  | Gerente/Admin | Recusar transferência pendente  |
 | GET    | `/api/transacoes/:id`          | Dono/Admin | Ver detalhes de uma transação     |
 | POST   | `/api/transacoes/:id/estorno`  | Admin      | Estornar uma transação aprovada   |
 
@@ -293,7 +295,7 @@ Regras:
 1. Não permitir valores menores ou iguais a zero.
 2. Não permitir saque ou transferência sem saldo suficiente.
 3. Toda movimentação deve alterar saldo e criar uma transação.
-4. Para transferência, a conta de origem perde saldo e a conta de destino ganha saldo.
+4. Para transferência aprovada, a conta de origem perde saldo e a conta de destino ganha saldo.
 5. Para este projeto, não precisa tratar requisições duplicadas. Foque primeiro em validar saldo, alterar o saldo das contas e registrar a transação.
 
 ### 7.5 PIX

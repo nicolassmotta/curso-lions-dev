@@ -74,7 +74,7 @@ Projetos completos pensados para deploy podem ter `package.json` próprio dentro
 
 ## 📄 Licença
 
-Este projeto está licenciado sob a licença ISC — veja o arquivo [LICENSE](LICENSE) para detalhes.
+Este projeto está licenciado sob a licença MIT — veja o arquivo [LICENSE](LICENSE) para detalhes.
 
 ---
 
