@@ -1,7 +1,7 @@
 {
-  "name": "api-autenticacao-mvc-lionsdev",
+  "name": "lionsdev-api-auth-mvc-boilerplate",
   "version": "1.0.0",
-  "description": "API de exemplo com MVC, bcryptjs, JWT, Express e MongoDB.",
+  "description": "Boilerplate didático para APIs Express com MVC, MongoDB, bcryptjs e JWT.",
   "type": "module",
   "main": "src/server.js",
   "scripts": {

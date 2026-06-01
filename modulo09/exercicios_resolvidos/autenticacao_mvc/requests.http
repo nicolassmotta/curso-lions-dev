@@ -1,4 +1,5 @@
-# Este arquivo ajuda a testar a API usando a extensão REST Client do VS Code.
+# Este arquivo ajuda a testar o boilerplate usando a extensão REST Client do VS Code.
+# Em um projeto novo, copie os blocos abaixo e adicione os testes das novas rotas.
 
 # Endereço base da API local.
 @baseUrl = http://localhost:3000

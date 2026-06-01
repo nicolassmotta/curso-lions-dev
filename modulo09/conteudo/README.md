@@ -24,6 +24,7 @@ Sequência sugerida para a aula:
 4. `../exercicios_resolvidos/autenticacao_mvc`
 
    - Projeto completo com Express, MongoDB, Mongoose, bcryptjs, JWT, MVC, services e repositories.
+   - Também pode ser usado como boilerplate base para os próximos exercícios de API.
 
 5. `../lista_de_exercicios/api_autenticacao_mvc.md`
 
