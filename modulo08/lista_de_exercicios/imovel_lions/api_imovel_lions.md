@@ -140,7 +140,14 @@ Você deverá implementar endpoints para gerenciar Imóveis (`/imoveis`), Reserv
 
 Depois que a versão obrigatória estiver funcionando, tente adicionar uma ou mais melhorias:
 
-* Usar `mongoose.Schema.Types.ObjectId`, `ref` e `.populate()` para trazer os dados completos do imóvel ao listar reservas.
+* **Avançado:** usar `mongoose.Schema.Types.ObjectId`, `ref` e `.populate()` no campo `imovelId` para trazer os dados completos do imóvel ao listar reservas. Exemplo mínimo:
+  ```javascript
+  // models/reserva.js
+  imovelId: { type: mongoose.Schema.Types.ObjectId, ref: "Imovel", required: true },
+
+  // server.js
+  const reservas = await Reserva.find().populate("imovelId");
+  ```
 * Cobrar uma taxa fixa de limpeza de R$ 80 em cada reserva.
 * Cobrar taxa extra por hóspede adicional a partir do 3º hóspede.
 * Aplicar desconto de 10% para estadias com 5 noites ou mais.
