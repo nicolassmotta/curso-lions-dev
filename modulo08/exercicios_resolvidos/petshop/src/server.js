@@ -4,17 +4,17 @@ import conectarDB from "./db.js";
 import dotenv from "dotenv";
 
 dotenv.config();
-const router = express();
+const app = express();
 const PORT = process.env.PORT;
 conectarDB();
 
-router.use(express.json());
+app.use(express.json());
 
-router.get("/", (req, res) => {
+app.get("/", (req, res) => {
   res.json({ mensagem: "API do Petshop está no ar!" });
 });
 
-router.post("/agendamentos", async (req, res) => {
+app.post("/agendamentos", async (req, res) => {
   try {
     const { nomePet, especie, nomeDono, telefoneDono, servico, data } = req.body;
 
@@ -88,6 +88,6 @@ router.post("/agendamentos", async (req, res) => {
   }
 });
 
-router.listen(PORT, () => {
+app.listen(PORT, () => {
   console.log(`Conectado com a porta ${PORT} com sucesso!`);
 });
