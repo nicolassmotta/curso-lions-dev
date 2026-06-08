@@ -146,7 +146,7 @@ Realize testes na sua API seguindo este fluxo de validação:
 
 ## 5. Dicas para a Implementação
 
-* No arquivo `db.js`, use `mongoose.connect(process.env.MONGO_URI)` envolvido in um `try/catch` assíncrono.
+* No arquivo `db.js`, use `mongoose.connect(process.env.MONGO_URI)` envolvido em um `try/catch` assíncrono.
 * No `findByIdAndUpdate`, passe `{ new: true, runValidators: true }` para que o Mongoose aplique as validações e retorne o registro já atualizado.
 * Lembre-se de usar `app.use(express.json())` no `src/server.js` para conseguir ler o corpo das requisições.
 
