@@ -60,7 +60,7 @@ O Schema do Mongoose para os `agendamentos` deve conter os seguintes campos:
 * `nomeDono`: Tipo `String`, obrigatório.
 * `telefoneDono`: Tipo `String`, obrigatório.
 * `servico`: Tipo `String`, obrigatório (deve aceitar apenas: `Banho`, `Tosa` ou `Banho e Tosa`).
-* `data`: Tipo `String` ou `Date`, obrigatório (ex: `"2026-06-15"`).
+* `data`: Tipo `String`, obrigatório (ex: `"2026-06-15"`).
 * `valor`: Tipo `Number` (será calculado de forma automática pela API).
 * `status`: Tipo `String`, com valor padrão de `"Agendado"` (deve aceitar apenas: `Agendado`, `Concluído` ou `Cancelado`).
 

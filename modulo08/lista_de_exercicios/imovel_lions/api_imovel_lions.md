@@ -76,8 +76,8 @@ Defina os Schemas do Mongoose detalhados a seguir:
 * `imovelId`: Tipo `String`, obrigatório. Esse campo deve guardar o `_id` do imóvel reservado.
 * `nomeHospede`: Tipo `String`, obrigatório.
 * `emailHospede`: Tipo `String`, obrigatório.
-* `dataEntrada` (Check-in): Tipo `Date`, obrigatória.
-* `dataSaida` (Check-out): Tipo `Date`, obrigatória.
+* `dataEntrada` (Check-in): Tipo `String`, obrigatória (ex: `"2026-06-15"`).
+* `quantidadeNoites`: Tipo `Number`, obrigatória.
 * `hospedes`: Array de Objetos, obrigatório, onde cada objeto pode conter:
   * `nome`: Tipo `String`
   * `idade`: Tipo `Number`
@@ -89,7 +89,6 @@ Defina os Schemas do Mongoose detalhados a seguir:
 * `nomeUsuario`: Tipo `String`, obrigatório.
 * `nota`: Tipo `Number`, obrigatório (deve aceitar apenas valores de `1` a `5`).
 * `comentario`: Tipo `String`, obrigatório (mínimo de 10 caracteres).
-* `dataCriacao`: Tipo `Date`, padrão `Date.now`.
 
 ---
 
@@ -107,13 +106,13 @@ Você deverá implementar endpoints para gerenciar Imóveis (`/imoveis`), Reserv
 ### 3.2 Reservas
 
 * **Criar Reserva (`POST /reservas`)**:
-  Recebe no corpo: `imovelId`, `nomeHospede`, `emailHospede`, `dataEntrada`, `dataSaida` e `hospedes` (array).
+  Recebe no corpo: `imovelId`, `nomeHospede`, `emailHospede`, `dataEntrada`, `quantidadeNoites` e `hospedes` (array).
 
   **Regras de Negócio (Lógica em JavaScript):**
   1. **Validação de Existência**: A API deve verificar se o imóvel informado realmente existe no banco de dados. Se não existir, retorne status `404` com erro.
   2. **Validação de Capacidade**: Verifique se a quantidade total de hóspedes (tamanho do array `hospedes`) não ultrapassa a `capacidadeMaxima` do imóvel selecionado. Se ultrapassar, retorne status `400` com erro.
-  3. **Cálculo Simples do Valor Total**: Calcule a quantidade de noites entre `dataEntrada` e `dataSaida`.
-  4. Multiplique a quantidade de noites pelo `precoNoite` do imóvel.
+  3. **Validação de Noites**: Verifique se `quantidadeNoites` é maior que zero. Se não for, retorne status `400` com erro.
+  4. **Cálculo Simples do Valor Total**: Multiplique `quantidadeNoites` pelo `precoNoite` do imóvel.
   5. Se todas as regras passarem, salve a reserva no banco de dados com o `valorTotal` calculado e retorne o documento com status `201`.
 
 * **Listar Reservas (`GET /reservas`)**: Retorna todas as reservas cadastradas.
@@ -142,7 +141,7 @@ Você deverá implementar endpoints para gerenciar Imóveis (`/imoveis`), Reserv
 Depois que a versão obrigatória estiver funcionando, tente adicionar uma ou mais melhorias:
 
 * Usar `mongoose.Schema.Types.ObjectId`, `ref` e `.populate()` para trazer os dados completos do imóvel ao listar reservas.
-* Cobrar 20% a mais em noites de sexta-feira, sábado ou domingo.
+* Cobrar uma taxa fixa de limpeza de R$ 80 em cada reserva.
 * Cobrar taxa extra por hóspede adicional a partir do 3º hóspede.
 * Aplicar desconto de 10% para estadias com 5 noites ou mais.
 * Aplicar cupom `"LIONS10"` com mais 10% de desconto.
@@ -180,13 +179,9 @@ Realize testes na sua API simulando o seguinte fluxo de validação:
   ```javascript
   const imovel = await Imovel.findById(imovelId);
   ```
-* Para calcular a quantidade de noites:
+* Para calcular o valor total da reserva:
   ```javascript
-  const entrada = new Date(dataEntrada);
-  const saida = new Date(dataSaida);
-  const diferencaTempo = saida - entrada;
-  const noites = Math.ceil(diferencaTempo / (1000 * 60 * 60 * 24));
-  const valorTotal = noites * imovel.precoNoite;
+  const valorTotal = quantidadeNoites * imovel.precoNoite;
   ```
 * No modelo de avaliações, valide a nota com `min: 1` e `max: 5` no próprio Schema do Mongoose.
 * Use o `try/catch` para capturar as validações disparadas pelo Schema do Mongoose na hora de salvar.

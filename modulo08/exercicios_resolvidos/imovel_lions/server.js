@@ -69,7 +69,7 @@ app.get("/imoveis/busca", async (req, res) => {
 // 4. Criar Reserva
 app.post("/reservas", async (req, res) => {
   try {
-    const { imovelId, nomeHospede, emailHospede, dataEntrada, dataSaida, hospedes } = req.body;
+    const { imovelId, nomeHospede, emailHospede, dataEntrada, quantidadeNoites, hospedes } = req.body;
 
     const imovel = await Imovel.findById(imovelId);
     if (!imovel) {
@@ -87,23 +87,18 @@ app.post("/reservas", async (req, res) => {
       });
     }
 
-    const entrada = new Date(dataEntrada);
-    const saida = new Date(dataSaida);
-
-    if (entrada >= saida) {
-      return res.status(400).json({ message: "A data de saída deve ser posterior à data de entrada." });
+    if (quantidadeNoites <= 0) {
+      return res.status(400).json({ message: "A quantidade de noites deve ser maior que zero." });
     }
 
-    const diferencaTempo = saida - entrada;
-    const noites = Math.ceil(diferencaTempo / (1000 * 60 * 60 * 24));
-    const valorTotal = noites * imovel.precoNoite;
+    const valorTotal = quantidadeNoites * imovel.precoNoite;
 
     const novaReserva = new Reserva({
       imovelId,
       nomeHospede,
       emailHospede,
       dataEntrada,
-      dataSaida,
+      quantidadeNoites,
       hospedes,
       valorTotal,
     });

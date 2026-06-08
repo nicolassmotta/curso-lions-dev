@@ -27,11 +27,6 @@ const AvaliacaoSchema = new mongoose.Schema({
     required: [true, "O comentário é obrigatório."],
     minlength: [10, "O comentário deve ter no mínimo 10 caracteres."], // Validador de comprimento mínimo
   },
-  // Campo de Data com valor dinâmico gerado pelo servidor MongoDB (Date.now)
-  dataCriacao: {
-    type: Date,
-    default: Date.now, // Define a data e hora atual do momento exato do insert no banco de dados
-  },
 });
 
 // Cria o modelo. Ele gerará a coleção "avaliacoes" no MongoDB.

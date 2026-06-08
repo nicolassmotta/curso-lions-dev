@@ -59,9 +59,8 @@ O Schema do Mongoose para os `emprestimos` deve conter os seguintes campos:
 * `tipoMaterial`: Tipo `String`, obrigatório (deve aceitar apenas: `Livro`, `Revista` ou `Apostila`).
 * `nomeAluno`: Tipo `String`, obrigatório.
 * `turma`: Tipo `String`, obrigatório.
-* `dataEmprestimo`: Tipo `String` ou `Date`, obrigatório (ex: `"2026-06-15"`).
+* `dataEmprestimo`: Tipo `String`, obrigatório (ex: `"2026-06-15"`).
 * `diasEmprestimo`: Tipo `Number`, obrigatório.
-* `dataDevolucaoPrevista`: Tipo `String` (será calculado automaticamente pela API).
 * `multaPrevista`: Tipo `Number` (será calculado automaticamente pela API).
 * `status`: Tipo `String`, com valor padrão de `"Emprestado"` (deve aceitar apenas: `Emprestado`, `Devolvido` ou `Atrasado`).
 
@@ -73,7 +72,7 @@ O Schema do Mongoose para os `emprestimos` deve conter os seguintes campos:
 
 Crie a rota `POST /emprestimos`.
 
-O corpo da requisição enviará os dados do empréstimo (exceto `dataDevolucaoPrevista`, `multaPrevista` e `status`).
+O corpo da requisição enviará os dados do empréstimo (exceto `multaPrevista` e `status`).
 
 ```json
 {
@@ -87,9 +86,8 @@ O corpo da requisição enviará os dados do empréstimo (exceto `dataDevolucaoP
 ```
 
 Regras:
-1. **Cálculo da Data de Devolução**: Some `diasEmprestimo` à `dataEmprestimo` e salve o resultado em `dataDevolucaoPrevista`.
-2. **Multa Prevista**: A biblioteca permite até 7 dias de empréstimo sem multa. Se `diasEmprestimo` for maior que 7, cobre R$ 2 por dia extra.
-3. **Retorno**: Salve o empréstimo no banco e retorne o documento criado com status `201`.
+1. **Multa Prevista**: A biblioteca permite até 7 dias de empréstimo sem multa. Se `diasEmprestimo` for maior que 7, cobre R$ 2 por dia extra.
+2. **Retorno**: Salve o empréstimo no banco e retorne o documento criado com status `201`.
 
 ### 3.2 Listar Todos os Empréstimos (READ)
 
@@ -144,8 +142,8 @@ Realize testes na sua API seguindo este fluxo de validação:
 
 ## 5. Dicas para a Implementação
 
-* Para somar dias a uma data, crie um `new Date(dataEmprestimo)` e use `setDate`.
-* Para calcular a multa, use uma estrutura `if`.
+* Trate `dataEmprestimo` apenas como texto. Não precisa fazer cálculo com data neste exercício.
+* Para calcular a multa, use uma estrutura `if` com o campo `diasEmprestimo`.
 * No `findByIdAndUpdate`, passe `{ new: true, runValidators: true }`.
 * Lembre-se de usar `app.use(express.json())` no `src/server.js` para conseguir ler o corpo das requisições.
 

@@ -29,14 +29,13 @@ const ReservaSchema = new mongoose.Schema({
     type: String,
     required: [true, "O e-mail do responsável é obrigatório."],
   },
-  // Tipo Date para trabalhar com datas e cálculos de tempo no JavaScript
   dataEntrada: {
-    type: Date,
+    type: String,
     required: [true, "A data de check-in é obrigatória."],
   },
-  dataSaida: {
-    type: Date,
-    required: [true, "A data de check-out é obrigatória."],
+  quantidadeNoites: {
+    type: Number,
+    required: [true, "A quantidade de noites é obrigatória."],
   },
   // SUBDOCUMENTOS EM ARRAY:
   // O MongoDB permite guardar um array de objetos estruturados.

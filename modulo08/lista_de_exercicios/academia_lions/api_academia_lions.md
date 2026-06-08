@@ -59,7 +59,7 @@ O Schema do Mongoose para as `matriculas` deve conter os seguintes campos:
 * `idade`: Tipo `Number`, obrigatório.
 * `modalidade`: Tipo `String`, obrigatório (deve aceitar apenas: `Musculação`, `Funcional` ou `Dança`).
 * `plano`: Tipo `String`, obrigatório (deve aceitar apenas: `Mensal`, `Trimestral` ou `Semestral`).
-* `dataMatricula`: Tipo `String` ou `Date`, obrigatório (ex: `"2026-06-15"`).
+* `dataMatricula`: Tipo `String`, obrigatório (ex: `"2026-06-15"`).
 * `valorMensal`: Tipo `Number` (será calculado automaticamente pela API).
 * `valorTotal`: Tipo `Number` (será calculado automaticamente pela API).
 * `status`: Tipo `String`, com valor padrão de `"Ativa"` (deve aceitar apenas: `Ativa`, `Pausada` ou `Cancelada`).
