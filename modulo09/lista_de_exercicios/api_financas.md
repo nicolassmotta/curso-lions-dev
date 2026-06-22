@@ -103,51 +103,46 @@ Partimos do **boilerplate LionsDev**: <https://github.com/nicolassmotta/lionsdev
 
 ## 6. Etapa 2 — Repository
 
-- `criar(dados)` → `Transacao.create(dados)`.
-- `listarPorUsuario(idUsuario, filtro = {})` → `Transacao.find({ usuario: idUsuario, ...filtro }).sort({ createdAt: -1 })`.
-- `buscarPorIdDoDono(idTransacao, idUsuario)` → `Transacao.findOne({ _id: idTransacao, usuario: idUsuario })`.
-- `atualizarPorIdDoDono(idTransacao, idUsuario, dados)` → `findOneAndUpdate(filtro, dados, { new: true, runValidators: true })`.
-- `deletarPorIdDoDono(idTransacao, idUsuario)` → `findOneAndDelete(filtro)`.
-- Exporte tudo no objeto `TransacaoRepository`.
+O repository é a **única** camada que fala com o Mongoose. Antes de escrever, pense em quais operações cada rota vai exigir e projete as funções para:
+
+- Criar uma transação.
+- Listar as transações **do dono**, deixando espaço para um filtro extra opcional (usaremos no bônus) e ordenando da mais recente para a mais antiga.
+- Buscar, atualizar e remover **uma** transação — sempre **filtrando pelo dono junto do id** (Regra de Ouro nº 3), nunca só pelo `_id`.
+- Exporte tudo num objeto `TransacaoRepository`.
+
+**Critérios de aceite:** buscar/atualizar/remover com o id de uma transação de outra pessoa **não encontra nada** (vira `404` no service); a listagem aceita um filtro extra sem furar o filtro por dono.
+
+> **Pense antes de codar:** por que filtrar pelo dono **já na query** (`{ _id, usuario }`) é mais seguro do que buscar só por `_id` e depois conferir o dono num `if`? E o que a API deve responder quando a transação **não existe** e quando ela **é de outra pessoa** — por que as duas viram a mesma resposta?
 
 ---
 
 ## 7. Etapa 3 — Service
 
-- `registrar(idDoUsuario, dados)`: além da validação do Schema, **reforce** que `valor` é um número maior que zero antes de salvar (`if (!dados.valor || dados.valor <= 0) throw criarErro("O valor deve ser maior que zero.", 400)`). Monta o objeto com `usuario: idDoUsuario` e cria.
-- `listarMinhas(idDoUsuario)`: retorna a lista do usuário.
-- `buscarMinha(idDoUsuario, idTransacao)`: `buscarPorIdDoDono(...)`; se `null` → `404`.
-- `atualizarMinha(idDoUsuario, idTransacao, dados)`: `atualizarPorIdDoDono(...)`; se `null` → `404`.
-- `removerMinha(idDoUsuario, idTransacao)`: `deletarPorIdDoDono(...)`; se `null` → `404`; se ok → `{ message: "Transação removida com sucesso." }`.
-- `resumoDoUsuario(idDoUsuario)`: a parte nova. Busque **todas** as transações do usuário e calcule, em JavaScript:
-  - `totalEntradas` = soma dos `valor` onde `tipo === "entrada"`.
-  - `totalSaidas` = soma dos `valor` onde `tipo === "saida"`.
-  - `saldo` = `totalEntradas - totalSaidas`.
-  - Retorne `{ totalEntradas, totalSaidas, saldo, quantidade }`.
+Aqui mora a **regra de negócio**. O service precisa cobrir:
 
-> Use `filter` + `reduce` ou um simples `for...of` para somar. Sem transações, tudo retorna `0`.
+- **Registrar** uma transação para o usuário logado. Mesmo com o Schema validando, **reforce na mão** que `valor` é um número maior que zero antes de salvar (defesa em profundidade) e responda `400` se não for. O dono vem do token, **nunca** do body.
+- **Listar** as transações do usuário.
+- **Buscar, atualizar e remover** uma transação do usuário — quando o repository devolver `null` (não existe **ou** não é sua), lance `404` com `criarErro`. Na remoção bem-sucedida, devolva uma mensagem.
+- **Resumo** (`resumoDoUsuario`) — a parte nova: a partir de **todas** as suas transações, calcule, em JavaScript, `totalEntradas`, `totalSaidas`, `saldo` (entradas − saídas) e `quantidade`. Sem transações, tudo zero.
 
-> **Conceito novo — calcular o resumo em JavaScript (`filter` + `reduce`)**
+**Critérios de aceite:** registrar com `valor` 0 ou negativo → `400`; buscar/editar/remover transação que não é sua → `404`; o resumo de quem nunca lançou nada vem com tudo `0` (nunca quebra); `saldo` sempre igual a `totalEntradas - totalSaidas`.
+
+> **Conceito novo — somar uma lista em JavaScript com `filter` + `reduce`**
 >
-> O banco te devolve um **array** de transações. Os totais são calculados na mão, em JS, dentro do service:
+> O banco te devolve um **array**. Para fechar os totais do resumo, você vai filtrar e somar esse array na mão. As duas ferramentas:
+>
+> - **`.filter(fn)`** devolve um novo array só com os itens que passam no teste (ex.: só os de um certo `tipo`).
+> - **`.reduce((acumulador, item) => ..., inicial)`** "espreme" o array num único valor. O `inicial` é o ponto de partida — começando em `0`, uma lista vazia soma `0` e nunca dá erro.
+>
+> Exemplo **genérico** (somar os preços de um carrinho) — a ideia, não a resposta pronta:
 >
 > ```js
-> const transacoes = await TransacaoRepository.listarPorUsuario(idDoUsuario);
->
-> const totalEntradas = transacoes
->   .filter((t) => t.tipo === "entrada")     // só as entradas
->   .reduce((soma, t) => soma + t.valor, 0); // soma os valores (começa em 0)
->
-> const totalSaidas = transacoes
->   .filter((t) => t.tipo === "saida")
->   .reduce((soma, t) => soma + t.valor, 0);
->
-> const saldo = totalEntradas - totalSaidas;
-> return { totalEntradas, totalSaidas, saldo, quantidade: transacoes.length };
+> const total = carrinho
+>   .filter((item) => item.emEstoque)
+>   .reduce((soma, item) => soma + item.preco, 0);
 > ```
 >
-> - **`.filter(fn)`** devolve um novo array só com os itens que passam no teste.
-> - **`.reduce((acumulador, item) => ..., inicial)`** "espreme" o array num único valor — aqui, a soma. O `0` no final é o ponto de partida (sem transações → soma `0`, nunca dá erro).
+> Agora é com você: aplique essa ideia para somar os `valor` por `tipo` e montar o resumo. (Prefere um `for...of`? Também resolve.)
 
 ---
 
@@ -192,7 +187,7 @@ app.use("/api/transacoes", transacaoRoutes);
 2. `POST /api/transacoes` com `{ "descricao": "Salário", "tipo": "entrada", "valor": 3000 }` → `201`.
 3. `POST` com `{ "descricao": "Mercado", "tipo": "saida", "valor": 450.5 }` → `201`.
 4. `POST` com `{ "descricao": "Erro", "tipo": "saida", "valor": 0 }` → `400`.
-5. `GET /api/transacoes/resumo` → `totalEntradas` 3000, `totalSaidas` 450.5, `saldo` 2549.5.
+5. `GET /api/transacoes/resumo` → **preveja no papel** `totalEntradas`, `totalSaidas` e `saldo` a partir dos lançamentos acima e confira se a API bate.
 6. `GET /api/transacoes` → só as suas.
 7. `DELETE /api/transacoes/:id` → `200`; repita → `404`.
 8. Com um **segundo usuário**, peça `/api/transacoes/resumo` → vem zerado (não enxerga o dinheiro do primeiro).

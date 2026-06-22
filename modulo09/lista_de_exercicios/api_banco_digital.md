@@ -27,7 +27,7 @@
 
 **Turma:** LionsDev
 
-**Tópicos:** Express.js, MongoDB, Mongoose, MVC, bcrypt, JWT, middlewares, autorização, regras de negócio, transações financeiras simuladas, variáveis de ambiente e deploy com Render.
+**Tópicos:** Express.js, MongoDB, Mongoose, arquitetura em camadas, bcrypt, JWT, middlewares, autorização, regras de negócio, transações financeiras simuladas, variáveis de ambiente e deploy com Render.
 
 ---
 
@@ -476,6 +476,8 @@ Teste e documente os fluxos abaixo no `requests.http` ou Postman:
 21. Bloquear usuário e tentar movimentar dinheiro.
 22. Fazer deploy no Render.
 
+> **Não basta o caminho feliz.** Para cada regra que você implementou na seção 9, inclua também **um teste que prova a recusa** — ex.: sacar sem saldo, cliente bloqueado tentando mover dinheiro, pagar boleto já pago, estornar duas vezes, PIX acima do limite diário. É isso que separa "funciona no print" de "a regra realmente existe".
+
 ---
 
 ## 12. Entregáveis
@@ -493,45 +495,29 @@ O aluno deve entregar:
 
 ---
 
-## 13. Etapas Sugeridas
+## 13. Roadmap Sugerido
 
-### Etapa 1 - Base
+Esta é **uma ordem sugerida, não uma receita**: você decide a granularidade e pode reorganizar. O que importa é o **portão de cada fase** — só siga em frente quando ele passar. O *o quê* de cada fase está nas seções 6 a 9; aqui ficam os critérios para você se considerar pronto.
 
-- Criar projeto Express.
-- Conectar MongoDB.
-- Criar estrutura MVC.
-- Implementar cadastro, login e middleware JWT.
+### Fase 1 — Base
 
-### Etapa 2 - Contas
+**Pronto quando:** cadastro e login funcionam, a senha vai pro banco como hash, rotas protegidas barram quem não manda `Bearer` token (`401`) e `req.usuario` chega nos controllers já com `papel`.
 
-- Criar model de conta.
-- Solicitar abertura.
-- Aprovar conta.
-- Listar minhas contas.
+### Fase 2 — Contas
 
-### Etapa 3 - Movimentações
+**Pronto quando:** uma conta nasce `pendente_aprovacao`, gerente/admin consegue aprovar, e um cliente só enxerga as próprias contas (pedir a conta de outro → `403`/`404`).
 
-- Depósito.
-- Saque.
-- Transferência.
-- Extrato.
-- Idempotência básica.
+### Fase 3 — Movimentações
 
-### Etapa 4 - Produtos Bancários
+**Pronto quando:** depósito, saque e transferência alteram o saldo **e** geram transação com extrato; saque/transferência sem saldo → erro; transferência aprovada tira da origem e põe no destino; todo valor em centavos (inteiro).
 
-- PIX.
-- Boletos.
-- Cartões.
-- Faturas.
-- Empréstimos.
+### Fase 4 — Produtos Bancários
 
-### Etapa 5 - Administração e Deploy
+**Pronto quando:** PIX respeita o limite diário e a unicidade da chave; boleto não é pago duas vezes; cartão de crédito só compra dentro do limite e a compra entra na fatura; empréstimo aprovado deposita o valor e gera as parcelas.
 
-- Painel administrativo.
-- Bloqueio de usuário.
-- Aprovações.
-- README final.
-- Deploy no Render.
+### Fase 5 — Administração e Deploy
+
+**Pronto quando:** gerente/admin veem os painéis, admin bloqueia usuário (e cliente bloqueado não move dinheiro), a exclusão é lógica (não apaga histórico financeiro) e a API está no ar no Render.
 
 ---
 
@@ -539,7 +525,7 @@ O aluno deve entregar:
 
 | Critério                                         | Pontos |
 | ------------------------------------------------ | ------ |
-| Estrutura MVC organizada                         | 10     |
+| Estrutura em camadas organizada                  | 10     |
 | Autenticação com bcrypt e JWT                    | 10     |
 | Models bem definidos no Mongoose                 | 10     |
 | Regras de negócio financeiras                    | 20     |
