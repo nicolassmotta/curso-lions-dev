@@ -83,7 +83,7 @@ Os três níveis de proteção que você vai montar:
 2. **`apenasAdmin` sempre roda DEPOIS de `autenticar`.** Ele depende de `req.usuario.tipo`, que só existe depois que o token foi validado.
 3. **`401` × `403`:** sem token / token inválido → `401`. Token válido mas sem permissão → `403`.
 4. **Aposta tem dono via token** (`req.usuario.id`): o usuário só vê e cria as **próprias** apostas. O admin vê **todas**.
-5. **Dinheiro é sagrado:** nunca deixe apostar sem saldo, nem com valor `<= 0`. Debite ao apostar; credite só ao liquidar.e
+5. **Dinheiro é sagrado:** nunca deixe apostar sem saldo, nem com valor `<= 0`. Debite ao apostar; credite só ao liquidar.
 6. **Listagem nunca dá 404:** sem registros, devolva array vazio.
 
 ---
@@ -151,7 +151,7 @@ function apenasAdmin(req, res, next) {
 export default apenasAdmin;
 ```
 
-> **Como nasce o primeiro admin?** Ninguém vira admin pela API (lembre da Regra de Ouro nº 1). Cadastre um usuário normal, depois, **direto no MongoDB Atlas**, edite o documento e troque `"tipo": "usuario"` por `"tipo": "admin"`. Faça **login de novo** para receber um token novo já com `tipo: "admin"`. (Bônus: criar um script de _seed_ para isso.)
+> **Como nasce o primeiro admin?** Ninguém vira admin pela API (lembre da Regra de Ouro nº 1). Cadastre um usuário normal, depois, **direto no MongoDB Atlas**, edite o documento e troque `"tipo": "usuario"` por `"tipo": "admin"`. Faça **login de novo** para receber um token novo já com `tipo: "admin"`.
 
 **Critérios de aceite da Etapa 0:** depois de logar, o token decodificado contém `tipo`; `req.usuario.tipo` chega nos controllers; chamar uma rota de admin com token de usuário comum → `403`.
 
