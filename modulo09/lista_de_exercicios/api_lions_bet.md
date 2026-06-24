@@ -23,13 +23,13 @@
   }
 </style>
 
-# Exercício (Novo, Desafio): API da **Lions Bet** — A Casa de Apostas com Admin
+# Exercício: API da **Lions Bet** — A Casa de Apostas com Admin
 
 **Turma:** LionsDev
 
 **Tópicos:** Boilerplate, **autorização por papel (`role`/`tipo`)**, `tipo` dentro do JWT, **rotas públicas × rotas de usuário × rotas de admin**, middleware `apenasAdmin`, carteira/saldo, dois recursos com `ObjectId`/`ref`, regra que cruza coleções (liquidação de apostas) e status codes (`401` × `403`).
 
-> **Nível: o mais difícil do módulo.** Faça **todos** os outros antes (Tarefas, Petshop, Academia, Finanças, Biblioteca). Aqui você vai, pela primeira vez, **mexer na autenticação do boilerplate** para criar o famoso **admin**.
+> **Nível: o mais difícil do módulo.** Faça **todos** os outros antes (Tarefas, Petshop, Academia, Finanças, Biblioteca). Aqui você vai, pela primeira vez, **mexer na autenticação do boilerplate** para criar o **admin**.
 
 ---
 
