@@ -321,7 +321,7 @@ Crie os controllers no padrão de sempre (`try/catch` + `next(error)`), lendo `r
 - `POST /` → `ApostaController.apostar` (`201`) — **usuário**.
 - `GET /` → `ApostaController.listarMinhas` (`200` com `{ apostas }`) — **usuário**.
 - `GET /:id` → `ApostaController.buscarMinha` (`200`) — **usuário**.
-- `GET /admin/todas` → `apenasAdmin, ApostaController.listarTodas` — **admin**. _(Declare antes de `GET /:id` para o Express não tratar `"admin"` como `:id`.)_
+- `GET /admin/todas` → `apenasAdmin, ApostaController.listarTodas` — **admin**.
 
 ### 9.3 Carteira + admin no `usuario.routes.js` (boilerplate)
 
