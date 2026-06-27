@@ -3,7 +3,7 @@ services:
   # Cada item em services representa uma aplicação publicada.
   - type: web
     # Nome que aparecerá no painel do Render.
-    name: api-autenticacao-mvc
+    name: api-banco-digital
     # Informa que o projeto roda com Node.js.
     runtime: node
     # Plano gratuito, ideal para aula e testes.

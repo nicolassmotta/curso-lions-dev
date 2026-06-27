@@ -1,7 +1,7 @@
 {
   "name": "api-banco-digital-lionsbank",
   "version": "1.0.0",
-  "description": "Projeto resolvido de API bancária com MVC, autenticação, MongoDB e deploy.",
+  "description": "Projeto resolvido do Módulo 10: API bancária com MVC, autenticação, MongoDB e deploy.",
   "type": "module",
   "main": "src/server.js",
   "scripts": {

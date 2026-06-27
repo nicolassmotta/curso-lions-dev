@@ -23,14 +23,6 @@ O boilerplate já traz a camada de `Usuario`, cadastro/login com bcrypt/JWT, o m
 | Finanças — Meu Controle de Gastos | `Transacao` | Intermediário | [api_financas.md](api_financas.md) |
 | Lions Bet — Casa de Apostas com Admin | `Evento` + `Aposta` (+ papéis) | **Desafio (o mais difícil)** | [api_lions_bet.md](api_lions_bet.md) |
 
-## Projeto final (encerramento do módulo)
-
-| Projeto | Arquivo |
-| ------- | ------- |
-| API de Banco Digital | [api_banco_digital.md](api_banco_digital.md) |
-
----
-
 ### Ordem sugerida
 
 1. **Tarefas** (mais simples, fixa o padrão dono-via-token).
@@ -38,7 +30,6 @@ O boilerplate já traz a camada de `Usuario`, cadastro/login com bcrypt/JWT, o m
 3. **Finanças** (cálculo de resumo em JavaScript: entradas, saídas e saldo).
 4. **Biblioteca** (dois recursos, `ObjectId`/`ref` e regra de estoque cruzando coleções).
 5. **Lions Bet** (o mais difícil: autorização por papel/admin, rotas públicas × usuário × admin, carteira e liquidação de apostas cruzando coleções).
-6. **Banco Digital** (projeto final).
 
 ### Padrão de pastas (igual em todos)
 

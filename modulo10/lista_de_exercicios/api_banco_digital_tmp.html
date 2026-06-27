@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>api_banco_digital.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> or <div class="page"></div> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<style>
+  :root {
+    --lionsdev-titulo: #001A33;
+    --lionsdev-texto: #000000;
+    --lionsdev-muted: #6B7280;
+    --lionsdev-bloco: #F4F6F7;
+    --lionsdev-codigo: #F0F2F5;
+  }
+
+  body { font-family: 'Segoe UI', Helvetica, Arial, sans-serif; color: var(--lionsdev-texto); }
+  h1, h2, h3 { color: var(--lionsdev-titulo); }
+  h1 { border-bottom: 2px solid var(--lionsdev-titulo); padding-bottom: 8px; font-size: 24px; }
+  h2, h3 { margin-top: 24px; }
+  p, li { line-height: 1.6; font-size: 15px; }
+  hr { border: 0; border-top: 2px solid var(--lionsdev-titulo); margin: 24px 0; }
+  blockquote { background-color: var(--lionsdev-bloco); border-left: 4px solid var(--lionsdev-titulo); padding: 12px 15px; margin: 15px 0; color: var(--lionsdev-texto); }
+  code { background-color: var(--lionsdev-codigo) !important; color: var(--lionsdev-texto) !important; font-weight: bold; padding: 2px 4px; border-radius: 4px; }
+
+  @media print {
+    @page { margin: 1.5cm; }
+    body { font-size: 11pt; }
+    .no-print { display: none; }
+  }
+</style>
+<h1 id="projeto-final-módulo-10-api-de-banco-digital">Projeto Final (Módulo 10): API de Banco Digital</h1>
+<p><strong>Turma:</strong> LionsDev</p>
+<p><strong>Tópicos:</strong> Express.js, MongoDB, Mongoose, arquitetura em camadas, bcrypt, JWT, middlewares, autorização, regras de negócio, transações financeiras simuladas, variáveis de ambiente e deploy com Render.</p>
+<hr>
+<h2 id="1-contexto">1. Contexto</h2>
+<p>Você foi contratado para construir a API do <strong>LionsBank</strong>, um banco digital fictício.</p>
+<p>A API precisa permitir cadastro de clientes, login, abertura de contas, movimentações financeiras, PIX, boletos, cartões, empréstimos e telas administrativas para gerente.</p>
+<blockquote>
+<p>Importante: este projeto é uma simulação didática. Não existe integração com banco real, dinheiro real, Open Finance, Banco Central, adquirentes de cartão ou sistemas externos.</p>
+</blockquote>
+<hr>
+<h2 id="2-regras-gerais-do-projeto">2. Regras Gerais do Projeto</h2>
+<ol>
+<li>A API deve usar Express, MongoDB, Mongoose, bcryptjs e JWT.</li>
+<li>O projeto deve seguir arquitetura em camadas: <code>routes</code>, <code>controllers</code>, <code>services</code>, <code>repositories</code>, <code>models</code>, <code>middlewares</code>, <code>config</code> e <code>utils</code>.</li>
+<li>Toda senha deve ser salva como hash, nunca como texto puro.</li>
+<li>Valores monetários devem ser salvos em centavos, usando número inteiro. Exemplo: R$ 10,50 deve virar <code>1050</code>.</li>
+<li>Rotas protegidas devem exigir <code>Authorization: Bearer TOKEN</code>.</li>
+<li>Rotas administrativas devem exigir papel de <code>gerente</code> ou <code>admin</code>.</li>
+<li>Uma pessoa só pode acessar contas, cartões, faturas, boletos e empréstimos dela mesma, exceto gerente/admin.</li>
+<li>Operações financeiras devem gerar registro de transação e extrato.</li>
+<li>A API nunca deve retornar <code>senhaHash</code>, <code>senhaCartaoHash</code>, tokens secretos ou dados sensíveis desnecessários.</li>
+<li>O projeto deve ter <code>.env.example</code>, <code>README.md</code>, <code>requests.http</code> ou coleção do Postman, e deploy no Render.</li>
+</ol>
+<hr>
+<h2 id="3-estrutura-obrigatória">3. Estrutura Obrigatória</h2>
+<p>Crie a estrutura abaixo:</p>
+<pre class="hljs"><code><div>projeto/
+├── src/
+│   ├── app.js
+│   ├── server.js
+│   ├── config/
+│   │   └── database.js
+│   ├── controllers/
+│   │   ├── auth.controller.js
+│   │   ├── usuario.controller.js
+│   │   ├── conta.controller.js
+│   │   ├── transacao.controller.js
+│   │   ├── pix.controller.js
+│   │   ├── boleto.controller.js
+│   │   ├── cartao.controller.js
+│   │   ├── emprestimo.controller.js
+│   │   └── admin.controller.js
+│   ├── middlewares/
+│   │   ├── autenticacao.middleware.js
+│   │   ├── autorizacao.middleware.js
+│   │   ├── validarCampos.middleware.js
+│   │   └── erro.middleware.js
+│   ├── models/
+│   │   ├── usuario.model.js
+│   │   ├── conta.model.js
+│   │   ├── transacao.model.js
+│   │   ├── chavePix.model.js
+│   │   ├── boleto.model.js
+│   │   ├── cartao.model.js
+│   │   ├── fatura.model.js
+│   │   └── emprestimo.model.js
+│   ├── repositories/
+│   ├── routes/
+│   ├── services/
+│   └── utils/
+│       ├── criarErro.js
+│       ├── gerarNumeroConta.js
+│       ├── dinheiro.js
+│       └── gerarCodigo.js
+├── .env
+├── .env.example
+├── package.json
+├── render.yaml
+└── requests.http
+</div></code></pre>
+<hr>
+<h2 id="4-variáveis-de-ambiente">4. Variáveis de Ambiente</h2>
+<pre class="hljs"><code><div>PORT=3000
+MONGO_URI=mongodb+srv://usuario:senha@cluster.mongodb.net/lionsbank
+JWT_SECRET=troque_essa_chave_por_uma_chave_grande
+JWT_EXPIRES_IN=1d
+BCRYPT_SALT_ROUNDS=10
+LIMITE_PIX_DIARIO_CENTAVOS=500000
+</div></code></pre>
+<p>No Render, não configure <code>PORT</code>. A plataforma define essa variável automaticamente.</p>
+<hr>
+<h2 id="5-perfis-de-usuário">5. Perfis de Usuário</h2>
+<p>A API deve trabalhar com três papéis:</p>
+<table>
+<thead>
+<tr>
+<th>Papel</th>
+<th>Permissões principais</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cliente</code></td>
+<td>Acessar os próprios dados, contas e operações financeiras</td>
+</tr>
+<tr>
+<td><code>gerente</code></td>
+<td>Consultar clientes, aprovar contas, cartões e empréstimos</td>
+</tr>
+<tr>
+<td><code>admin</code></td>
+<td>Tudo que gerente faz e também bloquear/desbloquear usuários</td>
+</tr>
+</tbody>
+</table>
+<p>Todo usuário novo deve nascer como <code>cliente</code>, exceto usuários criados manualmente no banco para testes administrativos.</p>
+<hr>
+<h2 id="6-models-obrigatórios">6. Models Obrigatórios</h2>
+<h3 id="61-usuario">6.1 Usuario</h3>
+<p>Campos mínimos:</p>
+<ul>
+<li><code>nome</code>: obrigatório, mínimo 2 caracteres.</li>
+<li><code>email</code>: obrigatório, único, lowercase.</li>
+<li><code>cpf</code>: obrigatório, único.</li>
+<li><code>telefone</code>: obrigatório.</li>
+<li><code>senhaHash</code>: obrigatório, <code>select: false</code>.</li>
+<li><code>papel</code>: <code>cliente</code>, <code>gerente</code> ou <code>admin</code>.</li>
+<li><code>status</code>: <code>ativo</code>, <code>bloqueado</code> ou <code>pendente_verificacao</code>.</li>
+<li><code>timestamps: true</code>.</li>
+</ul>
+<h3 id="62-conta">6.2 Conta</h3>
+<p>Campos mínimos:</p>
+<ul>
+<li><code>usuarioId</code>: referência para <code>Usuario</code>.</li>
+<li><code>agencia</code>: texto, exemplo <code>0001</code>.</li>
+<li><code>numero</code>: único, gerado pela API.</li>
+<li><code>tipo</code>: <code>corrente</code>, <code>poupanca</code> ou <code>salario</code>.</li>
+<li><code>saldoCentavos</code>: número inteiro, começa em <code>0</code>.</li>
+<li><code>limiteChequeEspecialCentavos</code>: número inteiro, começa em <code>0</code>.</li>
+<li><code>status</code>: <code>ativa</code>, <code>bloqueada</code>, <code>encerrada</code> ou <code>pendente_aprovacao</code>.</li>
+<li><code>timestamps: true</code>.</li>
+</ul>
+<h3 id="63-transacao">6.3 Transacao</h3>
+<p>Campos mínimos:</p>
+<ul>
+<li><code>contaOrigemId</code>: referência para <code>Conta</code>, opcional em depósito.</li>
+<li><code>contaDestinoId</code>: referência para <code>Conta</code>, opcional em saque.</li>
+<li><code>tipo</code>: <code>deposito</code>, <code>saque</code>, <code>transferencia</code>, <code>pix</code>, <code>boleto</code>, <code>cartao</code>, <code>emprestimo</code>, <code>tarifa</code> ou <code>estorno</code>.</li>
+<li><code>valorCentavos</code>: número inteiro maior que zero.</li>
+<li><code>descricao</code>: texto.</li>
+<li><code>status</code>: <code>pendente</code>, <code>aprovada</code>, <code>recusada</code> ou <code>estornada</code>.</li>
+<li><code>saldoAntesOrigemCentavos</code> e <code>saldoDepoisOrigemCentavos</code>.</li>
+<li><code>saldoAntesDestinoCentavos</code> e <code>saldoDepoisDestinoCentavos</code>.</li>
+<li><code>timestamps: true</code>.</li>
+</ul>
+<h3 id="64-chavepix">6.4 ChavePix</h3>
+<p>Campos mínimos:</p>
+<ul>
+<li><code>usuarioId</code>: referência para <code>Usuario</code>.</li>
+<li><code>contaId</code>: referência para <code>Conta</code>.</li>
+<li><code>tipo</code>: <code>cpf</code>, <code>email</code>, <code>telefone</code> ou <code>aleatoria</code>.</li>
+<li><code>valor</code>: único.</li>
+<li><code>ativa</code>: boolean.</li>
+<li><code>timestamps: true</code>.</li>
+</ul>
+<h3 id="65-boleto">6.5 Boleto</h3>
+<p>Campos mínimos:</p>
+<ul>
+<li><code>usuarioId</code>: referência para <code>Usuario</code>.</li>
+<li><code>contaId</code>: referência para <code>Conta</code>.</li>
+<li><code>codigoBarras</code>: único.</li>
+<li><code>beneficiario</code>: texto.</li>
+<li><code>valorCentavos</code>: número inteiro maior que zero.</li>
+<li><code>dataVencimento</code>: data.</li>
+<li><code>status</code>: <code>aberto</code>, <code>pago</code>, <code>vencido</code> ou <code>cancelado</code>.</li>
+<li><code>timestamps: true</code>.</li>
+</ul>
+<h3 id="66-cartao">6.6 Cartao</h3>
+<p>Campos mínimos:</p>
+<ul>
+<li><code>usuarioId</code>: referência para <code>Usuario</code>.</li>
+<li><code>contaId</code>: referência para <code>Conta</code>.</li>
+<li><code>tipo</code>: <code>debito</code> ou <code>credito</code>.</li>
+<li><code>numeroMascarado</code>: exemplo <code>**** **** **** 1234</code>.</li>
+<li><code>ultimos4</code>: texto.</li>
+<li><code>senhaCartaoHash</code>: obrigatório, <code>select: false</code>.</li>
+<li><code>limiteCentavos</code>: número inteiro.</li>
+<li><code>limiteDisponivelCentavos</code>: número inteiro.</li>
+<li><code>status</code>: <code>solicitado</code>, <code>ativo</code>, <code>bloqueado</code> ou <code>cancelado</code>.</li>
+<li><code>timestamps: true</code>.</li>
+</ul>
+<h3 id="67-fatura">6.7 Fatura</h3>
+<p>Campos mínimos:</p>
+<ul>
+<li><code>cartaoId</code>: referência para <code>Cartao</code>.</li>
+<li><code>mesReferencia</code>: texto, exemplo <code>2026-06</code>.</li>
+<li><code>valorTotalCentavos</code>: número inteiro.</li>
+<li><code>valorPagoCentavos</code>: número inteiro.</li>
+<li><code>status</code>: <code>aberta</code>, <code>fechada</code>, <code>paga</code> ou <code>atrasada</code>.</li>
+<li><code>compras</code>: lista com descrição, valor, data e estabelecimento.</li>
+<li><code>timestamps: true</code>.</li>
+</ul>
+<h3 id="68-emprestimo">6.8 Emprestimo</h3>
+<p>Campos mínimos:</p>
+<ul>
+<li><code>usuarioId</code>: referência para <code>Usuario</code>.</li>
+<li><code>contaId</code>: referência para <code>Conta</code>.</li>
+<li><code>valorSolicitadoCentavos</code>: número inteiro.</li>
+<li><code>quantidadeParcelas</code>: número inteiro.</li>
+<li><code>taxaJurosMensal</code>: número.</li>
+<li><code>valorParcelaCentavos</code>: número inteiro.</li>
+<li><code>status</code>: <code>solicitado</code>, <code>aprovado</code>, <code>reprovado</code>, <code>quitado</code> ou <code>em_atraso</code>.</li>
+<li><code>parcelas</code>: lista com número, valor, vencimento, status e data de pagamento.</li>
+<li><code>timestamps: true</code>.</li>
+</ul>
+<hr>
+<h2 id="7-rotas-obrigatórias">7. Rotas Obrigatórias</h2>
+<h3 id="71-autenticação">7.1 Autenticação</h3>
+<table>
+<thead>
+<tr>
+<th>Método</th>
+<th>Rota</th>
+<th>Proteção</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>POST</td>
+<td><code>/api/auth/cadastro</code></td>
+<td>Pública</td>
+<td>Cadastrar cliente</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/api/auth/login</code></td>
+<td>Pública</td>
+<td>Fazer login e retornar JWT</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/api/auth/logout</code></td>
+<td>JWT</td>
+<td>Simular logout do cliente</td>
+</tr>
+</tbody>
+</table>
+<p>O logout pode apenas retornar uma mensagem de sucesso. Não precisa implementar blacklist de token.</p>
+<h3 id="72-usuários">7.2 Usuários</h3>
+<table>
+<thead>
+<tr>
+<th>Método</th>
+<th>Rota</th>
+<th>Proteção</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td><code>/api/usuarios/perfil</code></td>
+<td>JWT</td>
+<td>Ver perfil logado</td>
+</tr>
+<tr>
+<td>PATCH</td>
+<td><code>/api/usuarios/perfil</code></td>
+<td>JWT</td>
+<td>Atualizar nome, telefone e senha</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td><code>/api/usuarios/perfil</code></td>
+<td>JWT</td>
+<td>Encerrar cadastro do cliente</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/api/usuarios</code></td>
+<td>Gerente/Admin</td>
+<td>Listar usuários</td>
+</tr>
+<tr>
+<td>PATCH</td>
+<td><code>/api/usuarios/:id/status</code></td>
+<td>Admin</td>
+<td>Bloquear ou desbloquear usuário</td>
+</tr>
+</tbody>
+</table>
+<h3 id="73-contas">7.3 Contas</h3>
+<table>
+<thead>
+<tr>
+<th>Método</th>
+<th>Rota</th>
+<th>Proteção</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>POST</td>
+<td><code>/api/contas</code></td>
+<td>JWT</td>
+<td>Solicitar abertura de conta</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/api/contas/minhas</code></td>
+<td>JWT</td>
+<td>Listar minhas contas</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/api/contas/:id</code></td>
+<td>Dono/Admin</td>
+<td>Ver detalhes de uma conta</td>
+</tr>
+<tr>
+<td>PATCH</td>
+<td><code>/api/contas/:id/status</code></td>
+<td>Gerente/Admin</td>
+<td>Aprovar, bloquear ou encerrar</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/api/contas/:id/extrato</code></td>
+<td>Dono/Admin</td>
+<td>Ver extrato com filtros por data</td>
+</tr>
+</tbody>
+</table>
+<h3 id="74-operações-financeiras">7.4 Operações Financeiras</h3>
+<table>
+<thead>
+<tr>
+<th>Método</th>
+<th>Rota</th>
+<th>Proteção</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>POST</td>
+<td><code>/api/transacoes/deposito</code></td>
+<td>JWT</td>
+<td>Depositar em uma conta</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/api/transacoes/saque</code></td>
+<td>JWT</td>
+<td>Sacar de uma conta</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/api/transacoes/transferencia</code></td>
+<td>JWT</td>
+<td>Transferir entre contas</td>
+</tr>
+<tr>
+<td>PATCH</td>
+<td><code>/api/transacoes/:id/aprovar</code></td>
+<td>Gerente/Admin</td>
+<td>Aprovar transferência pendente</td>
+</tr>
+<tr>
+<td>PATCH</td>
+<td><code>/api/transacoes/:id/recusar</code></td>
+<td>Gerente/Admin</td>
+<td>Recusar transferência pendente</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/api/transacoes/:id</code></td>
+<td>Dono/Admin</td>
+<td>Ver detalhes de uma transação</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/api/transacoes/:id/estorno</code></td>
+<td>Admin</td>
+<td>Estornar uma transação aprovada</td>
+</tr>
+</tbody>
+</table>
+<p>Regras:</p>
+<ol>
+<li>Não permitir valores menores ou iguais a zero.</li>
+<li>Não permitir saque ou transferência sem saldo suficiente.</li>
+<li>Toda movimentação deve alterar saldo e criar uma transação.</li>
+<li>Para transferência aprovada, a conta de origem perde saldo e a conta de destino ganha saldo.</li>
+<li>Para este projeto, não precisa tratar requisições duplicadas. Foque primeiro em validar saldo, alterar o saldo das contas e registrar a transação.</li>
+</ol>
+<h3 id="75-pix">7.5 PIX</h3>
+<table>
+<thead>
+<tr>
+<th>Método</th>
+<th>Rota</th>
+<th>Proteção</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>POST</td>
+<td><code>/api/pix/chaves</code></td>
+<td>JWT</td>
+<td>Cadastrar chave PIX</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/api/pix/chaves</code></td>
+<td>JWT</td>
+<td>Listar minhas chaves</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td><code>/api/pix/chaves/:id</code></td>
+<td>JWT</td>
+<td>Desativar chave PIX</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/api/pix/enviar</code></td>
+<td>JWT</td>
+<td>Enviar PIX para uma chave</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/api/pix/limites</code></td>
+<td>JWT</td>
+<td>Consultar limite diário disponível</td>
+</tr>
+</tbody>
+</table>
+<p>Regras:</p>
+<ol>
+<li>Uma chave PIX ativa deve ser única no sistema.</li>
+<li>O PIX deve respeitar o limite diário definido no <code>.env</code>.</li>
+<li>PIX para chave inexistente deve retornar <code>404</code>.</li>
+<li>PIX para conta do próprio usuário é permitido, desde que origem e destino sejam contas diferentes.</li>
+</ol>
+<h3 id="76-boletos">7.6 Boletos</h3>
+<table>
+<thead>
+<tr>
+<th>Método</th>
+<th>Rota</th>
+<th>Proteção</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>POST</td>
+<td><code>/api/boletos</code></td>
+<td>JWT</td>
+<td>Gerar boleto fictício</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/api/boletos</code></td>
+<td>JWT</td>
+<td>Listar meus boletos</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/api/boletos/:id</code></td>
+<td>JWT</td>
+<td>Detalhar boleto</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/api/boletos/:id/pagar</code></td>
+<td>JWT</td>
+<td>Pagar boleto com uma conta</td>
+</tr>
+<tr>
+<td>PATCH</td>
+<td><code>/api/boletos/:id/cancelar</code></td>
+<td>JWT</td>
+<td>Cancelar boleto em aberto</td>
+</tr>
+</tbody>
+</table>
+<p>Regras:</p>
+<ol>
+<li>Boleto pago deve gerar transação do tipo <code>boleto</code>.</li>
+<li>Não permitir pagar boleto cancelado ou já pago.</li>
+<li>Não permitir pagamento sem saldo suficiente.</li>
+</ol>
+<h3 id="77-cartões">7.7 Cartões</h3>
+<table>
+<thead>
+<tr>
+<th>Método</th>
+<th>Rota</th>
+<th>Proteção</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>POST</td>
+<td><code>/api/cartoes</code></td>
+<td>JWT</td>
+<td>Solicitar cartão</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/api/cartoes</code></td>
+<td>JWT</td>
+<td>Listar meus cartões</td>
+</tr>
+<tr>
+<td>PATCH</td>
+<td><code>/api/cartoes/:id/status</code></td>
+<td>Gerente/Admin</td>
+<td>Aprovar, bloquear ou cancelar</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/api/cartoes/:id/compras</code></td>
+<td>JWT</td>
+<td>Registrar compra fictícia</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/api/cartoes/:id/fatura</code></td>
+<td>JWT</td>
+<td>Consultar fatura atual</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/api/cartoes/:id/fatura/pagar</code></td>
+<td>JWT</td>
+<td>Pagar fatura</td>
+</tr>
+</tbody>
+</table>
+<p>Regras:</p>
+<ol>
+<li>Compra no débito desconta saldo da conta imediatamente.</li>
+<li>Compra no crédito consome limite disponível e entra na fatura.</li>
+<li>Não retornar número completo do cartão.</li>
+<li>Senha do cartão deve ser salva como hash.</li>
+</ol>
+<h3 id="78-empréstimos">7.8 Empréstimos</h3>
+<table>
+<thead>
+<tr>
+<th>Método</th>
+<th>Rota</th>
+<th>Proteção</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>POST</td>
+<td><code>/api/emprestimos/simular</code></td>
+<td>JWT</td>
+<td>Simular parcelas e juros</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/api/emprestimos</code></td>
+<td>JWT</td>
+<td>Solicitar empréstimo</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/api/emprestimos</code></td>
+<td>JWT</td>
+<td>Listar meus empréstimos</td>
+</tr>
+<tr>
+<td>PATCH</td>
+<td><code>/api/emprestimos/:id/aprovar</code></td>
+<td>Gerente/Admin</td>
+<td>Aprovar empréstimo</td>
+</tr>
+<tr>
+<td>PATCH</td>
+<td><code>/api/emprestimos/:id/reprovar</code></td>
+<td>Gerente/Admin</td>
+<td>Reprovar empréstimo</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/api/emprestimos/:id/parcelas/:numero/pagar</code></td>
+<td>JWT</td>
+<td>Pagar parcela</td>
+</tr>
+</tbody>
+</table>
+<p>Regras:</p>
+<ol>
+<li>Simulação não salva empréstimo no banco.</li>
+<li>Aprovação deve depositar o valor solicitado na conta do cliente.</li>
+<li>Pagamento de parcela deve gerar transação.</li>
+<li>Não permitir pagar a mesma parcela duas vezes.</li>
+</ol>
+<h3 id="79-painel-administrativo">7.9 Painel Administrativo</h3>
+<table>
+<thead>
+<tr>
+<th>Método</th>
+<th>Rota</th>
+<th>Proteção</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td><code>/api/admin/resumo</code></td>
+<td>Gerente/Admin</td>
+<td>Total de usuários, contas e saldo</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/api/admin/transacoes</code></td>
+<td>Gerente/Admin</td>
+<td>Listar transações com filtros</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/api/admin/contas-pendentes</code></td>
+<td>Gerente/Admin</td>
+<td>Contas aguardando aprovação</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/api/admin/emprestimos-pendentes</code></td>
+<td>Gerente/Admin</td>
+<td>Empréstimos aguardando análise</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="8-middlewares-obrigatórios">8. Middlewares Obrigatórios</h2>
+<h3 id="81-autenticação">8.1 Autenticação</h3>
+<p>Deve validar o JWT e adicionar os dados do usuário em <code>req.usuario</code>.</p>
+<h3 id="82-autorização-por-papel">8.2 Autorização por Papel</h3>
+<p>Crie um middleware para permitir somente alguns papéis:</p>
+<pre class="hljs"><code><div><span class="hljs-title function_">autorizar</span>([<span class="hljs-string">&quot;gerente&quot;</span>, <span class="hljs-string">&quot;admin&quot;</span>])
+</div></code></pre>
+<h3 id="83-dono-do-recurso">8.3 Dono do Recurso</h3>
+<p>Implemente a regra de que um cliente só pode acessar os próprios recursos.</p>
+<p>Exemplo: um cliente não pode consultar extrato de uma conta que pertence a outro cliente.</p>
+<h3 id="84-erro-centralizado">8.4 Erro Centralizado</h3>
+<p>Toda exceção deve passar por um middleware de erro e retornar JSON padronizado:</p>
+<pre class="hljs"><code><div><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;message&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Mensagem do erro&quot;</span>
+<span class="hljs-punctuation">}</span>
+</div></code></pre>
+<hr>
+<h2 id="9-regras-realistas-de-banco">9. Regras Realistas de Banco</h2>
+<p>Implemente pelo menos 10 regras abaixo:</p>
+<ol>
+<li>CPF e email devem ser únicos.</li>
+<li>Conta nova nasce como <code>pendente_aprovacao</code>.</li>
+<li>Cliente bloqueado não pode movimentar dinheiro.</li>
+<li>Conta bloqueada não pode sacar, transferir, pagar boleto ou enviar PIX.</li>
+<li>Saque cobra tarifa fictícia de R$ 2,50.</li>
+<li>Poupança não pode ter cheque especial.</li>
+<li>Conta salário só pode fazer saque e transferência para conta do mesmo CPF.</li>
+<li>PIX tem limite diário.</li>
+<li>Transferência acima de R$ 5.000,00 fica <code>pendente</code> até aprovação de gerente.</li>
+<li>Estorno só pode acontecer uma vez.</li>
+<li>Cartão de crédito só pode comprar se houver limite disponível.</li>
+<li>Fatura paga libera limite do cartão.</li>
+<li>Empréstimo reprovado deve guardar motivo.</li>
+<li>Parcelas vencidas mudam status para <code>em_atraso</code>.</li>
+<li>Exclusão de usuário deve ser lógica: mude o status para bloqueado ou encerrado, em vez de apagar histórico financeiro.</li>
+</ol>
+<hr>
+<h2 id="10-segurança-e-boas-práticas">10. Segurança e Boas Práticas</h2>
+<ol>
+<li>Use mensagens genéricas no login: <code>Email ou senha incorretos.</code></li>
+<li>Nunca retorne <code>senhaHash</code>.</li>
+<li>Nunca retorne <code>senhaCartaoHash</code>.</li>
+<li>Nunca salve valor monetário com número decimal.</li>
+<li>Valide campos obrigatórios antes de chamar o service.</li>
+<li>Coloque regra de negócio no service, não no controller.</li>
+<li>Coloque acesso ao banco no repository.</li>
+<li>Use <code>runValidators: true</code> em updates do Mongoose.</li>
+<li>Use <code>select: false</code> para hashes.</li>
+<li>Padronize respostas de erro.</li>
+<li>Use <code>.env</code> para segredos.</li>
+<li>Não suba <code>.env</code> para o GitHub.</li>
+</ol>
+<hr>
+<h2 id="11-fluxos-de-teste-obrigatórios">11. Fluxos de Teste Obrigatórios</h2>
+<p>Teste e documente os fluxos abaixo no <code>requests.http</code> ou Postman:</p>
+<ol>
+<li>Cadastrar cliente.</li>
+<li>Fazer login.</li>
+<li>Solicitar abertura de conta.</li>
+<li>Aprovar conta como gerente/admin.</li>
+<li>Depositar dinheiro.</li>
+<li>Sacar dinheiro.</li>
+<li>Transferir dinheiro entre duas contas.</li>
+<li>Cadastrar chave PIX.</li>
+<li>Enviar PIX.</li>
+<li>Gerar boleto.</li>
+<li>Pagar boleto.</li>
+<li>Solicitar cartão.</li>
+<li>Aprovar cartão.</li>
+<li>Registrar compra no crédito.</li>
+<li>Consultar fatura.</li>
+<li>Pagar fatura.</li>
+<li>Simular empréstimo.</li>
+<li>Solicitar empréstimo.</li>
+<li>Aprovar empréstimo.</li>
+<li>Pagar parcela de empréstimo.</li>
+<li>Bloquear usuário e tentar movimentar dinheiro.</li>
+<li>Fazer deploy no Render.</li>
+</ol>
+<blockquote>
+<p><strong>Não basta o caminho feliz.</strong> Para cada regra que você implementou na seção 9, inclua também <strong>um teste que prova a recusa</strong> — ex.: sacar sem saldo, cliente bloqueado tentando mover dinheiro, pagar boleto já pago, estornar duas vezes, PIX acima do limite diário. É isso que separa &quot;funciona no print&quot; de &quot;a regra realmente existe&quot;.</p>
+</blockquote>
+<hr>
+<h2 id="12-entregáveis">12. Entregáveis</h2>
+<p>O aluno deve entregar:</p>
+<ol>
+<li>Link do repositório no GitHub.</li>
+<li>Link público do deploy no Render.</li>
+<li><code>README.md</code> explicando como rodar, variáveis de ambiente e rotas principais.</li>
+<li><code>.env.example</code> sem segredos reais.</li>
+<li><code>requests.http</code> ou coleção Postman com todos os fluxos.</li>
+<li>Prints ou evidências dos testes principais.</li>
+</ol>
+<blockquote>
+<p>Gabarito de referência do professor: <code>modulo10/exercicios_resolvidos/api_banco_digital</code>.</p>
+</blockquote>
+<hr>
+<h2 id="13-roadmap-sugerido">13. Roadmap Sugerido</h2>
+<p>Esta é <strong>uma ordem sugerida, não uma receita</strong>: você decide a granularidade e pode reorganizar. O que importa é o <strong>portão de cada fase</strong> — só siga em frente quando ele passar. O <em>o quê</em> de cada fase está nas seções 6 a 9; aqui ficam os critérios para você se considerar pronto.</p>
+<h3 id="fase-1--base">Fase 1 — Base</h3>
+<p><strong>Pronto quando:</strong> cadastro e login funcionam, a senha vai pro banco como hash, rotas protegidas barram quem não manda <code>Bearer</code> token (<code>401</code>) e <code>req.usuario</code> chega nos controllers já com <code>papel</code>.</p>
+<h3 id="fase-2--contas">Fase 2 — Contas</h3>
+<p><strong>Pronto quando:</strong> uma conta nasce <code>pendente_aprovacao</code>, gerente/admin consegue aprovar, e um cliente só enxerga as próprias contas (pedir a conta de outro → <code>403</code>/<code>404</code>).</p>
+<h3 id="fase-3--movimentações">Fase 3 — Movimentações</h3>
+<p><strong>Pronto quando:</strong> depósito, saque e transferência alteram o saldo <strong>e</strong> geram transação com extrato; saque/transferência sem saldo → erro; transferência aprovada tira da origem e põe no destino; todo valor em centavos (inteiro).</p>
+<h3 id="fase-4--produtos-bancários">Fase 4 — Produtos Bancários</h3>
+<p><strong>Pronto quando:</strong> PIX respeita o limite diário e a unicidade da chave; boleto não é pago duas vezes; cartão de crédito só compra dentro do limite e a compra entra na fatura; empréstimo aprovado deposita o valor e gera as parcelas.</p>
+<h3 id="fase-5--administração-e-deploy">Fase 5 — Administração e Deploy</h3>
+<p><strong>Pronto quando:</strong> gerente/admin veem os painéis, admin bloqueia usuário (e cliente bloqueado não move dinheiro), a exclusão é lógica (não apaga histórico financeiro) e a API está no ar no Render.</p>
+<hr>
+<h2 id="14-critérios-de-avaliação">14. Critérios de Avaliação</h2>
+<table>
+<thead>
+<tr>
+<th>Critério</th>
+<th>Pontos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Estrutura em camadas organizada</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Autenticação com bcrypt e JWT</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Models bem definidos no Mongoose</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Regras de negócio financeiras</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Controle de permissões e dono do recurso</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Transações e extrato coerentes</td>
+<td>10</td>
+</tr>
+<tr>
+<td>PIX, boletos, cartões e empréstimos</td>
+<td>15</td>
+</tr>
+<tr>
+<td>Tratamento de erros e validações</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Documentação e coleção de testes</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Deploy funcionando no Render</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<p>Total: <strong>100 pontos</strong>.</p>
+<hr>
+<h2 id="15-desafios-extras">15. Desafios Extras</h2>
+<p>Para quem quiser ir além:</p>
+<ol>
+<li>Implementar refresh token.</li>
+<li>Implementar recuperação de senha com token temporário.</li>
+<li>Criar paginação em listagens grandes.</li>
+<li>Criar filtros por período no extrato.</li>
+<li>Criar log de auditoria para toda ação administrativa.</li>
+<li>Usar transações do MongoDB com session para operações financeiras.</li>
+<li>Criar testes automatizados com Jest ou Vitest.</li>
+<li>Criar documentação Swagger/OpenAPI.</li>
+<li>Criar um script opcional para gerar gerente, clientes, contas e transações automaticamente.</li>
+<li>Criar um frontend simples para consumir a API.</li>
+<li>Criar uma regra extra para evitar que a mesma operação financeira seja cadastrada duas vezes.</li>
+</ol>
+<hr>
+<div style="text-align: center; color: #6B7280; font-size: 13px; margin-top: 50px;">
+  <b>LionsDev</b> • Professor Nicolas Cardoso Motta<br>
+  <i>Projeto Final de API de Banco Digital - Módulo 10</i>
+</div>
+
+</body>
+</html>

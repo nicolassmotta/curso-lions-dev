@@ -1,6 +1,6 @@
 /*
  * ===================================================================
- * MODULO 09: ESTRUTURA MVC PARA APIs NODE + EXPRESS
+ * MODULO 09: BOILERPLATE E ESTRUTURA MVC PARA APIs NODE + EXPRESS
  * ===================================================================
  *
  * MVC significa:
@@ -12,7 +12,8 @@
  * Em APIs REST, normalmente nao temos "View" renderizando HTML.
  * A resposta da API costuma ser JSON.
  *
- * Mesmo assim, usamos a ideia do MVC para separar responsabilidades:
+ * No boilerplate LionsDev, usamos a ideia do MVC para separar
+ * responsabilidades e evitar que tudo fique concentrado no server.js:
  *
  *   Model       -> estrutura dos dados no banco
  *   Controller  -> entrada e saida HTTP
@@ -55,8 +56,7 @@
  * │       └── criarErro.js
  * ├── .env
  * ├── .env.example
- * ├── package.json
- * └── render.yaml
+ * └── package.json
  */
 
 // -------------------------------------------------------------------
@@ -201,4 +201,4 @@
  * Resposta: Middleware.
  */
 
-console.log("Conteudo: MVC deixa a API mais organizada e facil de manter.");
+console.log("Conteudo: boilerplate + MVC deixam a API mais organizada e facil de manter.");

@@ -26,7 +26,8 @@ Este repositório contém todo o material de apoio das aulas: conteúdo teórico
 | 06  | **Organização de Projetos**    | Estruturação de projetos com múltiplos arquivos e CRUD em memória                                                        |
 | 07  | **APIs REST com Express**      | Criação de APIs RESTful com Express.js e dados em memória                                                                |
 | 08  | **Banco de Dados (MongoDB)**   | Integração com MongoDB via Mongoose, modelos e rotas                                                                     |
-| 09  | **Autenticação, MVC e Deploy** | Senhas com bcrypt, autenticação com JWT, APIs em camadas e publicação no Render.com                                      |
+| 09  | **Autenticação, JWT e MVC**    | Senhas com bcryptjs, autenticação com JWT, boilerplate LionsDev e APIs em camadas                                       |
+| 10  | **Deploy com Render**          | Publicação de APIs no Render.com, variáveis de ambiente e projeto final Banco Digital                                   |
 
 ---
 
@@ -59,7 +60,7 @@ moduloXX/
 
 As dependências dos exemplos gerais ficam centralizadas no `package.json` da raiz para simplificar o setup dos alunos: com um único `npm install` na raiz, as ferramentas principais ficam disponíveis para os módulos iniciais e intermediários.
 
-Projetos completos pensados para deploy podem ter `package.json` próprio dentro da pasta do projeto. Esse é o caso do projeto final resolvido do Módulo 09 em `modulo09/exercicios_resolvidos/api_banco_digital`, porque ele precisa funcionar como uma API independente no Render. Para novos exercícios de API com autenticação e MVC, use o boilerplate externo: <https://github.com/nicolassmotta/lionsdev-boilerplate>.
+Projetos completos pensados para deploy podem ter `package.json` próprio dentro da pasta do projeto. Esse é o caso do projeto final resolvido do Módulo 10 em `modulo10/exercicios_resolvidos/api_banco_digital`, porque ele precisa funcionar como uma API independente no Render. Para novos exercícios de API com autenticação e MVC, use o boilerplate externo: <https://github.com/nicolassmotta/lionsdev-boilerplate>.
 
 | Pacote         | Usado a partir de | Onde está declarado                         | Função                                              |
 | -------------- | ----------------- | ------------------------------------------- | --------------------------------------------------- |
@@ -67,8 +68,8 @@ Projetos completos pensados para deploy podem ter `package.json` próprio dentro
 | `express`      | Módulo 07         | `package.json` da raiz e projetos de API    | Framework para criação de APIs REST                 |
 | `mongoose`     | Módulo 08         | `package.json` da raiz e projetos de API    | ODM para integração com MongoDB                     |
 | `dotenv`       | Módulo 08         | `package.json` da raiz e projetos de API    | Carregar variáveis de ambiente de um arquivo `.env` |
-| `bcryptjs`     | Módulo 09         | Projeto final e boilerplate externo         | Gerar hash de senhas                                |
-| `jsonwebtoken` | Módulo 09         | Projeto final e boilerplate externo         | Criar e validar tokens JWT                          |
+| `bcryptjs`     | Módulo 09         | Projeto final do Módulo 10 e boilerplate externo | Gerar hash de senhas                                |
+| `jsonwebtoken` | Módulo 09         | Projeto final do Módulo 10 e boilerplate externo | Criar e validar tokens JWT                          |
 
 ---
 
