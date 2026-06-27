@@ -1,6 +1,6 @@
 # API Banco Digital LionsBank
 
-Projeto resolvido do Módulo 09 com Express, MongoDB, Mongoose, bcryptjs, JWT, MVC, services, repositories e deploy no Render.
+Projeto resolvido do Módulo 10 com Express, MongoDB, Mongoose, bcryptjs, JWT, MVC, services, repositories e deploy no Render.
 
 Esta solução implementa uma API bancária didática com cadastro, login, abertura de contas, transações, PIX, boletos, cartões, faturas, empréstimos e painel administrativo.
 

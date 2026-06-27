@@ -280,7 +280,7 @@ async function deletarProduto(id) {
  * ⚠️ REGRAS DE SEGURANÇA:
  *   1. NUNCA faça commit do arquivo .env no GitHub!
  *   2. Adicione ".env" ao .gitignore
- *   3. No Render/produção, configure as variáveis pela interface web
+ *   3. Em produção, configure as variáveis pela interface da plataforma
  */
 
 // -------------------------------------------------------------------

@@ -23,7 +23,7 @@
   }
 </style>
 
-# Projeto Final: API de Banco Digital
+# Projeto Final (Módulo 10): API de Banco Digital
 
 **Turma:** LionsDev
 
@@ -491,7 +491,7 @@ O aluno deve entregar:
 5. `requests.http` ou coleção Postman com todos os fluxos.
 6. Prints ou evidências dos testes principais.
 
-> Gabarito de referência do professor: `modulo09/exercicios_resolvidos/api_banco_digital`.
+> Gabarito de referência do professor: `modulo10/exercicios_resolvidos/api_banco_digital`.
 
 ---
 
@@ -560,5 +560,5 @@ Para quem quiser ir além:
 
 <div style="text-align: center; color: #6B7280; font-size: 13px; margin-top: 50px;">
   <b>LionsDev</b> • Professor Nicolas Cardoso Motta<br>
-  <i>Projeto Final de API de Banco Digital - Módulo 09</i>
+  <i>Projeto Final de API de Banco Digital - Módulo 10</i>
 </div>

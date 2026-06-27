@@ -1,6 +1,6 @@
-# Módulo 09 - Autenticação, MVC e Deploy
+# Módulo 09 - Autenticação, JWT e MVC
 
-Este módulo fecha a jornada de APIs com três peças que andam juntas em projetos reais: autenticação segura, organização em camadas e deploy.
+Este módulo consolida APIs com autenticação segura, organização em camadas e uso do boilerplate LionsDev.
 
 Sequência sugerida para a aula:
 
@@ -12,29 +12,21 @@ Sequência sugerida para a aula:
 
 2. `02_estrutura_mvc.js`
 
+   - Como o boilerplate LionsDev separa responsabilidades em pastas.
    - O papel de cada pasta em uma API organizada.
    - Fluxo de uma requisição: rota -> controller -> service -> repository -> model.
    - Onde colocar regra de negócio, acesso ao banco e middlewares.
 
-3. `deploy_render.js`
-
-   - Checklist de deploy no Render.
-   - Uso correto de `PORT`, `.env`, `MONGO_URI` e `JWT_SECRET`.
-
-4. Boilerplate externo: <https://github.com/nicolassmotta/lionsdev-boilerplate>
+3. Boilerplate externo: <https://github.com/nicolassmotta/lionsdev-boilerplate>
 
    - Projeto base com Express, MongoDB, Mongoose, bcryptjs, JWT, MVC, services e repositories.
    - Deve ser usado como ponto de partida para novos exercícios de API com autenticação.
    - Fica em um repositório separado para os alunos clonarem sem trazer todo o material do curso.
 
-5. `../lista_de_exercicios/api_banco_digital.md`
+4. `../lista_de_exercicios`
 
-   - Projeto grande de encerramento: uma API de banco digital com contas, transações, PIX, boletos, cartões, empréstimos, permissões e deploy.
-   - Pode ser iniciado a partir do boilerplate externo.
-   - Deve ser feito depois que a turma já entendeu autenticação, MVC e MongoDB.
+   - Exercícios para criar novos recursos a partir do boilerplate.
+   - Cada recurso pertence ao usuário logado via `req.usuario.id`.
+   - A lista reforça rotas protegidas, dono do recurso, services, repositories, controllers e middlewares.
 
-6. `../exercicios_resolvidos/api_banco_digital`
-
-   - Gabarito completo do projeto final, mantendo o mesmo padrão de MVC, services, repositories, middlewares, `.env.example`, `requests.http` e `render.yaml`.
-
-Observação importante: no conteúdo falamos "bcrypt" como algoritmo de hash de senha. No exemplo resolvido usamos a biblioteca `bcryptjs`, que implementa bcrypt em JavaScript puro e costuma ser mais tranquila para instalar em computadores de alunos e no deploy.
+Observação importante: no conteúdo falamos "bcrypt" como algoritmo de hash de senha. Nos exemplos usamos a biblioteca `bcryptjs`, que implementa bcrypt em JavaScript puro e costuma ser mais tranquila para instalar em computadores de alunos.
