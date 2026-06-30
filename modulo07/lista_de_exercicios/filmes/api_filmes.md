@@ -162,7 +162,7 @@ Regras:
 
 ## 4. Testes Esperados
 
-Teste a API no Postman, Insomnia ou ferramenta semelhante.
+Teste a API no Postman.
 
 Sugestões de testes:
 

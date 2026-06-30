@@ -30,7 +30,7 @@
  * │                  │ e colunas)       │ coleções                 │
  * │ Esquema          │ Rígido (fixo)    │ Flexível (dinâmico)      │
  * │ Linguagem        │ SQL              │ Métodos da linguagem     │
- * │ Exemplos         │ MySQL, PostgreSQL│ MongoDB, Redis, Firebase │
+ * │ Exemplos         │ Bancos SQL       │ MongoDB                  │
  * │ Bom para         │ Dados muito      │ Dados variáveis,         │
  * │                  │ estruturados     │ prototipagem rápida      │
  * └──────────────────┴──────────────────┴──────────────────────────┘

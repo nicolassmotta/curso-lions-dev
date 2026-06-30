@@ -34,13 +34,8 @@
 // -------------------------------------------------------------------
 
 /*
- * Existem várias plataformas de deploy. As mais populares são:
- *
- * a) Render.com     → Gratuito para começar, fácil de usar ✅
- * b) Heroku         → Já foi gratuito, hoje é pago
- * c) Railway        → Boa alternativa, limite gratuito baixo
- * d) Vercel         → Excelente para frontend (Next.js, React)
- * e) AWS / GCP      → Para projetos grandes e profissionais
+ * Existem várias plataformas de deploy.
+ * Neste curso, vamos padronizar o Render.com para publicar nossas APIs.
  *
  * Vamos usar o Render porque:
  *   ✅ Tem plano gratuito (ideal para aprender)

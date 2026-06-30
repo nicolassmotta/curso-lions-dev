@@ -181,7 +181,7 @@ app.use("/api/transacoes", transacaoRoutes);
 
 ---
 
-## 10. Fluxo de Testes (use Postman ou Insomnia)
+## 10. Fluxo de Testes (use Postman)
 
 1. Cadastro/login → copie o `token`.
 2. `POST /api/transacoes` com `{ "descricao": "Salário", "tipo": "entrada", "valor": 3000 }` → `201`.

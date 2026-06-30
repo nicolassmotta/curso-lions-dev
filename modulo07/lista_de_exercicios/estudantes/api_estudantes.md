@@ -160,7 +160,7 @@ Regras:
 
 ## 4. Testes Esperados
 
-Teste sua API no Postman, Insomnia ou outra ferramenta semelhante.
+Teste sua API no Postman.
 
 Sugestões de testes:
 

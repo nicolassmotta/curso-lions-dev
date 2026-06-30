@@ -52,7 +52,7 @@ A API precisa permitir cadastro de clientes, login, abertura de contas, moviment
 7. Uma pessoa só pode acessar contas, cartões, faturas, boletos e empréstimos dela mesma, exceto gerente/admin.
 8. Operações financeiras devem gerar registro de transação e extrato.
 9. A API nunca deve retornar `senhaHash`, `senhaCartaoHash`, tokens secretos ou dados sensíveis desnecessários.
-10. O projeto deve ter `.env.example`, `README.md`, coleção Postman/Insomnia e deploy no Render.
+10. O projeto deve ter `.env.example`, `README.md`, coleção do Postman e deploy no Render.
 
 ---
 
@@ -451,7 +451,7 @@ Implemente pelo menos 10 regras abaixo:
 
 ## 11. Fluxos de Teste Obrigatórios
 
-Teste e documente os fluxos abaixo no Postman ou Insomnia:
+Teste e documente os fluxos abaixo no Postman:
 
 1. Cadastrar cliente.
 2. Fazer login.
@@ -488,7 +488,7 @@ O aluno deve entregar:
 2. Link público do deploy no Render.
 3. `README.md` explicando como rodar, variáveis de ambiente e rotas principais.
 4. `.env.example` sem segredos reais.
-5. Coleção Postman/Insomnia exportada com todos os fluxos.
+5. Coleção do Postman exportada com todos os fluxos.
 6. Prints ou evidências dos testes principais.
 
 > Gabarito de referência do professor: `modulo10/exercicios_resolvidos/api_banco_digital`.
@@ -550,11 +550,8 @@ Para quem quiser ir além:
 4. Criar filtros por período no extrato.
 5. Criar log de auditoria para toda ação administrativa.
 6. Usar transações do MongoDB com session para operações financeiras.
-7. Criar testes automatizados com Jest ou Vitest.
-8. Criar documentação Swagger/OpenAPI.
-9. Criar um script opcional para gerar gerente, clientes, contas e transações automaticamente.
-10. Criar um frontend simples para consumir a API.
-11. Criar uma regra extra para evitar que a mesma operação financeira seja cadastrada duas vezes.
+7. Criar um script opcional para gerar gerente, clientes, contas e transações automaticamente.
+8. Criar uma regra extra para evitar que a mesma operação financeira seja cadastrada duas vezes.
 
 ---
 

@@ -175,7 +175,7 @@ app.use("/api/tarefas", tarefaRoutes);
 
 ---
 
-## 10. Fluxo de Testes (use Postman ou Insomnia)
+## 10. Fluxo de Testes (use Postman)
 
 1. Cadastro/login → copie o `token`.
 2. `POST /api/tarefas` com `{ "titulo": "Estudar JWT", "prioridade": "alta" }` → `201`, `concluida: false`.

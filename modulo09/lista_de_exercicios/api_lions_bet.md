@@ -366,7 +366,7 @@ app.use("/api/apostas", apostaRoutes);
 
 ---
 
-## 11. Fluxo de Testes (use Postman ou Insomnia)
+## 11. Fluxo de Testes (use Postman)
 
 **Preparação dos papéis**
 

@@ -86,7 +86,7 @@ Peça ao aluno para registrar sua leitura de hoje informando a data atual e as p
 
 ### 10. Computadores em Cluster / Nuvem Virtual
 
-Imagine que você precisa gerenciar sistemas de Hospedagem de Sites em Nuvem (Servidores Cloud). Crie o registro digital de um Servidor. Ele deve ter um `nome` (ex: "Servidor Principal AWS"), a `capacidadeMaximaGigabytes` (ex: 500), e uma lista chamada `sitesHospedados`. Inicie essa lista contendo um objeto representando um site já online (ele deve ter `dominio` e o `tamanhoOcupadoGB`).
+Imagine que você precisa gerenciar sistemas de Hospedagem de Sites em Nuvem (Servidores Cloud). Crie o registro digital de um Servidor. Ele deve ter um `nome` (ex: "Servidor Principal"), a `capacidadeMaximaGigabytes` (ex: 500), e uma lista chamada `sitesHospedados`. Inicie essa lista contendo um objeto representando um site já online (ele deve ter `dominio` e o `tamanhoOcupadoGB`).
 
 O cliente quer fazer upload de um site novo. Peça pelo prompt o domínio e o tamanhoGB desse novo projeto web.
 A regra corporativa da nuvem dita as contas: Você precisa somar o tamanho do site que já estava lá, adicionado ao tamanho do candidato recém chegado. Se essa conta de megabytes totais for **menor ou igual** à capacidade máxima daquele Servidor, crie o objeto deste novo site, insira-o na lista `sitesHospedados` e escreva no terminal: "Upload Concluído! Sistema Operacional".
