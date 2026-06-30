@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "pdfs": "node ferramentas/gerar_pdfs.cjs",
     "format": "prettier --write \"**/*.{js,cjs,mjs}\"",
     "format:check": "prettier --check \"**/*.{js,cjs,mjs}\""
   },

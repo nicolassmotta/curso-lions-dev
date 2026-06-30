@@ -216,7 +216,7 @@ app.use("/api/agendamentos", agendamentoRoutes);
 
 ---
 
-## 11. Fluxo de Testes (use Postman ou Insomnia)
+## 11. Fluxo de Testes (use Postman)
 
 1. Cadastro/login → copie o `token`.
 2. `POST /api/agendamentos` com um `Cão` + `Banho` → confira `valor` = 50 e `status` = "Agendado".
