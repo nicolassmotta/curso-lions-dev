@@ -231,7 +231,7 @@ app.use("/api/emprestimos", emprestimoRoutes);
 
 ---
 
-## 10. Fluxo de Testes (use o `requests.http`)
+## 10. Fluxo de Testes (use Postman ou Insomnia)
 
 1. Cadastro/login → copie o `token`.
 2. `POST /api/materiais` com `estoque: 1` → guarde o `_id` do material.

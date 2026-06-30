@@ -13,7 +13,7 @@ Este módulo concentra o deploy e o projeto final do curso. A turma parte dos co
 1. Revisar o checklist de deploy em `../conteudo/deploy_render.js`.
 2. Conferir o exemplo de `render.yaml` em `../conteudo/render.yaml`.
 3. Construir ou finalizar a API Banco Digital.
-4. Documentar variáveis de ambiente, rotas e fluxos em `README.md` e `requests.http`.
+4. Documentar variáveis de ambiente, rotas e fluxos em `README.md` e uma coleção Postman/Insomnia.
 5. Publicar a API no Render e entregar o link público.
 
 ## Referência

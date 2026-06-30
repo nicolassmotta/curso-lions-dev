@@ -203,7 +203,7 @@ app.use("/api/matriculas", matriculaRoutes);
 
 ---
 
-## 11. Fluxo de Testes (use o `requests.http`)
+## 11. Fluxo de Testes (use Postman ou Insomnia)
 
 1. Cadastro/login → copie o `token`.
 2. `POST` `Mensal` + `Musculação` → `valorTotal` = 90.
