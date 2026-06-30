@@ -25,4 +25,4 @@ Sequência sugerida para a aula:
 4. `../exercicios_resolvidos/api_banco_digital`
 
    - Gabarito completo do projeto final.
-   - Mantém `.env.example`, `requests.http`, `render.yaml` e `README.md` com instruções para rodar localmente e publicar no Render.
+   - Mantém `.env.example`, `render.yaml`, `README.md` e uma coleção Postman/Insomnia com instruções para rodar localmente e publicar no Render.

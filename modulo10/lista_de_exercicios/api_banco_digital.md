@@ -52,7 +52,7 @@ A API precisa permitir cadastro de clientes, login, abertura de contas, moviment
 7. Uma pessoa só pode acessar contas, cartões, faturas, boletos e empréstimos dela mesma, exceto gerente/admin.
 8. Operações financeiras devem gerar registro de transação e extrato.
 9. A API nunca deve retornar `senhaHash`, `senhaCartaoHash`, tokens secretos ou dados sensíveis desnecessários.
-10. O projeto deve ter `.env.example`, `README.md`, `requests.http` ou coleção do Postman, e deploy no Render.
+10. O projeto deve ter `.env.example`, `README.md`, coleção Postman/Insomnia e deploy no Render.
 
 ---
 
@@ -103,7 +103,7 @@ projeto/
 ├── .env.example
 ├── package.json
 ├── render.yaml
-└── requests.http
+└── colecao-postman.json
 ```
 
 ---
@@ -451,7 +451,7 @@ Implemente pelo menos 10 regras abaixo:
 
 ## 11. Fluxos de Teste Obrigatórios
 
-Teste e documente os fluxos abaixo no `requests.http` ou Postman:
+Teste e documente os fluxos abaixo no Postman ou Insomnia:
 
 1. Cadastrar cliente.
 2. Fazer login.
@@ -488,7 +488,7 @@ O aluno deve entregar:
 2. Link público do deploy no Render.
 3. `README.md` explicando como rodar, variáveis de ambiente e rotas principais.
 4. `.env.example` sem segredos reais.
-5. `requests.http` ou coleção Postman com todos os fluxos.
+5. Coleção Postman/Insomnia exportada com todos os fluxos.
 6. Prints ou evidências dos testes principais.
 
 > Gabarito de referência do professor: `modulo10/exercicios_resolvidos/api_banco_digital`.
