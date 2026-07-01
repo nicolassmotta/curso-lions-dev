@@ -1,4 +1,4 @@
-service:
+services:
   - type: web
     name: api-petshop
     plan: free
