@@ -1,6 +1,7 @@
 services:
   - type: web
     name: api-petshop
+    runtime: node
     plan: free
     buildCommand: "npm install"
     startCommand: "npm start"
