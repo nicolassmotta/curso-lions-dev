@@ -49,7 +49,7 @@ Até agora, todos os exercícios usavam só o padrão **"dono do recurso via tok
 
 ## 2. Ponto de Partida: o Boilerplate
 
-Partimos do **boilerplate LionsDev**: <https://github.com/nicolassmotta/lionsdev-boilerplate>
+Partimos do **boilerplate LionsDev**: <https://github.com/nicolassmotta/boilerplate-lions-dev.git>
 
 1. Clone, `npm install`, crie o `.env` (`MONGO_URI`, `JWT_SECRET`, `JWT_EXPIRES_IN`, `BCRYPT_SALT_ROUNDS`) e suba o servidor.
 2. Já estão prontos: camada de `Usuario`, cadastro/login com **bcrypt**/**JWT**, middleware `autenticar` (preenche `req.usuario`), `criarErro` e o middleware de erro.

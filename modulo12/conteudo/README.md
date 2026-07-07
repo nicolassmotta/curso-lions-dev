@@ -1,26 +1,29 @@
-# Módulo 12 - Projeto Final
+# Módulo 12 - Projeto Final e Levantamento de Requisitos
 
 Este módulo é dedicado ao início e desenvolvimento do projeto final. A turma já passou por JavaScript, APIs REST, MongoDB, autenticação, MVC, deploy e frontend com IA/FlutterFlow; agora o desafio é juntar tudo em uma aplicação funcional e publicada.
 
-Sequência sugerida para a aula:
+## Materiais do módulo
 
-1. `../lista_de_exercicios/simulacao_cliente_dev.md`
+| Material | Função | Arquivo |
+| -------- | ------ | ------- |
+| Simulação Cliente-Dev | Dinâmica em duplas para treinar entrevista, escuta, perguntas abertas e descoberta de prioridades. | [../lista_de_exercicios/simulacao_cliente_dev.md](../lista_de_exercicios/simulacao_cliente_dev.md) |
+| Levantamento de Requisitos | Template para transformar a entrevista em público-alvo, problema, solução, escopo, entidades, endpoints e regras. | [../lista_de_exercicios/levantamento_requisitos.md](../lista_de_exercicios/levantamento_requisitos.md) |
+| Projeto Final | Enunciado oficial com escopo mínimo, tecnologias obrigatórias, entregáveis, README, testes, deploy e checklist. | [../lista_de_exercicios/projeto_final.md](../lista_de_exercicios/projeto_final.md) |
 
-   - Dinâmica em duplas para treinar entrevista com cliente.
-   - Um aluno atua como cliente e outro como dev.
-   - O objetivo é descobrir problema, público, funcionalidades, restrições e prioridades.
+## Sequência sugerida
 
-2. `../lista_de_exercicios/levantamento_requisitos.md`
+1. Rodar a simulação de entrevista cliente-dev.
+2. Preencher o levantamento de requisitos com base na conversa.
+3. Definir tema, público-alvo, problema, solução e escopo.
+4. Escolher entidades do domínio e relacionamentos.
+5. Planejar telas ou endpoints principais.
+6. Criar repositório no GitHub.
+7. Iniciar o backend a partir do boilerplate indicado no enunciado.
+8. Integrar o frontend usando IA, FlutterFlow ou outra abordagem aprovada em aula.
+9. Publicar backend e frontend no Render.
+10. Preparar README, coleção do Postman e apresentação final.
 
-   - Template para transformar a entrevista em requisitos.
-   - Ajuda o grupo a sair de uma ideia vaga para escopo, entidades, telas/endpoints, requisitos funcionais, requisitos não funcionais e regras de negócio.
-
-3. `../lista_de_exercicios/projeto_final.md`
-
-   - Enunciado oficial do projeto final.
-   - Define escopo mínimo, tecnologias, entregáveis e checklist.
-
-## Resultado esperado do módulo
+## Resultado esperado
 
 Ao final deste módulo, cada grupo deve ter:
 

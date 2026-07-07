@@ -17,7 +17,7 @@ Sequência sugerida para a aula:
    - Fluxo de uma requisição: rota -> controller -> service -> repository -> model.
    - Onde colocar regra de negócio, acesso ao banco e middlewares.
 
-3. Boilerplate externo: <https://github.com/nicolassmotta/lionsdev-boilerplate>
+3. Boilerplate externo: <https://github.com/nicolassmotta/boilerplate-lions-dev.git>
 
    - Projeto base com Express, MongoDB, Mongoose, bcryptjs, JWT, MVC, services e repositories.
    - Deve ser usado como ponto de partida para novos exercícios de API com autenticação.
