@@ -19,11 +19,13 @@ Este módulo concentra o projeto final do curso e a atividade de levantamento de
 5. Criar repositório no GitHub.
 6. Iniciar o backend.
 7. Integrar frontend com IA/FlutterFlow.
-8. Preparar README, coleção de testes e apresentação.
+8. Publicar backend e frontend no Render.
+9. Preparar README, coleção de testes e apresentação.
 
 ## Entregas do módulo
 
 - Documento de levantamento de requisitos.
 - Repositório do projeto final.
+- Links do backend e do frontend no Render.
 - Primeira versão do README.
 - Planejamento das rotas, entidades e relacionamentos principais.

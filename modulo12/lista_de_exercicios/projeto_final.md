@@ -27,7 +27,7 @@
 
 **Turma:** LionsDev
 
-**Tópicos:** levantamento de requisitos, API REST, MongoDB, autenticação, frontend com IA/FlutterFlow, documentação, testes com Postman e apresentação final.
+**Tópicos:** levantamento de requisitos, API REST, MongoDB, autenticação, frontend com IA/FlutterFlow, deploy no Render, documentação, testes com Postman e apresentação final.
 
 ## 1. Visão geral
 
@@ -35,9 +35,10 @@ Você e seu grupo vão construir uma aplicação full-stack simples, completa e 
 
 - Backend: API REST em Node.js + Express + MongoDB + Mongoose, com autenticação e criptografia.
 - Frontend: telas criadas com apoio de IA ou FlutterFlow, consumindo a API de verdade.
+- Deploy: backend e frontend publicados no Render.
 - Documentação: levantamento de requisitos, README, coleção de testes e registro do uso de IA.
 
-O foco não é uma interface perfeita. O foco é um sistema que funciona de ponta a ponta: backend organizado, banco integrado, autenticação e frontend chamando as rotas corretas.
+O foco não é uma interface perfeita. O foco é um sistema que funciona de ponta a ponta: backend organizado, banco integrado, autenticação, frontend chamando as rotas corretas e aplicação publicada.
 
 Um projeto simples e funcional vale mais que um projeto complexo e quebrado. Mas ele ainda precisa parecer um sistema real: um projeto final não deve ser apenas um CRUD isolado.
 
@@ -45,7 +46,7 @@ Um projeto simples e funcional vale mais que um projeto complexo e quebrado. Mas
 
 - **Grupo:** 2 a 3 integrantes.
 - **Tema:** escolhido pelo grupo.
-- **Entrega:** repositório no GitHub, levantamento de requisitos, README, coleção do Postman, frontend integrado e apresentação.
+- **Entrega:** repositório no GitHub, levantamento de requisitos, README, coleção do Postman, links do backend e do frontend no Render, frontend integrado e apresentação.
 - **Prazo:** definido em aula.
 - **Apresentação:** todos os integrantes devem participar e explicar a própria contribuição.
 
@@ -73,6 +74,13 @@ Seu projeto está completo quando tiver tudo desta lista.
 
 - [ ] MongoDB Atlas.
 - [ ] Dados salvos, buscados, atualizados e removidos de verdade.
+
+### Deploy
+
+- [ ] Backend publicado no Render.
+- [ ] Frontend publicado no Render.
+- [ ] Backend publicado usando variáveis de ambiente no painel do Render.
+- [ ] Frontend consumindo a URL pública do backend no Render.
 
 ### Frontend
 
@@ -102,6 +110,7 @@ O frontend pode ser feito com FlutterFlow, React gerado com IA ou outra abordage
 - bcryptjs
 - jsonwebtoken
 - Postman
+- Render
 - GitHub
 - Frontend com IA ou FlutterFlow
 
@@ -322,7 +331,55 @@ Registro obrigatório do uso de IA:
 - Ajustes feitos pelo grupo.
 - Erros encontrados e como foram resolvidos.
 
-## 11. Levantamento de requisitos
+## 11. Deploy no Render
+
+O projeto final precisa estar publicado no Render.
+
+### Backend no Render
+
+O backend deve ser publicado como **Web Service**.
+
+Configurações esperadas:
+
+```txt
+Build Command: npm install
+Start Command: npm start
+```
+
+Variáveis de ambiente no painel do Render:
+
+```env
+MONGO_URI=sua_string_do_mongodb_atlas
+JWT_SECRET=sua_chave_secreta
+JWT_EXPIRES_IN=1d
+BCRYPT_SALT_ROUNDS=10
+NODE_ENV=production
+```
+
+O backend deve funcionar usando `process.env.PORT`, como no boilerplate. Não coloque `.env` no GitHub.
+
+### Frontend no Render
+
+O frontend deve ser publicado no Render e consumir a URL pública do backend.
+
+Se o frontend for React/Vite, publique como **Static Site**:
+
+```txt
+Build Command: npm install && npm run build
+Publish Directory: dist
+```
+
+O frontend não deve chamar `localhost` na versão publicada. Ele precisa usar a URL do backend no Render.
+
+### Links obrigatórios na entrega
+
+```txt
+Link do repositório:
+Link do backend no Render:
+Link do frontend no Render:
+```
+
+## 12. Levantamento de requisitos
 
 Antes de programar, entregue o levantamento de requisitos usando o template deste módulo.
 
@@ -343,7 +400,7 @@ Regras de negócio: condições específicas do domínio.
 
 Os requisitos devem ser coerentes com o tema do grupo, não cópia dos exemplos. O que estiver no levantamento precisa aparecer no sistema ou ser explicado como fora do escopo.
 
-## 12. README obrigatório
+## 13. README obrigatório
 
 O README do projeto final deve conter:
 
@@ -371,6 +428,9 @@ Lista das principais rotas.
 ## Frontend
 Como acessar, testar e integrar com a API.
 
+## Deploy
+Links do backend e do frontend no Render.
+
 ## Postman
 Como importar/testar a coleção de requisições.
 
@@ -381,7 +441,7 @@ Como a IA foi usada e quais ajustes foram feitos.
 Nomes do grupo.
 ```
 
-## 13. Divisão de trabalho
+## 14. Divisão de trabalho
 
 O trabalho é em grupo, mas a nota tem componente individual.
 
@@ -407,9 +467,11 @@ Qual rota ou tela ficou sob sua responsabilidade.
 Quais erros encontrou e como resolveu.
 ```
 
-## 14. Testes das rotas
+## 15. Testes das rotas
 
 Todas as rotas devem ser testadas antes da entrega com Postman. O frontend também deve ser testado, mas ele não substitui a validação das rotas no Postman.
+
+Teste as rotas usando a URL local e também a URL publicada no Render.
 
 Testem:
 
@@ -428,7 +490,7 @@ Testem:
 
 Exportem a coleção do Postman e incluam no repositório do projeto.
 
-## 15. Apresentação final
+## 16. Apresentação final
 
 Todos os integrantes participam.
 
@@ -441,14 +503,18 @@ A apresentação deve cobrir:
 - Demonstração de uma regra de negócio entre entidades.
 - Dados persistindo no MongoDB.
 - Frontend consumindo a API.
+- Backend e frontend publicados no Render.
 - Como a IA/FlutterFlow ajudou.
 - Dificuldades e próximos passos.
 
-## 16. Checklist final
+## 17. Checklist final
 
 ```txt
 [ ] Backend roda sem erro.
 [ ] Frontend roda sem erro.
+[ ] Backend está publicado no Render.
+[ ] Frontend está publicado no Render.
+[ ] Frontend publicado consome a URL pública do backend.
 [ ] MongoDB conectado e salvando de verdade.
 [ ] Existem pelo menos 4 entidades do domínio além de Usuario.
 [ ] Pelo menos 2 entidades possuem CRUD completo.
@@ -462,6 +528,7 @@ A apresentação deve cobrir:
 [ ] Rotas foram testadas no Postman.
 [ ] Coleção do Postman foi incluída no repositório.
 [ ] README está completo.
+[ ] README possui links do backend e do frontend publicados.
 [ ] .env.example está no repositório sem dados sensíveis.
 [ ] .env não foi enviado ao GitHub.
 [ ] Levantamento de requisitos foi entregue.

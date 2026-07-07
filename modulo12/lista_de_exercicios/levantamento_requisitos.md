@@ -74,7 +74,7 @@ Escreva aqui.
 
 Quais limitações o projeto precisa respeitar? Linguagem, banco, padrões obrigatórios, prazo, autenticação, deploy e frontend.
 
-Exemplo: backend em Node.js com Express e MongoDB; autenticação obrigatória via JWT; frontend com FlutterFlow ou IA; entrega até a data definida em aula.
+Exemplo: backend em Node.js com Express e MongoDB; autenticação obrigatória via JWT; backend e frontend publicados no Render; frontend com FlutterFlow ou IA; entrega até a data definida em aula.
 
 ```txt
 Escreva aqui.
@@ -174,6 +174,7 @@ Use esta escala:
 [ ] Os relacionamentos entre entidades foram definidos.
 [ ] Pelo menos 2 entidades terão CRUD completo.
 [ ] Existe pelo menos 1 regra de negócio envolvendo mais de uma entidade.
+[ ] Backend e frontend serão publicados no Render.
 [ ] As telas ou endpoints principais estão planejados.
 [ ] Os requisitos funcionais estão escritos de forma testável.
 [ ] As regras de negócio foram discutidas.
