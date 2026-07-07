@@ -1,6 +1,6 @@
 # Módulo 12 - Projeto Final
 
-Este módulo é dedicado ao início e desenvolvimento do projeto final. A turma já passou por JavaScript, APIs REST, MongoDB, autenticação, MVC, deploy e frontend com IA/FlutterFlow; agora o desafio é juntar tudo em uma aplicação funcional.
+Este módulo é dedicado ao início e desenvolvimento do projeto final. A turma já passou por JavaScript, APIs REST, MongoDB, autenticação, MVC, deploy e frontend com IA/FlutterFlow; agora o desafio é juntar tudo em uma aplicação funcional e publicada.
 
 Sequência sugerida para a aula:
 
@@ -29,6 +29,7 @@ Ao final deste módulo, cada grupo deve ter:
 - Entidades do domínio escolhidas.
 - Relacionamentos entre entidades definidos.
 - Rotas principais planejadas.
+- Deploy do backend e do frontend planejado no Render.
 - Divisão inicial de tarefas.
 - Repositório criado no GitHub.
 - Próximo passo claro para começar o desenvolvimento.
