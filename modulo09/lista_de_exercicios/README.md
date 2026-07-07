@@ -1,7 +1,7 @@
 # Módulo 09 — Lista de Exercícios
 
 Exercícios de API com **autenticação (bcrypt + JWT)** e **arquitetura em camadas** (model, repository, service, controller e routes), todos construídos a partir do **boilerplate LionsDev**:
-<https://github.com/nicolassmotta/lionsdev-boilerplate>
+<https://github.com/nicolassmotta/boilerplate-lions-dev.git>
 
 O boilerplate já traz a camada de `Usuario`, cadastro/login com bcrypt/JWT, o middleware `autenticar` e o tratamento central de erros. Em todos os exercícios abaixo o aluno **cria um novo recurso** e o amarra ao **dono** (o usuário logado, via `req.usuario.id`), exatamente como no recurso `Livro` visto em aula.
 

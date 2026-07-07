@@ -41,7 +41,7 @@ No Módulo 08 você fez a API da **Biblioteca Lions** com dois recursos (Materia
 
 ## 2. Ponto de Partida: o Boilerplate
 
-Partimos do **boilerplate LionsDev**: <https://github.com/nicolassmotta/lionsdev-boilerplate>
+Partimos do **boilerplate LionsDev**: <https://github.com/nicolassmotta/boilerplate-lions-dev.git>
 
 1. Clone, `npm install`, crie o `.env` (`MONGO_URI`, `JWT_SECRET`, `JWT_EXPIRES_IN`, `BCRYPT_SALT_ROUNDS`) e suba o servidor.
 2. Já estão prontos: camada de `Usuario`, cadastro/login com **bcrypt**/**JWT**, middleware `autenticar` (preenche `req.usuario = { id, email }`), `criarErro` e o middleware de erro.

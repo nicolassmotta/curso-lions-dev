@@ -142,6 +142,7 @@ O `Usuario` do boilerplate continua existindo para autenticação, mas não subs
 O projeto final deve partir do **Boilerplate Lions Dev** usado em aula:
 
 ```txt
+https://github.com/nicolassmotta/boilerplate-lions-dev.git
 git@github.com:nicolassmotta/boilerplate-lions-dev.git
 ```
 

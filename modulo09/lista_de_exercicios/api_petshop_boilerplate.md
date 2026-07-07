@@ -43,7 +43,7 @@ Pense num app onde cada tutor faz login e gerencia **somente os agendamentos del
 
 ## 2. Ponto de Partida: o Boilerplate
 
-Partimos do **boilerplate LionsDev** (o mesmo da aula): <https://github.com/nicolassmotta/lionsdev-boilerplate>
+Partimos do **boilerplate LionsDev** (o mesmo da aula): <https://github.com/nicolassmotta/boilerplate-lions-dev.git>
 
 1. Clone o boilerplate e rode `npm install`.
 2. Crie o `.env` a partir do `.env.example` e preencha `MONGO_URI`, `JWT_SECRET`, `JWT_EXPIRES_IN` e `BCRYPT_SALT_ROUNDS`.
