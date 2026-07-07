@@ -28,6 +28,8 @@ Este repositório contém todo o material de apoio das aulas: conteúdo teórico
 | 08  | **Banco de Dados (MongoDB)**   | Integração com MongoDB via Mongoose, modelos e rotas                                                                     |
 | 09  | **Autenticação, JWT e MVC**    | Senhas com bcryptjs, autenticação com JWT, boilerplate LionsDev e APIs em camadas                                       |
 | 10  | **Deploy com Render**          | Publicação de APIs no Render.com, variáveis de ambiente e projeto final Banco Digital                                   |
+| 11  | **Frontend com FlutterFlow e IA** | Criação de telas com IA/FlutterFlow, consumo de APIs, requests, responses, widgets e integração visual                |
+| 12  | **Projeto Final**              | Levantamento de requisitos, organização do grupo, desenvolvimento full-stack e apresentação final                       |
 
 ---
 
@@ -61,6 +63,8 @@ moduloXX/
 As dependências dos exemplos gerais ficam centralizadas no `package.json` da raiz para simplificar o setup dos alunos: com um único `npm install` na raiz, as ferramentas principais ficam disponíveis para os módulos iniciais e intermediários.
 
 Projetos completos pensados para deploy podem ter `package.json` próprio dentro da pasta do projeto. Esse é o caso do projeto final resolvido do Módulo 10 em `modulo10/exercicios_resolvidos/api_banco_digital`, porque ele precisa funcionar como uma API independente no Render. Para novos exercícios de API com autenticação e MVC, use o boilerplate externo: <https://github.com/nicolassmotta/lionsdev-boilerplate>.
+
+Os Módulos 11 e 12 não adicionam novas dependências obrigatórias ao `package.json` da raiz. O frontend pode ser feito em uma pasta/projeto próprio, com React gerado com apoio de IA, FlutterFlow ou outra abordagem orientada em aula.
 
 | Pacote         | Usado a partir de | Onde está declarado                         | Função                                              |
 | -------------- | ----------------- | ------------------------------------------- | --------------------------------------------------- |
