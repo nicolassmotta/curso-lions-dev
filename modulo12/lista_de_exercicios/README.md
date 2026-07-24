@@ -1,46 +1,29 @@
-# Módulo 12 - Lista de Exercícios e Projeto Final
+# Módulo 12 — Lista de Exercícios
 
-Este módulo concentra a preparação e a entrega do projeto final do curso. Antes de programar, cada grupo precisa entender o problema que quer resolver, definir um escopo possível e transformar a conversa com o "cliente" em requisitos testáveis.
+Preparação e entrega do projeto final: entender o problema, definir escopo e integrar tudo (backend, auth, banco, deploy e frontend) numa aplicação full stack.
 
-## Materiais
+## Listas de código (treino direto)
 
-| Material | Objetivo | Arquivo |
-| -------- | -------- | ------- |
-| Simulação Cliente-Dev | Treinar entrevista e coleta de requisitos em duplas. | [simulacao_cliente_dev.md](simulacao_cliente_dev.md) / [PDF](simulacao_cliente_dev.pdf) |
-| Levantamento de Requisitos | Template para preencher antes do desenvolvimento. | [levantamento_requisitos.md](levantamento_requisitos.md) / [PDF](levantamento_requisitos.pdf) |
-| Projeto Final | Enunciado completo, requisitos, tecnologias, entregáveis, apresentação e checklist. | [projeto_final.md](projeto_final.md) |
-| Projeto Final em PDF | Versão em PDF do enunciado para impressão ou envio. | [projeto_final.pdf](projeto_final.pdf) |
+Comece por aqui. São as listas de treino: uns drills de aquecimento, código pra completar, um bug pra achar e um desafio no fim.
+
+| Lista | Foco | Arquivo |
+| ----- | ---- | ------- |
+| Projeto Integrado (Full Stack) | integração de model, API, auth, MVC, env e frontend | [codigo_projeto_integrado.md](codigo_projeto_integrado.md) |
+
+## Listas aplicadas (desafios em contexto)
+
+Depois do treino: problemas em prosa, onde o aluno lê o enunciado e escreve o código do zero.
+
+| Lista | Foco | Arquivo |
+| ----- | ---- | ------- |
+| Simulação Cliente-Dev | entrevista e coleta de requisitos em duplas | [simulacao_cliente_dev.md](simulacao_cliente_dev.md) |
+| Levantamento de Requisitos | template para preencher antes de codar | [levantamento_requisitos.md](levantamento_requisitos.md) |
+| Projeto Final | enunciado completo, entregáveis e checklist | [projeto_final.md](projeto_final.md) |
 
 ## Ordem sugerida
 
-1. Rodar a simulação de entrevista.
-2. Preencher o levantamento de requisitos.
-3. Definir tema, público-alvo, problema, entidades, relacionamentos e escopo.
-4. Conferir se o tema não repete outro grupo.
-5. Criar repositório no GitHub.
-6. Iniciar o backend com autenticação, camadas e MongoDB.
-7. Integrar frontend com IA, FlutterFlow ou outra abordagem aprovada em aula.
-8. Publicar backend e frontend no Render.
-9. Preparar README, coleção de testes, registro do uso de IA e apresentação.
-
-## Entregas do módulo
-
-- Documento de levantamento de requisitos.
-- Repositório do projeto final.
-- Backend com API REST, MongoDB, autenticação e camadas.
-- Frontend consumindo a API real.
-- Links do backend e do frontend no Render.
-- README completo do projeto final.
-- Coleção do Postman exportada.
-- Registro do uso de IA ou FlutterFlow.
-- Apresentação final com participação de todos os integrantes.
-
-## Critérios centrais
-
-- O projeto resolve um problema claro.
-- O escopo cabe no prazo.
-- Existem entidades suficientes para parecer um sistema real.
-- O backend persiste dados no MongoDB.
-- O frontend chama rotas reais.
-- A autenticação funciona com JWT.
-- O deploy usa URLs públicas, sem depender de `localhost`.
+1. Faça a lista de código para revisar a integração entre todas as camadas.
+2. Rode a simulação de entrevista e preencha o levantamento de requisitos.
+3. Defina tema, escopo, entidades e relacionamentos (sem repetir outro grupo).
+4. Construa o backend (auth, camadas, MongoDB) e integre o frontend.
+5. Publique backend e frontend no Render e prepare a apresentação.

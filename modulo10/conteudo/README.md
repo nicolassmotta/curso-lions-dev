@@ -1,8 +1,8 @@
-# Módulo 10 - Deploy com Render
+# Módulo 10 — Deploy com Render
 
 Este módulo separa a publicação da API em um momento próprio: preparar o projeto, configurar variáveis de ambiente e colocar a aplicação no ar usando Render.com.
 
-Sequência sugerida para a aula:
+Ordem sugerida para a aula:
 
 1. `deploy_render.js`
 

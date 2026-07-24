@@ -1,43 +1,35 @@
 # Módulo 09 — Lista de Exercícios
 
-Exercícios de API com **autenticação (bcrypt + JWT)** e **arquitetura em camadas** (model, repository, service, controller e routes), todos construídos a partir do **boilerplate LionsDev**:
-<https://github.com/nicolassmotta/boilerplate-lions-dev.git>
+Exercícios de API com **autenticação (bcrypt + JWT)** e **arquitetura em camadas** (model, repository, service, controller e routes), a partir do **boilerplate LionsDev**: <https://github.com/nicolassmotta/boilerplate-lions-dev.git>
 
-O boilerplate já traz a camada de `Usuario`, cadastro/login com bcrypt/JWT, o middleware `autenticar` e o tratamento central de erros. Em todos os exercícios abaixo o aluno **cria um novo recurso** e o amarra ao **dono** (o usuário logado, via `req.usuario.id`), exatamente como no recurso `Livro` visto em aula.
+O boilerplate já traz a camada de `Usuario`, cadastro/login com bcrypt/JWT, o middleware `autenticar` e o tratamento central de erros. Em cada exercício o aluno **cria um novo recurso** e o amarra ao **dono** (usuário logado, via `req.usuario.id`).
 
-> Conceitos usados: só o que já vimos até o Módulo 09. A maioria dos exercícios usa apenas o padrão "dono do recurso via token". **A exceção é a Lions Bet**, o desafio final da lista, que vai além e introduz **autorização por papel/cargo** (usuário × admin) com rotas públicas, de usuário e de admin.
+## Listas de código (treino direto)
 
-## Exercícios adaptados do Módulo 08 (agora com login e dono)
+Comece por aqui. São as listas de treino: uns drills de aquecimento, código pra completar, um bug pra achar e um desafio no fim.
 
-| Exercício | Recurso | Nível | Arquivo |
-| --------- | ------- | ----- | ------- |
-| Petshop — Meus Agendamentos | `Agendamento` | Básico | [api_petshop_boilerplate.md](api_petshop_boilerplate.md) |
-| Academia — Minhas Matrículas | `Matricula` | Básico | [api_academia_boilerplate.md](api_academia_boilerplate.md) |
-| Biblioteca — Meu Acervo e Empréstimos | `Material` + `Emprestimo` | Avançado | [api_biblioteca_boilerplate.md](api_biblioteca_boilerplate.md) |
+| Lista | Foco | Arquivo |
+| ----- | ---- | ------- |
+| Autenticação e MVC | bcrypt, JWT, middleware, separação em camadas | [codigo_auth_mvc.md](codigo_auth_mvc.md) |
 
-## Exercícios novos
+## Listas aplicadas (desafios em contexto)
 
-| Exercício | Recurso | Nível | Arquivo |
-| --------- | ------- | ----- | ------- |
-| Tarefas — Meu To-Do | `Tarefa` | Básico | [api_tarefas.md](api_tarefas.md) |
-| Finanças — Meu Controle de Gastos | `Transacao` | Intermediário | [api_financas.md](api_financas.md) |
-| Lions Bet — Casa de Apostas com Admin | `Evento` + `Aposta` (+ papéis) | **Desafio (o mais difícil)** | [api_lions_bet.md](api_lions_bet.md) |
+Depois do treino: problemas em prosa, onde o aluno lê o enunciado e escreve o código do zero.
 
-### Ordem sugerida
+| Lista | Foco | Arquivo |
+| ----- | ---- | ------- |
+| Tarefas — Meu To-Do | dono via token (básico) | [api_tarefas.md](api_tarefas.md) |
+| Petshop — Meus Agendamentos | adaptação do M08 com login (básico) | [api_petshop_boilerplate.md](api_petshop_boilerplate.md) |
+| Academia — Minhas Matrículas | adaptação do M08 com login (básico) | [api_academia_boilerplate.md](api_academia_boilerplate.md) |
+| Finanças — Meu Controle de Gastos | cálculo de resumo (intermediário) | [api_financas.md](api_financas.md) |
+| Biblioteca — Meu Acervo e Empréstimos | dois recursos, `ref`, estoque (avançado) | [api_biblioteca_boilerplate.md](api_biblioteca_boilerplate.md) |
+| Lions Bet — Casa de Apostas com Admin | autorização por papel (desafio) | [api_lions_bet.md](api_lions_bet.md) |
 
-1. **Tarefas** (mais simples, fixa o padrão dono-via-token).
-2. **Petshop** e **Academia** (adaptação direta do Módulo 08 com regra de valor no service).
-3. **Finanças** (cálculo de resumo em JavaScript: entradas, saídas e saldo).
-4. **Biblioteca** (dois recursos, `ObjectId`/`ref` e regra de estoque cruzando coleções).
-5. **Lions Bet** (o mais difícil: autorização por papel/admin, rotas públicas × usuário × admin, carteira e liquidação de apostas cruzando coleções).
+## Ordem sugerida
 
-### Padrão de pastas (igual em todos)
-
-```txt
-src/
-├── models/<recurso>.model.js
-├── repositories/<recurso>.repository.js
-├── services/<recurso>.service.js
-├── controllers/<recurso>.controller.js
-└── routes/<recurso>.routes.js     →  registrado no src/app.js antes do middleware 404
-```
+1. Faça a lista de código para fixar hash, token, middleware e MVC.
+2. **Tarefas** (mais simples, fixa o padrão dono-via-token).
+3. **Petshop** e **Academia** (adaptação direta do Módulo 08).
+4. **Finanças** (cálculo de resumo em JavaScript).
+5. **Biblioteca** (dois recursos, `ObjectId`/`ref` e regra de estoque).
+6. **Lions Bet** (o mais difícil: autorização por papel/admin).
