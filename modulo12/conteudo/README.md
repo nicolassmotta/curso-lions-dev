@@ -1,4 +1,4 @@
-# Módulo 12 - Projeto Final e Levantamento de Requisitos
+# Módulo 12 — Projeto Final e Levantamento de Requisitos
 
 Este módulo é dedicado ao início e desenvolvimento do projeto final. A turma já passou por JavaScript, APIs REST, MongoDB, autenticação, MVC, deploy e frontend com IA/FlutterFlow; agora o desafio é juntar tudo em uma aplicação funcional e publicada.
 
@@ -10,7 +10,7 @@ Este módulo é dedicado ao início e desenvolvimento do projeto final. A turma 
 | Levantamento de Requisitos | Template para transformar a entrevista em público-alvo, problema, solução, escopo, entidades, endpoints e regras. | [../lista_de_exercicios/levantamento_requisitos.md](../lista_de_exercicios/levantamento_requisitos.md) |
 | Projeto Final | Enunciado oficial com escopo mínimo, tecnologias obrigatórias, entregáveis, README, testes, deploy e checklist. | [../lista_de_exercicios/projeto_final.md](../lista_de_exercicios/projeto_final.md) |
 
-## Sequência sugerida
+## Ordem sugerida
 
 1. Rodar a simulação de entrevista cliente-dev.
 2. Preencher o levantamento de requisitos com base na conversa.

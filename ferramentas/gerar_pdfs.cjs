@@ -65,6 +65,26 @@ function listMarkdownSourcesForTrackedPdfs() {
     .filter((markdown) => fs.existsSync(path.join(workspaceRoot, markdown)));
 }
 
+function listMarkdownFromArgs() {
+  const args = process.argv.slice(2).filter(Boolean);
+  if (args.length === 0) return null;
+
+  return args.map((arg) => {
+    const absolute = path.resolve(workspaceRoot, arg);
+    const relative = path.relative(workspaceRoot, absolute);
+    if (relative.startsWith("..") || path.isAbsolute(relative)) {
+      throw new Error(`Markdown fora do workspace: ${arg}`);
+    }
+    if (!/\.md$/i.test(absolute)) {
+      throw new Error(`Nao e um arquivo .md: ${arg}`);
+    }
+    if (!fs.existsSync(absolute)) {
+      throw new Error(`Markdown nao encontrado: ${arg}`);
+    }
+    return relative.split(path.sep).join("/");
+  });
+}
+
 function makeUri(filePath) {
   const resolved = path.resolve(filePath);
   return { fsPath: resolved, toString: () => pathToFileURL(resolved).href };
@@ -73,13 +93,34 @@ function makeUri(filePath) {
 async function main() {
   const extensionPath = findMarkdownPdfExtension();
   const browserExecutable = findBrowserExecutable();
-  const markdownFiles = listMarkdownSourcesForTrackedPdfs();
+  const markdownFiles = listMarkdownFromArgs() || listMarkdownSourcesForTrackedPdfs();
 
   if (markdownFiles.length === 0) {
     throw new Error("Nenhum PDF rastreado com Markdown correspondente foi encontrado.");
   }
 
   const commands = new Map();
+
+  const simboloPath = path.join(__dirname, "marca", "simbolo_preto.png");
+  const simboloDataUri = fs.existsSync(simboloPath)
+    ? `data:image/png;base64,${fs.readFileSync(simboloPath).toString("base64")}`
+    : "";
+
+  const headerTemplate = `<div style="width: 100%; box-sizing: border-box; padding: 0 1cm 5px 1cm; border-bottom: 1.5px solid #E16D34; font-family: 'Segoe UI', Arial, sans-serif; display: flex; align-items: center; justify-content: space-between;">
+      <div style="display: flex; align-items: center;">
+        ${simboloDataUri ? `<img src="${simboloDataUri}" style="height: 26px; width: auto; margin-right: 8px;" />` : ""}
+        <div style="line-height: 1.1;">
+          <div style="font-size: 11px; font-weight: 700; letter-spacing: 1px; color: #000000;">LIONS<span style="color: #E16D34;">DEV</span></div>
+          <div style="font-size: 7px; letter-spacing: 0.5px; color: #6B7280;">Curso de Programa&ccedil;&atilde;o</div>
+        </div>
+      </div>
+      <span style="font-size: 8px; color: #6B7280;">P&aacute;gina <span class="pageNumber"></span> de <span class="totalPages"></span></span>
+    </div>`;
+
+  const footerTemplate = `<div style="width: 100%; box-sizing: border-box; padding: 0 1cm; font-family: 'Segoe UI', Arial, sans-serif; font-size: 8px; color: #6B7280; text-align: center;">
+      Professor Nicolas Cardoso Motta &nbsp;&bull;&nbsp; LIONS<span style="color: #E16D34; font-weight: 700;">DEV</span>
+    </div>`;
+
   const config = {
     type: ["pdf"],
     convertOnSave: false,
@@ -98,17 +139,15 @@ async function main() {
     chromium: { autoDownload: false },
     scale: 1,
     displayHeaderFooter: true,
-    headerTemplate:
-      "<div style=\"font-size: 9px; margin-left: 1cm;\"> <span class='title'></span></div> <div style=\"font-size: 9px; margin-left: auto; margin-right: 1cm; \">%%ISO-DATE%%</div>",
-    footerTemplate:
-      "<div style=\"font-size: 9px; margin: 0 auto;\"> <span class='pageNumber'></span> / <span class='totalPages'></span></div>",
+    headerTemplate,
+    footerTemplate,
     printBackground: true,
     orientation: "portrait",
     pageRanges: "",
     format: "A4",
     width: "",
     height: "",
-    margin: { top: "1.5cm", right: "1cm", bottom: "1cm", left: "1cm" },
+    margin: { top: "2.2cm", right: "1cm", bottom: "1.5cm", left: "1cm" },
     quality: 100,
     clip: { x: null, y: null, width: null, height: null },
     omitBackground: false,

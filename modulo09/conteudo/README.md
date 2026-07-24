@@ -1,8 +1,8 @@
-# Módulo 09 - Autenticação, JWT e MVC
+# Módulo 09 — Autenticação, JWT e MVC
 
 Este módulo consolida APIs com autenticação segura, organização em camadas e uso do boilerplate LionsDev.
 
-Sequência sugerida para a aula:
+Ordem sugerida para a aula:
 
 1. `01_autenticacao_bcrypt_jwt.js`
 

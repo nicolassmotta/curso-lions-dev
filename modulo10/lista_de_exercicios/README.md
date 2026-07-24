@@ -1,21 +1,26 @@
 # Módulo 10 — Lista de Exercícios
 
-Este módulo concentra o deploy e o projeto final do curso. A turma parte dos conceitos do Módulo 09 e leva uma API completa para produção usando Render.
+Deploy e projeto de API completo: levar uma API para produção no Render, com variáveis de ambiente e configuração de produção.
 
-## Projeto final
+## Listas de código (treino direto)
 
-| Projeto | Arquivo |
-| ------- | ------- |
-| API de Banco Digital | [api_banco_digital.md](api_banco_digital.md) |
+Comece por aqui. São as listas de treino: uns drills de aquecimento, código pra completar, um bug pra achar e um desafio no fim.
 
-## Sequência sugerida
+| Lista | Foco | Arquivo |
+| ----- | ---- | ------- |
+| Deploy e Variáveis de Ambiente | `process.env`, porta dinâmica, `.env`, script `start` | [codigo_deploy.md](codigo_deploy.md) |
 
-1. Revisar o checklist de deploy em `../conteudo/deploy_render.js`.
-2. Conferir o exemplo de `render.yaml` em `../conteudo/render.yaml`.
-3. Construir ou finalizar a API Banco Digital.
-4. Documentar variáveis de ambiente, rotas e fluxos em `README.md` e uma coleção do Postman.
-5. Publicar a API no Render e entregar o link público.
+## Listas aplicadas (desafios em contexto)
 
-## Referência
+Depois do treino: problemas em prosa, onde o aluno lê o enunciado e escreve o código do zero.
 
-O gabarito do professor fica em `../exercicios_resolvidos/api_banco_digital`.
+| Lista | Foco | Arquivo |
+| ----- | ---- | ------- |
+| API de Banco Digital | projeto de API completo para deploy | [api_banco_digital.md](api_banco_digital.md) |
+
+## Ordem sugerida
+
+1. Faça a lista de código para deixar a API pronta para produção (env, porta, segredos).
+2. Revise o checklist de deploy em `../conteudo/deploy_render.js` e o `../conteudo/render.yaml`.
+3. Construa/finalize a API Banco Digital e publique no Render.
+4. O gabarito do professor fica em `../exercicios_resolvidos/api_banco_digital`.

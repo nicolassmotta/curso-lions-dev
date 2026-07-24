@@ -1,4 +1,4 @@
-# Módulo 11 - Frontend com IA e FlutterFlow
+# Módulo 11 — Frontend com IA e FlutterFlow
 
 Este módulo conecta as APIs construídas nos módulos anteriores a uma interface visual. A turma não precisa dominar uma stack frontend inteira agora; o objetivo é criar uma primeira interface funcional, testar requests reais e entender o fluxo entre tela, API e banco de dados.
 
@@ -9,7 +9,7 @@ O módulo tem dois caminhos complementares:
 | Guia Prático - Frontend com IA | Mostra como usar IA via web, terminal/editor ou plataformas visuais para gerar frontend a partir de rotas reais. | [frontend_com_ia.md](frontend_com_ia.md) |
 | Desenvolvimento NoCode com FlutterFlow | Apresenta FlutterFlow como ferramenta visual para criar telas, configurar API Calls e exibir dados da API. | [flutterflow.md](flutterflow.md) |
 
-## Sequência sugerida
+## Ordem sugerida
 
 1. Revisar uma API já construída nos módulos 07 a 10.
 2. Conferir rotas, métodos HTTP, body, response e necessidade de token JWT.

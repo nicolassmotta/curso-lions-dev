@@ -19,6 +19,7 @@ _mantenedor/skills/
 # Configurações de extensões
 .codex
 .claude/
+.agents
 
 # Configurações do VSCODE
 .vscode/

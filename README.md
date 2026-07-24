@@ -33,6 +33,17 @@ Este repositório contém o material de apoio das aulas: conteúdo teórico come
 
 ---
 
+## 📝 Listas de Exercícios
+
+Cada módulo tem um índice em `moduloXX/lista_de_exercicios/README.md` com duas trilhas de prática:
+
+- **Listas de código** (`codigo_*.md`) — treino direto: drills de uma linha, código para completar, bugs para achar, previsão de saída e desafios para escrever do zero. **Comece por elas** para fixar a mecânica do conceito.
+- **Listas aplicadas** — problemas de negócio em prosa, onde o aluno traduz o enunciado em código.
+
+A regra é sempre **mecânica primeiro (código), aplicação depois**. Cada índice de módulo traz a ordem sugerida.
+
+---
+
 ## 🧭 Materiais dos Módulos 11 e 12
 
 Os módulos finais são mais orientados a integração, documentação e entrega de projeto. Eles não trazem novos exemplos de backend na raiz; o foco é consumir as APIs já criadas e organizar o projeto final.

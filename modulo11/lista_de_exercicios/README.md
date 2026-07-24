@@ -1,35 +1,28 @@
-# Módulo 11 - Lista de Exercícios
+# Módulo 11 — Lista de Exercícios
 
-As atividades deste módulo transformam APIs dos alunos em interfaces. A prática reforça que frontend não é só visual: ele precisa enviar requests corretos, receber responses reais, tratar sucesso/erro e respeitar os nomes de campos definidos no backend.
+As atividades transformam as APIs dos alunos em interfaces. Frontend não é só visual: precisa enviar requests corretos, receber responses reais, tratar sucesso/erro e respeitar os nomes de campos do backend.
 
-## Exercícios
+## Listas de código (treino direto)
 
-| Exercício | Rota principal | Entrega | Arquivo |
-| --------- | -------------- | ------- | ------- |
-| Frontend com IA | `POST` real do backend | Tela de cadastro funcionando, prompt usado, print da tela e request validado | [frontend_com_ia.md](frontend_com_ia.md) |
-| FlutterFlow consumindo API | `GET` real do backend | Tela de listagem com dados reais, API Call testada e Data Schema mapeado | [flutterflow_listagem_api.md](flutterflow_listagem_api.md) |
+Comece por aqui. São as listas de treino: uns drills de aquecimento, código pra completar, um bug pra achar e um desafio no fim.
 
-## Pré-requisitos
+| Lista | Foco | Arquivo |
+| ----- | ---- | ------- |
+| Frontend com IA | prompts, mapa rota→tela, consumo de API com `fetch` | [codigo_frontend_ia.md](codigo_frontend_ia.md) |
 
-- Ter uma API dos módulos 07 a 10 rodando localmente ou publicada no Render.
-- Saber qual rota será consumida.
-- Ter exemplo de body e response da rota escolhida.
-- Testar a rota no Postman antes de criar a interface.
-- Saber se a rota exige `Authorization: Bearer TOKEN`.
+## Listas aplicadas (desafios em contexto)
 
-## Sequência sugerida
+Depois do treino: problemas em prosa, onde o aluno lê o enunciado e escreve o código do zero.
 
-1. Escolher uma API já construída nos módulos 07 a 10.
-2. Conferir se a API roda localmente ou está publicada no Render.
-3. Testar a rota no Postman.
-4. Criar a interface com IA ou FlutterFlow.
-5. Testar no navegador ou no preview do FlutterFlow a requisição real.
-6. Registrar prompt usado, ajustes feitos e erros corrigidos.
+| Lista | Foco | Arquivo |
+| ----- | ---- | ------- |
+| Frontend com IA | tela de cadastro a partir de um `POST` real | [frontend_com_ia.md](frontend_com_ia.md) |
+| FlutterFlow consumindo API | tela de listagem a partir de um `GET` real | [flutterflow_listagem_api.md](flutterflow_listagem_api.md) |
 
-## Critério comum de aceite
+## Ordem sugerida
 
-- A interface roda sem erro.
-- A URL da API está correta.
-- Os nomes dos campos batem com o backend.
-- A tela mostra dados reais ou envia dados reais.
-- O aluno consegue explicar qual rota foi chamada, qual body foi enviado e qual response voltou.
+1. Faça a lista de código para treinar prompts e o consumo da API.
+2. Escolha uma API dos módulos 07 a 10 rodando localmente ou no Render.
+3. Teste a rota no Postman antes de criar a interface.
+4. Construa a interface (IA ou FlutterFlow) e valide a requisição real.
+5. Registre prompt usado, ajustes feitos e erros corrigidos.
