@@ -56,7 +56,7 @@ Peça ao usuário para atualizar a distância corrida de hoje. Insira essa nova 
 
 ### 3. Programa de Milhas Aéreas
 
-Crie o perfil de fidelidade de um cliente vip de uma companhia aérea comercial contendo o nome e um histórico de viagens. O histórico deve ser uma lista e começar com dois voos já realizados (cada voo deve ser um objeto contendo o `destino` e a `quantidade` de milhas acumuladas daquela viagem).
+Crie o perfil de fidelidade de um cliente VIP de uma companhia aérea comercial contendo o nome e um histórico de viagens. O histórico deve ser uma lista e começar com dois voos já realizados (cada voo deve ser um objeto contendo o `destino` e a `quantidade` de milhas acumuladas daquela viagem).
 
 Peça ao usuário para registrar um terceiro voo (destino e milhas) e adicione à lista. Calcule a soma de todas as milhas acumuladas na lista de histórico. Regra de upgrade: se a soma de milhas passar de 5.000, diminua 5.000 milhas do saldo (como se ele tivesse resgatado), insira uma propriedade no perfil do cliente chamada "Categoria" com o valor "Platinum" e exiba um alerta parabenizando. Caso não tenha milhas suficientes, mantenha a "Categoria" como "Gold" e exiba quantas milhas faltam para o upgrade. Mostre o objeto final.
 
@@ -64,7 +64,7 @@ Peça ao usuário para registrar um terceiro voo (destino e milhas) e adicione �
 
 Para automatizar opções de cardápio virtual (totem em autoatendimento), crie o registro de um pedido virtual contendo o nome do cliente, o valor base de um hambúrguer premium (exemplo: R$ 30,00), a quantidade de lanches comprados e uma lista vazia para "Ingredientes Extras" (como "Bacon", "Cheddar", etc.).
 
-Peça ao usuário para digitar o nome de dois ingredientes extras desejados e o valor unitário de cada extra. Adicione as strings (apenas os nomes) na lista de extras. Some os valores dos extras ao cálculo: `(valor base do hambúrguer + valor extra 1 + valor extra 2) * quantidade`. Se a lista de extras conter exatamente 2 itens E o cliente levar mais de 2 lanches, aplique um desconto automático de 20% no valor total do pedido. Exiba o subtotal e o valor total na tela com a lista de ingredientes.
+Peça ao usuário para digitar o nome de dois ingredientes extras desejados e o valor unitário de cada extra. Adicione as strings (apenas os nomes) na lista de extras. Some os valores dos extras ao cálculo: `(valor base do hambúrguer + valor extra 1 + valor extra 2) * quantidade`. Se a lista de extras contiver exatamente 2 itens E o cliente levar mais de 2 lanches, aplique um desconto automático de 20% no valor total do pedido. Exiba o subtotal e o valor total na tela com a lista de ingredientes.
 
 ### 5. Sistema de Mentoria Acadêmica
 
@@ -76,7 +76,7 @@ Peça ao usuário para tentar cadastrar um novo voluntário (nome e área de atu
 
 O painel elétrico de uma aeronave monitora o funcionamento das turbinas. Crie a entidade de uma turbina contendo seu lado (ex: "Motor Esquerdo"), um status (ex: "Desligado") e uma lista contendo exatamente três leituras críticas dos sensores: a primeira sendo a `temperatura` atual (graus Celsius), a segunda a `pressão` do óleo (PSI) e a terceira o nível de `combustível` (porcentagem).
 
-Peça ao mecânico de voo para inserir três novos valores de sensores atualizar o painel. Substitua diretamente as leituras antigas na lista pelos novos números. A trava de segurança de acionamento funciona da seguinte forma: o status da turbina só pode ser alterado dinamicamente para "Ligado" se o nível de combustível for maior que 20%, E a pressão for maior que 50 PSI, E a temperatura estiver entre 20 e 90 graus. Caso _qualquer_ um desses limites vitais seja violado, mude o status para "Falha Crítica" e adicione uma nova propriedade ao objeto chamada `bloqueioAtivado: true`. Mostre o painel atualizado no final.
+Peça ao mecânico de voo para inserir três novos valores de sensores para atualizar o painel. Substitua diretamente as leituras antigas na lista pelos novos números. A trava de segurança de acionamento funciona da seguinte forma: o status da turbina só pode ser alterado dinamicamente para "Ligado" se o nível de combustível for maior que 20%, E a pressão for maior que 50 PSI, E a temperatura estiver entre 20 e 90 graus. Caso _qualquer_ um desses limites vitais seja violado, mude o status para "Falha Crítica" e adicione uma nova propriedade ao objeto chamada `bloqueioAtivado: true`. Mostre o painel atualizado no final.
 
 ### 7. Controle de Imigração Governamental
 
@@ -101,7 +101,7 @@ Peça ao aluno para registrar sua leitura de hoje informando a data atual e as p
 Imagine que você precisa gerenciar sistemas de Hospedagem de Sites em Nuvem (Servidores Cloud). Crie o registro digital de um Servidor. Ele deve ter um `nome` (ex: "Servidor Principal"), a `capacidadeMaximaGigabytes` (ex: 500), e uma lista chamada `sitesHospedados`. Inicie essa lista contendo um objeto representando um site já online (ele deve ter `dominio` e o `tamanhoOcupadoGB`).
 
 O cliente quer fazer upload de um site novo. Peça pelo prompt o domínio e o tamanhoGB desse novo projeto web.
-A regra corporativa da nuvem dita as contas: Você precisa somar o tamanho do site que já estava lá, adicionado ao tamanho do candidato recém chegado. Se essa conta de megabytes totais for **menor ou igual** à capacidade máxima daquele Servidor, crie o objeto deste novo site, insira-o na lista `sitesHospedados` e escreva no terminal: "Upload Concluído! Sistema Operacional".
+A regra corporativa da nuvem dita as contas: Você precisa somar o tamanho do site que já estava lá, adicionado ao tamanho do candidato recém chegado. Se essa soma de gigabytes for **menor ou igual** à capacidade máxima daquele Servidor, crie o objeto deste novo site, insira-o na lista `sitesHospedados` e escreva no terminal: "Upload Concluído! Sistema Operacional".
 Porém, caso estoure o limite da nuvem física, não adicione o site dentro da lista, crie uma chave nova no objeto chefe do servidor chamada `alertaSobrecarga` definida como verdadeira (`true`), e exiba a string: "Falha: Falta de Espaço Físico. Cancele o deploy". No final das validações, exiba o objeto grande completo para o engenheiro analisar a nuvem.
 
 ---

@@ -40,7 +40,7 @@
 **Turma:** LionsDev  
 **Tópicos:** `let`/`const`, tipos de dados (string, number, boolean), operadores matemáticos, template strings, `prompt-sync` e conversão com `Number()`.
 
-> Nesta lista você escreve código de verdade, não só pensa nele. Cada item mostra o que preencher e a saída certa pra conferir. Crie um arquivo `.js`, resolva um de cada vez e rode no Node. Nos que pedem entrada, comece com `import promptSync from "prompt-sync"; const prompt = promptSync();`.
+> Resolva cada item em um arquivo `.js` e execute com o Node. Os exemplos mostram a saída esperada para conferência. Nos itens com entrada de dados, inicie o arquivo com:
 > ```js
 > import promptSync from "prompt-sync";
 > const prompt = promptSync();
@@ -48,9 +48,9 @@
 
 ---
 
-## Parte 0 — Treino rápido (aquecimento)
+## Parte 0: Exercícios de fixação
 
-Comece por aqui. Cada item sai em duas ou três linhas num arquivo `treino.js`.
+Itens curtos para praticar declaração de variáveis, operadores e template strings. Resolva todos em um único arquivo `fixacao.js`.
 
 1. Crie uma **variável** `nome` com o seu nome e imprima ela no console.
 2. Crie `idade = 20` e imprima **"Tenho 20 anos"** usando **template string** (crase).
@@ -65,7 +65,7 @@ Comece por aqui. Cada item sai em duas ou três linhas num arquivo `treino.js`.
 
 ---
 
-## Parte 1 — Complete o código
+## Parte 1: Complete o código
 
 ### 1. Cadastro de Aluno
 Complete as declarações para que a saída seja exatamente a do comentário.
@@ -108,7 +108,7 @@ console.log(`${celsius}°C equivalem a ${fahrenheit}°F.`);
 
 ---
 
-## Parte 2 — Ache o bug
+## Parte 2: Ache o bug
 
 ### 4. Soma que não soma
 O programa deveria somar dois números digitados, mas está "grudando" eles (ex.: digita 10 e 5 e aparece 105). Explique o motivo e conserte.
@@ -133,7 +133,7 @@ console.log("Novo saldo:", saldo); // Esperado: Novo saldo: 150
 
 ---
 
-## Parte 3 — Prever a saída
+## Parte 3: Prever a saída
 
 ### 6. O que aparece no console?
 Sem rodar, escreva o que cada `console.log` imprime. Depois rode para conferir.
@@ -151,7 +151,7 @@ console.log(Number(y) + 5);// (e)
 
 ---
 
-## Parte 4 — Escreva do zero
+## Parte 4: Escreva do zero
 
 ### 7. Calculadora de Gorjeta
 Peça ao usuário o valor da conta e a porcentagem de gorjeta. Calcule o valor da gorjeta e o total a pagar (conta + gorjeta). Lembre-se de converter as entradas com `Number()`.
@@ -177,7 +177,7 @@ Exemplo:
 
 ---
 
-> **Dica:** tudo que vem do `prompt-sync` chega como texto. Antes de fazer conta, converta com `Number()` (ou `parseInt`/`parseFloat`), senão `"10" + 5` vira `"105"`. Vá imprimindo com `console.log` no meio do caminho pra ver o valor das variáveis enquanto resolve.
+> **Dica:** tudo que vem do `prompt-sync` chega como texto. Antes de fazer conta, converta com `Number()` (ou `parseInt`/`parseFloat`), senão `"10" + 5` vira `"105"`. Use `console.log` em pontos intermediários do código para acompanhar o valor das variáveis.
 
 ---
 
