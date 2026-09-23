@@ -40,13 +40,13 @@
 **Turma:** LionsDev  
 **Tópicos:** criação de arrays, índices, `.length`, `.push()`, `.pop()`, `.unshift()`, `.shift()`, `.includes()`, `.indexOf()` e percorrer arrays com laços.
 
-> Nesta lista você escreve o código. Cada item mostra o que preencher e a saída certa. Rode no Node e compare.
+> Resolva cada item em um arquivo `.js` e execute com o Node. Os exemplos mostram a saída esperada para conferência.
 
 ---
 
-## Parte 0 — Treino rápido (aquecimento)
+## Parte 0: Exercícios de fixação
 
-Rode cada um num `treino.js` pra fixar os métodos de array.
+Itens curtos para praticar índices e métodos de array.
 
 1. Crie um array `frutas` com 3 frutas e imprima o array inteiro.
 2. Imprima a **segunda** fruta do array (índice 1).
@@ -61,7 +61,7 @@ Rode cada um num `treino.js` pra fixar os métodos de array.
 
 ---
 
-## Parte 1 — Complete o código
+## Parte 1: Complete o código
 
 ### 1. Primeiro e Último
 Complete os acessos usando índice e `.length`.
@@ -105,10 +105,10 @@ console.log("Faturamento:", total); // 835
 
 ---
 
-## Parte 2 — Ache o bug
+## Parte 2: Ache o bug
 
 ### 4. Índice fantasma
-Deveria imprimir os 3 nomes, mas dá erro / imprime `undefined` no fim. Corrija a condição do laço.
+Deveria imprimir os 3 nomes, mas imprime `undefined` no fim. Corrija a condição do laço.
 
 ```js
 const nomes = ["Léo", "Mia", "Théo"];
@@ -134,7 +134,7 @@ if (frutas.indexOf("banana") === -1) {  // pense: o que indexOf retorna quando A
 
 ---
 
-## Parte 3 — Prever a saída
+## Parte 3: Prever a saída
 
 ### 6. Antes e depois
 Sem rodar, diga o valor final do array e o que cada `console.log` imprime.
@@ -152,7 +152,7 @@ console.log(lista.includes(10)); // (d)
 
 ---
 
-## Parte 4 — Escreva do zero
+## Parte 4: Escreva do zero
 
 ### 7. Maior e Menor
 Dado o array abaixo, percorra-o e descubra o maior e o menor valor (sem usar `Math.max`/`Math.min`, faça na mão com um laço e comparações).

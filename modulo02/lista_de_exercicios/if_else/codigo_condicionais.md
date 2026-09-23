@@ -40,15 +40,15 @@
 **Turma:** LionsDev  
 **Tópicos:** operadores de comparação (`>`, `<`, `>=`, `<=`, `===`, `!==`), operadores lógicos (`&&`, `||`, `!`), `if`, `else if`, `else` e entrada de dados.
 
-> Nesta lista você escreve o código, não só pensa nele. Cada item mostra o que preencher e a saída certa pra conferir. Nos que pedem entrada, comece o arquivo com `import promptSync from "prompt-sync"; const prompt = promptSync();`.
+> Resolva cada item em um arquivo `.js` e execute com o Node. Os exemplos mostram a saída esperada para conferência. Nos itens com entrada de dados, comece o arquivo com `import promptSync from "prompt-sync"; const prompt = promptSync();`.
 
 ---
 
-## Parte 0 — Treino rápido (aquecimento)
+## Parte 0: Exercícios de fixação
 
-Aquece o reflexo do `if`. Cada item resolve em poucas linhas.
+Itens curtos para praticar `if`, `else` e operadores de comparação e lógicos.
 
-1. Crie `idade = 20`. Use `if` para imprimir **"Maior de idade"** se `idade` for maior que 18.
+1. Crie `idade = 20`. Use `if` para imprimir **"Maior de idade"** se `idade` for maior ou igual a 18.
 2. Crie `nota = 5`. Imprima **"Aprovado"** se `nota` for maior ou igual a 6; senão **"Reprovado"**.
 3. Crie `numero = -4`. Imprima **"Positivo"** ou **"Negativo"**.
 4. Crie `numero = 7`. Imprima **"Par"** se `numero % 2 === 0`; senão **"Ímpar"**.
@@ -61,7 +61,7 @@ Aquece o reflexo do `if`. Cada item resolve em poucas linhas.
 
 ---
 
-## Parte 1 — Complete o código
+## Parte 1: Complete o código
 
 ### 1. Maior de Idade
 Complete a condição para imprimir a mensagem certa.
@@ -111,10 +111,10 @@ if (/* TODO: saldo >= preço E negativado diferente de "sim" */) {
 
 ---
 
-## Parte 2 — Ache o bug
+## Parte 2: Ache o bug
 
 ### 4. O `=` traiçoeiro
-Este código sempre imprime "É maior", mesmo com números pequenos. Encontre e corrija o erro.
+Este código sempre imprime "É maior ou igual a 10", mesmo com números pequenos. Encontre e corrija o erro.
 
 ```js
 let numero = 3;
@@ -145,7 +145,7 @@ if (temp > 0) {
 
 ---
 
-## Parte 3 — Prever a saída
+## Parte 3: Prever a saída
 
 ### 6. Verdadeiro ou Falso?
 Sem rodar, diga o que cada linha imprime.
@@ -164,7 +164,7 @@ console.log(a !== b && !false);   // (e)
 
 ---
 
-## Parte 4 — Escreva do zero
+## Parte 4: Escreva do zero
 
 ### 7. Classificador de IMC
 Peça peso e altura, calcule o IMC (`peso / (altura * altura)`) e imprima a categoria:
