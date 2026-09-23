@@ -40,13 +40,13 @@
 **Turma:** LionsDev  
 **Tópicos:** `for`, `while`, `do...while`, `for...of`, incremento/decremento, acumuladores e contadores.
 
-> Nesta lista você escreve o código. Cada item mostra o que preencher e a saída certa. Rode no Node e compare.
+> Resolva cada item em um arquivo `.js` e execute com o Node. Os exemplos mostram a saída esperada para conferência.
 
 ---
 
-## Parte 0 — Treino rápido (aquecimento)
+## Parte 0: Exercícios de fixação
 
-Antes dos exercícios maiores, pegue o jeito dos laços. Cada item é curtinho.
+Itens curtos para praticar `for`, `while` e `do...while`.
 
 1. Use `for` para imprimir os números de 1 a 5.
 2. Use `for` para imprimir os números de 10 a 1 (regressiva).
@@ -61,7 +61,7 @@ Antes dos exercícios maiores, pegue o jeito dos laços. Cada item é curtinho.
 
 ---
 
-## Parte 1 — Complete o código
+## Parte 1: Complete o código
 
 ### 1. Contagem de 1 a 10
 Complete o cabeçalho do `for` para imprimir os números de 1 até 10.
@@ -103,7 +103,7 @@ console.log("Fim!");
 
 ---
 
-## Parte 2 — Ache o bug
+## Parte 2: Ache o bug
 
 ### 4. Loop Infinito
 Este programa nunca para. Explique por quê e conserte para imprimir de 0 a 4.
@@ -128,7 +128,7 @@ for (let i = 0; i <= 10; i++) {   // BUG na inicialização e no limite
 
 ---
 
-## Parte 3 — Prever a saída
+## Parte 3: Prever a saída
 
 ### 6. Quantas linhas e quais valores?
 Sem rodar, diga exatamente o que sai no console.
@@ -147,7 +147,7 @@ do {
 
 ---
 
-## Parte 4 — Escreva do zero
+## Parte 4: Escreva do zero
 
 ### 7. Média com Entrada Dinâmica
 Pergunte quantas notas o usuário vai digitar. Depois, com um `for`, peça cada nota, some tudo e ao final mostre a média.
@@ -171,7 +171,7 @@ Exemplo:
 
 ---
 
-> **Dica:** todo laço precisa de três coisas pra não travar: onde começa, quando para, e algo que avance até a parada (o `i++` ou o `k--`). Se o console travar num loop infinito, quase sempre é o avanço que ficou de fora.
+> **Dica:** todo laço precisa de três elementos para terminar: onde começa, quando para, e algo que avance até a parada (o `i++` ou o `k--`). Se o console travar num loop infinito, quase sempre é o avanço que ficou de fora.
 
 ---
 

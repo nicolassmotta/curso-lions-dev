@@ -40,13 +40,13 @@
 **Turma:** LionsDev  
 **Tópicos:** declaração de função, parâmetros, `return`, arrow functions, reutilização e estrutura `switch/case`.
 
-> Aqui o foco é escrever função. Cada item dá o contrato (nome, parâmetros, retorno) e exemplos de entrada e saída. Sua função tem que passar em todos os exemplos.
+> Cada item define o nome, os parâmetros e o retorno da função, com exemplos de entrada e saída. A função deve produzir o resultado esperado em todos os exemplos.
 
 ---
 
-## Parte 0 — Treino rápido (aquecimento)
+## Parte 0: Exercícios de fixação
 
-Escreva cada função e chame ela com um `console.log` pra ver o retorno.
+Escreva cada função e confira o retorno com `console.log`.
 
 1. Escreva uma função `ola()` que **retorna** a string `"Olá!"`.
 2. Escreva `dobro(n)` que retorna `n * 2`.
@@ -57,11 +57,11 @@ Escreva cada função e chame ela com um `console.log` pra ver o retorno.
 7. Escreva `maior(a, b)` que retorna o **maior** dos dois.
 8. Escreva `mediaDeDois(a, b)` que retorna a **média** de dois números.
 9. Escreva `converterParaReal(valor)` que retorna a string `"R$ VALOR"`.
-10. Escreva `saudacaoDia(dia)` que usa `switch` e retorna `"Segunda"`, `"Terça"`... para `1`, `2`... e `"Dia inválido"` no `default`.
+10. Escreva `diaDaSemana(numero)` que usa `switch` e retorna `"Segunda"`, `"Terça"`... para `1`, `2`... e `"Dia inválido"` no `default`.
 
 ---
 
-## Parte 1 — Complete o código
+## Parte 1: Complete o código
 
 ### 1. Dobro
 Complete o corpo da função. Ela deve retornar (não imprimir) o dobro do número.
@@ -102,7 +102,7 @@ console.log(areaRetangulo(4, 3)); // 12
 
 ---
 
-## Parte 2 — Ache o bug
+## Parte 2: Ache o bug
 
 ### 4. Função que não devolve nada
 `console.log(soma(2, 3))` imprime `undefined`. Explique por quê e conserte.
@@ -117,28 +117,30 @@ console.log("Resultado:", resultado); // Esperado: Resultado: 5
 ```
 
 ### 5. Switch sem freio
-Esta função sempre retorna "Rota padrão", ou imprime demais. Encontre o que falta no `switch`.
+Esta função sempre retorna "Dia inválido", qualquer que seja o número. Explique o motivo e corrija o `switch`.
 
 ```js
 function nomeDoDia(dia) {
+  let nome;
   switch (dia) {
     case 1:
-      return "Domingo";
+      nome = "Domingo";
     case 2:
-      return "Segunda";
+      nome = "Segunda";
     case 3:
-      return "Terça";
+      nome = "Terça";
     default:
-      return "Dia inválido";
+      nome = "Dia inválido";
   }
+  return nome;
 }
-// Dica: teste nomeDoDia(2) e verifique se cada case está correto.
-// (Se você usar console.log dentro sem 'break/return', o que acontece?)
+
+console.log(nomeDoDia(2)); // Esperado: Segunda
 ```
 
 ---
 
-## Parte 3 — Prever a saída
+## Parte 3: Prever a saída
 
 ### 6. Ordem de execução
 Sem rodar, diga o que aparece e em que ordem.
@@ -157,7 +159,7 @@ console.log("Fim");
 
 ---
 
-## Parte 4 — Escreva do zero
+## Parte 4: Escreva do zero
 
 ### 7. Conjunto de Funções Matemáticas
 Escreva quatro funções: `somar(a, b)`, `subtrair(a, b)`, `multiplicar(a, b)` e `dividir(a, b)`. Todas devem retornar o resultado. Em `dividir`, se `b` for `0`, retorne a string `"Erro: divisão por zero"`.
@@ -184,7 +186,7 @@ Depois, peça `operacao`, `num1` e `num2` pelo terminal com `prompt-sync` e impr
 
 ---
 
-> **Dica:** `return` devolve um valor pra quem chamou (dá pra guardar em variável e reaproveitar); `console.log` só mostra na tela e a função continua retornando `undefined`. Na dúvida: se outro trecho precisa usar o resultado, use `return`.
+> **Dica:** `return` devolve um valor para quem chamou (é possível guardar em variável e reaproveitar); `console.log` só mostra na tela e a função continua retornando `undefined`. Na dúvida: se outro trecho precisa usar o resultado, use `return`.
 
 ---
 

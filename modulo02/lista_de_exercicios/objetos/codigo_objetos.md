@@ -40,13 +40,13 @@
 **Turma:** LionsDev  
 **Tópicos:** criação de objetos `{ }`, acesso por ponto, alterar e adicionar propriedades, objetos aninhados, array de objetos e percorrer com laço.
 
-> Nesta lista você escreve o código. Cada item mostra o que preencher e a saída certa. Rode no Node e compare.
+> Resolva cada item em um arquivo `.js` e execute com o Node. Os exemplos mostram a saída esperada para conferência.
 
 ---
 
-## Parte 0 — Treino rápido (aquecimento)
+## Parte 0: Exercícios de fixação
 
-Rápidos, só pra fixar o acesso e a alteração de propriedades.
+Itens curtos para praticar criação, acesso e alteração de propriedades.
 
 1. Crie um objeto `pessoa` com `nome` e `idade` e imprima o objeto inteiro.
 2. Imprima só o nome da pessoa (**acesso por ponto**).
@@ -61,7 +61,7 @@ Rápidos, só pra fixar o acesso e a alteração de propriedades.
 
 ---
 
-## Parte 1 — Complete o código
+## Parte 1: Complete o código
 
 ### 1. Cartão de Visita
 Crie o objeto e complete os acessos.
@@ -109,7 +109,7 @@ console.log(/* ? */); // trava
 
 ---
 
-## Parte 2 — Ache o bug
+## Parte 2: Ache o bug
 
 ### 4. Propriedade errada
 Deveria imprimir o preço, mas aparece `undefined`. Encontre o erro.
@@ -121,8 +121,8 @@ console.log("Preço:", produto.valor);  // BUG
 // Esperado: Preço: 150
 ```
 
-### 5. Ponto vs colchetes
-Este código quebra. Explique por que e conserte para imprimir a cidade.
+### 5. Maiúscula faz diferença
+A segunda linha imprime `undefined` em vez da cidade. Explique por que e corrija.
 
 ```js
 const pessoa = { nome: "Ana", cidade: "Ponta Grossa" };
@@ -133,7 +133,7 @@ console.log(pessoa.Cidade);  // BUG: repare na letra
 
 ---
 
-## Parte 3 — Prever a saída
+## Parte 3: Prever a saída
 
 ### 6. O que sai no console?
 Sem rodar, escreva a saída de cada linha.
@@ -152,7 +152,7 @@ console.log(jogador.ativo);  // (d)
 
 ---
 
-## Parte 4 — Escreva do zero
+## Parte 4: Escreva do zero
 
 ### 7. Boletim em Objeto
 Crie um objeto `aluno` com `nome`, `nota1` e `nota2`. Calcule a média das duas notas e imprima:
@@ -164,15 +164,16 @@ Exemplo: nota1 = 8, nota2 = 6
 
 ### 8. Catálogo de Produtos (Desafio)
 Crie um array de objetos `produtos`, cada um com `nome`, `preco` e `estoque` (pelo menos 4 produtos). Depois, percorrendo o array com um laço:
-- imprima cada produto no formato `Teclado — R$ 150 (5 un.)`;
+- imprima cada produto no formato `Teclado: R$ 150 (5 un.)`;
 - calcule e mostre o valor total do estoque (soma de `preco * estoque` de todos).
 
 ```
 Exemplo de saída:
-  Teclado — R$ 150 (5 un.)
-  Mouse — R$ 80 (10 un.)
-  ...
-  Valor total em estoque: R$ 1550
+  Teclado: R$ 150 (5 un.)
+  Mouse: R$ 80 (10 un.)
+  Monitor: R$ 900 (2 un.)
+  Headset: R$ 200 (3 un.)
+  Valor total em estoque: R$ 3950
 ```
 
 ---

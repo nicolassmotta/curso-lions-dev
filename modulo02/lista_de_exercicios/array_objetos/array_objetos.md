@@ -50,7 +50,7 @@ Peça ao usuário para digitar o nome de um terceiro aluno que acabou de chegar.
 ### 2. Baixa no Estoque
 Uma loja precisa atualizar seu estoque diário. Crie um array chamado `estoqueTamanhos` contendo três números que representam as quantidades de camisetas nos tamanhos P, M e G, respectivamente (exemplo: `[10, 15, 8]`).
 
-Peça ao usuário para informar quantas camisetas do tamanho P (que estão na primeira posição do array) foram vendidas hoje. Subtraia esse valor da quantidade atual registrada no array. Feito isso, analise a situação: caso a nova quantidade do tamanho P seja menor que 5, exiba "Alerta: Estoque de luvas tamanho P está crítico!". Do contrário, exiba "Estoque atualizado. Quantidade restante do tamanho P: [quantidade]".
+Peça ao usuário para informar quantas camisetas do tamanho P (que estão na primeira posição do array) foram vendidas hoje. Subtraia esse valor da quantidade atual registrada no array. Feito isso, analise a situação: caso a nova quantidade do tamanho P seja menor que 5, exiba "Alerta: Estoque de camisetas tamanho P está crítico!". Do contrário, exiba "Estoque atualizado. Quantidade restante do tamanho P: [quantidade]".
 
 ### 3. Ficha Médica Veterinária
 Vamos criar a ficha de um paciente em uma clínica veterinária. Peça ao usuário para digitar o nome de um cachorro e a sua raça. Em seguida, peça para digitar a idade do animal.
