@@ -24,3 +24,6 @@ _mantenedor/skills/
 
 # Configurações do VSCODE
 .vscode/
+
+# Arquivo local de handoff
+/HANDOFF.md
