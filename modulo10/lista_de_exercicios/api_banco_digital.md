@@ -488,7 +488,7 @@ Teste e documente os fluxos abaixo no Postman:
 21. Bloquear usuário e tentar movimentar dinheiro.
 22. Fazer deploy no Render.
 
-> **Não basta o caminho feliz.** Para cada regra que você implementou na seção 9, inclua também **um teste que prova a recusa** — ex.: sacar sem saldo, cliente bloqueado tentando mover dinheiro, pagar boleto já pago, estornar duas vezes, PIX acima do limite diário. É isso que separa "funciona no print" de "a regra realmente existe".
+> **Teste também os casos de erro.** Para cada regra que você implementou na seção 9, inclua um teste em que a API recusa a operação. Exemplos: sacar sem saldo, cliente bloqueado tentando mover dinheiro, pagar boleto já pago, estornar duas vezes, PIX acima do limite diário. Só assim dá para mostrar que a regra existe.
 
 ---
 
@@ -509,7 +509,7 @@ O aluno deve entregar:
 
 ## 13. Roadmap Sugerido
 
-Esta é **uma ordem sugerida, não uma receita**: você decide a granularidade e pode reorganizar. O que importa é o **portão de cada fase** — só siga em frente quando ele passar. O *o quê* de cada fase está nas seções 6 a 9; aqui ficam os critérios para você se considerar pronto.
+Esta é uma ordem sugerida. Você pode dividir e reorganizar as fases como quiser, mas só avance quando os critérios da fase atual estiverem funcionando. O que fazer em cada fase está nas seções 6 a 9; aqui ficam os critérios para considerar cada fase pronta.
 
 ### Fase 1 — Base
 
@@ -521,7 +521,7 @@ Esta é **uma ordem sugerida, não uma receita**: você decide a granularidade e
 
 ### Fase 3 — Movimentações
 
-**Pronto quando:** depósito, saque e transferência alteram o saldo **e** geram transação com extrato; saque/transferência sem saldo → erro; transferência aprovada tira da origem e põe no destino; todo valor em centavos (inteiro).
+**Pronto quando:** depósito, saque e transferência alteram o saldo e geram transação com extrato; saque/transferência sem saldo → erro; transferência aprovada tira da origem e põe no destino; todo valor em centavos (inteiro).
 
 ### Fase 4 — Produtos Bancários
 
