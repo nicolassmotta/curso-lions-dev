@@ -95,19 +95,19 @@ Crie uma função chamada `buscarPorEspecialidade(textoPesquisado)`. Dentro da f
 
 ### 10. Desafio Máster: Caixa Eletrônico ATM
 Crie dois objetos que representam o sistema:
-1. `CaixaEletronico` — contendo a propriedade `gavetas`, que é um array de notas disponíveis: `[ { valor: 100, quantidade: 10 }, { valor: 50, quantidade: 10 }, { valor: 20, quantidade: 15 } ]`.
-2. `Cliente` — contendo `nome` e `saldoEmConta` (inicie em R$ 800,00).
+1. `CaixaEletronico`: contém a propriedade `gavetas`, que é um array de notas disponíveis: `[ { valor: 100, quantidade: 10 }, { valor: 50, quantidade: 10 }, { valor: 20, quantidade: 15 } ]`.
+2. `Cliente`: contém `nome` e `saldoEmConta` (inicie em R$ 800,00).
 
 Crie um menu com `while` onde o cliente possa solicitar saques. Ao receber o valor desejado, o sistema deve:
 1. **Verificar o saldo:** Se o valor do saque for maior que o `saldoEmConta`, recuse a operação.
 2. **Montar as notas:** Percorra o array de `gavetas` da maior nota para a menor. Para cada gaveta, calcule quantas notas daquele valor cabem no saque restante (sem ultrapassar a quantidade disponível na gaveta). Subtraia do valor restante e continue para a próxima gaveta.
-3. **Validar a operação:** Se após percorrer todas as gavetas o valor restante for zero, o saque é possível — subtraia o valor do saldo do cliente e atualize a quantidade de notas em cada gaveta. Se o valor restante for diferente de zero (ex: o cliente pediu R$ 35,00), **recuse a operação inteira** sem alterar nem o saldo, nem as gavetas.
+3. **Validar a operação:** Se após percorrer todas as gavetas o valor restante for zero, o saque é possível: subtraia o valor do saldo do cliente e atualize a quantidade de notas em cada gaveta. Se o valor restante for diferente de zero (ex: o cliente pediu R$ 35,00), recuse a operação inteira, sem alterar o saldo nem as gavetas.
 
 Ao sair do menu, exiba o saldo final do cliente e o estado atualizado de todas as gavetas para conferência gerencial.
 
 ---
 
-> **Dica:** Lembrem-se que os dados capturados pelo `prompt-sync` vêm como formato de Texto (String). Para realizar cálculos matemáticos ou aplicar regras lógicas de maior/menor, é essencial converter essas entradas para Número (usando `Number()`, `parseInt()` ou `parseFloat()`) antes de usá-las.
+> **Dica:** o `prompt-sync` devolve os dados como texto (string). Para fazer contas ou comparar maior/menor, converta a entrada para número (com `Number()`, `parseInt()` ou `parseFloat()`) antes de usar.
 
 ---
 
