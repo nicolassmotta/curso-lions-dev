@@ -68,7 +68,7 @@ Dada uma string, percorra cada caractere e verifique se ele é uma **consoante**
 > - Uma string pode ser percorrida como um array: use `for (let i = 0; i < texto.length; i++)` e acesse cada caractere com `texto[i]`.
 > - Use `.toLowerCase()` para converter a string para minúsculas antes de comparar, assim você não precisa verificar maiúsculas e minúsculas separadamente.
 > - Crie uma string ou array com todas as vogais (`"aeiou"`) e use `.includes()` para verificar se o caractere atual **não** está nessa lista: `if (!vogais.includes(texto[i]))`.
-> - Lembre-se de ignorar espaços e caracteres especiais — verifique se o caractere é uma letra antes de contar.
+> - Ignore espaços e caracteres especiais: verifique se o caractere é uma letra antes de contar.
 
 ---
 
@@ -98,13 +98,13 @@ Dada uma frase, separe-a em palavras e conte quantas vezes cada palavra aparece.
 
 > **Dicas para manipulação de texto:**
 > - O método `.split(" ")` divide uma string em um array usando o espaço como separador. Exemplo: `"oi mundo oi".split(" ")` retorna `["oi", "mundo", "oi"]`.
-> - Depois de ter o array de palavras, a lógica é a mesma de contar frequência de números — use um objeto para armazenar as contagens.
+> - Depois de ter o array de palavras, a lógica é a mesma de contar frequência de números: use um objeto para armazenar as contagens.
 > - Para cada palavra do array, verifique se ela já existe como chave no objeto. Se existir, incremente; se não, crie com valor `1`.
 
 ---
 
 ### 9. Verificar Anagrama
-Dadas duas palavras, verifique se uma é **anagrama** da outra — ou seja, se ambas possuem exatamente as mesmas letras, na mesma quantidade, porém em ordem diferente. Exiba se são ou não anagramas.
+Dadas duas palavras, verifique se uma é **anagrama** da outra, ou seja, se as duas têm exatamente as mesmas letras, na mesma quantidade, porém em ordem diferente. Exiba se são ou não anagramas.
 
 > **Dicas para manipulação de texto:**
 > - Use `.toLowerCase()` nas duas palavras para garantir que a comparação ignore maiúsculas/minúsculas.
@@ -114,9 +114,9 @@ Dadas duas palavras, verifique se uma é **anagrama** da outra — ou seja, se a
 ---
 
 ### 10. Amplitude de uma Lista
-Dada uma lista de números inteiros, calcule a **amplitude** — ou seja, a diferença entre o **maior** e o **segundo menor** valor da lista. Exiba o resultado.
+Dada uma lista de números inteiros, calcule a **amplitude**, ou seja, a diferença entre o maior e o segundo menor valor da lista. Exiba o resultado.
 
-> **Atenção:** Note que aqui não é a diferença entre o maior e o menor, e sim entre o maior e o **segundo menor**. Pense em como encontrar esse valor.
+> **Atenção:** aqui não é a diferença entre o maior e o menor, e sim entre o maior e o **segundo menor**. Pense em como encontrar esse valor.
 
 ---
 
