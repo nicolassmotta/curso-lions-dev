@@ -137,7 +137,7 @@ console.log(Number("10") + Number("5")); // (a)
 console.log(isNaN(Number("10")));        // (b)
 console.log(isNaN(Number("dez")));       // (c)
 console.log(10 / 0);                      // (d)
-console.log(typeof Number("3.14"));       // (e)
+console.log(Number("3.14") + 1);          // (e)
 ```
 
 ---

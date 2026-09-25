@@ -98,7 +98,7 @@ Utilize um laço `do-while` para garantir que o menu seja exibido ao menos uma v
 
 ---
 
-> **Dica:** Lembrem-se que os dados capturados pelo prompt-sync vêm como formato de Texto (String). Para realizar cálculos matemáticos ou aplicar regras lógicas de maior/menor, é essencial converter essas entradas para Número antes de usá-las.
+> **Dica:** o `prompt-sync` devolve os dados como texto (string). Para fazer contas ou comparar maior/menor, converta a entrada para número antes de usar.
 
 ---
 

@@ -40,7 +40,7 @@
 **Turma:** LionsDev  
 **Tópicos:** Funções Tradicionais, Arrow Functions, Switch e todo conteúdo já visto no curso.
 
-> **⚠️ Aviso:** Todos os exercícios desta lista devem ser resolvidos obrigatoriamente utilizando **funções** e sempre que houver múltiplas condições, utilize o comando **switch** para organizar a lógica.
+> **Aviso:** resolva todos os exercícios desta lista usando **funções**. Sempre que houver várias condições, use o `switch` para organizar a lógica.
 
 ---
 

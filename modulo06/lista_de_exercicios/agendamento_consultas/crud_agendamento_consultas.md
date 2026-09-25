@@ -76,11 +76,11 @@ Crie uma função `adicionarConsulta` que receba os dados inseridos pelo usuári
 
 ### 2.2 Listar todas as consultas (READ)
 Crie uma função `listarConsultas` que percorra o array de consultas.
-* **Regra:** O terminal não deve imprimir apenas os números de `idMedico` e `idPaciente`. Você deve usar lógicas de busca (como o `encontrarMedicoPorId` visto em aula) para imprimir o **Nome do Médico** e o **Nome do Paciente** ao lado da data e descrição.
+* **Regra:** O terminal não deve imprimir apenas os números de `idMedico` e `idPaciente`. Você deve usar lógicas de busca (como o `encontrarMedicoPorId` visto em aula) para imprimir o nome do médico e o nome do paciente ao lado da data e descrição.
 
 ### 2.3 Atualizar uma consulta (UPDATE)
 Crie uma função `atualizarConsulta` que receba o `id` da consulta que o usuário deseja alterar.
-* **Regra:** Permita que o usuário altere apenas a **data** e a **descrição** da consulta. Use a regra do operador lógico `||` ensinada em aula para manter o dado antigo caso o usuário deixe o campo em branco. Não permita alterar o médico ou o paciente (se errar isso, a regra de negócio diz que a consulta deve ser cancelada e refeita).
+* **Regra:** Permita que o usuário altere apenas a data e a descrição da consulta. Use a regra do operador lógico `||` ensinada em aula para manter o dado antigo caso o usuário deixe o campo em branco. Não permita alterar o médico ou o paciente (se errar isso, a regra de negócio diz que a consulta deve ser cancelada e refeita).
 
 ### 2.4 Cancelar consulta (DELETE)
 Crie uma função `cancelarConsulta` que receba o `id` da consulta.
