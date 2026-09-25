@@ -35,7 +35,7 @@
   }
 </style>
 
-# Exercício (Adaptado): Academia no Boilerplate — "Minhas Matrículas"
+# Exercício: Academia no Boilerplate (Minhas Matrículas)
 
 **Turma:** LionsDev
 
@@ -45,34 +45,34 @@
 
 ## 1. Contexto
 
-No Módulo 08 você criou a API da **Academia Lions** com tudo no `server.js`. Agora vamos levar a mesma ideia para o **boilerplate em camadas**, com cada matrícula **pertencendo a um usuário logado**.
+No Módulo 08 você criou a API da Academia Lions com tudo no `server.js`. Agora a mesma ideia vai para o boilerplate em camadas, e cada matrícula passa a pertencer a um usuário logado.
 
-Imagine um app em que cada gerente de unidade faz login e administra **somente as matrículas dele**. Ninguém enxerga as matrículas de outra pessoa.
+Imagine um app em que cada gerente de unidade faz login e administra somente as matrículas dele. Ninguém vê as matrículas de outra pessoa.
 
-> Mesmo padrão do recurso **Livro** da aula: recurso amarrado ao dono (`req.usuario.id`).
+> Mesmo padrão do recurso `Livro` da aula: recurso ligado ao dono (`req.usuario.id`).
 
 ---
 
 ## 2. Ponto de Partida: o Boilerplate
 
-Partimos do **boilerplate LionsDev**: <https://github.com/nicolassmotta/boilerplate-lions-dev.git>
+Partimos do boilerplate LionsDev: <https://github.com/nicolassmotta/boilerplate-lions-dev.git>
 
 1. Clone o boilerplate e rode `npm install`.
 2. Crie o `.env` a partir do `.env.example` (`MONGO_URI`, `JWT_SECRET`, `JWT_EXPIRES_IN`, `BCRYPT_SALT_ROUNDS`).
 3. Suba o servidor e confirme `GET /` respondendo.
 
-O boilerplate **já vem pronto** com a camada de `Usuario`, o cadastro/login com **bcrypt** e **JWT**, o middleware `autenticar` (que preenche `req.usuario = { id, email }`), o helper `criarErro` e o middleware central de erro.
+O boilerplate já vem com a camada de `Usuario`, o cadastro/login com bcrypt e JWT, o middleware `autenticar` (que preenche `req.usuario = { id, email }`), o helper `criarErro` e o middleware central de erro.
 
-> Você **não mexe** na autenticação. Vai **criar o recurso `Matricula`** e amarrá-lo ao **dono**.
+> Você não mexe na autenticação. Vai criar o recurso `Matricula` e ligá-lo ao dono.
 
 **Antes de começar, pegue seu token:** faça cadastro/login, copie o `token` e envie em todas as rotas novas no header `Authorization: Bearer SEU_TOKEN`.
 
 ---
 
-## 3. Regras de Ouro (valem para todas as rotas do recurso)
+## 3. Regras do Sistema (valem para todas as rotas do recurso)
 
 1. **Toda rota é protegida.** `router.use(autenticar)` no topo do arquivo de rotas.
-2. **O dono vem do token** (`req.usuario.id`), **nunca do body**.
+2. **O dono vem do token** (`req.usuario.id`), nunca do body.
 3. **Toda consulta filtra pelo dono.**
 4. **Filtre pelo dono já na consulta** (`{ _id: idMatricula, usuario: idDoUsuario }`). Se não achar → `404`, sem `if` de autorização.
 5. **Listagem nunca dá 404:** sem matrículas, devolva array vazio.
@@ -108,10 +108,10 @@ Crie `src/models/matricula.model.js`. Campos:
 
 **Critérios de aceite:** `nomeAluno`, `idade`, `modalidade`, `plano`, `dataMatricula` e `usuario` são obrigatórios; `modalidade`, `plano` e `status` só aceitam os valores das listas.
 
-> **Conceito novo — `enum` e o campo de dono (`ObjectId` + `ref`)**
+> **Conceito novo: `enum` e o campo de dono (`ObjectId` + `ref`)**
 >
 > - **`enum`** trava `modalidade`, `plano` e `status` em listas fechadas (valor fora da lista → `400`).
-> - **`usuario`** guarda o **dono** da matrícula: uma referência ao `_id` de um `Usuario`.
+> - **`usuario`** guarda o dono da matrícula: uma referência ao `_id` de um `Usuario`.
 >
 > ```js
 > import mongoose from "mongoose";
@@ -144,8 +144,8 @@ Crie `src/services/matricula.service.js`. Regras (iguais às do Módulo 08):
 1. **Valor mensal** pela modalidade: `Musculação` = 90 · `Funcional` = 120 · `Dança` = 100.
 2. **Valor total** pelo plano:
    - `Mensal`: 1 mensalidade.
-   - `Trimestral`: 3 mensalidades com **10% de desconto**.
-   - `Semestral`: 6 mensalidades com **15% de desconto**.
+   - `Trimestral`: 3 mensalidades com 10% de desconto.
+   - `Semestral`: 6 mensalidades com 15% de desconto.
 
 > **Como calcular `valorMensal` e `valorTotal`** no service (use objetos em vez de uma pilha de `if`):
 >
@@ -192,7 +192,7 @@ Crie `src/routes/matricula.routes.js`:
 - `router.use(autenticar)` no topo.
 - `post("/")`, `get("/")`, `get("/:id")`, `patch("/:id")`, `delete("/:id")` apontando para as funções do controller.
 
-No `src/app.js`, **antes** do middleware 404:
+No `src/app.js`, antes do middleware 404:
 
 ```js
 import matriculaRoutes from "./routes/matricula.routes.js";
@@ -223,20 +223,20 @@ app.use("/api/matriculas", matriculaRoutes);
 4. `GET /api/matriculas` → só as suas.
 5. `PATCH /api/matriculas/:id` com `{ "status": "Pausada" }` → `200`.
 6. `DELETE /api/matriculas/:id` → `200`; repita → `404`.
-7. Com um **segundo usuário**, tente ver/editar/remover uma matrícula do primeiro → `404`.
-8. Qualquer rota **sem token** → `401`.
+7. Com um segundo usuário, tente ver/editar/remover uma matrícula do primeiro → `404`.
+8. Qualquer rota sem token → `401`.
 
 ---
 
 ## 12. Desafios Bônus
 
-1. `GET /api/matriculas/busca?modalidade=func` — filtra **entre as suas** pela modalidade.
-2. `GET /api/matriculas/resumo` — em JavaScript, conte matrículas por `status` e some o `valorTotal` das suas matrículas `Ativa`.
-3. Bloqueie a criação de uma nova matrícula `Ativa` se o mesmo `nomeAluno` já tiver uma matrícula `Ativa` **sua**.
+1. `GET /api/matriculas/busca?modalidade=func`: filtra as suas matrículas pela modalidade.
+2. `GET /api/matriculas/resumo`: em JavaScript, conte matrículas por `status` e some o `valorTotal` das suas matrículas `Ativa`.
+3. Bloqueie a criação de uma nova matrícula `Ativa` se o mesmo `nomeAluno` já tiver uma matrícula `Ativa` sua.
 
 ---
 
 <div style="text-align: center; color: #6B7280; font-size: 13px; margin-top: 50px;">
   <b>LionsDev</b> • Professor Nicolas Cardoso Motta<br>
-  <i>Adaptação da Academia para o Boilerplate (Auth + camadas) - Módulo 09</i>
+  <i>Academia no Boilerplate (Auth + camadas) - Módulo 09</i>
 </div>
