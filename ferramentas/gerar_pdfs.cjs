@@ -194,10 +194,30 @@ async function main() {
       withProgress(_options, task) {
         return task();
       },
+      createOutputChannel() {
+        return {
+          appendLine() {},
+          append() {},
+          clear() {},
+          show() {},
+          hide() {},
+          dispose() {},
+          info(message, ...args) {
+            console.log(String(message), ...args);
+          },
+          warn(message, ...args) {
+            console.warn(String(message), ...args);
+          },
+          error(message, ...args) {
+            console.error(String(message), ...args);
+          },
+        };
+      },
     },
     ProgressLocation: { Notification: 15 },
     env: { language: "pt-BR" },
     Uri: { file: makeUri },
+    version: "1.90.0",
   };
 
   const originalLoad = Module._load;
@@ -213,6 +233,7 @@ async function main() {
     subscriptions: [],
     globalStorageUri: makeUri(cachePath),
     globalStoragePath: cachePath,
+    extension: { packageJSON: { version: "2.2.0" } },
   });
 
   const exportPdf = commands.get("extension.markdown-pdf.pdf");
