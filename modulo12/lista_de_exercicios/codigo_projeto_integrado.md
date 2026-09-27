@@ -38,15 +38,15 @@
 # Lista de Código: Projeto Integrado (Full Stack)
 
 **Turma:** LionsDev  
-**Tópicos:** integração de tudo: modelagem (Mongoose), API REST (Express), autenticação (bcrypt + JWT), organização MVC, deploy (env/Render) e frontend consumindo a API.
+**Tópicos:** integração de todo o curso: modelagem (Mongoose), API REST (Express), autenticação (bcrypt + JWT), organização em camadas, deploy (variáveis de ambiente e Render) e frontend consumindo a API.
 
-> Cada exercício constrói uma camada de uma aplicação completa e liga na anterior. Quando você terminar a Parte 4, tem um projeto full stack de ponta a ponta. Reaproveite o que já viu nos módulos 06 a 11.
+> Cada exercício constrói uma camada de uma aplicação completa e a conecta à anterior. Ao final da Parte 4, você terá um projeto full stack de ponta a ponta. Reaproveite o que foi visto nos módulos 06 a 11.
 
 ---
 
-## Parte 0 — Treino rápido (uma peça de cada camada)
+## Parte 0: Exercícios de fixação
 
-Faça cada mini-tarefa isolada, pensando "de qual módulo isso veio".
+Itens curtos, um de cada camada. Resolva cada um isoladamente e identifique de qual módulo vem o conteúdo.
 
 1. **Model:** escreva um `Schema` de `Tarefa` com `titulo` (String, obrigatório) e `concluida` (Boolean, padrão `false`).
 2. **Rota:** escreva a rota `GET /tarefas` que lista do banco com `await Tarefa.find()`.
@@ -55,13 +55,13 @@ Faça cada mini-tarefa isolada, pensando "de qual módulo isso veio".
 5. **Token:** no login, assine um token com `jwt.sign({ id }, process.env.JWT_SECRET)`.
 6. **Middleware:** proteja `GET /perfil` exigindo `Authorization: Bearer`.
 7. **Env:** faça a porta ser `process.env.PORT || 3000`.
-8. **MVC:** diga em qual camada (model/service/controller/route) fica a regra "gerar o hash".
+8. **Camadas:** diga em qual camada (model, repository, service, controller ou routes) fica a regra "gerar o hash".
 9. **Frontend:** escreva o prompt de uma tela que lista `GET /tarefas` em cards.
-10. **Deploy:** liste as 3 variáveis de ambiente que o Render precisa (`PORT`, `MONGO_URI`, `JWT_SECRET`).
+10. **Deploy:** liste as variáveis de ambiente que precisam ser configuradas no painel do Render (`MONGO_URI`, `JWT_SECRET`) e explique por que `PORT` não precisa ser configurada.
 
 ---
 
-## Parte 1 — Complete a integração
+## Parte 1: Complete a integração
 
 ### 1. Ligando controller e service
 Complete o controller para chamar o service e responder.
@@ -89,17 +89,17 @@ router.get("/perfil", /* TODO: middleware */, perfilController);
 
 ---
 
-## Parte 2 — Ache o problema (de integração)
+## Parte 2: Ache o problema de integração
 
 ### 3. O frontend não recebe nada
-A tela chama `GET /tarefas` e vem `[]` sempre, mesmo com dados no banco. Liste 3 causas prováveis olhando a cadeia inteira (rota errada? faltou `await`? API não está no ar? URL do frontend apontando pro lugar errado?).
+A tela chama `GET /tarefas` e sempre recebe `[]`, mesmo com dados no banco. Liste 3 causas prováveis olhando a cadeia inteira (o frontend aponta para a API certa, local ou Render? A `MONGO_URI` dessa API aponta para o mesmo banco onde estão os dados? O repository filtra por `req.usuario.id` e os registros pertencem a outro usuário?).
 
 ### 4. Rota protegida barra todo mundo
-Depois de logar, o usuário chama `GET /perfil` e recebe 401 mesmo com o token. Aponte onde investigar (o front está enviando `Authorization: Bearer TOKEN`? o segredo do `verify` é o mesmo do `sign`? o token expirou?).
+Depois de logar, o usuário chama `GET /perfil` e recebe 401 mesmo com o token. Aponte onde investigar (o frontend está enviando `Authorization: Bearer TOKEN`? O segredo do `verify` é o mesmo do `sign`? O token expirou?).
 
 ---
 
-## Parte 3 — Prever o fluxo ponta a ponta
+## Parte 3: Prever o fluxo ponta a ponta
 
 ### 5. A jornada de uma requisição
 Descreva, em ordem, por quais camadas passa uma requisição de cadastro de tarefa, do clique no frontend até a resposta:
@@ -108,34 +108,35 @@ Descreva, em ordem, por quais camadas passa uma requisição de cadastro de tare
 Frontend (fetch POST /tarefas)
   -> ?  (o que recebe primeiro no backend)
   -> ?  (quem valida o token)
-  -> ?  (quem pega req.body e chama a lógica)
-  -> ?  (quem fala com o banco)
-  -> ?  (o que volta pro frontend)
+  -> ?  (quem lê req.body e chama a lógica)
+  -> ?  (quem aplica a regra de negócio)
+  -> ?  (quem acessa o banco)
+  -> ?  (o que volta para o frontend)
 ```
 
 Preencha cada `?` com a camada/responsável correto.
 
 ---
 
-## Parte 4 — Construa o Projeto Final
+## Parte 4: Construa o Projeto Final
 
 ### 6. Aplicação Full Stack (Desafio final)
-Escolha um tema (agenda, finanças, petshop, biblioteca...) e construa a aplicação completa, integrando todos os módulos:
+Escolha um tema (agenda, finanças, petshop, biblioteca...) e construa a aplicação completa, integrando todos os módulos. Os requisitos mínimos estão em [projeto_final.md](projeto_final.md).
 
 1. **Requisitos:** liste as entidades e as rotas (o que o sistema faz).
 2. **Model:** schemas no Mongoose com validações.
-3. **API:** CRUD completo em Express, organizado em MVC.
+3. **API:** CRUD completo em Express, organizado em camadas (model, repository, service, controller e routes).
 4. **Auth:** cadastro/login com bcrypt + JWT; rotas privadas protegidas por middleware.
 5. **Config:** porta, URI e segredo via `process.env`; `.env` no `.gitignore`; script `start`.
-6. **Deploy:** suba a API no Render com as variáveis configuradas.
+6. **Deploy:** publique a API no Render com as variáveis configuradas.
 7. **Frontend:** gere as telas (IA/FlutterFlow) consumindo a API publicada.
 8. **Teste ponta a ponta:** cadastrar usuário → logar → criar/listar/editar/deletar dados pela tela.
 
-Entregue: repositório no GitHub, link da API no Render, e um roteiro de teste mostrando o fluxo completo funcionando.
+Entregue: repositório no GitHub, links do backend e do frontend publicados e um roteiro de teste mostrando o fluxo completo funcionando.
 
 ---
 
-> **Dica:** num projeto full stack a requisição passa por frontend, rota, middleware, controller, service, model e banco, e a resposta volta pelo mesmo caminho. Quando algo não funciona, não adivinhe: siga o caminho com um `console.log` em cada camada até achar onde o dado se perde.
+> **Dica:** em um projeto full stack, a requisição passa por frontend, rota, middleware, controller, service, repository, model e banco, e a resposta volta pelo mesmo caminho. Quando algo não funciona, siga esse caminho com um `console.log` em cada camada até encontrar o ponto em que o dado se perde.
 
 ---
 

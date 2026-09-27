@@ -1,4 +1,4 @@
-# Módulo 12 — Projeto Final e Levantamento de Requisitos
+# Módulo 12: Projeto Final e Levantamento de Requisitos
 
 Este módulo é dedicado ao início e desenvolvimento do projeto final. A turma já passou por JavaScript, APIs REST, MongoDB, autenticação, MVC, deploy e frontend com IA/FlutterFlow; agora o desafio é juntar tudo em uma aplicação funcional e publicada.
 
@@ -20,7 +20,7 @@ Este módulo é dedicado ao início e desenvolvimento do projeto final. A turma 
 6. Criar repositório no GitHub.
 7. Iniciar o backend a partir do boilerplate indicado no enunciado.
 8. Integrar o frontend usando IA, FlutterFlow ou outra abordagem aprovada em aula.
-9. Publicar backend e frontend no Render.
+9. Publicar o backend no Render e o frontend no Render ou no FlutterFlow.
 10. Preparar README, coleção do Postman e apresentação final.
 
 ## Resultado esperado
@@ -32,7 +32,7 @@ Ao final deste módulo, cada grupo deve ter:
 - Entidades do domínio escolhidas.
 - Relacionamentos entre entidades definidos.
 - Rotas principais planejadas.
-- Deploy do backend e do frontend planejado no Render.
+- Deploy planejado: backend no Render e frontend no Render ou no FlutterFlow.
 - Divisão inicial de tarefas.
 - Repositório criado no GitHub.
 - Próximo passo claro para começar o desenvolvimento.

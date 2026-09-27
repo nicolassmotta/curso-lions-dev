@@ -1,18 +1,18 @@
-# Módulo 12 — Lista de Exercícios
+# Módulo 12: Lista de Exercícios
 
-Preparação e entrega do projeto final: entender o problema, definir escopo e integrar tudo (backend, auth, banco, deploy e frontend) numa aplicação full stack.
+Preparação e entrega do projeto final: entender o problema, definir escopo e integrar todo o conteúdo (backend, autenticação, banco, deploy e frontend) em uma aplicação full stack.
 
-## Listas de código (treino direto)
+## Lista de código
 
-Comece por aqui. São as listas de treino: uns drills de aquecimento, código pra completar, um bug pra achar e um desafio no fim.
+Comece por aqui. A lista tem exercícios de fixação, código para completar, problemas de integração para analisar, uma previsão de fluxo e o desafio final.
 
 | Lista | Foco | Arquivo |
 | ----- | ---- | ------- |
-| Projeto Integrado (Full Stack) | integração de model, API, auth, MVC, env e frontend | [codigo_projeto_integrado.md](codigo_projeto_integrado.md) |
+| Projeto Integrado (Full Stack) | integração de model, API, autenticação, camadas, variáveis de ambiente e frontend | [codigo_projeto_integrado.md](codigo_projeto_integrado.md) |
 
-## Listas aplicadas (desafios em contexto)
+## Listas aplicadas
 
-Depois do treino: problemas em prosa, onde o aluno lê o enunciado e escreve o código do zero.
+Materiais do projeto final: a dinâmica de entrevista, o template de requisitos e o enunciado oficial.
 
 | Lista | Foco | Arquivo |
 | ----- | ---- | ------- |
@@ -22,8 +22,8 @@ Depois do treino: problemas em prosa, onde o aluno lê o enunciado e escreve o c
 
 ## Ordem sugerida
 
-1. Faça a lista de código para revisar a integração entre todas as camadas.
+1. Resolva a lista de código para revisar a integração entre todas as camadas.
 2. Rode a simulação de entrevista e preencha o levantamento de requisitos.
 3. Defina tema, escopo, entidades e relacionamentos (sem repetir outro grupo).
 4. Construa o backend (auth, camadas, MongoDB) e integre o frontend.
-5. Publique backend e frontend no Render e prepare a apresentação.
+5. Publique o backend no Render e o frontend no Render ou no FlutterFlow, e prepare a apresentação.
