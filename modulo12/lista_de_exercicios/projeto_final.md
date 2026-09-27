@@ -39,7 +39,7 @@
 
 **Turma:** LionsDev
 
-**Tópicos:** levantamento de requisitos, API REST, MongoDB, autenticação, frontend com IA/FlutterFlow, deploy no Render, documentação, testes com Postman e apresentação final.
+**Tópicos:** levantamento de requisitos, API REST, MongoDB, autenticação, frontend com IA/FlutterFlow, deploy (Render e FlutterFlow), documentação, testes com Postman e apresentação final.
 
 ## 1. Visão geral
 
@@ -47,7 +47,7 @@ Você e seu grupo vão construir uma aplicação full-stack simples, completa e 
 
 - Backend: API REST em Node.js + Express + MongoDB + Mongoose, com autenticação e criptografia.
 - Frontend: telas criadas com apoio de IA ou FlutterFlow, consumindo a API de verdade.
-- Deploy: backend e frontend publicados no Render.
+- Deploy: backend publicado no Render; frontend publicado no Render ou, se feito no FlutterFlow, pela publicação web do próprio FlutterFlow.
 - Documentação: levantamento de requisitos, README, coleção de testes e registro do uso de IA.
 
 O foco não é uma interface perfeita. O foco é um sistema que funciona de ponta a ponta: backend organizado, banco integrado, autenticação, frontend chamando as rotas corretas e aplicação publicada.
@@ -58,7 +58,7 @@ Um projeto simples e funcional vale mais que um projeto complexo e quebrado. Mas
 
 - **Grupo:** 2 a 3 integrantes.
 - **Tema:** escolhido pelo grupo.
-- **Entrega:** repositório no GitHub, levantamento de requisitos, README, coleção do Postman, links do backend e do frontend no Render, frontend integrado e apresentação.
+- **Entrega:** repositório no GitHub, levantamento de requisitos, README, coleção do Postman, link do backend no Render, link do frontend publicado, frontend integrado e apresentação.
 - **Prazo:** definido em aula.
 - **Apresentação:** todos os integrantes devem participar e explicar a própria contribuição.
 
@@ -90,7 +90,7 @@ Seu projeto está completo quando tiver tudo desta lista.
 ### Deploy
 
 - [ ] Backend publicado no Render.
-- [ ] Frontend publicado no Render.
+- [ ] Frontend publicado (Render ou publicação web do FlutterFlow).
 - [ ] Backend publicado usando variáveis de ambiente no painel do Render.
 - [ ] Frontend consumindo a URL pública do backend no Render.
 
@@ -331,11 +331,17 @@ O frontend precisa:
 - Exibir dados de pelo menos 2 entidades do domínio.
 - Ter pelo menos 1 tela ou fluxo com relacionamento entre entidades.
 
-Exemplo de request:
+Exemplo de requisição autenticada:
 
 ```js
-fetch("http://localhost:3000/api/[entidade]");
+const API_URL = "https://sua-api.onrender.com"; // em desenvolvimento: "http://localhost:3000"
+
+fetch(`${API_URL}/api/[entidade]`, {
+  headers: { Authorization: `Bearer ${token}` },
+});
 ```
+
+Deixe a URL base em um único lugar do frontend, para trocar entre a API local e a publicada sem alterar cada chamada.
 
 Registro obrigatório do uso de IA:
 
@@ -344,9 +350,9 @@ Registro obrigatório do uso de IA:
 - Ajustes feitos pelo grupo.
 - Erros encontrados e como foram resolvidos.
 
-## 11. Deploy no Render
+## 11. Deploy
 
-O projeto final precisa estar publicado no Render.
+O backend precisa estar publicado no Render. O frontend pode ser publicado no Render ou, se for feito no FlutterFlow, pela publicação web do próprio FlutterFlow.
 
 ### Backend no Render
 
@@ -371,9 +377,9 @@ NODE_ENV=production
 
 O backend deve funcionar usando `process.env.PORT`, como no boilerplate. Não coloque `.env` no GitHub.
 
-### Frontend no Render
+### Frontend
 
-O frontend deve ser publicado no Render e consumir a URL pública do backend.
+O frontend deve estar publicado e consumir a URL pública do backend.
 
 Se o frontend for React/Vite, publique como **Static Site**:
 
@@ -382,14 +388,16 @@ Build Command: npm install && npm run build
 Publish Directory: dist
 ```
 
-O frontend não deve chamar `localhost` na versão publicada. Ele precisa usar a URL do backend no Render.
+Se o frontend for feito no FlutterFlow, publique pela opção de publicação web do próprio FlutterFlow. Nesse caso, a API Call deve usar a URL do backend no Render.
+
+O frontend não deve chamar `localhost` na versão publicada. Ele precisa usar a URL do backend no Render. Se o navegador bloquear as requisições com erro de CORS, confirme que o backend libera requisições vindas do domínio do frontend.
 
 ### Links obrigatórios na entrega
 
 ```txt
 Link do repositório:
 Link do backend no Render:
-Link do frontend no Render:
+Link do frontend publicado:
 ```
 
 ## 12. Levantamento de requisitos
@@ -442,7 +450,7 @@ Lista das principais rotas.
 Como acessar, testar e integrar com a API.
 
 ## Deploy
-Links do backend e do frontend no Render.
+Link do backend no Render e link do frontend publicado.
 
 ## Postman
 Como importar/testar a coleção de requisições.
@@ -516,7 +524,7 @@ A apresentação deve cobrir:
 - Demonstração de uma regra de negócio entre entidades.
 - Dados persistindo no MongoDB.
 - Frontend consumindo a API.
-- Backend e frontend publicados no Render.
+- Backend publicado no Render e frontend publicado.
 - Como a IA/FlutterFlow ajudou.
 - Dificuldades e próximos passos.
 
@@ -526,7 +534,7 @@ A apresentação deve cobrir:
 [ ] Backend roda sem erro.
 [ ] Frontend roda sem erro.
 [ ] Backend está publicado no Render.
-[ ] Frontend está publicado no Render.
+[ ] Frontend está publicado (Render ou FlutterFlow).
 [ ] Frontend publicado consome a URL pública do backend.
 [ ] MongoDB conectado e salvando de verdade.
 [ ] Existem pelo menos 4 entidades do domínio além de Usuario.
