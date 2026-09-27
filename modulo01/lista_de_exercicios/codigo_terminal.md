@@ -40,17 +40,17 @@
 **Turma:** LionsDev  
 **Tópicos:** navegação no terminal (`pwd`, `ls`, `cd`), manipulação de arquivos e pastas (`mkdir`, `touch`, `echo`, `cp`, `mv`, `rm`, `cat`) e execução de código com `node` e `npm`.
 
-> Cada item é um comando pra você digitar no terminal e ver o que acontece. Faça um de cada vez. A ideia é ganhar fluência antes dos desafios em prosa.
+> Cada item é um comando para digitar no terminal e observar o resultado. Resolva um de cada vez. Os comandos desta lista seguem o terminal Linux; no Windows, use o Git Bash.
 
 ---
 
-## Parte 0 — Treino rápido (aquecimento)
+## Parte 0: Exercícios de fixação
 
-Um comando por vez. Digite, veja o resultado e siga pro próximo.
+Itens curtos para praticar um comando de cada vez. Confira o resultado de cada comando antes de passar para o próximo.
 
 1. Descubra em qual pasta você está agora (`pwd`).
 2. Liste os arquivos da pasta atual (`ls`).
-3. Crie uma pasta chamada `projeto`.
+3. Crie uma pasta chamada `projeto` (`mkdir`).
 4. Entre na pasta `projeto` (`cd`).
 5. Crie um arquivo vazio chamado `index.js` (`touch`).
 6. Crie um arquivo `nota.txt` com o texto "Lions" dentro (`echo "Lions" > nota.txt`).
@@ -61,7 +61,7 @@ Um comando por vez. Digite, veja o resultado e siga pro próximo.
 
 ---
 
-## Parte 1 — Complete o comando
+## Parte 1: Complete o comando
 
 Complete a lacuna para o comando fazer o que a descrição pede.
 
@@ -74,18 +74,18 @@ Complete a lacuna para o comando fazer o que a descrição pede.
 
 ---
 
-## Parte 2 — Ache o erro
+## Parte 2: Ache o erro
 
 Cada comando abaixo tem um problema. Explique e corrija.
 
 1. Para criar a pasta `Nova Pasta` (com espaço): `mkdir Nova Pasta`. O que acontece de errado?
 2. Para apagar a pasta `lixo` e tudo dentro dela: `rm lixo`. Por que falha? Qual flag falta?
-3. Para entrar na pasta anterior o aluno digitou: `cd..`. O que corrigir?
-4. Para iniciar um projeto Node ele digitou: `npm iniciar`. Qual o comando certo?
+3. Para voltar à pasta acima, o aluno digitou `cd..` no terminal Linux. O que corrigir?
+4. Para iniciar um projeto Node, ele digitou `npm iniciar`. Qual é o comando correto?
 
 ---
 
-## Parte 3 — Prever o resultado
+## Parte 3: Prever o resultado
 
 Sem rodar, descreva o estado final (o que existe e onde) depois desta sequência.
 
@@ -104,7 +104,7 @@ O que o último `ls` mostra?
 
 ---
 
-## Parte 4 — Desafio de sequência
+## Parte 4: Desafio de sequência
 
 ### Monte a estrutura
 Usando apenas comandos de terminal, crie exatamente esta estrutura a partir de uma pasta vazia. Entregue a sequência de comandos usada.
@@ -120,11 +120,11 @@ meu-app/
 ```
 
 ### Rode seu primeiro código
-Dentro de `meu-app`, faça o arquivo `index.js` imprimir `"App no ar!"`. Depois rode ele com Node e confirme a saída no terminal.
+Dentro de `meu-app`, faça o arquivo `index.js` imprimir `"App no ar!"`. Depois, execute-o com o Node e confirme a saída no terminal.
 
 ---
 
-> **Dica:** nome com espaço precisa de aspas (`"Nova Pasta"`) ou barra de escape. Para apagar pasta com conteúdo, use `rm -r`. E cuidado: o terminal diferencia maiúscula de minúscula, então `App.js` e `app.js` são arquivos diferentes.
+> **Dica:** nomes com espaço precisam de aspas (`"Nova Pasta"`) ou de barra invertida antes do espaço (`Nova\ Pasta`). Para apagar uma pasta com conteúdo, use `rm -r`. No Linux, o terminal diferencia maiúsculas de minúsculas: `App.js` e `app.js` são arquivos diferentes.
 
 ---
 

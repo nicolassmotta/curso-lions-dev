@@ -35,7 +35,7 @@
   }
 </style>
 
-# Desafio: Comandos Básicos no Terminal - Explorando o Espaço 🚀
+# Desafio: Comandos Básicos no Terminal - Explorando o Espaço
 
 **Turma:** LionsDev  
 **Tópicos:** Terminal Linux, Navegação de Diretórios, Manipulação de Arquivos e Pastas (`mkdir`, `cd`, `rm`, `cp`, `echo`).

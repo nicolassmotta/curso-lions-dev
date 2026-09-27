@@ -1,4 +1,4 @@
-# Módulo 1: Solução do Desafio - Explorando o Espaço 🚀
+# Módulo 1: Solução do Desafio - Explorando o Espaço
 
 Este arquivo contém a sequência de comandos de terminal para completar o desafio "Explorando o Espaço".
 
@@ -25,7 +25,7 @@ mkdir Laboratorio/Pesquisa1 Laboratorio/Pesquisa2
 # 6. Crie os espaços para as naves dentro de Hangar
 mkdir Hangar/Nave1 Hangar/Nave2 Hangar/Nave3
 
-# 7. Remova o Hangar (o comando -r é necessário para remover um diretório com conteúdo)
+# 7. Remova o Hangar (a opção -r é necessária para remover um diretório com conteúdo)
 rm -r Hangar
 
 # 8. Crie o arquivo de boas-vindas
