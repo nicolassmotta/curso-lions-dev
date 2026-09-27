@@ -88,7 +88,7 @@ Requisitos estruturais:
 * `materialId`: Tipo `String`, obrigatório. Esse campo deve guardar o `_id` do material emprestado.
 * `nomeAluno`: Tipo `String`, obrigatório.
 * `turma`: Tipo `String`, obrigatório.
-* `dataEmprestimo`: Tipo `String`, obrigatório (ex: `"2026-06-15"`).
+* `dataEmprestimo`: Tipo `String`, obrigatório (ex.: `"2026-06-15"`).
 * `diasEmprestimo`: Tipo `Number`, obrigatório.
 * `multaPrevista`: Tipo `Number` (será calculado automaticamente pela API).
 * `status`: Tipo `String`, com valor padrão de `"Emprestado"` (deve aceitar apenas: `Emprestado`, `Devolvido` ou `Atrasado`).
@@ -123,7 +123,7 @@ Você deverá implementar endpoints para gerenciar Materiais (`/materiais`) e Em
 
   **Regras de Negócio (Lógica em JavaScript):**
   1. **Validação de Existência**: Verifique se o material informado existe no banco. Se não existir, retorne status `404` com erro.
-  2. **Validação de Estoque**: Verifique se o material ainda tem `estoque` disponível (maior que zero). Se não tiver, retorne status `400` com uma mensagem (ex: `"Material sem exemplares disponíveis"`).
+  2. **Validação de Estoque**: Verifique se o material ainda tem `estoque` disponível (maior que zero). Se não tiver, retorne status `400` com uma mensagem (ex.: `"Material sem exemplares disponíveis"`).
   3. **Multa Prevista**: A biblioteca permite até 7 dias de empréstimo sem multa. Se `diasEmprestimo` for maior que 7, cobre R$ 2 por dia extra.
   4. **Baixa no Estoque**: Se as regras passarem, diminua em 1 o `estoque` do material e salve o empréstimo com o `multaPrevista` calculado. Retorne o documento com status `201`.
 
@@ -132,12 +132,12 @@ Você deverá implementar endpoints para gerenciar Materiais (`/materiais`) e Em
 * **Buscar Empréstimos por Aluno (`GET /emprestimos/busca`)**:
   * Aceita um filtro opcional via Query Param chamado `aluno`.
   * Exemplo de URL: `http://localhost:3000/emprestimos/busca?aluno=mari`
-  * Retorna todos os empréstimos em que o nome do aluno contenha o texto pesquisado.
+  * Retorna todos os empréstimos em que o nome do aluno contenha o texto pesquisado, ignorando letras maiúsculas e minúsculas (`mari` deve encontrar `Mariana Souza`).
 
 * **Registrar Devolução / Alterar Status (`PATCH /emprestimos/:id/status`)**:
-  * O corpo envia apenas o novo `status` (ex: `{ "status": "Devolvido" }`).
+  * O corpo envia apenas o novo `status` (ex.: `{ "status": "Devolvido" }`).
   * Se o ID não for encontrado, responda com status `404`.
-  * **Regra de Estoque**: quando o status mudar para `"Devolvido"`, devolva 1 ao `estoque` do material correspondente.
+  * **Regra de Estoque**: quando o status mudar para `"Devolvido"`, devolva 1 ao `estoque` do material correspondente. Só faça isso se o status anterior ainda não era `"Devolvido"`; caso contrário, a mesma devolução enviada duas vezes aumentaria o estoque em dobro.
   * Retorne o documento atualizado com status `200`.
 
 * **Remover Empréstimo (`DELETE /emprestimos/:id`)**:

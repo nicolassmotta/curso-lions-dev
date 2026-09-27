@@ -1,18 +1,18 @@
-# Módulo 08 — Lista de Exercícios
+# Módulo 08: Lista de Exercícios
 
 Persistência com MongoDB via Mongoose: schemas, models e as operações de banco com `async/await`.
 
-## Listas de código (treino direto)
+## Lista de código
 
-Comece por aqui. São as listas de treino: uns drills de aquecimento, código pra completar, um bug pra achar e um desafio no fim.
+Comece por aqui. A lista tem exercícios de fixação, código para completar, bugs para corrigir, uma previsão de comportamento e um desafio no final.
 
 | Lista | Foco | Arquivo |
 | ----- | ---- | ------- |
 | MongoDB com Mongoose | `Schema`, `model`, `create`/`find`/`findById...` | [codigo_mongoose.md](codigo_mongoose.md) |
 
-## Listas aplicadas (desafios em contexto)
+## Listas aplicadas
 
-Depois do treino: problemas em prosa, onde o aluno lê o enunciado e escreve o código do zero.
+Projetos descritos em texto, em que o aluno interpreta o enunciado e escreve o código do zero. A API Biblioteca Lions e a API Imóvel Lions têm mais de um model e são as mais avançadas.
 
 | Lista | Foco | Arquivo |
 | ----- | ---- | ------- |
@@ -24,5 +24,5 @@ Depois do treino: problemas em prosa, onde o aluno lê o enunciado e escreve o c
 
 ## Ordem sugerida
 
-1. Faça a lista de código para dominar schema e queries.
-2. Depois escolha uma das APIs aplicadas e conecte-a ao MongoDB.
+1. Resolva a lista de código para praticar schemas e consultas.
+2. Depois, escolha uma das APIs aplicadas e conecte-a ao MongoDB. Comece por Academia, Cantina ou Petshop antes de Biblioteca e Imóvel.

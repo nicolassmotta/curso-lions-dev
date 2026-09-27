@@ -44,12 +44,12 @@
 
 ---
 
-## Parte 0 — Treino rápido (aquecimento)
+## Parte 0: Exercícios de fixação
 
-Comece pelo schema, depois as queries uma a uma.
+Itens curtos para praticar a conexão, o schema e as consultas básicas, nesta ordem.
 
 1. Importe o mongoose (`import mongoose from "mongoose"`).
-2. Conecte no banco com `await mongoose.connect(MONGO_URI)`.
+2. Conecte ao banco com `await mongoose.connect(process.env.MONGO_URI)`, lendo a URI do arquivo `.env`.
 3. Crie um `Schema` com um campo `nome` do tipo `String`.
 4. Torne o campo `nome` obrigatório (`required: true`).
 5. Adicione um campo `preco` do tipo `Number` obrigatório.
@@ -61,7 +61,7 @@ Comece pelo schema, depois as queries uma a uma.
 
 ---
 
-## Parte 1 — Complete o código
+## Parte 1: Complete o código
 
 ### 1. Definindo o Schema
 Complete o schema com os tipos e validações.
@@ -103,10 +103,10 @@ async function buscarUsuario(id) {
 
 ---
 
-## Parte 2 — Ache o bug
+## Parte 2: Ache o bug
 
 ### 4. Faltou esperar
-Esta função imprime uma `Promise` pendente em vez dos dados. O que falta?
+Esta função imprime um objeto `Query` do Mongoose em vez da lista de produtos. O que falta?
 
 ```js
 async function listar() {
@@ -127,7 +127,7 @@ const ItemSchema = new mongoose.Schema({
 
 ---
 
-## Parte 3 — Prever o comportamento
+## Parte 3: Prever o comportamento
 
 ### 6. O que retorna?
 Para cada chamada, diga o que a variável recebe (um documento, um array, `null` ou erro).
@@ -135,13 +135,13 @@ Para cada chamada, diga o que a variável recebe (um documento, um array, `null`
 ```
 (a) await Produto.find()                         -> ?
 (b) await Produto.findById("id_que_existe")      -> ?
-(c) await Produto.findById("id_que_nao_existe")  -> ?
+(c) await Produto.findById("id_valido_que_nao_existe")  -> ?
 (d) await Produto.create({})  // schema exige 'nome' required -> ?
 ```
 
 ---
 
-## Parte 4 — Escreva do zero
+## Parte 4: Escreva do zero
 
 ### 7. CRUD com Mongoose (Desafio)
 Monte o CRUD completo de uma coleção `Livro` com o schema: `titulo` (String, obrigatório), `autor` (String, obrigatório), `ano` (Number) e `disponivel` (Boolean, padrão `true`). Escreva as funções assíncronas, todas com `try/catch`:
@@ -152,11 +152,11 @@ Monte o CRUD completo de uma coleção `Livro` com o schema: `titulo` (String, o
 - `atualizarLivro(id, dados)` → `Livro.findByIdAndUpdate(...)` (retorne o atualizado)
 - `deletarLivro(id)` → `Livro.findByIdAndDelete(...)`
 
-Depois, conecte no banco e teste chamando as funções em sequência.
+Depois, conecte ao banco e teste chamando as funções em sequência.
 
 ---
 
-> **Dica:** toda operação de banco é assíncrona, então sem `await` você recebe uma `Promise` no lugar dos dados. Envolva em `try/catch` pra pegar erro de validação do schema. E pra atualizar e já receber o documento novo, passe `{ new: true }` no `findByIdAndUpdate`.
+> **Dica:** toda operação de banco é assíncrona. Sem `await`, você recebe uma `Promise` (ou, nas consultas como `find`, um objeto `Query`) no lugar dos dados. Use `try/catch` para capturar erros de validação do schema. Para atualizar e receber o documento já atualizado, passe `{ new: true }` no `findByIdAndUpdate`.
 
 ---
 

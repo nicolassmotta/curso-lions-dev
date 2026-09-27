@@ -71,7 +71,7 @@ O Schema do Mongoose para as `matriculas` deve conter os seguintes campos:
 * `idade`: Tipo `Number`, obrigatório.
 * `modalidade`: Tipo `String`, obrigatório (deve aceitar apenas: `Musculação`, `Funcional` ou `Dança`).
 * `plano`: Tipo `String`, obrigatório (deve aceitar apenas: `Mensal`, `Trimestral` ou `Semestral`).
-* `dataMatricula`: Tipo `String`, obrigatório (ex: `"2026-06-15"`).
+* `dataMatricula`: Tipo `String`, obrigatório (ex.: `"2026-06-15"`).
 * `valorMensal`: Tipo `Number` (será calculado automaticamente pela API).
 * `valorTotal`: Tipo `Number` (será calculado automaticamente pela API).
 * `status`: Tipo `String`, com valor padrão de `"Ativa"` (deve aceitar apenas: `Ativa`, `Pausada` ou `Cancelada`).
@@ -121,13 +121,13 @@ Crie a rota `GET /matriculas/busca`.
 
 Esta rota deve aceitar um filtro opcional via Query Params chamado `modalidade`:
 * Exemplo de URL: `http://localhost:3000/matriculas/busca?modalidade=func`
-* A busca deve retornar todas as matrículas em que a modalidade contenha o texto pesquisado.
+* A busca deve retornar todas as matrículas em que a modalidade contenha o texto pesquisado, ignorando letras maiúsculas e minúsculas (`func` deve encontrar `Funcional`).
 
 ### 3.4 Atualizar Status da Matrícula (UPDATE)
 
 Crie a rota `PATCH /matriculas/:id`.
 
-O corpo da requisição deve enviar apenas o novo status (ex: `{ "status": "Pausada" }`).
+O corpo da requisição deve enviar apenas o novo status (ex.: `{ "status": "Pausada" }`).
 
 Regras:
 * Busque a matrícula pelo ID e atualize o status usando `findByIdAndUpdate`.
