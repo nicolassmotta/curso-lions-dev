@@ -72,7 +72,7 @@ O Schema do Mongoose para os `agendamentos` deve conter os seguintes campos:
 * `nomeDono`: Tipo `String`, obrigatório.
 * `telefoneDono`: Tipo `String`, obrigatório.
 * `servico`: Tipo `String`, obrigatório (deve aceitar apenas: `Banho`, `Tosa` ou `Banho e Tosa`).
-* `data`: Tipo `String`, obrigatório (ex: `"2026-06-15"`).
+* `data`: Tipo `String`, obrigatório (ex.: `"2026-06-15"`).
 * `valor`: Tipo `Number` (será calculado de forma automática pela API).
 * `status`: Tipo `String`, com valor padrão de `"Agendado"` (deve aceitar apenas: `Agendado`, `Concluído` ou `Cancelado`).
 
@@ -118,14 +118,14 @@ Crie a rota `GET /agendamentos/busca`.
 
 Esta rota deve aceitar um filtro opcional via Query Params chamado `nome`:
 * Exemplo de URL: `http://localhost:3000/agendamentos/busca?nome=fred`
-* A busca deve retornar todos os agendamentos em que o nome do pet contenha o texto pesquisado.
+* A busca deve retornar todos os agendamentos em que o nome do pet contenha o texto pesquisado, ignorando letras maiúsculas e minúsculas.
 * **Exemplo**: Buscar por `"fred"` deve retornar agendamentos do pet `"Frederico"`.
 
 ### 3.4 Update do Status do Agendamento (UPDATE)
 
 Crie a rota `PATCH /agendamentos/:id`.
 
-O corpo da requisição deve enviar apenas o novo status (ex: `{ "status": "Concluído" }`).
+O corpo da requisição deve enviar apenas o novo status (ex.: `{ "status": "Concluído" }`).
 
 Regras:
 * Busque o agendamento pelo ID e atualize o status usando `findByIdAndUpdate`.

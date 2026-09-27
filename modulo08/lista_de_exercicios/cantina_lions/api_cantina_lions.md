@@ -119,14 +119,14 @@ Regras:
 Crie a rota `GET /pedidos/busca`.
 
 Esta rota deve aceitar um filtro opcional via Query Params chamado `cliente`:
-* Exemplo de URL: `http://localhost:3000/pedidos/busca?cliente=joao`
-* A busca deve retornar todos os pedidos em que o nome do cliente contenha o texto pesquisado.
+* Exemplo de URL: `http://localhost:3000/pedidos/busca?cliente=pedro`
+* A busca deve retornar todos os pedidos em que o nome do cliente contenha o texto pesquisado, ignorando letras maiúsculas e minúsculas (`pedro` deve encontrar `João Pedro`).
 
 ### 3.4 Atualizar Status do Pedido (UPDATE)
 
 Crie a rota `PATCH /pedidos/:id`.
 
-O corpo da requisição deve enviar apenas o novo status (ex: `{ "status": "Pago" }`).
+O corpo da requisição deve enviar apenas o novo status (ex.: `{ "status": "Pago" }`).
 
 Regras:
 * Busque o pedido pelo ID e atualize o status usando `findByIdAndUpdate`.

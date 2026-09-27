@@ -79,7 +79,7 @@ Defina os Schemas do Mongoose detalhados a seguir:
 #### Modelo: Imóvel (`models/imovel.js`)
 * `titulo`: Tipo `String`, obrigatório.
 * `descricao`: Tipo `String`, obrigatório.
-* `localizacao`: Tipo `String`, obrigatório (ex: `"Ubatuba - SP"`).
+* `localizacao`: Tipo `String`, obrigatório (ex.: `"Ubatuba - SP"`).
 * `precoNoite`: Tipo `Number`, obrigatório (valor base da diária).
 * `capacidadeMaxima`: Tipo `Number`, obrigatório.
 * `disponivel`: Tipo `Boolean`, com valor padrão `true`.
@@ -88,7 +88,7 @@ Defina os Schemas do Mongoose detalhados a seguir:
 * `imovelId`: Tipo `String`, obrigatório. Esse campo deve guardar o `_id` do imóvel reservado.
 * `nomeHospede`: Tipo `String`, obrigatório.
 * `emailHospede`: Tipo `String`, obrigatório.
-* `dataEntrada` (Check-in): Tipo `String`, obrigatória (ex: `"2026-06-15"`).
+* `dataEntrada` (Check-in): Tipo `String`, obrigatória (ex.: `"2026-06-15"`).
 * `quantidadeNoites`: Tipo `Number`, obrigatória.
 * `hospedes`: Array de Objetos, obrigatório, onde cada objeto pode conter:
   * `nome`: Tipo `String`
@@ -113,7 +113,7 @@ Você deverá implementar endpoints para gerenciar Imóveis (`/imoveis`), Reserv
 * **Cadastrar Imóvel (`POST /imoveis`)**: Cria um novo imóvel. Retorne status `201`.
 * **Listar Imóveis (`GET /imoveis`)**: Retorna todos os imóveis cadastrados.
 * **Buscar Imóveis por Localização (`GET /imoveis/busca`)**:
-  Deve aceitar o Query Param `localizacao`. Retorna apenas os imóveis que contêm o termo pesquisado na localização (ex: buscar por `"uba"` deve retornar imóveis em `"Ubatuba - SP"`).
+  Deve aceitar o Query Param `localizacao`. Retorna apenas os imóveis que contêm o termo pesquisado na localização, ignorando letras maiúsculas e minúsculas (ex.: buscar por `"uba"` deve retornar imóveis em `"Ubatuba - SP"`).
 
 ### 3.2 Reservas
 
@@ -128,7 +128,7 @@ Você deverá implementar endpoints para gerenciar Imóveis (`/imoveis`), Reserv
   5. Se todas as regras passarem, salve a reserva no banco de dados com o `valorTotal` calculado e retorne o documento com status `201`.
 
 * **Listar Reservas (`GET /reservas`)**: Retorna todas as reservas cadastradas.
-* **Alterar Status da Reserva (`PATCH /reservas/:id/status`)**: Permite atualizar apenas o campo `status` da reserva. Retorne status `200`.
+* **Alterar Status da Reserva (`PATCH /reservas/:id/status`)**: Permite atualizar apenas o campo `status` da reserva. Se a reserva não for encontrada, retorne status `404`. Em caso de sucesso, retorne o documento atualizado com status `200`.
 
 ### 3.3 Avaliações
 
@@ -144,7 +144,7 @@ Você deverá implementar endpoints para gerenciar Imóveis (`/imoveis`), Reserv
   * **Regra de Negócio (Média Geral)**: A resposta deve retornar a lista de avaliações e a média aritmética das notas (calculada em JavaScript).
 
 * **Excluir Avaliação (`DELETE /avaliacoes/:id`)**:
-  * **Regra de Segurança**: O usuário deve enviar seu `nomeUsuario` no corpo da requisição. O backend deve verificar se a avaliação de fato pertence a esse usuário. Se pertencer, remova a avaliação do banco; caso contrário, retorne status `403` (Proibido) com uma mensagem de erro.
+  * **Regra de Segurança**: O usuário deve enviar seu `nomeUsuario` no corpo da requisição. O backend deve buscar a avaliação pelo ID (retorne `404` se ela não existir) e verificar se ela pertence a esse usuário. Se pertencer, remova a avaliação do banco; caso contrário, retorne status `403` (Proibido) com uma mensagem de erro.
 
 ---
 
