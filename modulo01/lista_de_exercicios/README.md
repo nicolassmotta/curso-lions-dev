@@ -1,18 +1,18 @@
-# Módulo 01 — Lista de Exercícios
+# Módulo 01: Lista de Exercícios
 
 Primeiros passos no terminal e no Node: navegação, manipulação de arquivos e execução de código.
 
-## Listas de código (treino direto)
+## Lista de código
 
-Comece por aqui. São as listas de treino: uns drills de aquecimento, código pra completar, um bug pra achar e um desafio no fim.
+Comece por aqui. A lista tem exercícios de fixação, comandos para completar, comandos com erro para corrigir, uma previsão de resultado e um desafio no final.
 
 | Lista | Foco | Arquivo |
 | ----- | ---- | ------- |
 | Terminal e Primeiros Passos | comandos de terminal, `node`, `npm` | [codigo_terminal.md](codigo_terminal.md) |
 
-## Listas aplicadas (desafios em contexto)
+## Listas aplicadas
 
-Depois do treino: problemas em prosa, onde o aluno lê o enunciado e escreve o código do zero.
+Desafios descritos em texto, em que o aluno interpreta o enunciado e monta a solução do zero.
 
 | Lista | Foco | Arquivo |
 | ----- | ---- | ------- |
@@ -20,5 +20,5 @@ Depois do treino: problemas em prosa, onde o aluno lê o enunciado e escreve o c
 
 ## Ordem sugerida
 
-1. Faça a lista de código (drills dos comandos, um por um).
-2. Depois encare o desafio *Explorando o Espaço* montando a estação espacial só com comandos.
+1. Resolva a lista de código, praticando os comandos um de cada vez.
+2. Depois, faça o desafio *Explorando o Espaço*, montando a estação espacial apenas com comandos de terminal.

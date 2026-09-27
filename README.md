@@ -28,7 +28,7 @@ Este repositório contém o material de apoio das aulas: conteúdo teórico come
 | 08  | **Banco de Dados (MongoDB)**   | Integração com MongoDB via Mongoose, modelos, rotas e exemplos de APIs conectadas ao banco                               |
 | 09  | **Autenticação, JWT e MVC**    | Senhas com bcryptjs, autenticação com JWT, boilerplate LionsDev e APIs em camadas                                        |
 | 10  | **Deploy com Render**          | Publicação de APIs no Render, variáveis de ambiente e projeto completo de API Banco Digital                              |
-| 11  | **Frontend com IA e FlutterFlow** | Guia prático de frontend com IA, NoCode/LowCode com FlutterFlow, consumo real de APIs, API Calls e listagens dinâmicas |
+| 11  | **NoCode com FlutterFlow e Integração com APIs** | Guia prático de frontend com IA, NoCode/LowCode com FlutterFlow, consumo real de APIs, API Calls e listagens dinâmicas |
 | 12  | **Projeto Final e Requisitos** | Simulação cliente-dev, levantamento de requisitos, escopo, entidades, relações, frontend, backend, deploy e apresentação |
 
 ---
@@ -37,8 +37,8 @@ Este repositório contém o material de apoio das aulas: conteúdo teórico come
 
 Cada módulo tem um índice em `moduloXX/lista_de_exercicios/README.md` com duas trilhas de prática:
 
-- **Listas de código** (`codigo_*.md`) — treino direto: drills de uma linha, código para completar, bugs para achar, previsão de saída e desafios para escrever do zero. **Comece por elas** para fixar a mecânica do conceito.
-- **Listas aplicadas** — problemas de negócio em prosa, onde o aluno traduz o enunciado em código.
+- **Listas de código** (`codigo_*.md`): exercícios de fixação, código para completar, bugs para corrigir, previsão de saída e desafios para escrever do zero. **Comece por elas** para fixar a mecânica do conceito.
+- **Listas aplicadas:** problemas de negócio descritos em texto, em que o aluno traduz o enunciado em código.
 
 A regra é sempre **mecânica primeiro (código), aplicação depois**. Cada índice de módulo traz a ordem sugerida.
 
