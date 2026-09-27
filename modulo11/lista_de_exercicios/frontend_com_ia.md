@@ -127,6 +127,8 @@ Siga o fluxo:
 6. Teste o formulário.
 7. Abra o DevTools do navegador e confira a aba Network/Rede.
 
+> **CORS:** o frontend e o backend rodam em portas diferentes (por exemplo, `5173` e `3000`). Por isso, o navegador bloqueia a requisição se o backend não liberar o acesso. Se aparecer um erro de CORS no console, instale o pacote no backend com `npm install cors` e adicione `app.use(cors())` antes das rotas.
+
 ## 4. Correção de erros
 
 Se der erro, registre:
