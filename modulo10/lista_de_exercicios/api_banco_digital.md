@@ -513,7 +513,7 @@ Esta é uma ordem sugerida. Você pode dividir e reorganizar as fases como quise
 
 ### Fase 1 — Base
 
-**Pronto quando:** cadastro e login funcionam, a senha vai pro banco como hash, rotas protegidas barram quem não manda `Bearer` token (`401`) e `req.usuario` chega nos controllers já com `papel`.
+**Pronto quando:** cadastro e login funcionam, a senha é salva no banco como hash, rotas protegidas recusam requisições sem `Bearer` token (`401`) e `req.usuario` chega nos controllers já com `papel`.
 
 ### Fase 2 — Contas
 
