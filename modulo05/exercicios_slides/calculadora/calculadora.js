@@ -51,7 +51,7 @@ while (op != 7) {
       break;
 
     case 5:
-      num = Number(prompt("Digite a porcentagem: "));
+      num = Number(prompt("Digite o valor para saber quantos % ele representa do resultado atual: "));
       resultado_porcentagem = porcentagem(num, resultado);
       console.log("Resultado: " + resultado_porcentagem + "%");
       resultado_porcentagem = 0;

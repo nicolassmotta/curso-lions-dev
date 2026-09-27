@@ -40,28 +40,28 @@
 **Turma:** LionsDev  
 **Tópicos:** `export default`, exports nomeados (`export`), `import`, caminhos relativos (`./` e extensão `.js`), e `"type": "module"` no `package.json`.
 
-> Aqui você separa o código em arquivos e liga eles com `import`/`export`. Crie uma pasta com um `package.json` contendo `"type": "module"` e vá montando os arquivos conforme cada exercício pede.
+> Nesta lista você separa o código em arquivos e os conecta com `import`/`export`. Crie uma pasta para a lista com um `package.json` contendo `"type": "module"` e crie os arquivos conforme cada exercício pedir.
 
 ---
 
-## Parte 0 — Treino rápido (aquecimento)
+## Parte 0: Exercícios de fixação
 
-Crie arquivos pequenos: um exporta, o outro importa.
+Itens curtos para praticar exportação e importação entre arquivos pequenos.
 
-1. No arquivo `soma.js`, escreva a função `somar(a, b)` e faça `export default somar`.
-2. No `index.js`, faça `import somar from "./soma.js"` e imprima `somar(2, 3)`.
-3. No `saudacao.js`, exporte por default uma função que retorna `"Olá!"`.
-4. No `matematica.js`, use **export nomeado** de duas funções: `dobro` e `triplo`.
-5. No `index.js`, importe nomeado: `import { dobro, triplo } from "./matematica.js"`.
-6. Crie o `package.json` com `"type": "module"` (para o `import` funcionar no Node).
-7. Exporte por default uma constante `PI = 3.14` de um arquivo `constantes.js`.
+1. Crie o `package.json` com `"type": "module"`. Sem essa configuração, o Node não aceita `import`/`export` em arquivos `.js`.
+2. No arquivo `soma.js`, escreva a função `somar(a, b)` e faça `export default somar`.
+3. No `index.js`, faça `import somar from "./soma.js"` e imprima `somar(2, 3)`.
+4. No `saudacao.js`, exporte por default uma função que retorna `"Olá!"`.
+5. No `matematica.js`, use **export nomeado** em duas funções: `dobro` e `triplo`.
+6. No `index.js`, importe as duas funções: `import { dobro, triplo } from "./matematica.js"`.
+7. No `constantes.js`, declare `const PI = 3.14` e, na linha seguinte, faça `export default PI`. (O `export default` não aceita declaração com `const` na mesma linha.)
 8. Importe `PI` no `index.js` e imprima a área de um círculo de raio 2.
-9. Num export default, importe com um nome livre (ex.: `import minhaFuncao from "./soma.js"`).
-10. Exporte por default um objeto `config = { versao: 1 }` e importe no `index.js`.
+9. Importe o export default de `soma.js` com outro nome (ex.: `import minhaFuncao from "./soma.js"`) e confirme que funciona.
+10. Declare o objeto `const config = { versao: 1 }`, exporte por default e importe no `index.js`.
 
 ---
 
-## Parte 1 — Complete o código
+## Parte 1: Complete o código
 
 ### 1. Exportando por default
 Complete o arquivo `calculadora.js`.
@@ -101,7 +101,7 @@ console.log(minuscula("OI")); // oi
 
 ---
 
-## Parte 2 — Ache o bug
+## Parte 2: Ache o bug
 
 ### 3. Import quebrado
 Este import dá erro no Node. Aponte os dois problemas.
@@ -125,7 +125,7 @@ console.log(formatar(50));
 
 ---
 
-## Parte 3 — Prever o resultado
+## Parte 3: Prever o resultado
 
 ### 5. Vai rodar ou dar erro?
 Para cada caso, diga se funciona ou dá erro e por quê.
@@ -139,7 +139,7 @@ Para cada caso, diga se funciona ou dá erro e por quê.
 
 ---
 
-## Parte 4 — Escreva do zero
+## Parte 4: Escreva do zero
 
 ### 6. Mini Projeto Modular (Desafio)
 Monte um projeto com 4 arquivos separados:
@@ -157,7 +157,7 @@ Saída esperada:
 
 ---
 
-> **Dica:** pra importar um arquivo seu, o caminho precisa começar com `./` (ou `../`) e terminar com `.js`. Sem o `./`, o Node procura em `node_modules`; sem o `.js`, ele reclama. Lembre também que `export default` sai sem chaves na hora de importar, e os exports nomeados saem entre `{ }`.
+> **Dica:** para importar um arquivo do próprio projeto, o caminho precisa começar com `./` (ou `../`) e terminar com `.js`. Sem o `./`, o Node procura o pacote em `node_modules`; sem o `.js`, o Node não encontra o arquivo e gera o erro `ERR_MODULE_NOT_FOUND`. O `export default` é importado sem chaves, e os exports nomeados são importados entre `{ }`.
 
 ---
 
