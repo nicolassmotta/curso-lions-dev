@@ -1,26 +1,28 @@
-# Módulo 10 — Lista de Exercícios
+# Módulo 10: Lista de Exercícios
 
 Deploy e projeto de API completo: levar uma API para produção no Render, com variáveis de ambiente e configuração de produção.
 
-## Listas de código (treino direto)
+## Lista de código
 
-Comece por aqui. São as listas de treino: uns drills de aquecimento, código pra completar, um bug pra achar e um desafio no fim.
-
-| Lista | Foco | Arquivo |
-| ----- | ---- | ------- |
-| Deploy e Variáveis de Ambiente | `process.env`, porta dinâmica, `.env`, script `start` | [codigo_deploy.md](codigo_deploy.md) |
-
-## Listas aplicadas (desafios em contexto)
-
-Depois do treino: problemas em prosa, onde o aluno lê o enunciado e escreve o código do zero.
+Comece por aqui. A lista tem exercícios de fixação, código para completar, problemas para corrigir, uma previsão de comportamento e um desafio no final.
 
 | Lista | Foco | Arquivo |
 | ----- | ---- | ------- |
+| Deploy e Variáveis de Ambiente | `process.env`, porta dinâmica, `.env` com `dotenv`, script `start` | [codigo_deploy.md](codigo_deploy.md) |
+
+## Listas aplicadas
+
+Projetos descritos em texto, em que o aluno interpreta o enunciado e escreve o código do zero.
+
+| Lista | Foco | Arquivo |
+| ----- | ---- | ------- |
+| Deploy Guiado no Render | publicar passo a passo uma API do Módulo 08 | [deploy_guiado/deploy_guiado.md](deploy_guiado/deploy_guiado.md) |
 | API de Banco Digital | projeto de API completo para deploy | [api_banco_digital.md](api_banco_digital.md) |
 
 ## Ordem sugerida
 
-1. Faça a lista de código para deixar a API pronta para produção (env, porta, segredos).
-2. Revise o checklist de deploy em `../conteudo/deploy_render.js` e o `../conteudo/render.yaml`.
-3. Construa/finalize a API Banco Digital e publique no Render.
-4. O gabarito do professor fica em `../exercicios_resolvidos/api_banco_digital`.
+1. Resolva a lista de código para deixar a API pronta para produção (env, porta, segredos).
+2. Publique uma API do Módulo 08 seguindo o Deploy Guiado.
+3. Revise o checklist de deploy em `../conteudo/deploy_render.js` e o `../conteudo/render.yaml`.
+4. Construa a API Banco Digital e publique no Render.
+5. O gabarito do professor fica em `../exercicios_resolvidos/api_banco_digital`.
