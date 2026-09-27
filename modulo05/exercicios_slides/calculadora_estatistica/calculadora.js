@@ -2,8 +2,8 @@ import PromptSync from "prompt-sync";
 const prompt = PromptSync();
 
 import numeros from "./numeros.js";
-import adicionarNumero from "./adicionarNumero.js";
-import removerNumero from "./removerNumero.js";
+import adicionarNumero from "./adicionar_numero.js";
+import removerNumero from "./remover_numero.js";
 import calcularMedia from "./media.js";
 import calcularMediana from "./mediana.js";
 
@@ -16,7 +16,7 @@ while (operacao != 0) {
 
   switch (operacao) {
     case 1:
-      console.log("Qual número você deseja adicionar a lista?");
+      console.log("Qual número você deseja adicionar à lista?");
       num = parseFloat(prompt("R: "));
       adicionarNumero(num);
       break;
@@ -27,11 +27,9 @@ while (operacao != 0) {
       console.table(numeros);
       break;
     case 4:
-      console.log(`A media é: ${calcularMedia()}`);
+      console.log(`A média é: ${calcularMedia()}`);
       break;
     case 5:
-      // let numeros = [10, 20, 30, 40, 50]
-      // let frutas = ["maça", "banana", "abacaxi"]
       numeros.sort((num1, num2) => num1 - num2);
       console.log(`A mediana é: ${calcularMediana()}`);
       break;
