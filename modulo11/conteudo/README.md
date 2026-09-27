@@ -1,4 +1,4 @@
-# Módulo 11 — Frontend com IA e FlutterFlow
+# Módulo 11: Desenvolvimento NoCode com FlutterFlow.io e Integração com APIs
 
 Este módulo conecta as APIs construídas nos módulos anteriores a uma interface visual. A turma não precisa dominar uma stack frontend inteira agora; o objetivo é criar uma primeira interface funcional, testar requests reais e entender o fluxo entre tela, API e banco de dados.
 

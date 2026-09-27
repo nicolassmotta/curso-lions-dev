@@ -1,18 +1,18 @@
-# Módulo 11 — Lista de Exercícios
+# Módulo 11: Lista de Exercícios
 
-As atividades transformam as APIs dos alunos em interfaces. Frontend não é só visual: precisa enviar requests corretos, receber responses reais, tratar sucesso/erro e respeitar os nomes de campos do backend.
+As atividades transformam as APIs dos alunos em interfaces. O frontend não é só visual: precisa enviar requisições corretas, receber respostas reais, tratar sucesso e erro e respeitar os nomes de campos do backend.
 
-## Listas de código (treino direto)
+## Lista de código
 
-Comece por aqui. São as listas de treino: uns drills de aquecimento, código pra completar, um bug pra achar e um desafio no fim.
+Comece por aqui. A lista tem exercícios de fixação com prompts, chamadas para completar, prompts com problemas para corrigir, um mapa de rotas e telas e um desafio no final.
 
 | Lista | Foco | Arquivo |
 | ----- | ---- | ------- |
 | Frontend com IA | prompts, mapa rota→tela, consumo de API com `fetch` | [codigo_frontend_ia.md](codigo_frontend_ia.md) |
 
-## Listas aplicadas (desafios em contexto)
+## Listas aplicadas
 
-Depois do treino: problemas em prosa, onde o aluno lê o enunciado e escreve o código do zero.
+Atividades descritas em texto, em que o aluno constrói uma interface ligada a uma rota real.
 
 | Lista | Foco | Arquivo |
 | ----- | ---- | ------- |
@@ -21,8 +21,8 @@ Depois do treino: problemas em prosa, onde o aluno lê o enunciado e escreve o c
 
 ## Ordem sugerida
 
-1. Faça a lista de código para treinar prompts e o consumo da API.
-2. Escolha uma API dos módulos 07 a 10 rodando localmente ou no Render.
+1. Resolva a lista de código para praticar prompts e o consumo da API.
+2. Escolha uma API dos módulos 07 a 10 rodando localmente ou no Render. Para o FlutterFlow, a API precisa estar publicada no Render.
 3. Teste a rota no Postman antes de criar a interface.
 4. Construa a interface (IA ou FlutterFlow) e valide a requisição real.
-5. Registre prompt usado, ajustes feitos e erros corrigidos.
+5. Registre o prompt usado, os ajustes feitos e os erros corrigidos.

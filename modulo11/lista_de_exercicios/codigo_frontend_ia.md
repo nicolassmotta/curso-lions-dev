@@ -38,22 +38,22 @@
 # Lista Prática: Frontend com IA
 
 **Turma:** LionsDev  
-**Tópicos:** transformar rotas da API em telas, escrever bons prompts para IA (web, termin/editor e plataformas visuais como FlutterFlow), pedir correções e testar a tela contra o backend.
+**Tópicos:** transformar rotas da API em telas, escrever bons prompts para IA (web, terminal/editor e plataformas visuais como FlutterFlow), pedir correções e testar a tela contra o backend.
 
-> Aqui o "código" é o prompt e a ligação com a API. Cada exercício pede algo concreto: um prompt bem escrito, um mapa de qual rota alimenta qual tela, ou o teste da tela funcionando.
+> Nesta lista, o "código" é o prompt e a integração com a API. Cada exercício pede uma entrega concreta: um prompt bem escrito, um mapa de qual rota alimenta qual tela ou o teste da tela funcionando.
 
 ---
 
-## Parte 0 — Treino rápido (aquecimento)
+## Parte 0: Exercícios de fixação
 
-Escreva um prompt curto e específico para cada pedido. Sempre diga o objetivo, os dados e o estilo.
+Escreva um prompt curto e específico para cada pedido. Informe sempre o objetivo, os dados e o estilo.
 
 1. Uma tela de listagem que consome `GET /produtos` e mostra os produtos em cards.
 2. Um formulário de cadastro que envia `POST /produtos` com `nome` e `preco`.
 3. Uma tela de login que envia `POST /login` e guarda o token retornado.
 4. Um botão de deletar em cada item que chama `DELETE /produtos/:id`.
 5. Uma tela de detalhe que consome `GET /produtos/:id`.
-6. Aplicar as cores da marca (preto, branco e laranja) numa tela existente.
+6. Aplicar as cores da marca (preto, branco e laranja) em uma tela existente.
 7. Mostrar uma mensagem de erro quando a API responde status 400.
 8. Adicionar um loading enquanto a requisição está em andamento.
 9. Deixar a tela responsiva (celular e desktop).
@@ -61,7 +61,7 @@ Escreva um prompt curto e específico para cada pedido. Sempre diga o objetivo, 
 
 ---
 
-## Parte 1 — Complete o prompt / a chamada
+## Parte 1: Complete o prompt e a chamada
 
 ### 1. Complete o prompt
 Este prompt é vago demais. Complete os campos entre `[ ]` para ele virar específico.
@@ -88,7 +88,7 @@ async function carregarProdutos() {
 Complete o cabeçalho que envia o token para uma rota protegida.
 
 ```js
-await fetch("/produtos", {
+await fetch("http://localhost:3000/produtos", {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
@@ -100,7 +100,7 @@ await fetch("/produtos", {
 
 ---
 
-## Parte 2 — Ache o problema (no prompt)
+## Parte 2: Ache o problema no prompt
 
 ### 4. Prompt vago
 A IA gerou uma tela genérica e errada. Reescreva o prompt abaixo deixando-o específico (rota, campos, ação, estilo).
@@ -118,7 +118,7 @@ Este prompt não diz de onde vêm os dados nem o formato. Aponte o que falta e c
 
 ---
 
-## Parte 3 — Prever o resultado
+## Parte 3: Mapeie rotas e telas
 
 ### 6. Rota → Tela
 Para cada rota da sua API, descreva que tela faz sentido e quais elementos ela precisa.
@@ -132,7 +132,7 @@ Para cada rota da sua API, descreva que tela faz sentido e quais elementos ela p
 
 ---
 
-## Parte 4 — Construa
+## Parte 4: Construa
 
 ### 7. Frontend da sua API (Desafio)
 Pegue uma API sua (módulos 07–10) e gere um frontend funcional usando IA, seguindo o fluxo do módulo:
@@ -141,14 +141,14 @@ Pegue uma API sua (módulos 07–10) e gere um frontend funcional usando IA, seg
 2. Para cada rota, defina a tela correspondente (mapa rota→tela).
 3. Escreva os prompts de cada tela (listagem, cadastro, detalhe, login).
 4. Gere as telas (IA web, editor com IA ou FlutterFlow, escolha um método).
-5. Conecte o frontend à API rodando (local ou no Render).
+5. Conecte o frontend à API rodando (local ou no Render). Se o navegador bloquear a requisição com erro de CORS, habilite o CORS no backend (`npm install cors` e `app.use(cors())`).
 6. Teste: cadastrar, listar, editar e deletar de ponta a ponta.
 
 Entregue: o mapa rota→tela, os prompts usados e um print de cada tela funcionando com dados reais da API.
 
 ---
 
-> **Dica:** a IA acerta o frontend na medida em que o pedido é específico. Um bom prompt diz qual tela você quer, de qual rota vêm os dados e quais campos, o que cada botão faz, e o estilo. Quanto mais vago o pedido, mais genérica e errada vem a tela.
+> **Dica:** quanto mais específico o pedido, mais próximo do esperado fica o frontend gerado. Um bom prompt informa a tela desejada, a rota e os campos de onde vêm os dados, a ação de cada botão e o estilo. Pedidos vagos geram telas genéricas, com rotas e campos inventados.
 
 ---
 

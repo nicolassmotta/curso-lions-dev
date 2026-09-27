@@ -66,7 +66,9 @@ Exemplo do JSON retornado:
 Campos que quero exibir na tela:
 ```
 
-Teste a rota no Postman antes de configurar no FlutterFlow.
+Teste a rota no Postman antes de configurá-la no FlutterFlow.
+
+> **Importante:** o FlutterFlow roda na nuvem e não acessa o `localhost` da sua máquina. Use a URL pública da API publicada no Render (Módulo 10).
 
 ## 2. Criar a tela
 
@@ -106,7 +108,7 @@ Na aba de teste:
 1. Clique em `Test API Call`.
 2. Confirme status `200`.
 3. Confira o JSON.
-4. Verifique se a resposta é uma lista direta ou se a lista vem dentro de uma propriedade.
+4. Verifique se a resposta é uma lista direta ou se a lista vem dentro de uma propriedade. Essa diferença define o caminho usado para acessar a lista (JSON Path): `$` para a lista direta e `$.tarefas` para a lista dentro da propriedade `tarefas`.
 
 Exemplo de lista direta:
 
@@ -178,7 +180,7 @@ Entregue:
 
 ## 9. Critérios de aceite
 
-- A rota foi testada antes no FlutterFlow.
+- A rota foi testada no Postman antes de ser configurada no FlutterFlow.
 - A resposta retorna dados reais.
 - A tela usa Dynamic Children ou estrutura equivalente para repetir itens.
 - Os textos exibem campos vindos da API.

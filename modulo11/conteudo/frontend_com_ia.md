@@ -195,7 +195,7 @@ Campos:
 
 Integração com API:
 - Método: POST
-- URL: http://localhost:3000/api/agendamentos
+- URL: https://sua-api.onrender.com/api/agendamentos
 - Body JSON: nomePet, especie, nomeDono, telefoneDono, servico, data
 - Mostrar mensagem de sucesso retornada pela API.
 - Mostrar erro caso algum campo esteja faltando.
