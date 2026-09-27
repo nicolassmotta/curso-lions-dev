@@ -61,7 +61,7 @@ O programa deve:
 
 "Fazer um sistema para uma clínica" pode significar muita coisa: prontuário, receitas, convênios, pagamentos, agenda de vários médicos...
 
-Por isso a gente define antes o que o sistema faz e o que ele não faz. Assim você sabe quando terminou e o que precisa testar.
+Por isso, defina antes o que o sistema faz e o que ele não faz. Assim você sabe quando terminou e o que precisa testar.
 
 ### 3. Escopo — Qual Sistema Vamos Criar?
 

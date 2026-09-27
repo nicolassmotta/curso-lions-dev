@@ -68,6 +68,8 @@ while (op != 7) {
       num = Number(prompt("Digite o número para dividir: "));
       if (isNaN(num)) {
         console.log("Da próxima vez digite um número correto!");
+      } else if (num === 0) {
+        console.log("Não é possível dividir por zero!");
       } else {
         resultado = dividir(resultado, num);
         console.log("Resultado: " + resultado);
@@ -75,7 +77,7 @@ while (op != 7) {
       break;
 
     case 5:
-      num = Number(prompt("Digite a porcentagem: "));
+      num = Number(prompt("Digite o valor para saber quantos % ele representa do resultado atual: "));
       if (isNaN(num)) {
         console.log("Da próxima vez digite um número correto!");
       } else {
