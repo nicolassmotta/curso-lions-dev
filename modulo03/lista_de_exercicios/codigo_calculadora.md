@@ -44,9 +44,9 @@
 
 ---
 
-## Parte 0 — Treino rápido (aquecimento)
+## Parte 0: Exercícios de fixação
 
-Comece pelas peças soltas: uma função aqui, uma validação ali.
+Itens curtos para praticar cada peça da calculadora separadamente: funções, validação, `switch` e laço.
 
 1. Escreva `somar(a, b)` que retorna `a + b`.
 2. Escreva `dividir(a, b)` que retorna `a / b`.
@@ -61,7 +61,7 @@ Comece pelas peças soltas: uma função aqui, uma validação ali.
 
 ---
 
-## Parte 1 — Complete o código
+## Parte 1: Complete o código
 
 ### 1. Validador de Número
 Complete a validação seguindo o fluxo: capturar → converter → testar.
@@ -101,7 +101,7 @@ console.log(calcular("*", 3, 4)); // 12
 
 ---
 
-## Parte 2 — Ache o bug
+## Parte 2: Ache o bug
 
 ### 3. Divisão perigosa
 Esta função retorna `Infinity` quando o segundo número é zero, em vez de avisar o usuário. Conserte.
@@ -114,7 +114,7 @@ console.log(dividir(10, 0)); // Esperado: "Não é possível dividir por zero"
 ```
 
 ### 4. Menu que nunca sai
-Este `while` deveria encerrar quando o usuário digita `0`, mas roda pra sempre. Encontre o erro.
+Este `while` deveria encerrar quando o usuário digita `0`, mas nunca termina. Encontre o erro.
 
 ```js
 let opcao = prompt("Opção (0 para sair): ");
@@ -127,7 +127,7 @@ console.log("Programa encerrado.");
 
 ---
 
-## Parte 3 — Prever a saída
+## Parte 3: Prever a saída
 
 ### 5. O que acontece?
 Sem rodar, diga a saída de cada linha.
@@ -142,7 +142,7 @@ console.log(Number("3.14") + 1);          // (e)
 
 ---
 
-## Parte 4 — Escreva do zero
+## Parte 4: Escreva do zero
 
 ### 6. Calculadora Completa (Desafio)
 Junte tudo. Escreva uma calculadora de terminal que:
