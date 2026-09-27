@@ -1,6 +1,6 @@
 import express from "express";
 const app = express();
-const porta = 3000; // 'port' -> 'porta'
+const porta = 3000;
 
 app.use(express.json());
 

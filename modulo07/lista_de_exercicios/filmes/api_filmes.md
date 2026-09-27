@@ -37,7 +37,7 @@
 
 # Exercício Prático: API de Catálogo de Filmes
 
-**Turma:** LionsDev
+**Turma:** LionsDev  
 **Tópicos:** APIs REST com Express.js, CRUD, JSON, arrays de objetos, parâmetros de rota, query params, validação de dados e status codes HTTP.
 
 ---

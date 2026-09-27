@@ -37,7 +37,7 @@
 
 # Exercício Prático: API de Gestão de Estudantes
 
-**Turma:** LionsDev
+**Turma:** LionsDev  
 **Tópicos:** APIs REST com Express.js, JSON, CRUD, parâmetros de rota, query params, validação de dados e status codes HTTP.
 
 ---
@@ -80,7 +80,7 @@ Cada estudante deve seguir esta estrutura:
 
 ### 3.1 Criar estudante (CREATE)
 
-Crie a rota `POST /estudantes/criar`.
+Crie a rota `POST /estudantes`.
 
 O corpo da requisição deve receber:
 
