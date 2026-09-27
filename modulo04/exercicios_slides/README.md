@@ -1,8 +1,8 @@
 # Módulo 4: Solução da Atividade - Exercitando o Git em Dupla
 
-Este documento descreve o fluxo de trabalho esperado para a "Atividade: Exercitando o Git em Dupla". Como esta atividade é um processo de colaboração, não há um "arquivo de código" único como resposta.
+Este documento descreve o fluxo de trabalho esperado para a "Atividade: Exercitando o Git em Dupla". Como a atividade é feita em colaboração, não há um único arquivo de código como resposta.
 
-Abaixo está um cenário de exemplo de como a Dupla (Aluno A e Aluno B) resolveria o exercício.
+A seguir, um cenário de exemplo mostra como uma dupla (Aluno A e Aluno B) resolve o exercício.
 
 -----
 
@@ -14,22 +14,23 @@ Abaixo está um cenário de exemplo de como a Dupla (Aluno A e Aluno B) resolver
 
 -----
 
-### Passo 1: Configuração Inicial (Aluno A) 
+### Passo 1: Configuração Inicial (Aluno A)
 
 1.  **Aluno A:** Cria um novo repositório no GitHub chamado `cursolionsdev-dupla`.
-2.  **Aluno A:** No repositório, vai em `Settings` \> `Collaborators`.
+2.  **Aluno A:** No repositório, vai em `Settings` > `Collaborators`.
 3.  **Aluno A:** Adiciona o nome de usuário do `Aluno B` como colaborador.
 4.  **Aluno A:** Clona o repositório para sua máquina local:
     ```bash
     git clone https://github.com/AlunoA/cursolionsdev-dupla.git
     cd cursolionsdev-dupla
     ```
-5.  **Aluno A:** Cria um arquivo `README.md` inicial.
+5.  **Aluno A:** Cria um arquivo `README.md` inicial e envia o primeiro commit. O `git branch -M main` garante que a branch local se chame `main`, mesmo que o Git tenha criado `master` ao clonar o repositório vazio.
     ```bash
     echo "# Projeto da Dupla - Módulo 4" > README.md
     git add README.md
     git commit -m "Commit inicial"
-    git push origin main
+    git branch -M main
+    git push -u origin main
     ```
 
 ### Passo 2: Configuração Inicial (Aluno B)
@@ -56,7 +57,7 @@ Os dois alunos agora trabalham em paralelo, cada um em sua própria branch.
     ```bash
     git checkout -b exercicio-media-notas
     ```
-3.  Adiciona o arquivo do exercício (ex: `media_notas.js`) na pasta.
+3.  Adiciona o arquivo do exercício (ex.: `media_notas.js`) na pasta.
 4.  Faz o commit e o push da sua branch:
     ```bash
     git add media_notas.js
@@ -75,7 +76,7 @@ Os dois alunos agora trabalham em paralelo, cada um em sua própria branch.
     ```bash
     git checkout -b exercicio-par-impar
     ```
-3.  Adiciona o arquivo do exercício (ex: `par_impar.js`) na pasta.
+3.  Adiciona o arquivo do exercício (ex.: `par_impar.js`) na pasta.
 4.  Faz o commit e o push da sua branch:
     ```bash
     git add par_impar.js
@@ -88,13 +89,13 @@ Os dois alunos agora trabalham em paralelo, cada um em sua própria branch.
 1.  **Ambos os Alunos:** Vão ao repositório no GitHub. O GitHub mostrará um aviso para criar um Pull Request (PR) para as branches que acabaram de ser enviadas.
 2.  **Aluno A:** Cria um PR da branch `exercicio-media-notas` para a branch `main`. Na descrição, explica o que fez e marca o `Aluno B` como revisor.
 3.  **Aluno B:** Cria um PR da branch `exercicio-par-impar` para a branch `main`. Na descrição, explica o que fez e marca o `Aluno A` como revisor.
-4.  **Aluno A (Revisão):** Abre o PR do `Aluno B`. Ele revisa o código (`par_impar.js`), deixa um comentário (ex: "Código limpo\!") e clica em "Approve" (Aprovar).
-5.  **Aluno B (Revisão):** Abre o PR do `Aluno A`. Ele revisa o código (`media_notas.js`), aprova.
+4.  **Aluno A (Revisão):** Abre o PR do `Aluno B`. Revisa o código (`par_impar.js`), deixa um comentário (ex.: "Código limpo!") e clica em "Approve" (Aprovar).
+5.  **Aluno B (Revisão):** Abre o PR do `Aluno A`. Revisa o código (`media_notas.js`) e aprova o PR.
 
-### Passo 5: Merge 
+### Passo 5: Merge
 
-1.  **Aluno A:** Após ter seu PR aprovado, ele clica no botão "Merge pull request" no GitHub.
-2.  **Aluno B:** Após ter seu PR aprovado, ele clica no botão "Merge pull request" no GitHub.
+1.  **Aluno A:** Com o PR aprovado, clica no botão "Merge pull request" no GitHub.
+2.  **Aluno B:** Com o PR aprovado, clica no botão "Merge pull request" no GitHub.
 
 ### Passo 6: Conclusão
 
@@ -105,4 +106,4 @@ git checkout main
 git pull origin main
 ```
 
-Agora, a pasta local de ambos os alunos contém os arquivos `README.md`, `media_notas.js` e `par_impar.js`. O exercício foi concluído com sucesso.
+Agora, a pasta local de ambos os alunos contém os arquivos `README.md`, `media_notas.js` e `par_impar.js`. Com isso, a atividade está concluída.
