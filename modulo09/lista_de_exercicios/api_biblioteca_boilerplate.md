@@ -120,7 +120,7 @@ Antes de começar, pegue seu token e envie `Authorization: Bearer SEU_TOKEN` em 
 > usuario:  { type: mongoose.Schema.Types.ObjectId, ref: "Usuario",  required: true },
 > ```
 >
-> Guardando o `_id`, mais tarde dá pra usar `.populate("material")` para trazer os dados completos do material junto (veja o bônus).
+> Guardando o `_id`, mais tarde é possível usar `.populate("material")` para trazer os dados completos do material junto (veja o bônus).
 
 ---
 

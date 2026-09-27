@@ -164,7 +164,7 @@ Crie `src/services/agendamento.service.js`. Aqui fica a regra do valor automáti
 > if (valor === undefined) throw criarErro("Espécie ou serviço inválido.", 400);
 > ```
 >
-> Depois, monte o objeto com `valor` calculado e `usuario: idDoUsuario` e mandar pro repository.
+> Depois, monte o objeto com `valor` calculado e `usuario: idDoUsuario` e envie-o para o repository.
 
 Funções:
 
