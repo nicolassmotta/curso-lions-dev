@@ -54,7 +54,7 @@ Para simular um ambiente real de desenvolvimento, este projeto será construído
 
 ## 2. Estrutura do Projeto (Base de Dados)
 
-Para começar, crie os arquivos de dados base para persistir as informações durante a execução.
+Para começar, crie os arquivos de dados base. As informações ficam armazenadas em memória apenas durante a execução do programa.
 
 ### 2.1 Baralhos (`baralho.js`)
 ```javascript
@@ -100,6 +100,8 @@ Desenvolva um sistema interativo que permita gerenciar os flashcards e seus resp
   * **Regra Importante:** Ao remover um baralho, todos os flashcards vinculados a ele também devem ser excluídos.
 * **Remover Flashcard:** Remover um flashcard individual pelo seu `id`.
 
+> **Atenção:** os arrays são declarados com `const` e importados em outros arquivos, portanto não podem ser reatribuídos com `array = array.filter(...)`. Para remover itens, localize a posição com `.findIndex()` e use `.splice(indice, 1)`, que altera o próprio array.
+
 ### 3.5 Busca
 * **Buscar por Pergunta:** Localizar flashcards que contenham uma determinada pergunta.
 
@@ -108,7 +110,7 @@ Desenvolva um sistema interativo que permita gerenciar os flashcards e seus resp
 ## 4. Tarefas do Exercício
 
 1. **Configuração e Repositório:** O dono do projeto cria o repositório, o arquivo `README.md` com os nomes dos autores e convida os colaboradores.
-2. **Setup do Projeto:** Configure o ambiente Node.js e crie os arquivos necessários seguindo a modularização (ex: `package.json`, pastas para as funções).
+2. **Setup do Projeto:** Configure o ambiente Node.js e crie os arquivos necessários seguindo a modularização (ex.: `package.json`, pastas para as funções).
 3. **Implementação Dividida:** Dividam o desenvolvimento das funções de CRUD e Busca entre os membros da equipe em arquivos separados. Usem commits regulares para salvar o progresso de cada um.
 4. **Menu Interativo:** Crie um arquivo `index.js` com um menu (`prompt-sync`) que permita ao usuário navegar por todas as funcionalidades.
 5. **Testes e Integração:** Juntos, validem cada operação e garantam que o código de todos funciona de forma integrada (especialmente a exclusão em cascata de flashcards ao deletar um baralho).

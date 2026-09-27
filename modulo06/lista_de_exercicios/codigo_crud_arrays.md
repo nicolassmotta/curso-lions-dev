@@ -38,15 +38,15 @@
 # Lista de Código: CRUD em Arrays
 
 **Turma:** LionsDev  
-**Tópicos:** array de objetos, `.push()` (Create), `.find()` e `.filter()` (Read), `.findIndex()` (Update) e `.filter()` (Delete), o CRUD completo em memória.
+**Tópicos:** array de objetos, `.push()` (Create), `.find()` e `.filter()` (Read), `.findIndex()` (Update) e `.filter()` (Delete): o CRUD completo em memória.
 
 > Nesta lista você implementa as funções de um CRUD sobre um array de objetos. Comece sempre com `let itens = []` e um contador de id. Cada exercício descreve o comportamento esperado.
 
 ---
 
-## Parte 0 — Treino rápido (aquecimento)
+## Parte 0: Exercícios de fixação
 
-Considere `const produtos = [{ id: 1, nome: "Mouse" }, { id: 2, nome: "Teclado" }]`.
+Itens curtos para praticar cada operação isolada. Considere `const produtos = [{ id: 1, nome: "Mouse" }, { id: 2, nome: "Teclado" }]`.
 
 1. Adicione `{ id: 3, nome: "Monitor" }` ao array com `.push()`.
 2. Imprima quantos produtos existem (`.length`).
@@ -61,7 +61,7 @@ Considere `const produtos = [{ id: 1, nome: "Mouse" }, { id: 2, nome: "Teclado" 
 
 ---
 
-## Parte 1 — Complete o código
+## Parte 1: Complete o código
 
 ### 1. Create
 Complete a função que cria um item com id automático.
@@ -84,7 +84,7 @@ Complete a busca.
 
 ```js
 function buscarPorId(id) {
-  // TODO: retorne a tarefa cujo id bate, usando .find()
+  // TODO: retorne a tarefa com o id informado, usando .find()
 }
 console.log(buscarPorId(1)); // { id: 1, titulo: 'Estudar CRUD', ... }
 ```
@@ -103,7 +103,7 @@ function atualizarTarefa(id, novoTitulo) {
 
 ---
 
-## Parte 2 — Ache o bug
+## Parte 2: Ache o bug
 
 ### 4. Delete que não deleta
 Deveria remover a tarefa, mas o array continua igual. Encontre o erro.
@@ -117,7 +117,7 @@ function deletarTarefa(id) {
 ```
 
 ### 5. Comparação errada
-Este `find` nunca acha o item, mesmo passando um id que existe. Por quê?
+Este `find` sempre devolve o primeiro item do array, qualquer que seja o `id` passado. Por quê? Que efeito colateral ele causa no array?
 
 ```js
 const item = tarefas.find((t) => t.id = id);  // BUG sutil
@@ -125,7 +125,7 @@ const item = tarefas.find((t) => t.id = id);  // BUG sutil
 
 ---
 
-## Parte 3 — Prever a saída
+## Parte 3: Prever a saída
 
 ### 6. O que sai?
 Sem rodar, diga a saída.
@@ -141,7 +141,7 @@ console.log(lista.find((x) => x.id === 99));          // (d)
 
 ---
 
-## Parte 4 — Escreva do zero
+## Parte 4: Escreva do zero
 
 ### 7. CRUD de Contatos (Desafio)
 Implemente um CRUD completo em memória para uma agenda de contatos. Cada contato: `{ id, nome, telefone }`. Escreva as funções:
@@ -157,7 +157,7 @@ Ao final, teste chamando as funções em sequência e imprimindo o array a cada 
 
 ---
 
-> **Dica:** o CRUD em array usa quatro métodos. `.push()` para criar. `.find()` para achar um, `.filter()` para achar vários. `.findIndex()` para achar a posição e alterar. E `arr = arr.filter(...)` para apagar, reatribuindo o array sem o item removido.
+> **Dica:** o CRUD em array usa quatro métodos. `.push()` para criar. `.find()` para achar um, `.filter()` para achar vários. `.findIndex()` para achar a posição e alterar. Para apagar, use `arr = arr.filter(...)`, que reatribui o array sem o item removido (a variável precisa ser `let`). Se o array for importado de outro arquivo, a reatribuição não funciona: use `.findIndex()` com `.splice(indice, 1)`, que remove o item do próprio array.
 
 ---
 
