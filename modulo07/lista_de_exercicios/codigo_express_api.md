@@ -44,16 +44,16 @@
 
 ---
 
-## Parte 0 — Treino rápido (aquecimento)
+## Parte 0: Exercícios de fixação
 
-Uma rota por vez. Escreva, suba o servidor, teste.
+Itens curtos para praticar a configuração do servidor e das rotas. Teste cada rota antes de passar para o próximo item.
 
-1. Crie o app Express e faça ele escutar na porta `3000`.
+1. Crie o app Express e coloque-o para escutar na porta `3000`.
 2. Ative o middleware que lê JSON do corpo da requisição (`express.json()`).
 3. Crie uma rota `GET /` que responde `"API no ar!"`.
 4. Crie uma rota `GET /ping` que responde o JSON `{ mensagem: "pong" }`.
-5. Numa rota `POST`, leia `req.body` e imprima no console.
-6. Numa rota `GET /produtos/:id`, leia e imprima `req.params.id`.
+5. Em uma rota `POST`, leia `req.body` e imprima no console.
+6. Em uma rota `GET /produtos/:id`, leia e imprima `req.params.id`.
 7. Responda com status 201 e um objeto (`res.status(201).send(...)`).
 8. Responda com status 404 e a mensagem `{ erro: "Não encontrado" }`.
 9. Responda com status 400 quando faltar um campo obrigatório.
@@ -61,7 +61,7 @@ Uma rota por vez. Escreva, suba o servidor, teste.
 
 ---
 
-## Parte 1 — Complete o código
+## Parte 1: Complete o código
 
 ### 1. Rota de listagem
 Complete a rota que devolve todos os produtos.
@@ -108,7 +108,7 @@ app.get("/produtos/:id", (req, res) => {
 
 ---
 
-## Parte 2 — Ache o bug
+## Parte 2: Ache o bug
 
 ### 4. req.body vazio
 No `POST`, `req.body` sempre chega `undefined`. Falta uma linha na configuração do app. Qual?
@@ -130,7 +130,7 @@ Esta rota responde `200` mesmo quando não acha o item, e ainda tenta responder 
 app.get("/itens/:id", (req, res) => {
   const item = itens.find((i) => i.id === Number(req.params.id));
   if (!item) {
-    res.send({ erro: "não achou" }); // BUG: falta status e falta return
+    res.send({ erro: "não encontrado" }); // BUG: falta status e falta return
   }
   res.send(item);
 });
@@ -138,7 +138,7 @@ app.get("/itens/:id", (req, res) => {
 
 ---
 
-## Parte 3 — Prever o comportamento
+## Parte 3: Prever o comportamento
 
 ### 6. Qual a resposta?
 Dada a rota abaixo e o array `usuarios = [{ id: 1, nome: "Ana" }]`, diga status e corpo da resposta para cada requisição.
@@ -158,7 +158,7 @@ app.get("/usuarios/:id", (req, res) => {
 
 ---
 
-## Parte 4 — Escreva do zero
+## Parte 4: Escreva do zero
 
 ### 7. API de Tarefas (Desafio)
 Monte uma API REST completa em memória (array `tarefas`, cada uma `{ id, titulo, concluida }`), com as rotas:
@@ -175,7 +175,7 @@ Teste cada rota no seu cliente HTTP e confira os status codes.
 
 ---
 
-> **Dica:** sem `express.json()` o `req.body` vem `undefined`, então ele é obrigatório pra ler o corpo da requisição. O `req.params` chega sempre como string, converta o id com `Number()`. E use `return res.status(...)...` pra não cair no erro de responder duas vezes na mesma requisição.
+> **Dica:** sem `express.json()`, o `req.body` chega `undefined`; o middleware é obrigatório para ler o corpo da requisição. O `req.params` sempre chega como string, então converta o id com `Number()`. Use `return res.status(...)` nas respostas de erro para evitar responder duas vezes à mesma requisição.
 
 ---
 

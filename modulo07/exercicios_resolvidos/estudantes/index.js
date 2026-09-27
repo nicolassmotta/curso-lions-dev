@@ -6,24 +6,17 @@ const porta = 3000;
 
 app.use(express.json());
 
-let id = 0;
+let proximoId = estudantes.length + 1;
 
-app.post("/estudantes/criar", (req, res) => {
-
+app.post("/estudantes", (req, res) => {
   const { nome, matricula, curso, ano } = req.body;
 
   if (!nome || !matricula || !curso || !ano) {
     return res.status(400).send({ message: "Todos os campos (nome, matricula, curso, ano) são obrigatórios." });
   }
 
-  if (estudantes.length === 0) {
-    id = 1;
-  } else {
-    id = estudantes[estudantes.length - 1].id + 1;
-  }
-
   const novoEstudante = {
-    id,
+    id: proximoId++,
     nome,
     matricula,
     curso,
@@ -32,22 +25,21 @@ app.post("/estudantes/criar", (req, res) => {
 
   estudantes.push(novoEstudante);
 
-  res.status(201).send( { message: "Estudante criado com sucesso!", estudanteNovo: novoEstudante});
+  res.status(201).send(novoEstudante);
 });
 
-app.get(("/estudantes"), (req, res) => {
-  res.status(200).send({ message: "Estudantes listados com sucesso!", alunos: estudantes} );
+app.get("/estudantes", (req, res) => {
+  res.status(200).send(estudantes);
 });
 
-app.put(("/estudantes/:id"), (req, res) => { 
-  
+app.put("/estudantes/:id", (req, res) => {
   const { nome, matricula, curso, ano } = req.body;
   const id = parseInt(req.params.id);
 
   const index = estudantes.findIndex((estudante) => estudante.id === id);
 
-  if(index === -1){
-    return res.status(404).send( { error: "Estudante não encontrado!"} );
+  if (index === -1) {
+    return res.status(404).send({ error: "Estudante não encontrado!" });
   }
 
   estudantes[index].nome = nome || estudantes[index].nome;
@@ -55,45 +47,40 @@ app.put(("/estudantes/:id"), (req, res) => {
   estudantes[index].curso = curso || estudantes[index].curso;
   estudantes[index].ano = ano || estudantes[index].ano;
 
-  res.status(200).send( { message: "Estudante atualizado com sucesso!", estudanteAtualizado: estudantes[index] });
+  res.status(200).send(estudantes[index]);
 });
 
-app.delete(("/estudantes/:id"), (req, res) => {
-  const id  = parseInt(req.params.id);
+app.delete("/estudantes/:id", (req, res) => {
+  const id = parseInt(req.params.id);
 
   const index = estudantes.findIndex((estudante) => estudante.id === id);
 
-  if(index === -1){
-    res.status(404).send( {message: "Estudante não encontrado!"} );
+  if (index === -1) {
+    return res.status(404).send({ message: "Estudante não encontrado!" });
   }
 
-  const data = estudantes[index];
   estudantes.splice(index, 1);
 
-  res.status(200).send( {message: "Estudante removido com sucesso!", estudanteRemovido: data} );
+  res.status(200).send({ message: "Estudante removido com sucesso!" });
 });
 
-app.get(("/estudantes/busca"), (req, res) =>{
+app.get("/estudantes/busca", (req, res) => {
   const { nome, matricula, curso } = req.query;
+  let resultados = estudantes;
 
   if (nome) {
-    const resultadoBusca = estudantes.filter((estudante) => estudante.nome.toLowerCase().includes(nome.toLowerCase()));
-    return res.status(200).send({message: "Busca realizada com sucesso!", estudantesEncontrados: resultadoBusca});
+    resultados = resultados.filter((estudante) => estudante.nome.toLowerCase().includes(nome.toLowerCase()));
   }
-
   if (matricula) {
-    const resultadoBusca = estudantes.filter((estudante) => estudante.matricula.toLowerCase().includes(matricula.toLowerCase()));
-    return res.status(200).send({message: "Busca realizada com sucesso!", estudantesEncontrados: resultadoBusca});
+    resultados = resultados.filter((estudante) => estudante.matricula.includes(matricula));
   }
-
   if (curso) {
-    const resultadoBusca = estudantes.filter((estudante) => estudante.curso.toLowerCase().includes(curso.toLowerCase()));
-    return res.status(200).send({message: "Busca realizada com sucesso!", estudantesEncontrados: resultadoBusca});
+    resultados = resultados.filter((estudante) => estudante.curso.toLowerCase().includes(curso.toLowerCase()));
   }
 
-  res.status(400).send({message: "O termo de busca é obrigatório!"});
-}); 
+  res.status(200).send(resultados);
+});
 
-app.listen((porta), () => {
+app.listen(porta, () => {
   console.log(`Servidor rodando na porta: ${porta}`);
 });

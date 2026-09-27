@@ -37,7 +37,7 @@
 
 # Exercício Prático: API de Catálogo de Livros
 
-**Turma:** LionsDev
+**Turma:** LionsDev  
 **Tópicos:** APIs REST com Express.js, CRUD, JSON, arrays de objetos, parâmetros de rota, filtros por query params e status codes HTTP.
 
 ---

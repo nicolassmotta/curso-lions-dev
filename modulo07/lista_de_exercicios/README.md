@@ -1,18 +1,18 @@
-# Módulo 07 — Lista de Exercícios
+# Módulo 07: Lista de Exercícios
 
 APIs REST com Express: rotas, `req`/`res`, status codes e um CRUD completo com dados em memória.
 
-## Listas de código (treino direto)
+## Lista de código
 
-Comece por aqui. São as listas de treino: uns drills de aquecimento, código pra completar, um bug pra achar e um desafio no fim.
+Comece por aqui. A lista tem exercícios de fixação, código para completar, bugs para corrigir, uma previsão de comportamento e um desafio no final.
 
 | Lista | Foco | Arquivo |
 | ----- | ---- | ------- |
 | API com Express | rotas GET/POST/PUT/DELETE, `req.body`/`req.params`, status | [codigo_express_api.md](codigo_express_api.md) |
 
-## Listas aplicadas (desafios em contexto)
+## Listas aplicadas
 
-Depois do treino: problemas em prosa, onde o aluno lê o enunciado e escreve o código do zero.
+Projetos descritos em texto, em que o aluno interpreta o enunciado e escreve o código do zero.
 
 | Lista | Foco | Arquivo |
 | ----- | ---- | ------- |
@@ -22,5 +22,5 @@ Depois do treino: problemas em prosa, onde o aluno lê o enunciado e escreve o c
 
 ## Ordem sugerida
 
-1. Faça a lista de código para dominar rotas e status codes.
-2. Depois escolha uma das APIs aplicadas e construa o CRUD completo.
+1. Resolva a lista de código para praticar rotas e status codes.
+2. Depois, escolha uma das APIs aplicadas e construa o CRUD completo.
