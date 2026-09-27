@@ -38,15 +38,15 @@
 # Lista de Código: Autenticação (bcrypt + JWT) e MVC
 
 **Turma:** LionsDev  
-**Tópicos:** hash de senha com `bcryptjs` (`bcrypt.hash`, `bcrypt.compare`), tokens com `jsonwebtoken` (`jwt.sign`, `jwt.verify`), middleware de proteção (`Authorization: Bearer`) e organização em camadas (MVC).
+**Tópicos:** hash de senha com `bcryptjs` (`bcrypt.hash`, `bcrypt.compare`), tokens com `jsonwebtoken` (`jwt.sign`, `jwt.verify`), middleware de proteção (`Authorization: Bearer`) e organização em camadas (model, repository, service, controller e routes).
 
-> Nesta lista você escreve a parte de segurança de uma API. Instale com `npm install bcryptjs jsonwebtoken`. Nunca salve nem devolva a senha em texto puro, só o hash.
+> Nesta lista você escreve a parte de segurança de uma API. Instale as dependências com `npm install bcryptjs jsonwebtoken`. Nunca salve nem devolva a senha em texto puro; o banco guarda apenas o hash.
 
 ---
 
-## Parte 0 — Treino rápido (aquecimento)
+## Parte 0: Exercícios de fixação
 
-Uma peça por vez: hash, token, middleware, camadas.
+Itens curtos para praticar hash, token e middleware separadamente. Nos itens 4 e 5, o segredo `"segredo"` escrito no código serve apenas para teste; no projeto, use `process.env.JWT_SECRET` (item 10).
 
 1. Importe o `bcrypt` de `"bcryptjs"` e o `jwt` de `"jsonwebtoken"`.
 2. Gere o hash de uma senha: `await bcrypt.hash("123456", 10)`.
@@ -61,7 +61,7 @@ Uma peça por vez: hash, token, middleware, camadas.
 
 ---
 
-## Parte 1 — Complete o código
+## Parte 1: Complete o código
 
 ### 1. Cadastro com hash
 Complete o cadastro, salvando o hash e nunca a senha pura.
@@ -110,10 +110,10 @@ function autenticar(req, res, next) {
 
 ---
 
-## Parte 2 — Ache o bug
+## Parte 2: Ache o bug
 
 ### 4. Senha vazando
-Este cadastro salva a senha em texto puro e ainda devolve ela na resposta. Aponte os dois problemas de segurança e conserte.
+Este cadastro salva a senha em texto puro e ainda a devolve na resposta. Aponte os dois problemas de segurança e conserte.
 
 ```js
 async function cadastrar(nome, senha) {
@@ -123,7 +123,7 @@ async function cadastrar(nome, senha) {
 ```
 
 ### 5. Comparação errada
-O login nunca deixa ninguém entrar, mesmo com a senha certa. Encontre o erro.
+O login deixa qualquer pessoa entrar, mesmo com a senha errada. Encontre o erro e explique por que o `if` sempre é verdadeiro.
 
 ```js
 const confere = bcrypt.compare(senhaDigitada, usuario.senhaHash); // BUG
@@ -132,7 +132,7 @@ if (confere) { /* ... */ }
 
 ---
 
-## Parte 3 — Prever o comportamento
+## Parte 3: Prever o comportamento
 
 ### 6. Passa ou barra?
 Para cada requisição no middleware `autenticar` acima, diga o status retornado (ou se chama `next()`).
@@ -146,21 +146,22 @@ Para cada requisição no middleware `autenticar` acima, diga o status retornado
 
 ---
 
-## Parte 4 — Escreva do zero
+## Parte 4: Escreva do zero
 
-### 7. Separe em MVC (Desafio)
-Você recebeu uma rota de cadastro com tudo misturado num arquivo só. Reescreva separando nas camadas do MVC, cada uma no seu arquivo:
+### 7. Separe em camadas (Desafio)
+Você recebeu uma rota de cadastro com todo o código em um único arquivo. Reescreva separando nas camadas usadas no boilerplate, cada uma em seu arquivo:
 
-- `models/usuario.model.js`: o schema/estrutura do usuário.
-- `services/usuario.service.js`: a regra de negócio (gerar hash, criar usuário).
-- `controllers/usuario.controller.js`: pega `req.body`, chama o service, devolve `res`.
+- `models/usuario.model.js`: o schema do usuário.
+- `repositories/usuario.repository.js`: o acesso ao banco (criar e buscar usuário).
+- `services/usuario.service.js`: a regra de negócio (gerar o hash e chamar o repository).
+- `controllers/usuario.controller.js`: lê o `req.body`, chama o service e envia a resposta.
 - `routes/usuario.routes.js`: liga a rota `POST /usuarios` ao controller.
 
 Depois, crie a rota `POST /login` (controller + service) que confere a senha e devolve o token, e proteja uma rota `GET /perfil` com o middleware `autenticar`.
 
 ---
 
-> **Dica:** hash é de mão única. Você nunca "descriptografa" a senha; gera o hash de novo a partir da senha digitada e compara com `bcrypt.compare`. `bcrypt.hash` e `bcrypt.compare` são assíncronos, precisam de `await`. E o segredo do JWT vive no ambiente, nunca no código.
+> **Dica:** o hash é de mão única: a senha nunca é "descriptografada". O `bcrypt.compare` gera o hash da senha digitada com o mesmo salt e compara com o hash salvo. `bcrypt.hash` e `bcrypt.compare` são assíncronos e precisam de `await`; sem ele, o resultado é uma `Promise`, que sempre conta como verdadeira em um `if`. O segredo do JWT fica na variável de ambiente, nunca no código.
 
 ---
 

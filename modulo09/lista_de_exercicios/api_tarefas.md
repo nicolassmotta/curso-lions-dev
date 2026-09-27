@@ -206,7 +206,7 @@ app.use("/api/tarefas", tarefaRoutes);
 2. `GET /api/tarefas?prioridade=alta`: filtra suas tarefas por prioridade.
 3. `GET /api/tarefas/resumo`: em JavaScript, conte quantas tarefas suas estão concluídas e quantas estão pendentes.
 
-> **Como ler um Query Param** (`?concluida=true`): no controller, `req.query.concluida` chega sempre como texto (`"true"`), nunca como booleano. Converta antes de mandar pro service:
+> **Como ler um Query Param** (`?concluida=true`): no controller, `req.query.concluida` chega sempre como texto (`"true"`), nunca como booleano. Converta antes de enviar para o service:
 >
 > ```js
 > // controller
