@@ -27,9 +27,16 @@ Este repositório contém o material de apoio das aulas: conteúdo teórico come
 | 07  | **APIs REST com Express**      | Criação de APIs RESTful com Express.js e dados em memória                                                                |
 | 08  | **Banco de Dados (MongoDB)**   | Integração com MongoDB via Mongoose, modelos, rotas e exemplos de APIs conectadas ao banco                               |
 | 09  | **Autenticação, JWT e MVC**    | Senhas com bcryptjs, autenticação com JWT, boilerplate LionsDev e APIs em camadas                                        |
+| 09B | **Testes, Swagger e Debug**     | Testes automatizados com Vitest e supertest, mocks do repository, documentação com Swagger/OpenAPI e debug com breakpoints |
 | 10  | **Deploy com Render**          | Publicação de APIs no Render, variáveis de ambiente e projeto completo de API Banco Digital                              |
 | 11  | **NoCode com FlutterFlow e Integração com APIs** | Guia prático de frontend com IA, NoCode/LowCode com FlutterFlow, consumo real de APIs, API Calls e listagens dinâmicas |
 | 12  | **Projeto Final e Requisitos** | Simulação cliente-dev, levantamento de requisitos, escopo, entidades, relações, frontend, backend, deploy e apresentação |
+
+---
+
+## 🗒️ Cheat Sheets
+
+Cada módulo tem um resumo de consulta rápida, com os comandos, a sintaxe e as armadilhas da aula, em `moduloXX/conteudo/cheatsheet.md` (e `.pdf`, com duas páginas).
 
 ---
 
@@ -88,7 +95,7 @@ moduloXX/
 
 > Nem todo módulo terá as quatro pastas ao mesmo tempo. Os módulos 11 e 12, por exemplo, concentram materiais em `conteudo/` e `lista_de_exercicios/`, porque são módulos de integração, frontend orientado por IA/NoCode, requisitos e projeto final.
 
-> O repositório também possui a pasta `provas/` com materiais de avaliação.
+> O repositório também possui a pasta `provas/` com materiais de avaliação: `prova01` (Unidade I), `prova02` (Unidade II, Módulos 4 a 7) e `prova03` (Unidade III, Módulos 8 a 10 e 9B). Cada uma traz a lista de revisão e os exercícios resolvidos; a prova e o gabarito ficam fora do Git (`prova/` no `.gitignore`).
 
 ### Convenções de Extensão
 
