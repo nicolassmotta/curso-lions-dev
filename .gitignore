@@ -16,6 +16,9 @@ AGENTS.local.md
 _mantenedor/
 _mantenedor/skills/
 
+# Slides do curso (.pptx e PDFs): ficam só no local, não são publicados
+modulo*/slides/
+
 # Configurações de extensões
 .codex
 .claude/
