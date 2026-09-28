@@ -1,13 +1,35 @@
-// Padrão CommonJS (CJS) - O Tradicional
-// Exportando (soma.js)
-module.exports = soma;
+/*
+ * Comparação lado a lado: CommonJS (CJS) x ES Modules (ESM).
+ *
+ * Este arquivo é só para leitura, NÃO execute com node.
+ * Cada padrão mostra dois arquivos diferentes (soma.js e app.js),
+ * e os dois padrões não podem ser misturados no mesmo arquivo.
+ */
 
-// Importando (app.js)
-const soma = require("./soma");
+/*
+ * Padrão CommonJS (CJS) - O Tradicional
+ *
+ * // soma.js (exportando)
+ * function soma(a, b) {
+ *   return a + b;
+ * }
+ * module.exports = soma;
+ *
+ * // app.js (importando)
+ * const soma = require("./soma");
+ * console.log(soma(2, 3)); // 5
+ */
 
-// Padrão ES Modules (ESM) - O Moderno
-// Exportando (soma.js)
-export default soma;
-
-// Importando (app.js)
-import soma from "./soma.js";
+/*
+ * Padrão ES Modules (ESM) - O Moderno (o que usamos no curso)
+ *
+ * // soma.js (exportando)
+ * function soma(a, b) {
+ *   return a + b;
+ * }
+ * export default soma;
+ *
+ * // app.js (importando)
+ * import soma from "./soma.js"; // no ESM a extensão .js é obrigatória
+ * console.log(soma(2, 3)); // 5
+ */

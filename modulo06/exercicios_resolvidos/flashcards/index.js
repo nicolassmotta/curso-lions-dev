@@ -38,15 +38,15 @@ let executando = true;
 
 while (executando) {
   exibirMenu();
-  const opcao = prompt("Escolha uma opcao: ");
+  const opcao = prompt("Escolha uma opção: ");
 
-  switch (opcao) {    case "1": {
-      const titulo = prompt("Digite o titulo do novo baralho: ");
+  switch (opcao) {
+    case "1": {
+      const titulo = prompt("Digite o título do novo baralho: ");
       const novoBaralho = {
         titulo: titulo,
       };
       adicionarBaralho(baralhos, novoBaralho);
-      console.log("Baralho adicionado com sucesso!");
       break;
     }
     case "2":
@@ -55,7 +55,7 @@ while (executando) {
       break;
     case "3": {
       const id = parseInt(prompt("Digite o ID do baralho a ser atualizado: "));
-      const novoTitulo = prompt("Digite o novo titulo: ");
+      const novoTitulo = prompt("Digite o novo título: ");
       atualizarBaralho(baralhos, id, novoTitulo);
       break;
     }
@@ -94,7 +94,7 @@ while (executando) {
       break;
     }
     case "9": {
-      const termo = prompt("Digite o termo a ser buscado nas perguntas ou respostas: ");
+      const termo = prompt("Digite o termo a ser buscado nas perguntas: ");
       const resultados = buscarFlashcards(flashcards, termo);
       console.log("\n--- Resultados da Busca ---");
       if (resultados.length === 0) {

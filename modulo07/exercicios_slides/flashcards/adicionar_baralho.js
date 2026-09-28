@@ -21,4 +21,3 @@ function adicionarBaralho(titulo) {
 }
 
 export default adicionarBaralho;
-

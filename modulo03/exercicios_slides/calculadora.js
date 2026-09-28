@@ -17,6 +17,7 @@ function dividir(num1, num2) {
   return num1 / num2;
 }
 
+// Quantos % o num1 representa do num2. Ex.: porcentagem(50, 200) -> 25
 function porcentagem(num1, num2) {
   return (num1 / num2) * 100;
 }
@@ -80,6 +81,9 @@ while (op != 7) {
       num = Number(prompt("Digite o valor para saber quantos % ele representa do resultado atual: "));
       if (isNaN(num)) {
         console.log("Da próxima vez digite um número correto!");
+      } else if (resultado === 0) {
+        // Mesma regra da divisão: o resultado atual vira o divisor da conta
+        console.log("Não é possível calcular porcentagem com o resultado atual igual a zero!");
       } else {
         resultado_porcentagem = porcentagem(num, resultado);
         console.log("Resultado: " + resultado_porcentagem + "%");

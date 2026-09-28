@@ -1,11 +1,11 @@
 /*
  * ===================================================================
- * MODULO 09: AUTENTICACAO COM BCRYPT E JWT
+ * MÓDULO 09: AUTENTICAÇÃO COM BCRYPT E JWT
  * ===================================================================
  *
- * Neste modulo vamos resolver um problema muito comum:
+ * Neste módulo vamos resolver um problema muito comum:
  *
- *   Como criar usuarios sem gravar a senha real deles no banco?
+ *   Como criar usuários sem gravar a senha real deles no banco?
  *
  * A resposta tem duas partes:
  *
@@ -31,26 +31,26 @@
  *   senha: "123456"
  * }
  *
- * Se alguem acessar o banco, todas as senhas ficam expostas.
+ * Se alguém acessar o banco, todas as senhas ficam expostas.
  * Por isso a senha pura nunca deve ser salva.
  */
 
 // -------------------------------------------------------------------
-// 2. A SOLUCAO: HASH DA SENHA
+// 2. A SOLUÇÃO: HASH DA SENHA
 // -------------------------------------------------------------------
 
 /*
- * Hash e uma transformacao de mao unica:
+ * Hash é uma transformação de mão única:
  *
  *   "123456"  ->  "$2b$10$k4P4..."
  *
- * A aplicacao salva apenas o hash.
- * Quando o usuario tenta fazer login, comparamos:
+ * A aplicação salva apenas o hash.
+ * Quando o usuário tenta fazer login, comparamos:
  *
- *   senha digitada + hash salvo -> confere ou nao confere?
+ *   senha digitada + hash salvo -> confere ou não confere?
  *
- * Repare: nao precisamos "descriptografar" a senha.
- * Hash nao e criptografia reversivel.
+ * Repare: não precisamos "descriptografar" a senha.
+ * Hash não é criptografia reversível.
  */
 
 /*
@@ -73,8 +73,8 @@
 /*
  * O que significa saltRounds?
  *
- * E o "custo" do hash. Quanto maior, mais demorado fica gerar o hash.
- * Para projetos de aula e APIs comuns, 10 e um bom ponto de partida.
+ * É o "custo" do hash. Quanto maior, mais demorado fica gerar o hash.
+ * Para projetos de aula e APIs comuns, 10 é um bom ponto de partida.
  */
 
 // -------------------------------------------------------------------
@@ -100,34 +100,34 @@
  */
 
 /*
- * Dica de seguranca:
+ * Dica de segurança:
  *
- * No login, prefira uma mensagem generica:
+ * No login, prefira uma mensagem genérica:
  *
  *   "Email ou senha incorretos."
  *
- * Assim a API nao entrega se o problema foi o email inexistente
+ * Assim a API não entrega se o problema foi o email inexistente
  * ou a senha errada.
  */
 
 // -------------------------------------------------------------------
-// 4. JWT: O TOKEN DE AUTENTICACAO
+// 4. JWT: O TOKEN DE AUTENTICAÇÃO
 // -------------------------------------------------------------------
 
 /*
- * Depois que o login da certo, a API cria um token JWT.
+ * Depois que o login dá certo, a API cria um token JWT.
  *
  * JWT significa JSON Web Token.
  *
- * Ele e uma string assinada pelo servidor. A assinatura garante que:
+ * Ele é uma string assinada pelo servidor. A assinatura garante que:
  *
  *   - o token foi gerado pela nossa API;
- *   - o conteudo nao foi alterado pelo cliente;
- *   - o token pode ter prazo de expiracao.
+ *   - o conteúdo não foi alterado pelo cliente;
+ *   - o token pode ter prazo de expiração.
  */
 
 /*
- * Exemplo de criacao do token:
+ * Exemplo de criação do token:
  *
  * import jwt from "jsonwebtoken";
  *
@@ -144,13 +144,13 @@
  */
 
 /*
- * JWT_SECRET e uma chave secreta do servidor.
+ * JWT_SECRET é uma chave secreta do servidor.
  *
  * Ela deve ficar no .env:
  *
  *   JWT_SECRET=minha_chave_super_secreta
  *
- * Nunca coloque JWT_SECRET direto no codigo e nunca envie para o GitHub.
+ * Nunca coloque JWT_SECRET direto no código e nunca envie para o GitHub.
  */
 
 // -------------------------------------------------------------------
@@ -158,11 +158,11 @@
 // -------------------------------------------------------------------
 
 /*
- * Depois do login, o cliente envia o token no cabecalho Authorization:
+ * Depois do login, o cliente envia o token no cabeçalho Authorization:
  *
  *   Authorization: Bearer TOKEN_AQUI
  *
- * Esse formato e padrao em APIs:
+ * Esse formato é padrão em APIs:
  *
  *   Bearer = "portador"
  *
@@ -179,13 +179,13 @@
  *   const authHeader = req.headers.authorization;
  *
  *   if (!authHeader) {
- *     return res.status(401).json({ message: "Token nao informado." });
+ *     return res.status(401).json({ message: "Token não informado." });
  *   }
  *
  *   const [tipo, token] = authHeader.split(" ");
  *
  *   if (tipo !== "Bearer" || !token) {
- *     return res.status(401).json({ message: "Formato do token invalido." });
+ *     return res.status(401).json({ message: "Formato do token inválido." });
  *   }
  *
  *   try {
@@ -193,7 +193,7 @@
  *     req.usuario = payload;
  *     next();
  *   } catch (error) {
- *     return res.status(401).json({ message: "Token invalido ou expirado." });
+ *     return res.status(401).json({ message: "Token inválido ou expirado." });
  *   }
  * }
  */
@@ -205,27 +205,27 @@
 /*
  * CADASTRO:
  *
- * 1. Usuario envia nome, email e senha.
+ * 1. Usuário envia nome, email e senha.
  * 2. API valida os campos.
- * 3. API verifica se o email ja existe.
+ * 3. API verifica se o email já existe.
  * 4. API gera senhaHash com bcrypt.
  * 5. API salva nome, email e senhaHash.
  * 6. API nunca retorna a senha nem o hash.
  *
  * LOGIN:
  *
- * 1. Usuario envia email e senha.
- * 2. API busca o usuario pelo email.
+ * 1. Usuário envia email e senha.
+ * 2. API busca o usuário pelo email.
  * 3. API compara senha digitada com senhaHash.
  * 4. Se estiver correto, API gera um JWT.
- * 5. Cliente usa o token nas proximas requisicoes.
+ * 5. Cliente usa o token nas próximas requisições.
  *
  * ROTA PROTEGIDA:
  *
  * 1. Cliente envia Authorization: Bearer TOKEN.
  * 2. Middleware verifica o token.
- * 3. Se o token for valido, a rota continua.
- * 4. Se o token for invalido, a API responde 401.
+ * 3. Se o token for válido, a rota continua.
+ * 4. Se o token for inválido, a API responde 401.
  */
 
-console.log("Conteudo: bcrypt protege senhas; JWT protege rotas.");
+console.log("Conteúdo: bcrypt protege senhas; JWT protege rotas.");

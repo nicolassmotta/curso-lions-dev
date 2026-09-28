@@ -10,6 +10,8 @@ const connectDB = async () => {
     console.log(`Mongo conectado com sucesso!`);
   } catch (error) {
     console.log(`Erro ao conectar: ${error}`);
+    // Sem banco a API não funciona, então encerramos a aplicação
+    process.exit(1);
   }
 };
 

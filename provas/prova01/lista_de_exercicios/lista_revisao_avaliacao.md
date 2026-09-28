@@ -89,7 +89,9 @@ Dada uma lista de números inteiros, percorra todos os elementos e some **apenas
 ---
 
 ### 7. Elementos Únicos de uma Lista
-Dada uma lista de números inteiros que pode conter valores repetidos, crie uma nova lista contendo apenas os valores que aparecem **uma única vez** (sem repetição). Exiba a lista resultante.
+Dada uma lista de números inteiros que pode conter valores repetidos, crie uma nova lista **sem repetições**, ou seja, cada valor da lista original deve aparecer **uma única vez** na nova lista. Exiba a lista resultante.
+
+> **Exemplo:** `[1, 2, 2, 3, 1]` vira `[1, 2, 3]`.
 
 ---
 
@@ -116,7 +118,7 @@ Dadas duas palavras, verifique se uma é **anagrama** da outra, ou seja, se as d
 ### 10. Amplitude de uma Lista
 Dada uma lista de números inteiros, calcule a **amplitude**, ou seja, a diferença entre o maior e o segundo menor valor da lista. Exiba o resultado.
 
-> **Atenção:** aqui não é a diferença entre o maior e o menor, e sim entre o maior e o **segundo menor**. Pense em como encontrar esse valor.
+> **Atenção:** aqui não é a diferença entre o maior e o menor, e sim entre o maior e o **segundo menor**. O segundo menor deve ser diferente do menor (por exemplo, na lista `[1, 1, 4, 9]`, o segundo menor é `4`). Pense em como encontrar esse valor.
 
 ---
 

@@ -17,8 +17,10 @@ Desafios descritos em texto, em que o aluno interpreta o enunciado e monta a sol
 | Lista | Foco | Arquivo |
 | ----- | ---- | ------- |
 | Explorando o Espaço | desafio prático de estrutura de diretórios | [terminal_linux.md](terminal_linux.md) |
+| Organizando o Projeto | reorganizar uma pasta, curinga `*`, `npm init`, `npm install` e `npm start` | [organizando_projeto.md](organizando_projeto.md) |
 
 ## Ordem sugerida
 
 1. Resolva a lista de código, praticando os comandos um de cada vez.
 2. Depois, faça o desafio *Explorando o Espaço*, montando a estação espacial apenas com comandos de terminal.
+3. Feche com *Organizando o Projeto*, que junta terminal e npm e deixa um projeto Node rodando com `npm start`.

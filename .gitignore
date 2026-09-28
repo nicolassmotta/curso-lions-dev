@@ -3,6 +3,13 @@ node_modules/
 
 # Ignora todos os arquivos de variáveis de ambiente (em qualquer pasta)
 **/.env
+**/.env.*
+!**/.env.example
+
+# Build dos frontends (Vite)
+dist/
+.vite/
+coverage/
 
 # Arquivos de log e debug (opcional, mas recomendado)
 *.log
@@ -16,14 +23,24 @@ AGENTS.local.md
 _mantenedor/
 _mantenedor/skills/
 
-# Configurações de extensões
-.codex
+# Slides do curso (.pptx e PDFs): ficam só no local, não são publicados
+modulo*/slides/
+
+# Configurações locais de agentes e editores
+.agents/
+.codex/
 .claude/
-.agents
-.cursor
+.cursor/
+.gemini/
+.opencode/
+.windsurf/
 
 # Configurações do VSCODE
 .vscode/
 
 # Arquivo local de handoff
 /HANDOFF.md
+
+# Arquivos oficiais das avaliações (conteúdo restrito)
+/provas/*/prova/index.md
+/provas/*/prova/index.pdf

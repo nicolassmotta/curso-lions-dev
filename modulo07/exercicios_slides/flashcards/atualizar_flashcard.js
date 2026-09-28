@@ -1,4 +1,4 @@
-import { flashcards } from "./dados.js";
+import { baralhos, flashcards } from "./dados.js";
 
 function atualizarFlashcard(id, pergunta, resposta, idBaralho) {
   const idNum = parseInt(id);
@@ -6,6 +6,15 @@ function atualizarFlashcard(id, pergunta, resposta, idBaralho) {
 
   if (!flashcard) {
     return { error: "Flashcard não encontrado!" };
+  }
+
+  // Valida ANTES de alterar qualquer campo, para não deixar o flashcard
+  // atualizado pela metade quando o baralho informado não existe
+  if (idBaralho !== undefined) {
+    const baralhoEncontrado = baralhos.find((b) => b.id === idBaralho);
+    if (!baralhoEncontrado) {
+      return { error: `Baralho com ID ${idBaralho} não encontrado.` };
+    }
   }
 
   // Atualiza apenas os campos fornecidos

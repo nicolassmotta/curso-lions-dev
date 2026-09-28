@@ -1,6 +1,6 @@
 /*
  * ===================================================================
- * MODULO 09: BOILERPLATE E ESTRUTURA MVC PARA APIs NODE + EXPRESS
+ * MÓDULO 09: BOILERPLATE E ESTRUTURA MVC PARA APIs NODE + EXPRESS
  * ===================================================================
  *
  * MVC significa:
@@ -9,19 +9,19 @@
  *   V - View
  *   C - Controller
  *
- * Em APIs REST, normalmente nao temos "View" renderizando HTML.
+ * Em APIs REST, normalmente não temos "View" renderizando HTML.
  * A resposta da API costuma ser JSON.
  *
  * No boilerplate LionsDev, usamos a ideia do MVC para separar
  * responsabilidades e evitar que tudo fique concentrado no server.js:
  *
  *   Model       -> estrutura dos dados no banco
- *   Controller  -> entrada e saida HTTP
- *   Service     -> regra de negocio
+ *   Controller  -> entrada e saída HTTP
+ *   Service     -> regra de negócio
  *   Repository  -> conversa com o banco
- *   Routes      -> endereco das rotas
- *   Middleware  -> funcoes que rodam antes das rotas
- *   Config      -> conexao e configuracoes globais
+ *   Routes      -> endereço das rotas
+ *   Middleware  -> funções que rodam antes das rotas
+ *   Config      -> conexão e configurações globais
  */
 
 // -------------------------------------------------------------------
@@ -65,12 +65,12 @@
 
 /*
  * routes/
- * Define o endereco e o metodo HTTP.
+ * Define o endereço e o método HTTP.
  *
  * Exemplo:
  *   POST /api/auth/login -> AuthController.login
  *
- * A rota nao deve ter regra de negocio grande.
+ * A rota não deve ter regra de negócio grande.
  */
 
 /*
@@ -99,7 +99,7 @@
  *   - gerar hash da senha;
  *   - comparar senha no login;
  *   - gerar token JWT;
- *   - impedir atualizacao invalida.
+ *   - impedir atualização inválida.
  *
  * O service nao deve depender de req e res.
  */
@@ -113,8 +113,8 @@
  *   Usuario.findById(id)
  *   Usuario.create(dados)
  *
- * Assim, se a regra de negocio precisar buscar usuario por email,
- * ela chama uma funcao com nome claro:
+ * Assim, se a regra de negócio precisar buscar usuário por email,
+ * ela chama uma função com nome claro:
  *
  *   UsuarioRepository.buscarPorEmail(email)
  */
@@ -131,32 +131,32 @@
 
 /*
  * middlewares/
- * Funcoes que rodam antes do controller.
+ * Funções que rodam antes do controller.
  *
  * Exemplos:
- *   - validar campos obrigatorios;
+ *   - validar campos obrigatórios;
  *   - verificar token JWT;
  *   - tratar erros da API.
  */
 
 /*
  * config/
- * Configuracoes globais.
+ * Configurações globais.
  *
  * Exemplo:
  *   - conexao com MongoDB;
- *   - leitura de variaveis de ambiente.
+ *   - leitura de variáveis de ambiente.
  */
 
 // -------------------------------------------------------------------
-// 3. FLUXO DE UMA REQUISICAO
+// 3. FLUXO DE UMA REQUISIÇÃO
 // -------------------------------------------------------------------
 
 /*
  * Exemplo: POST /api/auth/login
  *
  * 1. app.js
- *    A requisicao entra na aplicacao Express.
+ *    A requisição entra na aplicação Express.
  *
  * 2. routes/auth.routes.js
  *    O Express encontra a rota POST /login.
@@ -168,20 +168,20 @@
  *    Recebe req.body e chama AuthService.login().
  *
  * 5. services/auth.service.js
- *    Busca usuario, compara senha e gera token.
+ *    Busca usuário, compara senha e gera token.
  *
  * 6. repositories/usuario.repository.js
  *    Executa Usuario.findOne() no MongoDB.
  *
  * 7. models/usuario.model.js
- *    O Mongoose aplica estrutura e validacoes do Schema.
+ *    O Mongoose aplica estrutura e validações do Schema.
  *
  * 8. controller
  *    Envia resposta JSON para o cliente.
  */
 
 // -------------------------------------------------------------------
-// 4. REGRA PRATICA PARA NAO SE PERDER
+// 4. REGRA PRÁTICA PARA NÃO SE PERDER
 // -------------------------------------------------------------------
 
 /*
@@ -194,11 +194,11 @@
  * Pergunta: "Estou fazendo find, create, update ou delete?"
  * Resposta: Repository.
  *
- * Pergunta: "Estou definindo campos e validacoes do MongoDB?"
+ * Pergunta: "Estou definindo campos e validações do MongoDB?"
  * Resposta: Model.
  *
  * Pergunta: "Estou protegendo uma rota antes dela chegar no controller?"
  * Resposta: Middleware.
  */
 
-console.log("Conteudo: boilerplate + MVC deixam a API mais organizada e facil de manter.");
+console.log("Conteúdo: boilerplate + MVC deixam a API mais organizada e fácil de manter.");

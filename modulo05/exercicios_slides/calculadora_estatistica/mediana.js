@@ -19,10 +19,15 @@ function calcularMediana() {
     return;
   }
 
-  if (numeros.length % 2 == 0) {
-    mediana = (numeros[numeros.length / 2] + numeros[numeros.length / 2 - 1]) / 2;
+  // A mediana precisa da lista ORDENADA. O sort sem regra ordena como texto,
+  // por isso usamos (a, b) => a - b. O slice() evita bagunçar a lista original.
+  const ordenados = numeros.slice().sort((a, b) => a - b);
+  const meio = Math.floor(ordenados.length / 2);
+
+  if (ordenados.length % 2 === 0) {
+    mediana = (ordenados[meio - 1] + ordenados[meio]) / 2;
   } else {
-    mediana = numeros[Math.floor(numeros.length / 2)];
+    mediana = ordenados[meio];
   }
 
   return mediana;

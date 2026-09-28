@@ -1,7 +1,7 @@
 import { baralhos, flashcards } from "./dados.js";
 
 function adicionarFlashcard(pergunta, resposta, idBaralho) {
-  // Validação (lógica do Modulo07/adicionarFlashcard.js)
+  // Validação: o flashcard precisa pertencer a um baralho existente
   const baralhoEncontrado = baralhos.find((b) => b.id === idBaralho);
   if (!baralhoEncontrado) {
     return { error: `Baralho com ID ${idBaralho} não encontrado.` };

@@ -10,6 +10,12 @@ import { buscarContaOperavel, buscarContaOuErro, garantirContaAtiva, garantirSal
 const TARIFA_SAQUE_CENTAVOS = 250;
 const LIMITE_TRANSFERENCIA_AUTOMATICA_CENTAVOS = 500000;
 
+// Só estornamos movimentações que mexem apenas no saldo das contas.
+// Boleto, cartão e empréstimo também mudam outro documento (boleto pago,
+// limite/fatura do cartão, parcela paga), e devolver só o saldo deixaria
+// esses dados inconsistentes. Compra no crédito, por exemplo, nem sai do saldo.
+const TIPOS_ESTORNAVEIS = ["deposito", "saque", "transferencia", "pix", "tarifa"];
+
 async function depositar(usuarioLogado, { contaId, valorCentavos, descricao = "Depósito" }) {
   const valor = validarValorCentavos(valorCentavos);
   const conta = await buscarContaOperavel(contaId, usuarioLogado);
@@ -192,6 +198,10 @@ async function estornar(transacaoId) {
 
   if (transacaoOriginal.tipo === "estorno") {
     throw criarErro("Não é possível estornar um estorno.", 400);
+  }
+
+  if (!TIPOS_ESTORNAVEIS.includes(transacaoOriginal.tipo)) {
+    throw criarErro(`Transações do tipo ${transacaoOriginal.tipo} não podem ser estornadas por esta rota.`, 400);
   }
 
   if (transacaoOriginal.status !== "aprovada") {

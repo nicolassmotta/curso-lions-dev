@@ -1,4 +1,10 @@
 function adicionarBaralho(baralhos, novoBaralho) {
+  // Validação: não cria baralho sem título
+  if (!novoBaralho.titulo || novoBaralho.titulo.trim() === "") {
+    console.log("Erro: o título do baralho é obrigatório.");
+    return false;
+  }
+
   const ultimoBaralho = baralhos[baralhos.length - 1];
   let novoId = 1;
 
@@ -8,7 +14,8 @@ function adicionarBaralho(baralhos, novoBaralho) {
 
   novoBaralho.id = novoId;
   baralhos.push(novoBaralho);
-  return novoBaralho;
+  console.log("Baralho adicionado com sucesso!");
+  return true;
 }
 
 export default adicionarBaralho;
