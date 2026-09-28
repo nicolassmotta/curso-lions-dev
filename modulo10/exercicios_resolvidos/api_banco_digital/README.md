@@ -99,6 +99,7 @@ route -> middleware -> controller -> service -> repository -> model
 - Empréstimo aprovado deposita o valor na conta.
 - Parcela paga gera transação.
 - Estorno só acontece sobre transação aprovada e muda a original para `estornada`.
+- Só depósito, saque, transferência, PIX e tarifa podem ser estornados. Boleto, cartão e empréstimo também alteram outro documento (boleto, fatura, parcela), então não entram no estorno simples.
 
 ## Deploy no Render
 

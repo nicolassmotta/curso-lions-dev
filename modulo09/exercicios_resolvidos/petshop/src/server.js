@@ -1,20 +1,22 @@
 import dotenv from "dotenv";
 import app from "./app.js";
-import conectarDB from "./config/db.js"
+import conectarDB from "./config/db.js";
 
 dotenv.config();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 
 try {
-  conectarDB();
+  // await: sem ele, uma falha na conexão não cai neste catch
+  // e a API subiria mesmo sem banco
+  await conectarDB();
 
   app.listen(PORT, () => {
     console.log(`Conectado com a porta ${PORT} com sucesso!`);
   });
 } catch (error) {
   console.log(`Erro ao iniciar a aplicação: ${error.message}`);
+  process.exit(1);
 }
-
 
 /*
 app.get(("/agendamentos"), async (req, res) => {

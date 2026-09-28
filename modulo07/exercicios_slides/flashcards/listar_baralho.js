@@ -5,4 +5,3 @@ function listarBaralho() {
 }
 
 export default listarBaralho;
-

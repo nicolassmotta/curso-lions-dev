@@ -97,9 +97,14 @@ async function atualizarStatus(cartaoId, { status, limiteCentavos }) {
     cartao.limiteDisponivelCentavos = Math.max(cartao.limiteDisponivelCentavos + diferenca, 0);
   }
 
+  // O limite só é liberado na PRIMEIRA ativação. Se usássemos
+  // "limiteDisponivelCentavos === 0", um cartão com o limite todo usado
+  // ganharia o limite de volta só por ser bloqueado e reativado.
+  const primeiraAtivacao = cartao.status === "solicitado" && status === "ativo";
+
   cartao.status = status;
 
-  if (status === "ativo" && cartao.tipo === "credito" && cartao.limiteDisponivelCentavos === 0) {
+  if (primeiraAtivacao && cartao.tipo === "credito") {
     cartao.limiteDisponivelCentavos = cartao.limiteCentavos;
   }
 

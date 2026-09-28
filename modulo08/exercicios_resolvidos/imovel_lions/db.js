@@ -11,6 +11,8 @@ const connectDB = async () => {
     console.log("Conectado ao MongoDB com sucesso! (Imóvel Lions)");
   } catch (error) {
     console.log("Erro ao conectar ao MongoDB:", error.message);
+    // Sem banco a API não funciona, então encerramos a aplicação
+    process.exit(1);
   }
 };
 

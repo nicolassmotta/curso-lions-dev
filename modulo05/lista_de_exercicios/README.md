@@ -10,15 +10,16 @@ A lista tem exercícios de fixação, código para completar, imports com erro p
 | ----- | ---- | ------- |
 | Módulos (import / export) | `export default`, exports nomeados, `import`, `"type": "module"` | [codigo_modulos.md](codigo_modulos.md) |
 
-## Lista aplicada
+## Listas aplicadas
 
-Reorganização do projeto da clínica médica do Módulo 03 em vários arquivos.
+Primeiro, a reorganização do projeto da clínica médica do Módulo 03 em vários arquivos. Depois, a modularização de um programa pronto, seguida de uma funcionalidade nova.
 
 | Lista | Foco | Arquivo |
 | ----- | ---- | ------- |
 | Clínica Médica Modular | separar o projeto do Módulo 03 em arquivos com `import`/`export` | [clinica_modular/clinica_modular.md](clinica_modular/clinica_modular.md) |
+| Loja Modular | subpastas, `../`, exports nomeados e default juntos, variável compartilhada e evolução do projeto | [loja_modular/loja_modular.md](loja_modular/loja_modular.md) |
 
-A solução de referência está em `../exercicios_resolvidos/clinica_modular/`.
+As soluções de referência estão em `../exercicios_resolvidos/clinica_modular/` e `../exercicios_resolvidos/loja_modular/`.
 
 ## Ordem sugerida
 
@@ -27,3 +28,4 @@ A solução de referência está em `../exercicios_resolvidos/clinica_modular/`.
 3. Responda a previsão de resultado (Parte 3).
 4. Monte o mini projeto modular de 4 arquivos (Parte 4).
 5. Faça a lista aplicada da Clínica Médica Modular.
+6. Feche com a Loja Modular, que parte de um programa pronto e termina com uma funcionalidade nova.

@@ -52,7 +52,7 @@ async function apiFetch(path, options = {}) {
   }
 
   if (!response.ok) {
-    throw new Error(data?.message || data?.error || "Erro ao processar requisicao.");
+    throw new Error(data?.message || data?.error || "Erro ao processar requisição.");
   }
 
   return data;
@@ -75,7 +75,7 @@ function formatDate(value) {
 }
 
 function getApiMessage(error) {
-  return error instanceof Error ? error.message : "Nao foi possivel concluir a acao.";
+  return error instanceof Error ? error.message : "Não foi possível concluir a ação.";
 }
 
 function parseHospedes(text) {
@@ -85,7 +85,7 @@ function parseHospedes(text) {
     .filter(Boolean);
 
   if (rows.length === 0) {
-    throw new Error("Informe ao menos um hospede.");
+    throw new Error("Informe ao menos um hóspede.");
   }
 
   return rows.map((row) => {
@@ -116,10 +116,7 @@ function App() {
   const [notice, setNotice] = useState("");
   const [error, setError] = useState("");
 
-  const selectedImovel = useMemo(
-    () => imoveis.find((imovel) => imovel._id === selectedImovelId),
-    [imoveis, selectedImovelId]
-  );
+  const selectedImovel = useMemo(() => imoveis.find((imovel) => imovel._id === selectedImovelId), [imoveis, selectedImovelId]);
 
   const reservaPreview = useMemo(() => {
     const imovel = imoveis.find((item) => item._id === reservaForm.imovelId);
@@ -132,9 +129,7 @@ function App() {
     setError("");
 
     try {
-      const path = localizacao.trim()
-        ? `/imoveis/busca?localizacao=${encodeURIComponent(localizacao.trim())}`
-        : "/imoveis";
+      const path = localizacao.trim() ? `/imoveis/busca?localizacao=${encodeURIComponent(localizacao.trim())}` : "/imoveis";
       const data = await apiFetch(path);
       setImoveis(data || []);
       return data || [];
@@ -241,7 +236,7 @@ function App() {
       setSelectedImovelId(nextId);
       setReservaForm((form) => ({ ...form, imovelId: nextId }));
       setAvaliacaoForm((form) => ({ ...form, imovelId: nextId }));
-      showSuccess("Imovel cadastrado.");
+      showSuccess("Imóvel cadastrado.");
     } catch (submitError) {
       setError(getApiMessage(submitError));
     }
@@ -307,7 +302,7 @@ function App() {
         imovelId: form.imovelId,
       }));
       await loadAvaliacoes(avaliacaoForm.imovelId);
-      showSuccess("Avaliacao cadastrada.");
+      showSuccess("Avaliação cadastrada.");
     } catch (submitError) {
       setError(getApiMessage(submitError));
     }
@@ -328,7 +323,7 @@ function App() {
         return copy;
       });
       await loadAvaliacoes(selectedImovelId);
-      showSuccess("Avaliacao removida.");
+      showSuccess("Avaliação removida.");
     } catch (submitError) {
       setError(getApiMessage(submitError));
     }
@@ -350,7 +345,7 @@ function App() {
         <div className="brand-block">
           <div className="brand-mark">IL</div>
           <div>
-            <span className="eyebrow">Startup Imovel Lions</span>
+            <span className="eyebrow">Startup Imóvel Lions</span>
             <h1>Painel de hospedagens</h1>
           </div>
         </div>
@@ -358,7 +353,7 @@ function App() {
         <div className="stats-row" aria-label="Resumo">
           <div>
             <strong>{imoveis.length}</strong>
-            <span>Imoveis</span>
+            <span>Imóveis</span>
           </div>
           <div>
             <strong>{reservas.length}</strong>
@@ -366,23 +361,18 @@ function App() {
           </div>
           <div>
             <strong>{mediaGeral.toFixed(1)}</strong>
-            <span>Media</span>
+            <span>Média</span>
           </div>
         </div>
       </header>
 
-      <nav className="tabs" aria-label="Secoes do painel">
+      <nav className="tabs" aria-label="Seções do painel">
         {[
-          ["imoveis", "Imoveis"],
+          ["imoveis", "Imóveis"],
           ["reservas", "Reservas"],
-          ["avaliacoes", "Avaliacoes"],
+          ["avaliacoes", "Avaliações"],
         ].map(([key, label]) => (
-          <button
-            key={key}
-            type="button"
-            className={activeTab === key ? "tab active" : "tab"}
-            onClick={() => setActiveTab(key)}
-          >
+          <button key={key} type="button" className={activeTab === key ? "tab active" : "tab"} onClick={() => setActiveTab(key)}>
             {label}
           </button>
         ))}
@@ -400,17 +390,12 @@ function App() {
             <div className="work-area">
               <div className="section-heading">
                 <div>
-                  <span className="eyebrow">Catalogo</span>
-                  <h2>Imoveis cadastrados</h2>
+                  <span className="eyebrow">Catálogo</span>
+                  <h2>Imóveis cadastrados</h2>
                 </div>
 
                 <form className="search-form" onSubmit={handleSearch}>
-                  <input
-                    value={filtroLocalizacao}
-                    onChange={(event) => setFiltroLocalizacao(event.target.value)}
-                    placeholder="Buscar por localizacao"
-                    aria-label="Buscar por localizacao"
-                  />
+                  <input value={filtroLocalizacao} onChange={(event) => setFiltroLocalizacao(event.target.value)} placeholder="Buscar por localização" aria-label="Buscar por localização" />
                   <button type="submit">Buscar</button>
                   <button type="button" className="secondary" onClick={clearSearch}>
                     Limpar
@@ -419,16 +404,13 @@ function App() {
               </div>
 
               {isLoading ? (
-                <div className="empty-state">Carregando imoveis...</div>
+                <div className="empty-state">Carregando imóveis...</div>
               ) : imoveis.length === 0 ? (
-                <div className="empty-state">Nenhum imovel encontrado.</div>
+                <div className="empty-state">Nenhum imóvel encontrado.</div>
               ) : (
                 <div className="property-grid">
                   {imoveis.map((imovel, index) => (
-                    <article
-                      className={selectedImovelId === imovel._id ? "property-card selected" : "property-card"}
-                      key={imovel._id}
-                    >
+                    <article className={selectedImovelId === imovel._id ? "property-card selected" : "property-card"} key={imovel._id}>
                       <button type="button" className="card-hit" onClick={() => selectImovel(imovel._id)}>
                         <div className={`property-visual visual-${(index % 4) + 1}`}>
                           <span>{imovel.localizacao?.slice(0, 2).toUpperCase() || "IL"}</span>
@@ -464,55 +446,34 @@ function App() {
               <div className="section-heading compact">
                 <div>
                   <span className="eyebrow">Novo cadastro</span>
-                  <h2>Imovel</h2>
+                  <h2>Imóvel</h2>
                 </div>
               </div>
 
               <form className="stack-form" onSubmit={handleCreateImovel}>
                 <label>
-                  Titulo
+                  Título
                   <input name="titulo" value={imovelForm.titulo} onChange={updateImovelForm} required />
                 </label>
                 <label>
-                  Descricao
-                  <textarea
-                    name="descricao"
-                    value={imovelForm.descricao}
-                    onChange={updateImovelForm}
-                    rows="4"
-                    required
-                  />
+                  Descrição
+                  <textarea name="descricao" value={imovelForm.descricao} onChange={updateImovelForm} rows="4" required />
                 </label>
                 <label>
-                  Localizacao
+                  Localização
                   <input name="localizacao" value={imovelForm.localizacao} onChange={updateImovelForm} required />
                 </label>
                 <div className="two-columns">
                   <label>
-                    Preco/noite
-                    <input
-                      name="precoNoite"
-                      type="number"
-                      min="1"
-                      step="0.01"
-                      value={imovelForm.precoNoite}
-                      onChange={updateImovelForm}
-                      required
-                    />
+                    Preço/noite
+                    <input name="precoNoite" type="number" min="1" step="0.01" value={imovelForm.precoNoite} onChange={updateImovelForm} required />
                   </label>
                   <label>
                     Capacidade
-                    <input
-                      name="capacidadeMaxima"
-                      type="number"
-                      min="1"
-                      value={imovelForm.capacidadeMaxima}
-                      onChange={updateImovelForm}
-                      required
-                    />
+                    <input name="capacidadeMaxima" type="number" min="1" value={imovelForm.capacidadeMaxima} onChange={updateImovelForm} required />
                   </label>
                 </div>
-                <button type="submit">Cadastrar imovel</button>
+                <button type="submit">Cadastrar imóvel</button>
               </form>
             </aside>
           </section>
@@ -523,7 +484,7 @@ function App() {
             <div className="work-area">
               <div className="section-heading">
                 <div>
-                  <span className="eyebrow">Operacao</span>
+                  <span className="eyebrow">Operação</span>
                   <h2>Reservas</h2>
                 </div>
                 <button type="button" className="secondary" onClick={loadReservas}>
@@ -538,7 +499,7 @@ function App() {
                   <table>
                     <thead>
                       <tr>
-                        <th>Hospede</th>
+                        <th>Hóspede</th>
                         <th>Check-in</th>
                         <th>Noites</th>
                         <th>Total</th>
@@ -556,11 +517,7 @@ function App() {
                           <td>{reserva.quantidadeNoites}</td>
                           <td>{currency(reserva.valorTotal)}</td>
                           <td>
-                            <select
-                              value={reserva.status}
-                              onChange={(event) => handleUpdateReservaStatus(reserva._id, event.target.value)}
-                              aria-label={`Status da reserva de ${reserva.nomeHospede}`}
-                            >
+                            <select value={reserva.status} onChange={(event) => handleUpdateReservaStatus(reserva._id, event.target.value)} aria-label={`Status da reserva de ${reserva.nomeHospede}`}>
                               {STATUS_OPTIONS.map((status) => (
                                 <option key={status} value={status}>
                                   {status}
@@ -587,14 +544,8 @@ function App() {
 
               <form className="stack-form" onSubmit={handleCreateReserva}>
                 <label>
-                  Imovel
-                  <select
-                    name="imovelId"
-                    value={reservaForm.imovelId}
-                    onChange={updateReservaForm}
-                    required
-                    disabled={imoveis.length === 0}
-                  >
+                  Imóvel
+                  <select name="imovelId" value={reservaForm.imovelId} onChange={updateReservaForm} required disabled={imoveis.length === 0}>
                     <option value="">Selecione</option>
                     {imoveis.map((imovel) => (
                       <option key={imovel._id} value={imovel._id}>
@@ -604,52 +555,26 @@ function App() {
                   </select>
                 </label>
                 <label>
-                  Nome do responsavel
+                  Nome do responsável
                   <input name="nomeHospede" value={reservaForm.nomeHospede} onChange={updateReservaForm} required />
                 </label>
                 <label>
                   E-mail
-                  <input
-                    name="emailHospede"
-                    type="email"
-                    value={reservaForm.emailHospede}
-                    onChange={updateReservaForm}
-                    required
-                  />
+                  <input name="emailHospede" type="email" value={reservaForm.emailHospede} onChange={updateReservaForm} required />
                 </label>
                 <div className="two-columns">
                   <label>
                     Check-in
-                    <input
-                      name="dataEntrada"
-                      type="date"
-                      value={reservaForm.dataEntrada}
-                      onChange={updateReservaForm}
-                      required
-                    />
+                    <input name="dataEntrada" type="date" value={reservaForm.dataEntrada} onChange={updateReservaForm} required />
                   </label>
                   <label>
                     Noites
-                    <input
-                      name="quantidadeNoites"
-                      type="number"
-                      min="1"
-                      value={reservaForm.quantidadeNoites}
-                      onChange={updateReservaForm}
-                      required
-                    />
+                    <input name="quantidadeNoites" type="number" min="1" value={reservaForm.quantidadeNoites} onChange={updateReservaForm} required />
                   </label>
                 </div>
                 <label>
-                  Hospedes
-                  <textarea
-                    name="hospedesTexto"
-                    value={reservaForm.hospedesTexto}
-                    onChange={updateReservaForm}
-                    rows="5"
-                    placeholder={"Ana, 29\nBruno, 31"}
-                    required
-                  />
+                  Hóspedes
+                  <textarea name="hospedesTexto" value={reservaForm.hospedesTexto} onChange={updateReservaForm} rows="5" placeholder={"Ana, 29\nBruno, 31"} required />
                 </label>
                 <button type="submit" disabled={imoveis.length === 0}>
                   Criar reserva
@@ -664,17 +589,11 @@ function App() {
             <div className="work-area">
               <div className="section-heading">
                 <div>
-                  <span className="eyebrow">Reputacao</span>
-                  <h2>Avaliacoes</h2>
+                  <span className="eyebrow">Reputação</span>
+                  <h2>Avaliações</h2>
                 </div>
-                <select
-                  className="wide-select"
-                  value={selectedImovelId}
-                  onChange={(event) => selectImovel(event.target.value)}
-                  disabled={imoveis.length === 0}
-                  aria-label="Selecionar imovel"
-                >
-                  <option value="">Selecione um imovel</option>
+                <select className="wide-select" value={selectedImovelId} onChange={(event) => selectImovel(event.target.value)} disabled={imoveis.length === 0} aria-label="Selecionar imóvel">
+                  <option value="">Selecione um imóvel</option>
                   {imoveis.map((imovel) => (
                     <option key={imovel._id} value={imovel._id}>
                       {imovel.titulo}
@@ -694,7 +613,7 @@ function App() {
               )}
 
               {avaliacoes.length === 0 ? (
-                <div className="empty-state">Nenhuma avaliacao encontrada.</div>
+                <div className="empty-state">Nenhuma avaliação encontrada.</div>
               ) : (
                 <div className="review-list">
                   {avaliacoes.map((avaliacao) => (
@@ -734,21 +653,15 @@ function App() {
             <aside className="side-panel">
               <div className="section-heading compact">
                 <div>
-                  <span className="eyebrow">Nova avaliacao</span>
+                  <span className="eyebrow">Nova avaliação</span>
                   <h2>Feedback</h2>
                 </div>
               </div>
 
               <form className="stack-form" onSubmit={handleCreateAvaliacao}>
                 <label>
-                  Imovel
-                  <select
-                    name="imovelId"
-                    value={avaliacaoForm.imovelId}
-                    onChange={selectAvaliacaoImovel}
-                    required
-                    disabled={imoveis.length === 0}
-                  >
+                  Imóvel
+                  <select name="imovelId" value={avaliacaoForm.imovelId} onChange={selectAvaliacaoImovel} required disabled={imoveis.length === 0}>
                     <option value="">Selecione</option>
                     {imoveis.map((imovel) => (
                       <option key={imovel._id} value={imovel._id}>
@@ -763,29 +676,15 @@ function App() {
                 </label>
                 <label>
                   Nota
-                  <input
-                    name="nota"
-                    type="range"
-                    min="1"
-                    max="5"
-                    value={avaliacaoForm.nota}
-                    onChange={updateAvaliacaoForm}
-                  />
+                  <input name="nota" type="range" min="1" max="5" value={avaliacaoForm.nota} onChange={updateAvaliacaoForm} />
                   <span className="range-value">{avaliacaoForm.nota}/5</span>
                 </label>
                 <label>
-                  Comentario
-                  <textarea
-                    name="comentario"
-                    value={avaliacaoForm.comentario}
-                    onChange={updateAvaliacaoForm}
-                    rows="5"
-                    minLength="10"
-                    required
-                  />
+                  Comentário
+                  <textarea name="comentario" value={avaliacaoForm.comentario} onChange={updateAvaliacaoForm} rows="5" minLength="10" required />
                 </label>
                 <button type="submit" disabled={imoveis.length === 0}>
-                  Enviar avaliacao
+                  Enviar avaliação
                 </button>
               </form>
             </aside>

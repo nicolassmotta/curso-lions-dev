@@ -1,10 +1,10 @@
-# Imovel Lions
+# Imóvel Lions
 
-Frontend React para consumir a API Express do projeto Imovel Lions.
+Frontend React para consumir a API Express do projeto Imóvel Lions.
 
 ## Como rodar
 
-1. Instale as dependencias:
+1. Instale as dependências:
 
    ```bash
    npm install

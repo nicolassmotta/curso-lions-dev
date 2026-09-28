@@ -61,6 +61,17 @@ Os módulos finais são mais orientados a integração, documentação e entrega
 
 ---
 
+## 🧰 Material de Apoio
+
+A pasta [`material_de_apoio/`](material_de_apoio/README.md) reúne guias de consulta rápida para usar durante todo o curso:
+
+- [Guia de Erros Comuns](material_de_apoio/erros_comuns.md): a mensagem de erro que apareceu e como resolver.
+- [Cola de Métodos de Array, String e Número](material_de_apoio/cola_arrays_strings.md).
+- [Guia de Testes de API no Postman](material_de_apoio/testando_apis.md).
+- [Tabela de Status HTTP](material_de_apoio/status_http.md).
+
+---
+
 ## 📁 Estrutura de Pastas
 
 Cada módulo **costuma** seguir a organização abaixo. O material teórico em `conteudo/` pode ser **arquivo `.js` comentado** (aula no estilo "código legível") ou **`.md`** (conteúdo teórico formatado para leitura e PDF).
@@ -72,6 +83,8 @@ moduloXX/
 ├── lista_de_exercicios/   # Listas em PDF e Markdown para prática individual
 └── exercicios_resolvidos/ # Gabarito e soluções de referência
 ```
+
+> **Onde fica a resposta de cada lista:** em `exercicios_resolvidos/`, no mesmo caminho e com o mesmo nome da lista. A resposta de `modulo03/lista_de_exercicios/codigo_calculadora.md` está em `modulo03/exercicios_resolvidos/codigo_calculadora.md`. Listas aplicadas que viram projeto (APIs, CRUDs) têm a resposta em uma pasta com o nome do projeto, como `modulo08/exercicios_resolvidos/imovel_lions/`.
 
 > Nem todo módulo terá as quatro pastas ao mesmo tempo. Os módulos 11 e 12, por exemplo, concentram materiais em `conteudo/` e `lista_de_exercicios/`, porque são módulos de integração, frontend orientado por IA/NoCode, requisitos e projeto final.
 

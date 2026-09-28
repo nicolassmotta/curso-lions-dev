@@ -5,9 +5,10 @@ function atualizarContato(contatos, id, novosDados) {
     console.log("Erro: Contato não encontrado!");
     return false;
   }
-  
-// Validação de e-mail na atualização
+
+  // Validação de e-mail na atualização
   if (novosDados.email) {
+    novosDados.email = novosDados.email.trim().toLowerCase();
     let emailExiste = false;
     for (let i = 0; i < contatos.length; i++) {
       let contatoAtual = contatos[i];

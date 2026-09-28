@@ -25,6 +25,8 @@ Projetos descritos em texto, em que o aluno interpreta o enunciado e escreve o c
 | Biblioteca: Meu Acervo e Empréstimos | dois recursos, `ref`, estoque (avançado) | [api_biblioteca_boilerplate.md](api_biblioteca_boilerplate.md) |
 | Lions Bet: Casa de Apostas com Admin | autorização por papel (desafio) | [api_lions_bet.md](api_lions_bet.md) |
 
+As soluções de referência estão em `../exercicios_resolvidos/`, em uma pasta com o mesmo nome da lista (por exemplo, `api_tarefas.md` → `api_tarefas/`). Cada solução é um projeto completo sobre o boilerplate, com um README que lista os arquivos criados e alterados. A resposta da lista de código está em `../exercicios_resolvidos/codigo_auth_mvc.md`.
+
 ## Ordem sugerida
 
 1. Resolva a lista de código para praticar hash, token, middleware e separação em camadas.

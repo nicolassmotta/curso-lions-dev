@@ -9,7 +9,7 @@ function atualizarBaralho(baralhos, idBaralho, novoTitulo) {
   if (novoTitulo !== "") {
     baralhos[indice].titulo = novoTitulo;
   }
-  
+
   console.log(`Baralho com ID ${idBaralho} atualizado com sucesso.`);
   return true;
 }

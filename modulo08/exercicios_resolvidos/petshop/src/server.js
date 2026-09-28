@@ -3,9 +3,10 @@ import dotenv from "dotenv";
 import Agendamento from "./models/agendamento.js";
 import conectarDB from "./db.js";
 
-dotenv.config({path: "../.env"});
+// Carrega o .env da pasta onde você roda o "npm start" (a raiz do petshop)
+dotenv.config();
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 conectarDB();
 
 app.use(express.json());
@@ -88,63 +89,58 @@ app.post("/agendamentos", async (req, res) => {
   }
 });
 
-app.get(("/agendamentos"), async (req, res) => {
+app.get("/agendamentos", async (req, res) => {
   try {
     const todosAgendamentos = await Agendamento.find();
-    res.status(200).json({mensagem: "Todos os agendamentos foram listados com sucesso!", agendamentos: todosAgendamentos});
+    res.status(200).json({ mensagem: "Todos os agendamentos foram listados com sucesso!", agendamentos: todosAgendamentos });
   } catch (erro) {
-    res.status(400).json({mensagem: `Erro ao listar os agendamentos: ${erro.message}`})
+    res.status(400).json({ mensagem: `Erro ao listar os agendamentos: ${erro.message}` });
   }
 });
 
-app.get(("/agendamentos/busca"), async (req, res) => {
+app.get("/agendamentos/busca", async (req, res) => {
   try {
     const nome = req.query.nome;
-    const agendamentos = await Agendamento.find({nomePet: 
-      { $regex: nome, $options: "i"}}); 
+    const agendamentos = await Agendamento.find({ nomePet: { $regex: nome, $options: "i" } });
     // regex busca por partes do texto
     // options ignora maiusculas e minusculas
-    res.status(200).json({mensagem: "Busca efetuada com sucesso!", 
-      agendamentos: agendamentos});
+    res.status(200).json({ mensagem: "Busca efetuada com sucesso!", agendamentos: agendamentos });
   } catch (erro) {
-    res.status(400).json({mensagem: `Erro: ${erro.message}`})
+    res.status(400).json({ mensagem: `Erro: ${erro.message}` });
   }
 });
 
-app.patch(("/agendamentos/:id"), async (req, res) => {
+app.patch("/agendamentos/:id", async (req, res) => {
   try {
     const id = req.params.id;
     const { status } = req.body;
-    const agendamentoAtualizado = await Agendamento.findByIdAndUpdate(id, 
-      {status: status}, {runValidators: true, new: true});
+    const agendamentoAtualizado = await Agendamento.findByIdAndUpdate(id, { status: status }, { runValidators: true, new: true });
 
     if (!agendamentoAtualizado) {
-      return res.status(404).json({mensagem: "Agendamento não encontrado!"});
+      return res.status(404).json({ mensagem: "Agendamento não encontrado!" });
     }
 
-    res.status(200).json({mensagem: "Agendamento atualizado com sucesso!", 
-      agendamentoAtualizado: agendamentoAtualizado});
+    res.status(200).json({ mensagem: "Agendamento atualizado com sucesso!", agendamentoAtualizado: agendamentoAtualizado });
   } catch (erro) {
-    res.status(500).json({mensagem: `Erro do servidor: ${erro.message}`});
+    res.status(500).json({ mensagem: `Erro do servidor: ${erro.message}` });
   }
 });
 
-app.delete(("/agendamentos/:id"), async (req, res) => {
+app.delete("/agendamentos/:id", async (req, res) => {
   try {
     const id = req.params.id;
     const agendamentoDeletado = await Agendamento.findByIdAndDelete(id);
 
     if (!agendamentoDeletado) {
-      return res.status(404).json({mensagem: "Agendamento não encontrado!"});
+      return res.status(404).json({ mensagem: "Agendamento não encontrado!" });
     }
 
-    res.status(200).json({mensagem: "Agendamento deletado com sucesso!", agendamentoDeletado: agendamentoDeletado});
+    res.status(200).json({ mensagem: "Agendamento deletado com sucesso!", agendamentoDeletado: agendamentoDeletado });
   } catch (erro) {
-    res.status(500).json({mensagem: `Erro do servidor: ${erro.message}`});
+    res.status(500).json({ mensagem: `Erro do servidor: ${erro.message}` });
   }
 });
 
 app.listen(PORT, () => {
   console.log(`Conectado com a porta ${PORT} com sucesso!`);
 });
-

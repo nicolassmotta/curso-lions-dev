@@ -6,15 +6,15 @@ let baralhos = [
   },
   {
     id: 2,
-    titulo: "Matematica",
+    titulo: "Matemática",
   },
 ];
 
 let flashcards = [
   {
     id: 1,
-    pergunta: "Porque usar VAR em Javascript?",
-    resposta: "Escopo global",
+    pergunta: "Qual é o escopo de uma variável declarada com var?",
+    resposta: "Escopo de função (ou global, se declarada fora de funções)",
     idBaralho: 1,
   },
   {

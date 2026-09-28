@@ -193,7 +193,9 @@ app.get("/avaliacoes/imovel/:imovelId", async (req, res) => {
 app.delete("/avaliacoes/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const { nomeUsuario } = req.body;
+    // No Express 5, req.body fica undefined quando a requisição não tem corpo JSON.
+    // O "?." evita o erro "Cannot destructure property of undefined".
+    const nomeUsuario = req.body?.nomeUsuario;
 
     const avaliacao = await Avaliacao.findById(id);
 
