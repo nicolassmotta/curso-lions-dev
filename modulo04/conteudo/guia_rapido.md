@@ -30,7 +30,7 @@
   .rodape { text-align: center; color: var(--ld-muted); font-size: 11px; margin-top: 18px; }
 </style>
 
-# Cheat sheet · Módulo 04: Git e GitHub
+# Guia rápido · Módulo 04: Git e GitHub
 
 <div class="intro">Resumo para consulta rápida. A explicação completa está nos slides e nos arquivos desta pasta.</div>
 
@@ -117,5 +117,5 @@ O **README.md** explica o projeto: o que é, como instalar, como rodar e quem fe
 
 <div class="rodape">
   <b>LionsDev</b> • Professor Nicolas Cardoso Motta<br>
-  <i>Cheat sheet · Módulo 04</i>
+  <i>Guia rápido · Módulo 04</i>
 </div>

@@ -30,7 +30,7 @@
   .rodape { text-align: center; color: var(--ld-muted); font-size: 11px; margin-top: 18px; }
 </style>
 
-# Cheat sheet · Módulo 12: Projeto Final e Requisitos
+# Guia rápido · Módulo 12: Projeto Final e Requisitos
 
 <div class="intro">Resumo para consulta rápida. A explicação completa está nos slides e nos arquivos desta pasta.</div>
 
@@ -112,5 +112,5 @@ Problema → solução → demonstração ao vivo (login, fluxo principal, erro 
 
 <div class="rodape">
   <b>LionsDev</b> • Professor Nicolas Cardoso Motta<br>
-  <i>Cheat sheet · Módulo 12</i>
+  <i>Guia rápido · Módulo 12</i>
 </div>

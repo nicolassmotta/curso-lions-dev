@@ -30,7 +30,7 @@
   .rodape { text-align: center; color: var(--ld-muted); font-size: 11px; margin-top: 18px; }
 </style>
 
-# Cheat sheet · Módulo 09: Autenticação, JWT e MVC (boilerplate)
+# Guia rápido · Módulo 09: Autenticação, JWT e MVC (boilerplate)
 
 <div class="intro">Resumo para consulta rápida. A explicação completa está nos slides e nos arquivos desta pasta.</div>
 
@@ -126,5 +126,5 @@ const meus = await LivroRepository.listarPorUsuario(req.usuario.id)
 
 <div class="rodape">
   <b>LionsDev</b> • Professor Nicolas Cardoso Motta<br>
-  <i>Cheat sheet · Módulo 09</i>
+  <i>Guia rápido · Módulo 09</i>
 </div>
