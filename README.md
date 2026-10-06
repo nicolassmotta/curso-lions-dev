@@ -36,7 +36,7 @@ Este repositório contém o material de apoio das aulas: conteúdo teórico come
 
 ## 🗒️ Guias Rápidos
 
-Cada módulo tem um resumo de consulta rápida, com os comandos, a sintaxe e as armadilhas da aula, em `moduloXX/conteudo/guia_rapido.md` (e `.pdf`, com duas páginas).
+Cada módulo tem um resumo de consulta rápida, com os comandos, a sintaxe e as armadilhas da aula, em `moduloXX/conteudo/guia_rapido.md` e na versão `.pdf`.
 
 ---
 
