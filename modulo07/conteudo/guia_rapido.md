@@ -30,7 +30,7 @@
   .rodape { text-align: center; color: var(--ld-muted); font-size: 11px; margin-top: 18px; }
 </style>
 
-# Cheat sheet · Módulo 07: APIs REST com Express
+# Guia rápido · Módulo 07: APIs REST com Express
 
 <div class="intro">Resumo para consulta rápida. A explicação completa está nos slides e nos arquivos desta pasta.</div>
 
@@ -137,5 +137,5 @@ curl -X POST http://localhost:3000/flashcards \
 
 <div class="rodape">
   <b>LionsDev</b> • Professor Nicolas Cardoso Motta<br>
-  <i>Cheat sheet · Módulo 07</i>
+  <i>Guia rápido · Módulo 07</i>
 </div>

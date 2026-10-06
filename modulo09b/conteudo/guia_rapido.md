@@ -30,7 +30,7 @@
   .rodape { text-align: center; color: var(--ld-muted); font-size: 11px; margin-top: 18px; }
 </style>
 
-# Cheat sheet · Módulo 9B: Testes, Swagger e Debug da API
+# Guia rápido · Módulo 9B: Testes, Swagger e Debug da API
 
 <div class="intro">Resumo para consulta rápida. A explicação completa está nos slides e nos arquivos desta pasta.</div>
 
@@ -122,5 +122,5 @@ No `openapi.js`: `info`, `servers`, `components.securitySchemes.bearerAuth` (`ty
 
 <div class="rodape">
   <b>LionsDev</b> • Professor Nicolas Cardoso Motta<br>
-  <i>Cheat sheet · Módulo 9B</i>
+  <i>Guia rápido · Módulo 9B</i>
 </div>

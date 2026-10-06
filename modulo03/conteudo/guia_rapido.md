@@ -30,7 +30,7 @@
   .rodape { text-align: center; color: var(--ld-muted); font-size: 11px; margin-top: 18px; }
 </style>
 
-# Cheat sheet · Módulo 03: Calculadora e Clínica Médica
+# Guia rápido · Módulo 03: Calculadora e Clínica Médica
 
 <div class="intro">Resumo para consulta rápida. A explicação completa está nos slides e nos arquivos desta pasta.</div>
 
@@ -116,5 +116,5 @@ const adultos = pacientes.filter((p) => p.idade >= 18)
 
 <div class="rodape">
   <b>LionsDev</b> • Professor Nicolas Cardoso Motta<br>
-  <i>Cheat sheet · Módulo 03</i>
+  <i>Guia rápido · Módulo 03</i>
 </div>

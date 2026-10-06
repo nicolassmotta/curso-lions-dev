@@ -34,9 +34,9 @@ Este repositório contém o material de apoio das aulas: conteúdo teórico come
 
 ---
 
-## 🗒️ Cheat Sheets
+## 🗒️ Guias Rápidos
 
-Cada módulo tem um resumo de consulta rápida, com os comandos, a sintaxe e as armadilhas da aula, em `moduloXX/conteudo/cheatsheet.md` (e `.pdf`, com duas páginas).
+Cada módulo tem um resumo de consulta rápida, com os comandos, a sintaxe e as armadilhas da aula, em `moduloXX/conteudo/guia_rapido.md` (e `.pdf`, com duas páginas).
 
 ---
 

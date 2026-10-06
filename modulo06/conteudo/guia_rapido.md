@@ -30,7 +30,7 @@
   .rodape { text-align: center; color: var(--ld-muted); font-size: 11px; margin-top: 18px; }
 </style>
 
-# Cheat sheet · Módulo 06: Sistema de Cadastro e Busca (CRUD em memória)
+# Guia rápido · Módulo 06: Sistema de Cadastro e Busca (CRUD em memória)
 
 <div class="intro">Resumo para consulta rápida. A explicação completa está nos slides e nos arquivos desta pasta.</div>
 
@@ -130,5 +130,5 @@ Quem escolheu a lista **Flashcards**: baralhos e cartões com o mesmo CRUD. É a
 
 <div class="rodape">
   <b>LionsDev</b> • Professor Nicolas Cardoso Motta<br>
-  <i>Cheat sheet · Módulo 06</i>
+  <i>Guia rápido · Módulo 06</i>
 </div>
