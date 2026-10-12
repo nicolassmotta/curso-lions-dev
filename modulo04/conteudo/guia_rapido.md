@@ -37,6 +37,8 @@
 <div class="cols">
 
 ## Primeira configuração (uma vez por computador)
+**Ubuntu:** `sudo apt update && sudo apt install git`. Confira com `git --version`.
+
 ```bash
 git config --global user.name "Seu Nome"
 git config --global user.email "seu@email.com"   # o mesmo da conta do GitHub
@@ -47,18 +49,21 @@ git config --list                                # confere tudo
 # rede com proxy (laboratório): uma linha só, vale para https:// também
 git config --global http.proxy http://usuario:senha@IP:PORTA   # senha com @ ou #? use %40 e %23
 ```
+No PC compartilhado, confira nome e e-mail antes de começar. O proxy usa as credenciais da rede da Lions, não as do GitHub; ao terminar a aula, remova-as com `git config --global --unset http.proxy`.
 
-## Repositório local
+## Repositório local (projeto novo)
 ```bash
 git init                         # começa a versionar a pasta (uma vez, na pasta certa)
+echo "# Lions Dev" > README.md
 git status                       # o que mudou e em que branch você está
 git diff                         # as linhas que mudaram (fora do palco)
-git add arquivo.js               # põe um arquivo no "palco"
 git add .                        # põe tudo no palco
-git commit -m "cria menu da calculadora"
+git diff --staged
+git commit -m "adiciona README"
 git log --oneline --graph        # histórico resumido (q para sair)
 git show a1b2c3d                 # o que um commit mudou
 ```
+**Áreas:** diretório → `git add` → palco → `git commit` → histórico. `git diff --staged` mostra o palco.
 
 ## Repositório remoto (GitHub)
 ```bash
@@ -68,10 +73,22 @@ git remote set-url origin URL    # corrige a URL ("remote origin already exists"
 git branch -M main
 git push -u origin main          # primeira vez
 git push                         # das próximas vezes
+git fetch
 git pull                         # = git fetch + git merge
-git clone https://github.com/usuario/projeto.git   # baixa um repositório inteiro
 ```
+`git fetch` baixa os commits sem mexer nos arquivos; `git pull` também os integra à branch atual.
+
 > O GitHub **não aceita a senha** no terminal: use um **Personal Access Token** (Settings > Developer settings > Tokens (classic), com o escopo **repo**). Ao colar, nada aparece na tela; no Ubuntu, colar é `Ctrl+Shift+V`.
+
+## Clone e fork
+```bash
+git clone https://github.com/usuario/projeto.git
+cd projeto
+npm install
+```
+**Clone** copia para o computador. Use HTTPS na rede da Lions: SSH não funciona lá. A `node_modules` não vem junto; em projetos Node.js, recrie-a com `npm install`.
+
+**Fork** copia para sua conta do GitHub, onde você pode dar push. Para contribuir no original: **Fork → clone do seu fork → alteração → Pull Request**. Confira seu `origin` com `git remote -v`; o botão **Sync fork** traz atualizações do original.
 
 ## Branches e Pull Request
 ```bash
@@ -79,10 +96,12 @@ git branch                    # lista
 git checkout -b raiz-quadrada # cria e muda (ou: git switch -c raiz-quadrada)
 git checkout main             # volta (ou: git switch main)
 git merge raiz-quadrada       # traz a branch para a atual
-git branch -d raiz-quadrada   # apaga se já foi mesclada
+git branch -d raiz-quadrada   # apaga com verificação de integração
 git branch -D raiz-quadrada   # força a exclusão
 git push origin --delete raiz-quadrada   # apaga a branch no GitHub
 ```
+O `-d` verifica se os commits estão na branch remota acompanhada (**upstream**, configurada pelo `push -u`); sem upstream, verifica a branch atual. Para apagar, saia da branch primeiro. Apagar a local não apaga a remota.
+
 > No Pull Request: base `main` ← compare `sua-branch`. Para pedir revisão, o colega precisa ser colaborador (**Settings > Collaborators**) e aceitar o convite.
 
 ## Conflito
@@ -108,13 +127,14 @@ Conflito no Pull Request? Na **sua branch**: `git pull origin main`, resolva, `g
 git stash          # guarda as mudanças não commitadas e limpa a pasta
 git stash -u       # guarda também os arquivos novos (untracked)
 git stash list     # o que está guardado (stash@{0} é o mais recente)
-git stash pop      # devolve o último e tira da lista
+git stash pop      # recupera o último; tira da lista se não houver conflito
 ```
+Se `stash pop` der conflito, resolva os arquivos; o stash permanece na lista.
 
 ## Desfazendo
 | Situação | Comando |
 |---|---|
-| Descartar mudança no arquivo (não volta!) | `git restore arquivo.js` |
+| Descartar mudança fora do palco (não volta!) | `git restore arquivo.js` |
 | Tirar do palco (mantém a mudança) | `git restore --staged arquivo.js` |
 | Corrigir a mensagem do último commit | `git commit --amend -m "nova msg"` |
 | Desfazer o último commit, mantendo as mudanças | `git reset --soft HEAD~1` |
@@ -122,21 +142,21 @@ git stash pop      # devolve o último e tira da lista
 
 > `--amend` e `reset` só antes do push. Push rejeitado depois deles? **Não** use `git push --force`.
 
+**Versões antigas:** `git checkout a1b2c3d` entra em **detached HEAD**, só para olhar/testar; `git checkout main` volta. Para recuperar só um arquivo: `git restore --source=a1b2c3d arquivo.js`; revise com `git diff`, faça `git add arquivo.js` e commit.
+
 ## Fluxo do dia a dia
 ```bash
 git checkout main && git pull       # 1. comece com a main atualizada
 git checkout -b minha-tarefa        # 2. uma branch por tarefa
 git add . && git commit -m "..."    # 3. commits pequenos
-git push -u origin minha-tarefa     # 4. envia e abre o Pull Request
+git push -u origin minha-tarefa     # 4. envia a branch
 git checkout main && git pull       # 5. depois do merge, atualiza a main
 git branch -d minha-tarefa          # 6. apaga a branch
 ```
+Entre os passos 4 e 5: abra o **Pull Request**, peça revisão e faça o **merge no GitHub**.
 
 ## .gitignore e README
-```
-node_modules/
-.env
-```
+No **.gitignore**, coloque `node_modules/` e `.env`, um por linha. Só ignora arquivos ainda não rastreados.
 O **README.md** explica o projeto: o que é, como instalar, como rodar e quem fez. Comandos vão dentro de um bloco com três crases, senão o GitHub junta as linhas.
 
 ## Boas mensagens de commit
@@ -145,9 +165,9 @@ O **README.md** explica o projeto: o que é, como instalar, como rodar e quem fe
 
 ## Armadilhas
 - `git init` na pasta errada (na home inteira!) ou dentro de outro repositório. Confira com `pwd`.
-- `src refspec main does not match any`: a branch se chama `master`. Rode `git branch -M main`.
+- `src refspec main does not match any`: confira se já existe um primeiro commit e o nome da branch. Se ela for `master`, rode `git branch -M main`.
 - `push` rejeitado (`fetch first`): alguém enviou antes. Faça `git pull`, resolva e envie de novo.
-- O terminal abriu um editor? **nano**: `Ctrl+O`, `Enter`, `Ctrl+X`. **vim**: `Esc`, `:wq`, `Enter`.
+- O terminal abriu um editor? **nano**: `Ctrl+O`, `Enter`, `Ctrl+X`. **vim**: `i` para escrever; depois `Esc`, `:wq`, `Enter`.
 - Mexeu na `main` sem criar a branch? `git switch -c nova-branch` leva as mudanças junto.
 - Commitou `node_modules`? Tire do Git com `git rm -r --cached node_modules` e adicione ao `.gitignore`. Commitou `.env`? **Troque as senhas**: apagar o arquivo não apaga o histórico.
 
