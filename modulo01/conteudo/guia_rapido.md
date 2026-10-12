@@ -30,79 +30,77 @@
   .rodape { text-align: center; color: var(--ld-muted); font-size: 11px; margin-top: 18px; }
 </style>
 
-# Cheat sheet · Módulo 05: Modularização (CommonJS e ES Modules)
+# Guia rápido · Módulo 01: Introdução à Programação e Ambiente
 
 <div class="intro">Resumo para consulta rápida. A explicação completa está nos slides e nos arquivos desta pasta.</div>
 
 <div class="cols">
 
-## Por que módulos?
-Cada arquivo cuida de **uma responsabilidade** e exporta só o que os outros precisam. Fica mais fácil de ler, testar e trabalhar em equipe.
-
-## CommonJS x ES Modules
-| | CommonJS (CJS) | ES Modules (ESM) |
-|---|---|---|
-| Exportar | `module.exports = soma` | `export default soma` |
-| Importar | `const soma = require("./soma")` | `import soma from "./soma.js"` |
-| Ativar | padrão do Node | `"type": "module"` no `package.json` |
-| Extensão | opcional | **obrigatória** (`.js`) |
-
-Neste curso, a partir daqui, usamos **ESM**.
-
-## Padrão x nomeado
-```js
-// operacoes.js
-export default function somar(a, b) { return a + b }
-export function subtrair(a, b) { return a - b }
-export const PI = 3.14
-
-// index.js
-import somar, { subtrair, PI } from "./operacoes.js"
-import { subtrair as menos } from "./operacoes.js"  // apelido
-import * as ops from "./operacoes.js"               // tudo num objeto
+## Instalar o Node.js (Ubuntu)
+```bash
+curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+sudo apt install -y nodejs
+node -v     # versão do Node
+npm -v      # versão do npm
 ```
-- **default:** um por arquivo; importa com o nome que quiser.
-- **nomeado:** vários por arquivo; importa com **chaves** e o **nome exato**.
+> Use sempre a versão **LTS**. Em outubro de 2026 a LTS passa da 24 para a 26.
 
-## Módulos nativos
-```js
-import fs from "node:fs"
-import path from "node:path"
-import os from "node:os"
-```
-
-## Caminhos
-| Caminho | Procura |
+## Terminal
+| Comando | O que faz |
 |---|---|
-| `./arquivo.js` | na mesma pasta |
-| `../utils/arquivo.js` | uma pasta acima |
-| `express` (sem `./`) | um pacote em `node_modules` |
+| `pwd` | mostra a pasta atual |
+| `ls` / `ls -la` | lista (com ocultos e detalhes) |
+| `cd pasta` / `cd ..` / `cd ~` | entra / volta uma / vai para a home |
+| `mkdir nome` | cria pasta (`mkdir "Minha Pasta"` com aspas) |
+| `touch app.js` | cria arquivo vazio |
+| `cat arquivo.txt` | mostra o conteúdo |
+| `rm arquivo` / `rm -r pasta` | apaga (sem lixeira!) |
+| `clear` | limpa a tela |
 
-## Calculadora modularizada
+**Tab** completa nomes · **↑** repete comandos · **Ctrl+C** interrompe o programa.
+
+## npm e package.json
+```bash
+npm init -y              # cria o package.json
+npm install prompt-sync  # instala e registra em dependencies
+npm uninstall pacote     # remove
+npm install              # reinstala tudo do package.json
+npm start                # roda o script "start"
+npm run dev              # roda qualquer outro script
 ```
-calculadora/
-├── package.json      ("type": "module")
-├── index.js          menu e laço
-├── entrada.js        export function lerNumero
-└── operacoes.js      export function somar, subtrair…
+- `node_modules/`: os pacotes baixados. **Nunca** vai para o Git.
+- `package.json`: nome, versão, `scripts` e `dependencies` do projeto.
+
+## Rodando JavaScript
+```bash
+node app.js    # executa o arquivo
+node           # abre o REPL (teste rápido); sai com .exit
 ```
 
-## Mensagens de erro
-| Erro | Causa provável |
+## VS Code
+| Atalho | Ação |
 |---|---|
-| `Cannot use import statement outside a module` | falta `"type": "module"` |
-| `require is not defined in ES module scope` | misturou `require` num projeto ESM |
-| `ERR_MODULE_NOT_FOUND` | caminho errado ou sem `.js` |
-| `does not provide an export named 'x'` | importou nomeado, mas o arquivo exporta default (ou o nome está diferente) |
+| `Ctrl+S` | salvar (o Node roda o arquivo **salvo**) |
+| `Ctrl+`` ` | abrir/fechar o terminal integrado |
+| `Ctrl+Shift+P` | paleta de comandos |
+| `Ctrl+B` | mostrar/esconder a barra lateral |
+| `Ctrl+Shift+X` | extensões |
+| `Ctrl+/` | comentar a linha |
+| `Alt+↑` / `Alt+↓` | mover a linha |
+| `Ctrl+W` | fechar a aba |
+
+## Como a web funciona
+**Cliente** (navegador, app) faz uma **requisição** → **servidor** processa → devolve uma **resposta**. O frontend é o que o usuário vê; o backend guarda os dados e as regras. Neste curso, o backend é feito com **Node.js**.
 
 ## Armadilhas
-- `import soma from "./soma"` (sem `.js`) quebra no ESM.
-- Chaves no import de um `export default` → erro de export inexistente.
-- Esqueceu `./`? O Node procura um **pacote** com esse nome.
+- **Cannot find module**: o terminal está na pasta errada ou o nome do arquivo está diferente. Confira com `pwd` e `ls`.
+- `mkdir Minha Pasta` cria **duas** pastas. Use aspas ou evite espaços.
+- Arquivo não salvo = código antigo rodando.
+- `npm install` fora da pasta do projeto cria `node_modules` no lugar errado.
 
 </div>
 
 <div class="rodape">
   <b>LionsDev</b> • Professor Nicolas Cardoso Motta<br>
-  <i>Cheat sheet · Módulo 05</i>
+  <i>Guia rápido · Módulo 01</i>
 </div>

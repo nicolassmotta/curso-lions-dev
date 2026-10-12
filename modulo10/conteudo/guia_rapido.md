@@ -30,7 +30,7 @@
   .rodape { text-align: center; color: var(--ld-muted); font-size: 11px; margin-top: 18px; }
 </style>
 
-# Cheat sheet · Módulo 10: Deploy com Render
+# Guia rápido · Módulo 10: Deploy com Render
 
 <div class="intro">Resumo para consulta rápida. A explicação completa está nos slides e nos arquivos desta pasta.</div>
 
@@ -113,5 +113,5 @@ Segredos só no painel · `JWT_SECRET` longo e aleatório · nada de `--inspect`
 
 <div class="rodape">
   <b>LionsDev</b> • Professor Nicolas Cardoso Motta<br>
-  <i>Cheat sheet · Módulo 10</i>
+  <i>Guia rápido · Módulo 10</i>
 </div>
